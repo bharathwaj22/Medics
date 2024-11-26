@@ -1,0 +1,58 @@
+.setting-header{
+    background-color: rgba(255, 255, 255, 0.6);
+   width: 358px;
+    padding: 8px 10px;
+    border-radius: 25px;
+    
+}
+.setting-field{
+    background-color: rgba(61, 153, 180, 1);
+    width: 160px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    color: #fff;
+    margin-left: 25%;
+    text-align: center;
+
+}
+.setting-profile{
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 130px;
+    height: 132px;
+    border-radius: 50%;
+    
+}
+
+/* profile */
+
+.profile-container {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .profile-image {
+    width: 130px;
+    height: 130px;
+    background-color: #ccc;
+    object-fit: cover;
+  }
+  
+  .file-input {
+    display: none; /* Hidden input */
+  }
+  
+  .edit-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #f8f9fa; /* Light background */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer;
+  }
+  

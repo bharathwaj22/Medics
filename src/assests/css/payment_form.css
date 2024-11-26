@@ -1,0 +1,80 @@
+.payment-btn{
+    font-family: 'regular-pp';
+    background-color:rgba(75, 75, 75, 1);
+    text-decoration: none;
+    font-family: 'regular-pp';
+    color: rgba(211, 211, 211, 1);
+    width: 174px;
+    height: 35px;
+    border-radius: 10.97px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+    padding-left: 0px;
+    font-size: 12px;
+    margin-left: 6px;
+}
+.payment-btn1{
+    font-family: 'regular-pp';
+    background-color:rgba(75, 75, 75, 1);
+    text-decoration: none;
+    font-family: 'regular-pp';
+    color: rgba(211, 211, 211, 1);
+    width: 174px;
+    height: 35px;
+    border-radius: 10.97px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+    padding-left: 0px;
+    font-size: 12px;
+    margin-left: 6px;
+}
+.payment-btn2{
+    font-family: 'regular-pp';
+    background-color:rgba(75, 75, 75, 1);
+    text-decoration: none;
+    font-family: 'regular-pp';
+    color: rgba(211, 211, 211, 1);
+    width: 174px;
+    height: 35px;
+    border-radius: 10.97px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+    padding-left: 0px;
+    font-size: 12px;
+    margin-left: 6px;
+}
+.payment-btn3{
+    font-family: 'regular-pp';
+    background-color:rgba(75, 75, 75, 1);
+    text-decoration: none;
+    font-family: 'regular-pp';
+    color: rgba(211, 211, 211, 1);
+    width: 174px;
+    height: 35px;
+    border-radius: 10.97px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+    padding-left: 0px;
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+.payment-btn3:hover{
+    background-color:rgba(255, 167, 86, 0.2);
+    color: rgba(255, 167, 86, 1);
+}
+.payment-btn1:hover{
+    background-color:rgba(98, 38, 239, 0.2);
+    color: rgba(98, 38, 239, 1);
+}
+.payment-btn2:hover{
+    background-color:rgba(239, 56, 38, 0.2);
+    color: rgba(239, 56, 38, 1);
+}
+.payment-btn:hover{
+    background-color:rgba(0, 182, 155, 0.2);
+    color:rgba(0, 182, 155, 2);
+    
+   
+    
+}

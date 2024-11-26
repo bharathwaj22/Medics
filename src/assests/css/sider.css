@@ -1,0 +1,63 @@
+.sidebar2{
+    width: 100%;
+    height: 100%;
+   
+    
+}
+.sider{
+    top: 20%;
+    
+}
+
+
+
+.group-icon{
+   
+    background-color: transparent;
+    background-color:rgba(255,255,255,.4);
+    width:52px;
+    height: 52px;
+    
+   
+}
+
+.group-icon1{
+    background-color:rgba(75, 75, 75, 1);
+    text-decoration: none;
+    font-family: 'regular-pp';
+    color: #FFFFFF;
+    width: 110px;
+    height: 35px;
+    
+    /* border: 1px solid #FFFFFF; */
+   cursor: pointer;
+    padding: 8px;
+    font-size: 12px;
+}
+.side2-icon{
+    top: 180px;
+}
+.group-icon:hover{
+    background-color:rgba(61, 153, 180, 1);
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* sider
+.sider{
+    width: 100px;
+    background-color:#666666;
+    position: relative;
+    height: 100vh;
+    padding: 0px 30px;
+    top: 0px;
+    transition: all 1s;
+    z-index:2; */
+
+
+@media screen and (max-width:768px) {
+    
+    
+}
+
+

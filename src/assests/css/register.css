@@ -1,0 +1,172 @@
+/* .rbody{
+    height: 840px;
+     background: linear-gradient(90deg,  rgba(169, 188, 135, 0.45) 0%, rgba(61, 153, 180, 0.62) 100%);
+ 
+ } */
+
+
+
+.forget-passed{
+    font-family: 'LufgaSans-regular';
+    color:#10141A;
+    width: 137px;
+    height: 21px;
+   left: 200px;
+  
+    font-size: 12px;
+   
+}
+.user-tag1{
+    top: 25%;
+    left: 25%;
+    width: 479px;
+    
+}
+.eye1{
+   
+    width: 10px;
+    height: 10px;
+    color: #666666;
+    top:23%;
+    left: 90%;
+    cursor: pointer;
+}
+.logo-create{
+    font-family: 'LufgaSans';
+    top: 0px;
+    left: 320px;
+    color: #FFFFFF;
+    font-size: 43px;
+    text-align: center;
+    padding-top: 100px;
+    /* padding-bottom: 100px; */
+    
+    margin-bottom: 30px;
+    color:#3E99B5;
+    text-shadow: 0 3px 3px #FFFFFF;
+    border-radius: 14px;
+    
+    padding-top: 10px;
+    padding-bottom:10px ;
+   
+    
+}
+
+.int1{
+    font-family: 'LufgaSans-regular';  
+    font-family: 'font'; 
+    border-radius:14px;
+    border: 1px solid #FFFFFF;
+    padding-top: 12px;
+    padding-right: 18px;
+    padding-bottom: 12px;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    width: 100%;
+    
+    
+    
+    
+}
+.signup-link1 {
+    
+    font-family: 'LufgaSans-regular';
+    top: 270px;
+    left: 110px;
+    font-size: 16px;
+    height: 21px;
+    color:#10141A;
+    margin-bottom: 50px;
+}  
+
+.img-3{
+    display: none;
+}
+
+
+
+@media screen and (max-width:1024px){
+    .loo-imgreg{
+       
+        height: 600px;
+        
+    }
+
+   .logo-create{
+    
+    
+    font-size: 36px;
+    padding-top: 0px;
+    left: 320px;
+   }
+ 
+
+    
+
+
+    .user-tag1{
+        width: 50%;
+        top: 20%;
+        left: 25%;
+        
+    }
+    /* .int{
+        height: 40px;
+    }
+    */
+    .eye1{
+        top:10px;
+    }
+    .signup-link{
+       padding-top:0px;
+    }
+    
+}
+
+@media screen and (max-width:768px){
+    .loo-imgreg{
+        
+        height: 400px;
+        display: none;
+        
+    }
+    .img-3{
+        display: block;
+    }
+
+   .logo-create{
+    
+    
+    font-size: 18px;
+    padding-top: 0px;
+    left: 125px;
+   }
+ 
+
+    
+
+
+    .user-tag1{
+        width: 70%;
+        top: 18%;
+        left: 18%;
+        
+    }
+    .int1{
+        height: 35px;
+        font-size: 12px;
+    }
+    .forget-passed{
+        font-size: 9px;
+        
+    }
+   
+    .eye1{
+        top:0px;
+    }
+    .signup-link1{
+       padding-top:0px;
+    }
+    
+}
+

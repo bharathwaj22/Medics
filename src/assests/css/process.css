@@ -1,0 +1,33 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    
+}
+
+
+.back-icon{
+    width: 52px;
+    height: 52px;
+   color: rgba(106, 106, 106, 1);
+}
+
+
+.ico{
+    
+    margin-top:10px;
+    width: 30px;
+    height: 30px;
+    color: #666666;
+    
+    
+    
+    
+}
+.side-icon{
+    top: 100px;
+}
+
+.ico:hover{
+    background-color: rgba(61, 153, 180, 1);
+    color: #fff;
+}
