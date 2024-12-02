@@ -73,81 +73,97 @@
 // }
 
 // export default Sider;
-import { Link } from "react-router-dom";
-import { RiDashboardLine } from "react-icons/ri";
-import { MdEditNote } from "react-icons/md";
-import { RiSoundModuleLine } from "react-icons/ri";
-import {
-  IoCalendarOutline,
-  IoSettingsOutline,
-  IoExitOutline,
-} from "react-icons/io5";
-import { GrGroup } from "react-icons/gr";
-import { TiThMenu } from "react-icons/ti";
-import React from "react";
+import { NavLink,Link } from "react-router-dom";
 import "../assests/css/sider.css";
 
+// import { RiDashboardLine } from "react-icons/ri";
+import { MdEditNote } from "react-icons/md";
+import { RiSoundModuleLine } from "react-icons/ri";
+// import {
+//   IoCalendarOutline,
+//   IoSettingsOutline,
+//   IoExitOutline,
+// } from "react-icons/io5";
+// import { GrGroup } from "react-icons/gr";
+import { RiDashboardLine } from 'react-icons/ri';
+import { IoCalendarOutline, IoSettingsOutline, IoExitOutline } from 'react-icons/io5';
+import { GrGroup } from 'react-icons/gr';
+import { TiThMenu } from "react-icons/ti";
+import React, { useState } from 'react';;
+
 function Sidebar() {
-  const [menu, setMenu] = React.useState(false);
-  const handleClick = () => {
-    setMenu(!menu);
+  
+  // const [menu, setMenu] = React.useState(false);
+  // const handleClick = () => {
+  //   setMenu(!menu);
+  // };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
   return (
-    <div className=" ">
-      <div className="text-center  d-none d-lg-block ">
-        <Link to="/dashboard">
+    <section className="">
+      <div className="text-center d- d-none d-lg-block mt-5 ">
+        <NavLink to="/dashboard">
           <div className="group-icon">
             <RiDashboardLine className="ico" />
           </div>
-        </Link>
+        </NavLink>
 
-        <Link to="/entry-process">
-          <div className="group-icon ">
+        <NavLink to="/entry-process">
+          <div className="group-icon mt-4 ">
             <MdEditNote className="ico" />
           </div>
-        </Link>
-        <div className="group-icon">
+        </NavLink>
+        <div className="group-icon mt-4">
           <RiSoundModuleLine  className="ico" />
         </div>
-        <div className="group-icon">
+        <div className="group-icon mt-4">
           <GrGroup className="ico" />
         </div>
         <div className="position-relative side2-icon">
-          <Link  to="/settings"><div className="group-icon">
+          <NavLink  to="/settings"><div className="group-icon">
             <IoSettingsOutline className="ico" />
-          </div></Link>
-          <Link to="/">
-          <div className="group-icon">
+          </div></NavLink>
+          <NavLink to="/">
+          <div className="group-icon mt-5">
             <IoExitOutline className="ico" />
           </div>
-          </Link>
+          </NavLink>
         </div>
       </div>
-      <div className="  d-lg-none sider">
+
+      {/* lg */}
+      {/* <div className="  d-lg-none ">
         <div className="header-menu">menu</div>
 
-        <div className="group-icon ">
+        <div className="groupsider-icon mt-4 ">
           <RiDashboardLine className="ico" />
         </div>
-        <div className="group-icon">
+        <div className="groupsider-icon mt-4">
           <RiDashboardLine className="ico" />
         </div>
-        <div className="group-icon">
+        <div className="groupsider-icon">
           <IoCalendarOutline className="ico" />
         </div>
-        <div className="group-icon">
+        <div className="groupsider-icon">
           <GrGroup className="ico " />
         </div>
         <div className="position-relative side2-icon">
-          <div className="group-icon ">
+          <div className="groupsider-icon ">
             <IoSettingsOutline className="ico" />
           </div>
-          <div className="group-icon ">
+          <div className="groupsider-icon ">
             <IoExitOutline className="ico" />
           </div>
         </div>
       </div>
-    </div>
+        */}
+       
+      
+ 
+    </section>
   );
 }
 

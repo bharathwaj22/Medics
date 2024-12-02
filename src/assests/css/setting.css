@@ -1,19 +1,35 @@
 .setting-header{
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 1);
    width: 358px;
     padding: 8px 10px;
     border-radius: 25px;
     
 }
 .setting-field{
-    background-color: rgba(61, 153, 180, 1);
+    background-color: rgba(75, 75, 75, 1);
     width: 160px;
     padding: 7px 10px;
     border-radius: 10px;
     color: #fff;
     margin-left: 25%;
     text-align: center;
+    cursor: pointer;
+}
+.setting-field1{
+  background-color: rgba(75, 75, 75, 1);
+  
+  padding: 7px 10px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
 
+}
+.setting-field1:hover{
+  background-color: rgba(61, 153, 180, 1);
+}
+.setting-field:hover{
+  background-color: rgba(61, 153, 180, 1);
 }
 .setting-profile{
     background-color: rgba(255, 255, 255, 0.6);
@@ -21,6 +37,9 @@
     height: 132px;
     border-radius: 50%;
     
+}
+.set-title{
+  font-family: pp-bold;
 }
 
 /* profile */
@@ -35,24 +54,111 @@
     height: 130px;
     background-color: #ccc;
     object-fit: cover;
+    
   }
   
   .file-input {
-    display: none; /* Hidden input */
+    display: none; 
   }
   
   .edit-icon {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+    position:absolute;
+    top: 56%;
+    right: 15%;
     width: 30px;
     height: 30px;
-    background-color: #f8f9fa; /* Light background */
+    background-color:rgba(61, 153, 180, 1);
+    color: #fff;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    justify-content:center;
+    align-items:center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    
   }
+
+@font-face {
+    font-family:'pp-mori-regular';
+    src: url('/src/assests/fonts/PPMori-Regular.otf') format('opentype');
+}  
+.setting-input{
+  font-family:'pp-mori-regular';
+  color: rgba(113, 142, 191, 1);
+  width:100%;
+  height: 50px;
+  border-radius: 15px;
+  padding-left: 10px;
+  border: 1px solid #fff;
   
+  
+  
+} 
+.setting-input::placeholder {
+  color: rgba(113, 142, 191, 1);
+  
+}
+.site-name{
+  font-family: pp-mori-regular;
+  width: 100%;
+  height: 17px;
+} 
+
+.set-save-btn{
+  font-family: 'pp-bold';
+  color: #fff;
+  background-color:rgba(75, 75, 75, 1);
+ padding: 10px 60px;
+ border-radius: 31px;
+ /* margin-left: 94%; */
+ size: 20px;
+ border: 1px solid #fff;
+}
+.set-save-btn:hover{
+  background-color:black;
+}
+/* admin.css */
+.admin-create{
+  text-decoration: none;
+  color: #666666;
+}
+.admin-eye{
+right:10%;
+
+}
+.input-error {
+  border: 1px solid red !important;
+}
+@media only screen and (max-width: 426px) {
+ .admin-eye{
+  right: 15%;
+ }
+}
+
+
+@media screen and (max-width: 1920px) {
+  .edit-icon {
+      top: 60%;
+      right:25%; /* Adjusted for smaller viewports */
+     
+  }
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .edit-icon {
+      top: 55%;
+      right:0%; /* Adjusted for smaller viewports */
+     
+  }
+}
+
+/* Media query for extra small devices */
+@media (max-width: 480px) {
+  .edit-icon {
+      top: 60%;
+      right: 5%; /* Further adjustment for very small screens */
+      width: 8vw;
+      height: 8vw;
+  }
+}

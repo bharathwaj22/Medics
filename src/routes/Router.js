@@ -17,6 +17,7 @@ import Payment_form from "../form/Payment_form";
 import Pending_form from "../form/Pending_form";
 import Enterprocess_form from "../form/Enterprocess_form";
 import Settings from "../components/Settings";
+import Admin_profile from "../components/Admin_profile";
 
 function Router() {
   return (
@@ -31,6 +32,7 @@ function Router() {
         <Route path="/paymentstatus" element={<Paymentstatus />} />
         <Route path="/pending" element={<Pending />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/admin-profile" element={<Admin_profile />} />
          {/* form */}
         <Route path="/enter_process_form" element={<Enterprocess_form />} />
 

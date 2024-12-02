@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import "../assests/css/enter_form.css";
 
 import Sider from "../components/Sider.js";
-import Headerenter from "../components/Headerenter.js";
-
-
+import Header from "../components/Header.js";
 
 // import  from "react";
 
@@ -19,6 +17,7 @@ function Enterprocess_form() {
     contactNo: "",
     department: "",
     email: "",
+    hierarchy: "",
   });
 
   // State to store validation errors
@@ -46,6 +45,7 @@ function Enterprocess_form() {
     if (!formData.contactNo) formErrors.contactNo = "Contact No is required";
     if (!formData.department) formErrors.department = "Department is required";
     if (!formData.email) formErrors.email = "Email is required";
+    if (!formData.hierarchy) formErrors.hierarchy = "hierarchy is required";
     else if (!/\S+@\S+\.\S+/.test(formData.email))
       formErrors.email = "Email is not valid";
 
@@ -130,92 +130,89 @@ function Enterprocess_form() {
 
   return (
     <>
-      <div className="row header-stat ">
-        <Headerenter></Headerenter>
-      </div>
-
       <section className=" main">
-        <div className=" row mt-5  w-100 ">
+        <div className=" row mt-4  w-100 ">
           <div className=" col-1 d-flex justify-content-center">
             <Sider></Sider>
           </div>
-          <div className="col-11  wapper ">
-            <form onSubmit={handleSubmit}>
-            <div className="row w-100 mt-5 mx-4 ">
-              <div className="col-4  ">
-                <h5 className="statis-name mt-2 mx-2">Entry Date</h5>
-                <input
-                  type="date"
-                  className={`client-info1 ${
-                    errors.entryDateType ? "error" : ""
-                  }`}
-                  name="entryDate"
-                  value={formData.entryDateType}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+          <div className="col-11  ">
+            <div className="col-12">
+              <Header></Header>
+            </div>
 
-              <div className=" col-4   mt-2">
-                <h5 className="statis-name ">Title</h5>
-                <input
-                  type="text"
-                  className={`client-info1 ${errors.title ? "error" : ""}`}
-                  name="title"
-                  placeholder="Enter the Title"
-                  value={formData.title}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+            <div className="col-12  wapper w-100 mt-3 px-5 ">
+              <form>
+                <div className="row w-100 mt-2 ">
+                  <div className="col-md-4 float-start pt-5  ">
+                    <h5 className="statis-name mt-1 mx-2">Entry Date</h5>
+                    <input
+                      type="date"
+                      className={`client-info1 ${
+                        errors.entryDateType ? "error" : ""
+                      }`}
+                      name="entryDate"
+                      value={formData.entryDateType}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
 
-              <div className="col-4 mt-2">
-                <h5 className="statis-name ">Type Of Work</h5>
-                <select
-                  className={` client-info1 ${
-                    errors.typeofwork ? "error" : ""
-                  }`}
-                  name="typeofwork"
-                  value={formData.typeofwork}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">Select an option</option>{" "}
-                 
-                  <option value="Statistics">Statistics</option>
-                  <option value="Manuscript">Manuscript</option>
-                  <option value="Thesis">Thesis</option>
-                  <option value="Presentation">Presentation</option>
-                  <option value="others">Others</option>
-                </select>
-              </div>
-            </div>
-            <div className="row  w-100">
-              <div className="col-4 mx-2 mt-3">
-                <input
-                  type="text"
-                  className="client-info1 mx-4 "
-                  name="clientName"
-                  placeholder=""
-                  value={formData.clientName}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            </div>
-            <div className="row mt-2 w-100 ">
-              <div className="col-11   mt-2">
-                <h5 className="client-name mx-5">Client Information</h5>
-              </div>
-            </div>
-            <div className="row mt-4 w-100 ">
-              <div className="col-4 ">
-                <div className="mx-5">
-                  <div>
+                  <div className=" col-md-4 float-start pt-5 ">
+                    <h5 className="statis-name ">Title</h5>
+                    <input
+                      type="text"
+                      className={`client-info1 ${errors.title ? "error" : ""}`}
+                      name="title"
+                      placeholder="Enter the Title"
+                      value={formData.title}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="col-md-4 float-start pt-5 ">
+                    <h5 className="statis-name ">Type Of Work</h5>
+                    <select
+                      className={` client-info1 ${
+                        errors.typeofwork ? "error" : ""
+                      }`}
+                      name="typeofwork"
+                      value={formData.typeofwork}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="" disabled>
+                        Select an option
+                      </option>{" "}
+                      <option value="Statistics">Statistics</option>
+                      <option value="Manuscript">Manuscript</option>
+                      <option value="Thesis">Thesis</option>
+                      <option value="Presentation">Presentation</option>
+                      <option value="others">Others</option>
+                    </select>
+                  </div>
+
+                  <div className="col-md-4 float-start pt-5 ">
+                    <input
+                      type="text"
+                      className="client-info1  "
+                      name="clientName"
+                      placeholder=""
+                      value={formData.clientName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="col-md-12 float-start pt-5 py-3">
+                    <h5 className="client-name-pop ">Client Information</h5>
+                  </div>
+
+                  <div className="col-md-4 float-start pt-3  ">
                     <h5 className="statis-name ">Client Name</h5>
                     <input
                       type="text"
-                      className={`client-info  ${
+                      className={`client-info1  ${
                         errors.clientName ? "error" : ""
                       }`}
                       name="clientName"
@@ -225,13 +222,13 @@ function Enterprocess_form() {
                       required
                     />
                   </div>
-                  <div className="mt-5">
+                  <div className=" col-md-4 float-start pt-3 ">
                     <h5 className="statis-name ">Profession</h5>
                     {/* input */}
 
                     <div className="dropdown-container ">
                       <div
-                        className={`client-info dropdown-header  pt-3 px-3   ${
+                        className={`client-info1 dropdown-header  pt-3 px-3   ${
                           errors.profession ? "error" : ""
                         }`}
                         //   Value={formData.profession}
@@ -281,27 +278,13 @@ function Enterprocess_form() {
                       )}
                     </div>
                   </div>
-                  {/* <div className="mt-5">
-                    <h5 className="statis-name ">Title</h5>
-                    <input
-                      type="text"
-                      className={`client-info ${errors.title ? "error" : ""}`}
-                      name="title"
-                      placeholder="Enter the Title"
-                      value={formData.title}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div> */}
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="mx-4">
-                  <div>
+                 
+
+                  <div className="col-md-4 float-start pt-3  ">
                     <h5 className="statis-name ">Institute</h5>
                     <div className="dropdown-container">
                       <div
-                        className={`client-info dropdown-header pt-3 px-3 ${
+                        className={`client-info1 dropdown-header pt-3 px-3 ${
                           errors.institute ? "error" : ""
                         }`}
                         onClick={toggleDropdowninstitue}
@@ -348,11 +331,11 @@ function Enterprocess_form() {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="col-md-4 float-start pt-3">
                     <h5 className="statis-name mt-5 ">Contact No</h5>
                     <input
                       type="number"
-                      className={`client-info ${
+                      className={`client-info1 ${
                         errors.contactNo ? "error" : ""
                       }`}
                       placeholder="Enter the Contact No"
@@ -362,24 +345,9 @@ function Enterprocess_form() {
                       required
                     />
                   </div>
-                  {/* <div>
-                    <h5 className="statis-name  mt-5">Free text</h5>
-                    <input
-                      type="text"
-                      className={`client-info ${errors.amount ? "error" : ""}`}
-                      placeholder="Amount"
-                      name="amount"
-                      value={formData.amount}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div> */}
-                </div>
-              </div>
-              <div className="col-4 ">
-                <div className="mx-4">
-                  <div>
-                    <h5 className="statis-name ">Department</h5>
+
+                  <div className="col-md-4 float-start pt-3">
+                    <h5 className="statis-name mt-5 ">Department</h5>
                     <div className="dropdown-container ">
                       <div
                         className={`client-info dropdown-header pt-3 px-3 ${
@@ -428,48 +396,54 @@ function Enterprocess_form() {
                       )}
                     </div>
                   </div>
-                  <div>
+                  <div className="col-md-4 float-start pt-3">
                     <h5 className="statis-name mt-5 ">Email ID</h5>
 
                     <input
                       type="email"
-                      className={`client-info ${errors.email ? "error" : ""}`}
+                      className={`client-info1 ${errors.email ? "error" : ""}`}
                       name="email"
                       placeholder="Enter the Email"
                       value={formData.email}
                       onChange={handleChange}
                     />
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="row w-100 py-5 ">
-              <div className="col-7 mt-2  ">
-                <div className=" head-button2 mx-5 mt-4 ">
-                  <h5 className="statis-name1  mt-3 pt-3 ">Hierarchy Level</h5>
-                  <div className="d-flex justify-content-around">
-                    <button className="fot-btn">Urgent / Important</button>
-                    <button className="fot-btn1">Important / Not Urgent</button>
-                    <button className="fot-btn2">Urgent / Not Important</button>
-                    <button className="fot-btn3">
-                      Not Urgent / Not Important
-                    </button>
+
+                  <div className="col-md-4 float-start mt-3 pt-5">
+                    <h5 className="statis-name ">Hierarchy Level</h5>
+                    <select
+                      className={`client-info1 ${
+                        errors.hierarchy ? "error" : ""
+                      }`}
+                      name="hierarchy"
+                      value={formData.hierarchy}
+                      onChange={handleChange}
+                      required
+                      aria-label="Priority hierarchy"
+                    >
+                      <option value="" disabled>
+                        Select an option
+                      </option>
+                      <option value="1">Urgent/Important</option>
+                      <option value="2">Important/Not Urgent</option>
+                      <option value="3">Urgent/Not Important</option>
+                      <option value="4">Not Urgent/Not Important</option>
+                    </select>
+                  </div>
+                  <div className="col-md-12 d-flex justify-content-end  pt-3 py-5 ">
+                    
+                      <button
+                        onClick={handleSubmit}
+                        type="submit"
+                        className="save-form"
+                      >
+                        Save
+                      </button>
+                   
                   </div>
                 </div>
-              </div>
-              <div className="col-3 mt-5 ">
-                <div className="save-btn ">
-                  <button
-                    onClick={handleSubmit}
-                    type="submit"
-                    className="save-btn1"
-                  >
-                    Save
-                  </button>
-                </div>
-              </div>
+              </form>
             </div>
-            </form>
           </div>
         </div>
       </section>

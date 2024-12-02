@@ -9,10 +9,9 @@ import Entryprocess from "./Entryprocess";
 
 function Process1() {
   return (
-   <div className=" w-100  position-fixed ">
+   <div className=" w-100 ">
     
-      <Header></Header>
-    
+      
       
    
      

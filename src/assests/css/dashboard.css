@@ -121,3 +121,148 @@
   .dropdown-menu > li:hover > .dropdown-submenu {
   display: block;
   }
+
+
+  /* dashbord */
+  .project-manage{
+    background-color: rgba(255, 255, 255, 0.7);
+    
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+.total-project{
+  
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  
+}
+.graphic-box{
+  border-radius: 50%;
+  background-color: rgba(59, 160, 187, 1);
+  color: #f5f5f5;
+  width: 46px;
+  height: 46px;
+
+}
+.graphic-icon{
+  width: 24px;
+  height: 24px;
+  
+}
+.project-head{
+  height: 20px;
+}
+.manage-title{
+  width: 90%;
+  height:43px;
+  border-radius: 45px;
+  background-color: rgba(59, 160, 187, 1);
+
+}
+.manage-num{
+  width: 67px;
+  height: 35px;
+  border-radius: 42px;
+  background-color:rgba(255, 255, 255, 1);
+}
+.p-tag{
+  font-size: 12px;
+  font-family: 'regular-pp';
+ color: #fff;
+ width:60%;
+}
+.p-tag2{
+  font-size: 12px;
+  font-family: 'regular-pp';
+ color: rgba(0, 0, 0, 1);
+}
+
+.p-tag3{
+  font-size: 8px;
+  font-family: 'regular-pp';
+ color: rgba(61, 153, 180, 1);
+}
+.manage-num-round{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color:rgba(255, 255, 255, 1);
+}
+.p-tag-round{
+  font-size: 12px;
+  font-family: 'regular-pp';
+ color: #fff;
+ width:75%
+}
+.p-tag-round1{
+  font-size: 12px;
+  font-family: 'regular-pp';
+ color: #fff;
+ width:80%
+}
+.status-title{
+  width: 100%;
+  height: 29px;
+  size: 12px;
+  background-color: rgba(16, 20, 26, 1);
+  border-radius: 10px;
+  color: #f5f5f5;
+  cursor:pointer;
+}
+
+.sym-project{
+    
+  font-family: 'font';
+  
+}
+
+/* .pie-chart{
+  width: 127;
+  height: 115;
+} */
+
+/* .pie-input{
+  top: 10%;
+  background-color:#000000;
+  color: #f5f5f5;
+  padding: 2px 14px;
+  right: 15%;
+  border-radius: 7px;
+} */
+
+
+.position-relative {
+  position: relative;
+  display: inline-block; 
+}
+
+.pie-infom {
+  position: absolute;
+  background-color:#000000;
+  color: #f5f5f5;
+  border-radius: 7px;
+  top: 19%; 
+  left: 94%; 
+  transform: translate(-50%, -50%); 
+  font-size: 16px; 
+  padding: 2px 14px;
+  font-weight: bold;
+  z-index: 10; 
+}
+.pie-text{
+  font-family: 'regular-pp';
+  size: 12px;
+  color: #40444D;
+}
+
+@media (max-width: 768px) {
+  .pie-input {
+    font-size: 14px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .pie-input {
+    font-size: 12px; 
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../assests/css/payment_form.css";
 import Sider from "../components/Sider";
-import Headerenter from "../components/Headerenter.js";
+import Header from "../components/Header.js";
 
 function Pending_form() {
   const [formData, setFormData] = useState({
@@ -59,19 +59,24 @@ function Pending_form() {
 
   return (
     <>
-      <div className="row header-stat">
-        <Headerenter />
-      </div>
+      
 
       <section className="main">
         <div className="row mt-5 w-100">
           <div className="col-1 d-flex justify-content-center">
             <Sider />
           </div>
-          <div className="col-11 wapper">
+          <div className="col-11  ">
+          
+            <div className="col-12">
+              <Header></Header>
+            </div>
+          
+          
+          <div className="col-12 wapper w-100 mt-3">
             <form onSubmit={handleSubmitpending}>
-              <div className="row w-100 mt-5 pt-3">
-                <div className="col-4">
+              <div className="row w-100 mt-2 mx-1">
+                <div className="col-md-4 float-start pt-5 ">
                   <h5 className="statis-name mx-3">My Fee</h5>
                   <input
                     type="text"
@@ -82,7 +87,7 @@ function Pending_form() {
                   />
                 </div>
 
-                <div className="col-4">
+                <div className="col-md-4 float-start pt-5 ">
                   <h5 className="statis-name mx-3">Writer Pending Days</h5>
                   <select
                     className={`mx-3 client-info1 ${errors.writerPendingDays ? "error" : ""}`}
@@ -90,15 +95,18 @@ function Pending_form() {
                     value={formData.writerPendingDays}
                     onChange={handleChangepending}
                   >
-                    <option value="">Select</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="Pending">Pending</option>
+                    <option value="" disabled>
+                    Writer Pending Days
+                  </option>
+                  <option value="1">Completed</option>
+                  <option value="2">Rejected</option>
+                  <option value="3">Pending</option>
+                  <option value="3">On Hold</option>
                   </select>
                   
                 </div>
 
-                <div className="col-4">
+                <div className="col-md-4 float-start pt-5 ">
                   <h5 className="statis-name mx-3">Reviewer Pending Days</h5>
                   <select
                     className={`mx-3 client-info1 ${errors.reviewerPendingDays ? "error" : ""}`}
@@ -106,18 +114,19 @@ function Pending_form() {
                     value={formData.reviewerPendingDays}
                     onChange={handleChangepending}
                   >
-                    <option value="">Select</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="Pending">Pending</option>
+                    <option value="" disabled>
+                    Reviewer Pending Days
+                  </option>
+                  <option value="1">Completed</option>
+                  <option value="2">Rejected</option>
+                  <option value="3">Pending</option>
+                  <option value="3">On Hold</option>
                   </select>
                  
                   
                 </div>
-              </div>
-
-              <div className="row w-100 mt-5 pt-3">
-                <div className="col-4">
+              
+                <div className="col-md-4 float-start pt-5 ">
                   <h5 className="statis-name mx-3">Project Pending Days</h5>
                   <select
                     className={`mx-3 client-info1 ${errors.projectPendingDays ? "error" : ""}`}
@@ -125,16 +134,19 @@ function Pending_form() {
                     value={formData.projectPendingDays}
                     onChange={handleChangepending}
                   >
-                    <option value="">Select</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                   <option value="" disabled>
+                   Project Pending Days
+                  </option>
+                  <option value="1">Completed</option>
+                  <option value="2">Rejected</option>
+                  <option value="3">Pending</option>
+                  <option value="3">On Hold</option>
                   </select>
                   
                  
                 </div>
 
-                <div className="col-4">
+                <div className="col-md-4 float-start pt-5 ">
                   <h5 className="statis-name mx-3">Writer Payment Due Date</h5>
                   <input
                     type="date"
@@ -145,7 +157,7 @@ function Pending_form() {
                   />
                 </div>
 
-                <div className="col-4">
+                <div className="col-md-4 float-start pt-5 ">
                   <h5 className="statis-name mx-3">Reviewer Payment Due Date</h5>
                   <input
                     type="date"
@@ -157,16 +169,18 @@ function Pending_form() {
                 </div>
               </div>
 
-              <div className="row w-100 py-5">
-                <div className=" col-11 save-btn ">
-                  <button type="submit" className="save-btn1">
+              <div className="col-md-12 d-flex justify-content-end mt-5  px-5 py-5 ">
+                
+                  <button type="submit" className="save-form ">
                     Save
                   </button>
-                </div>
+                
               </div>
             </form>
           </div>
         </div>
+        </div>
+      \
       </section>
     </>
   );

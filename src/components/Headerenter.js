@@ -13,7 +13,7 @@ function Headerenter() {
   return (
     
       <div className="row   header-box   ">
-        <div className="col-6  d-none d-xl-block  d-flex  px-5  ">
+        <div className="col-6  d-none d-md-block  d-flex  px-5  ">
           <div className=" head-bot1  d-flex justify-content-around  ">
             <NavLink className=" btn1 " to="/entry-process">
               Entry Process
@@ -29,10 +29,10 @@ function Headerenter() {
           </div>
         </div>
 
-        <div className="col-3 mt-3  px-0 ">
-          <img className="img-fluid header-logo mx-4  " src={Vector} alt="img" />
+        <div className="col-2 mt-3  px-0 ">
+          <img className="img-fluid header-logo   " src={Vector} alt="img" />
         </div>
-        <div className="col-3  mt-2  px-2  d-none d-xl-block  ">
+        <div className="col-4  mt-2  px-2  d-none d-md-block  ">
           <div className=" d-flex justify-content-around   side-headenter">
             <div className="d-flex    ">
               <div className="group-icon text-center mx-2 ">
@@ -44,7 +44,15 @@ function Headerenter() {
               <div className="group-icon text-center mx-2">
                 <FaRegBell className="head-icon" />
               </div>
-              <div className="px-4">
+              <div className="d-flex   justify-content-between  pro-fi">
+              <div className="pro-main  text-center ">
+                <div className="pro-name ">
+                  <p>Rabina </p>
+                </div>
+                <div className="pro-admin">
+                  <NavLink to="/admin-profile" className="admin-create">Admin</NavLink>
+                </div>
+              </div>
                 <img className=" prolo-img px-3" src={Profile} alt="img" />
               </div>
             </div>
@@ -53,7 +61,7 @@ function Headerenter() {
         </div>
       
 
-      <div className="col-12 w-100   d-xl-none ">
+      <div className="col-12 w-100   d-md-none ">
         <div className="w-100 d-flex justify-content-between side-head1">
           <div>
             <p className="title">Entry Process</p>
