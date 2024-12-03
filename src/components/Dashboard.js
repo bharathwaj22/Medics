@@ -8,6 +8,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { ResponsiveContainer } from "recharts";
 import { PieChart, Pie, Cell } from "recharts";
+import { Card } from "@mui/material";
+import { Segment } from "@mui/icons-material";
 
 function Dashboard() {
   // table api
@@ -28,15 +30,17 @@ function Dashboard() {
     fetchData();
   }, []);
   const COLORS = ["#212121", "#3D99B4"];
-  const state = [
+
+  const randomStartAngle = Math.floor(Math.random() * 360);
+  const state=[
     { name: "Segment 1", value: 75 },
     { name: "Segment 2", value: 25 },
-  ];
-  const randomStartAngle = Math.floor(Math.random() * 360);
-  const carddata = [  
+  ]
+  const carddata = [
     {
       name: "Manuscript 1",
       value: 20,
+      Segment: 80,
     },
     {
       name: "Manuscript 2",
@@ -49,16 +53,39 @@ function Dashboard() {
     {
       name: "Manuscript 4",
       value: 10,
-    },{
+    },
+    {
       name: "Manuscript 5",
-      value: 30,
+      value: 300000,
     },
     {
       name: "Manuscript 6",
+      value: 200000,
+    },
+  ];
+  const cardexpense = [
+    {
+      name: "Manuscript 1",
       value: 20,
-    }
-  ]
-    
+      Segment: 80,
+    },
+    {
+      name: "Manuscript 2",
+      value: 15,
+    },
+    {
+      name: "Manuscript 3",
+      value: 25,
+    },
+    {
+      name: "Manuscript 4",
+      value: 10,
+    },
+    {
+      name: "Manuscript 5",
+      value: 300000,
+    },
+  ];
 
   return (
     <>
@@ -318,7 +345,7 @@ function Dashboard() {
                 </div>
               </div>
             </section>
-            <section className="col-12 pt-1 mt-3 project-manage w-100">
+            <section className="col-12 pt-1 mt-3 project-manage w-100 py-5">
               <div className="row  px-3">
                 <div className="col-12 mt-4">
                   <p className="heading-entr">Writers Total Projects Status </p>
@@ -364,236 +391,135 @@ function Dashboard() {
               </div>
             </section>
             <section className="row ">
-            
-              <div className="col-9 ">
+              <div className="col-9  ">
                 <div className="col-12 pt-1 mt-2 project-manage py-5">
-                <div className="col-12 mt-4 ">
-                  <p className="heading-entr">Income</p>
-                </div>
-                <div className="row ">
-                <div className="col d-flex flex-wrap gap-5">
-                  
-                  {carddata.map((items)=>(
-                      <div className="position-relative ">
-                      <PieChart width={127} height={117}>
-                        <Pie
-                          data={state}
-                          cx={63.5}
-                          cy={57.5}
-                          innerRadius={30}
-                          outerRadius={55}
-                          fill="#8884d8"
-                          paddingAngle={5}
-                          cornerRadius={7}
-                          startAngle={-50}
-                          endAngle={-410}
-                          dataKey="value"
-                          animationDuration={1000}
-                          isAnimationActive={true} // Make sure animation is active
-                          animationEasing="ease-out" // Easing function for smooth animation
-                        >
-                          {state.map((item, index) => (
-                            <Cell
-                              key={`cell-${index}`}
-                              fill={COLORS[index % COLORS.length]}
-                            />
-                          ))}
-                        </Pie>
-                      </PieChart>
-                      <p className="position-absolute pie-infom">{items.value}</p>
-                      <p className="d-flex justify-content-end pie-text mt-2 ">
-                        {items.name}
-                      </p>
-                    </div>
-                  ))}  
+                  <div className="col-12 mt-4 ">
+                    <p className="heading-entr">Income</p>
                   </div>
-                  
-                </div>
+                  <div className="row ">
+                    <div className="col d-flex  justify-content-around flex-wrap  ">
+                      {carddata.map((items) => (
+                        <div className="position-relative ">
+                          <PieChart width={127} height={117}>
+                            <Pie
+                              data={carddata}
+                              cx={63.5}
+                              cy={57.5}
+                              innerRadius={30}
+                              outerRadius={55}
+                              fill="#8884d8"
+                              paddingAngle={5}
+                              cornerRadius={7}
+                              startAngle={-50}
+                              endAngle={-410}
+                              dataKey="value"
+                              animationDuration={1000}
+                              isAnimationActive={true} // Make sure animation is active
+                              animationEasing="ease-out" // Easing function for smooth animation
+                            >
+                              {carddata.map((items, index) => (
+                                <Cell
+                                  key={`cell-${index}`}
+                                  fill={COLORS[index % COLORS.length]}
+                                />
+                              ))}
+                            </Pie>
+                          </PieChart>
+                          <p className="position-absolute pie-infom">
+                            {items.value}
+                          </p>
+                          <p className="d-flex justify-content-end pie-text mt-2 mx-2 ">
+                            {items.name}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 <div className="col-12 pt-1 mt-2 project-manage py-5">
-                <div className="col-12 mt-4 ">
-                  <p className="heading-entr">Income</p>
-                </div>
-                <div className="row   ">
-                  <div className="col d-flex flex-wrap gap-5">
-                  
-                  {carddata.map((items)=>(
-                      <div className="position-relative ">
-                      <PieChart width={127} height={117}>
-                        <Pie
-                          data={state}
-                          cx={63.5}
-                          cy={57.5}
-                          innerRadius={30}
-                          outerRadius={55}
-                          fill="#8884d8"
-                          paddingAngle={5}
-                          cornerRadius={7}
-                          startAngle={-50}
-                          endAngle={-410}
-                          dataKey="value"
-                          animationDuration={1000}
-                          isAnimationActive={true} // Make sure animation is active
-                          animationEasing="ease-out" // Easing function for smooth animation
-                        >
-                          {state.map((item, index) => (
-                            <Cell
-                              key={`cell-${index}`}
-                              fill={COLORS[index % COLORS.length]}
-                            />
-                          ))}
-                        </Pie>
-                      </PieChart>
-                      <p className="position-absolute pie-infom">{items.value}</p>
-                      <p className="d-flex justify-content-end pie-text mt-2 ">
-                        {items.name}
-                      </p>
-                    </div>
-                  ))}  
+                  <div className="col-12 mt-4 ">
+                    <p className="heading-entr">Expense</p>
                   </div>
-                  {/* <div className="col ">
-                    <div className="position-relative">
-                      <PieChart width={127} height={117}>
-                        <Pie
-                          data={state}
-                          cx={63.5}
-                          cy={57.5}
-                          innerRadius={30}
-                          outerRadius={55}
-                          fill="#8884d8"
-                          paddingAngle={5}
-                          cornerRadius={7}
-                          startAngle={-50}
-                          endAngle={-410}
-                          dataKey="value"
-                          animationDuration={1000}
-                          isAnimationActive={true} // Make sure animation is active
-                          animationEasing="ease-out" // Easing function for smooth animation
-                        >
-                          {state.map((item, index) => (
-                            <Cell
-                              key={`cell-${index}`}
-                              fill={COLORS[index % COLORS.length]}
-                            />
-                          ))}
-                        </Pie>
-                      </PieChart>
-                      <p className="position-absolute pie-input">0</p>
-                      <p className="d-flex justify-content-end pie-text mt-2 ">
-                        Presentation
-                      </p>
+                  <div className="row   ">
+                    <div className="col d-flex  justify-content-center flex-wrap gap-5">
+                      {cardexpense.map((items) => (
+                        <div className="position-relative ">
+                          <PieChart width={127} height={117}>
+                            <Pie
+                              data={cardexpense}
+                              cx={63.5}
+                              cy={57.5}
+                              innerRadius={30}
+                              outerRadius={55}
+                              fill="#8884d8"
+                              paddingAngle={5}
+                              cornerRadius={7}
+                              startAngle={-50}
+                              endAngle={-410}
+                              dataKey="value"
+                              animationDuration={1000}
+                              isAnimationActive={true} // Make sure animation is active
+                              animationEasing="ease-out" // Easing function for smooth animation
+                            >
+                              {cardexpense.map((item, index) => (
+                                <Cell
+                                  key={`cell-${index}`}
+                                  fill={COLORS[index % COLORS.length]}
+                                />
+                              ))}
+                            </Pie>
+                          </PieChart>
+                          <p className="position-absolute pie-infom-exp">
+                            {items.value}
+                          </p>
+                          <p className="d-flex justify-content-end pie-text mt-2 mx-2  ">
+                            {items.name}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <div className="col ">
-                    <div className="position-relative">
-                      <PieChart width={127} height={117}>
-                        <Pie
-                          data={state}
-                          cx={63.5}
-                          cy={57.5}
-                          innerRadius={30}
-                          outerRadius={55}
-                          fill="#8884d8"
-                          paddingAngle={5}
-                          cornerRadius={7}
-                          startAngle={-50}
-                          endAngle={-410}
-                          dataKey="value"
-                          animationDuration={1000}
-                          isAnimationActive={true} // Make sure animation is active
-                          animationEasing="ease-out" // Easing function for smooth animation
-                        >
-                        
-                          {state.map((item, index) => (
-                            <Cell
-                              key={`cell-${index}`}
-                              fill={COLORS[index % COLORS.length]}
-                            />
-                          ))}
-                        </Pie>
-                      </PieChart>
-                      <p className="position-absolute pie-input">0</p>
-                      <p className="d-flex justify-content-end pie-text mt-2 ">
-                        Presentation
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col ">
-                    <div className="position-relative">
-                      <PieChart width={127} height={117}>
-                        <Pie
-                          data={state}
-                          cx={63.5}
-                          cy={57.5}
-                          innerRadius={30}
-                          outerRadius={55}
-                          fill="#8884d8"
-                          paddingAngle={5}
-                          cornerRadius={7}
-                          startAngle={-50}
-                          endAngle={-410}
-                          dataKey="value"
-                          animationDuration={1000}
-                          isAnimationActive={true} // Make sure animation is active
-                          animationEasing="ease-out" // Easing function for smooth animation
-                        >
-                          {state.map((item, index) => (
-                            <Cell
-                              key={`cell-${index}`}
-                              fill={COLORS[index % COLORS.length]}
-                            />
-                          ))}
-                        </Pie>
-                      </PieChart>
-                      <p className="position-absolute pie-input">0</p>
-                      <p className="d-flex justify-content-end pie-text mt-2 ">
-                        Presentation
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col ">
-                    <div className="position-relative">
-                      <PieChart width={127} height={117}>
-                        <Pie
-                          data={state}
-                          cx={63.5}
-                          cy={57.5}
-                          innerRadius={30}
-                          outerRadius={55}
-                          fill="#8884d8"
-                          paddingAngle={5}
-                          cornerRadius={7}
-                          startAngle={-50}
-                          endAngle={-410}
-                          dataKey="value"
-                          animationDuration={1000}
-                          isAnimationActive={true} // Make sure animation is active
-                          animationEasing="ease-out" // Easing function for smooth animation
-                        >
-                          {state.map((item, index) => (
-                            <Cell
-                              key={`cell-${index}`}
-                              fill={COLORS[index % COLORS.length]}
-                            />
-                          ))}
-                        </Pie>
-                      </PieChart>
-                      <p className="position-absolute pie-input">0</p>
-                      <p className="d-flex justify-content-end pie-text mt-2 ">
-                        Presentation
-                      </p>
-                    </div>
-                  </div> */}
-                  
-                </div>
                 </div>
               </div>
-              <div className="col-3 pt-1 mt-3 project-manage ">
-                <div className="col mt-4 ">
+              <div className="col pt-1 mt-2 project-manage ">
+                <div className="col  mt-4 mt-5 d-flex text-center ">
                   <p className="heading-entr">
-                    Income<span className="sym-project px-2">&</span>Expense
+                    Income<span className="sym-project px-2">&</span>Exp
                   </p>
                 </div>
+                <div className="row">
+                <div className="col d-flex  justify-content-center flex-wrap ">
+                  <div className="position-relative  ">
+                    <PieChart width={300} height={300}>
+                      <Pie
+                        data={state}
+                        cx={150}
+                        cy={200}
+                        innerRadius={50}
+                        outerRadius={85}
+                        fill="#8884d8"
+                        paddingAngle={5}
+                        cornerRadius={7}
+                        startAngle={-50}
+                        endAngle={-410}
+                        dataKey="value"
+                        animationDuration={1000}
+                        isAnimationActive={true} // Make sure animation is active
+                        animationEasing="ease-out" // Easing function for smooth animation
+                      >
+                        {state.map((item, index) => (
+                          <Cell
+                            key={`cell-${index}`}
+                            fill={COLORS[index % COLORS.length]}
+                          />
+                        ))}
+                      </Pie>
+                    </PieChart>
+                    <p className="position-absolute pie-infom-exp"></p>
+                    <p className="d-flex justify-content-end pie-text mt-2   ">Total Income Exp</p>
+                  </div>
+                </div>
+              </div>
               </div>
             </section>
           </div>

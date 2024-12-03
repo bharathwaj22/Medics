@@ -67,7 +67,7 @@ function Entryprocess() {
             <Header></Header>
           </div>
 
-          <div className="col-11 mt-3 pt-1 wapper w-100">
+          <div className="col-12 mt-3 pt-1 wapper w-100">
             <div className=" row mt-5 d-flex w-100 ">
               <div className="col-5     ">
                 <div className=" search-di position-relative px-4 mt-3">
@@ -169,7 +169,7 @@ function Entryprocess() {
                                   <span className="close" onClick={closePopup}>
                                     &times;
                                   </span>
-                                  {/* <img className="pop " src={popup} alt="img" /> */}
+                                  
 
                                   <div className="popup-content1 ">
                                     <div className="row mt-1 mx-2 py-4">
@@ -229,6 +229,7 @@ function Entryprocess() {
                                           className="client-info1"
                                           readOnly={isReadOnly}
                                         />
+                                        
                                       </div>
 
                                       <div className="col-md-4 float-start pt-2 ">

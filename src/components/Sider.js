@@ -116,12 +116,16 @@ function Sidebar() {
             <MdEditNote className="ico" />
           </div>
         </NavLink>
+        <NavLink to="/modula-institution">
         <div className="group-icon mt-4">
           <RiSoundModuleLine  className="ico" />
         </div>
+        </NavLink >
+        <NavLink to="/people-details">
         <div className="group-icon mt-4">
           <GrGroup className="ico" />
         </div>
+        </NavLink>
         <div className="position-relative side2-icon">
           <NavLink  to="/settings"><div className="group-icon">
             <IoSettingsOutline className="ico" />

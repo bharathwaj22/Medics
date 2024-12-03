@@ -46,6 +46,10 @@
     text-decoration: none;
 }
 
+.active{
+    background-color: rgba(61, 153, 180, 1);
+    color: #FFFFFF;
+}
 /* sider
 .sider{
     width: 100px;
@@ -65,6 +69,7 @@
    
     background-color: transparent;
     background-color:#FFFFFF;
+    color: #FFFFFF;
     
     width:20px;
     height: 20px;
@@ -74,6 +79,32 @@
 }
 
 
-
+.group-icon-side{
+   
+    background-color: transparent;
+    background-color:#FFFFFF;
+   padding: 15px 10px;
+   
+    border-radius: 50%;
+    
+    
+}
+.group-icon-side:hover{
+    background-color:rgba(61, 153, 180, 1);
+    color: #FFFFFF;
+    
+}
+.ico-side:hover{
+    background-color:rgba(61, 153, 180, 1);
+    color: #FFFFFF;
+}
+.ico-side{
+    width: 30px;
+    height: 30px;
+    
+    color: #666666;
+   
+    
+}
 
  

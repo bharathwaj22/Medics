@@ -13,30 +13,7 @@ import Icon from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 
 function Admin_profile() {
-  // const [profileImage, setProfileImage] = useState(null);
-  // const [fileImage, setfileImage] = useState(null);
-
-  // const handleImageChange = (event) => {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       setProfileImage(reader.result); // Set image as base64
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
-
-  // const handleFileChange = (event) => {
-  //   const file1 = event.target.files[0];
-  //   if (file1) {
-  //     const readers = new FileReader();
-  //     readers.onload = () => {
-  //       setfileImage(readers.result);
-  //     };
-  //     readers.readAsDataURL(file1);
-  //   }
-  // };
+  
   const [profileImage, setProfileImage] = useState(null);
 
   const handleImageChange = (event, setImage) => {

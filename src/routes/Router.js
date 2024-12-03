@@ -10,8 +10,16 @@ import ProcessStatus from "../components/ProcessStatus";
 import Paymentstatus from "../components/Paymentstatus";
 import Pending from "../components/Pending";
 import Dashboard from "../components/Dashboard";
-
+import Peoples from "../components/Peoples_details";
+import Modula from "../modulas/Modula_institution";
+import Modula_department from "../modulas/Modula_department";
+import Modula_profession from "../modulas/Modula_profession";
 import Process_statistic from "../form/Process_status-form";
+import Institute_form from "../modulas/Institution_form";
+
+import Department_form from "../modulas/Department_form";
+
+import Profession_form from "../modulas/Profession_form";
 
 import Payment_form from "../form/Payment_form";
 import Pending_form from "../form/Pending_form";
@@ -32,7 +40,15 @@ function Router() {
         <Route path="/paymentstatus" element={<Paymentstatus />} />
         <Route path="/pending" element={<Pending />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/people-details" element={<Peoples />} />
         <Route path="/admin-profile" element={<Admin_profile />} />
+        {/* modula */}
+        <Route path="/modula-institution" element={<Modula />} />
+        <Route path="/modula-department" element={<Modula_department />} />
+        <Route path="/modula-profession" element={<Modula_profession />} />
+        <Route path="/institute-form" element={<Institute_form />} />
+        <Route path="/department-form" element={<Department_form />} />
+        <Route path="/profession-form" element={<Profession_form />} />
          {/* form */}
         <Route path="/enter_process_form" element={<Enterprocess_form />} />
 
@@ -48,3 +64,5 @@ function Router() {
 }
 
 export default Router;
+
+

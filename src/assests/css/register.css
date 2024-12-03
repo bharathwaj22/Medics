@@ -1,3 +1,4 @@
+
 /* .rbody{
     height: 840px;
      background: linear-gradient(90deg,  rgba(169, 188, 135, 0.45) 0%, rgba(61, 153, 180, 0.62) 100%);
@@ -6,7 +7,7 @@
 
 
 
-.forget-passed{
+ .forget-passed{
     font-family: 'LufgaSans-regular';
     color:#10141A;
     width: 137px;
@@ -169,4 +170,3 @@
     }
     
 }
-

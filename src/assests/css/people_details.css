@@ -1,0 +1,50 @@
+.people-info{
+ background-color: rgba(255, 255, 255, 1);
+ height: 80px;
+ 
+ border-radius: 20px;
+ /* align-items: center; */
+
+}
+.people-img{
+    width:60px;
+    height: 60px;
+    
+}
+.mm{
+    width: 50px;
+    background-color: black;
+}
+.view-details{
+    width: 150px;
+    height: 35px;
+    border-radius: 50px;
+    border: 1px solid rgba(113, 142, 191, 1);
+    color: rgba(113, 142, 191, 1);
+}
+.people-name{
+   font-size:16px;
+   font-family: 'regular-pp';
+   color:rgba(35, 35, 35, 1);
+}
+.people-writer{
+    font-size:16px;
+    font-family: 'regular-pp';
+   color: rgba(113, 142, 191, 1);
+ }
+ .people-green{
+    font-size:16px;
+    font-family: 'regular-pp';
+   color: rgba(58, 174, 0, 1);
+ }
+ .people-orange{
+    font-size:16px;
+    font-family: 'regular-pp';
+   color: rgba(255, 221, 0, 1);
+ }
+ .people-red{
+    font-size:16px;
+    font-family: 'regular-pp';
+   color: rgba(255, 9, 9, 1);
+ }
+ 

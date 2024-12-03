@@ -1,237 +1,239 @@
+
 body{
-   height: 840px;
-    background: linear-gradient(90deg, rgba(61, 153, 180, 0.62) 0%, rgba(169, 188, 135, 0.45) 100%)!important;
-
-}
-/* .colo{
-    background-color: transparent;
-    background-color:rgba(255,255,255,.2);
-   
-    
-   
-} */
-
-.eye{
-   
-    width: 10px;
-    height: 10px;
-    color: #666666;
-    top:23%;
-    left: 90%;
-    cursor: pointer;
-}
-
-.int{
-    font-family: 'LufgaSans-regular';  
-    font-family: 'font'; 
-    border-radius:14px;
-    border: 1px solid #FFFFFF;
-    padding-top: 12px;
-    padding-right: 18px;
-    padding-bottom: 12px;
-    padding-left: 18px;
-    margin-bottom: 10px;
-    width: 100%;
-    
-    
-    
-    
-}
-@font-face {
-    font-family: 'LufgaSans';
-    src: url('/src/assests/fonts/Fontspring-DEMO-lufga-bold.otf') format('opentype');
-}
-.lo{
-    font-family: 'LufgaSans';
-    top: 0px;
-    left: 42%;
-    color: #FFFFFF;
-    font-size: 48px;
-    text-align: center;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    gap: 264px;
-    margin-bottom: 30px;
-    color:#3E99B5;
-    text-shadow: 0 3px 3px #FFFFFF;
-    border-radius: 14px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom:10px ;
-   
-    
-}
-.forget-pass{
-    font-family: 'LufgaSans-regular';
-    color:#10141A;
-    width: 137px;
-    height: 21px;
-   left: 200px;
-   
-    font-size: 16px;
-   
-}
-.error {
-    border: 1px solid red;
-    
-  }
-  
-@font-face {
-    font-family: 'LufgaSans-regular';
-    src: url('/src/assests/fonts/Fontspring-DEMO-lufga-regular.otf') format('opentype');
-}
-.btn-login{
-    
-    font-family: 'LufgaSans-regular';
-    
-    width: 150px;
-    height: 42px;
-    background-color:#FFFFFF;
-    border: none;
-    
-    
-    font-size: 16px;
-    border-radius: 14px;
-    cursor: pointer;
-    
-    
-}
-
-.signup-link {
-    
-    font-family: 'LufgaSans-regular';
-    top: 270px;
-    left: 110px;
-    font-size: 16px;
-    height: 21px;
-    color:#10141A;
-    margin-bottom: 50px;
-}  
-.sign-login{
-    color: #10141A;
-    font-size: 16px;
-    margin-left: 2px;
-}
-@font-face {
-    font-family: 'font';
-    src: url('/src/assests/fonts/PPMori-SemiBold.otf') format('opentype');
-}
-.sym{
-    
-    font-family: 'font';
-}
-.maindiv{
-    top: 0px;
-}
-
-
-.foot{
-    position:relative;
-    top: 120px;
-
-}
-
-.squar{
-    height: 30%;
-    top: 70px;
-}
-
-.user-tag{
-    top: 30%;
-    left: 25%;
-    width: 479px;
-    
-}
-.pic-body{
-    
-    height:400px;
-    top: 0px;
-}
-
-.img-2{
-    display: none;
-    color: linear-gradient(90deg, rgba(61, 153, 180, 0.62) 0%, rgba(169, 188, 135, 0.45) 100%)!important;
-
-}
-@media screen and (max-width:768px){
-    .loo-img{
-        
-        height: 400px;
-        
-    }
-
-   .lo{
-    
-    
-    font-size: 36px;
-    padding-top: 0px;
-    left: 300px;
-   }
+    height: 840px;
+     background: linear-gradient(90deg, rgba(61, 153, 180, 0.62) 0%, rgba(169, 188, 135, 0.45) 100%)!important;
  
-}
+ }
+ /* .colo{
+     background-color: transparent;
+     background-color:rgba(255,255,255,.2);
     
-
-@media screen and (max-width:768px) {
-    .user-tag{
-        width: 70%;
-        top: 25%;
-        left: 15%;
-        
-    }
-    /* .int{
-        height: 40px;
-    }
-    */
-    .eye{
-        top:75px;
-    }
-    .signup-link{
-       padding-top:0px;
-    }
+     
     
-}
-
-
-@media screen and (max-width:480px){
-   
-   .loo-img{
-    display: none;
+ } */
+ 
+ .eye{
+    
+     width: 10px;
+     height: 10px;
+     color: #666666;
+     top:23%;
+     left: 90%;
+     cursor: pointer;
+ }
+ 
+ .int{
+     font-family: 'LufgaSans-regular';  
+     font-family: 'font'; 
+     border-radius:14px;
+     border: 1px solid #FFFFFF;
+     padding-top: 12px;
+     padding-right: 18px;
+     padding-bottom: 12px;
+     padding-left: 18px;
+     margin-bottom: 10px;
+     width: 100%;
+     
+     
+     
+     
+ }
+ @font-face {
+     font-family: 'LufgaSans';
+     src: url('/src/assests/fonts/Fontspring-DEMO-lufga-bold.otf') format('opentype');
+ }
+ .lo{
+     font-family: 'LufgaSans';
+     top: 0px;
+     left: 42%;
+     color: #FFFFFF;
+     font-size: 48px;
+     text-align: center;
+     padding-top: 100px;
+     padding-bottom: 100px;
+     gap: 264px;
+     margin-bottom: 30px;
+     color:#3E99B5;
+     text-shadow: 0 3px 3px #FFFFFF;
+     border-radius: 14px;
+     padding-left: 20px;
+     padding-right: 20px;
+     padding-top: 10px;
+     padding-bottom:10px ;
+    
+     
+ }
+ .forget-pass{
+     font-family: 'LufgaSans-regular';
+     color:#10141A;
+     width: 137px;
+     height: 21px;
+    left: 200px;
+    
+     font-size: 16px;
+    
+ }
+ .error {
+     border: 1px solid red;
+     
    }
-    .img-2{
-        display: block;
-        width:99%;
-        margin-top: 3px;
-    }
    
-   
+ @font-face {
+     font-family: 'LufgaSans-regular';
+     src: url('/src/assests/fonts/Fontspring-DEMO-lufga-regular.otf') format('opentype');
+ }
+ .btn-login{
+     
+     font-family: 'LufgaSans-regular';
+     
+     width: 150px;
+     height: 42px;
+     background-color:#FFFFFF;
+     border: none;
+     
+     
+     font-size: 16px;
+     border-radius: 14px;
+     cursor: pointer;
+     
+     
+ }
+ 
+ .signup-link {
+     
+     font-family: 'LufgaSans-regular';
+     top: 270px;
+     left: 110px;
+     font-size: 16px;
+     height: 21px;
+     color:#10141A;
+     margin-bottom: 50px;
+ }  
+ .sign-login{
+     color: #10141A;
+     font-size: 16px;
+     margin-left: 2px;
+ }
+ @font-face {
+     font-family: 'font';
+     src: url('/src/assests/fonts/PPMori-SemiBold.otf') format('opentype');
+ }
+ .sym{
+     
+     font-family: 'font';
+ }
+ .maindiv{
+     top: 0px;
+ }
+ 
+ 
+ .foot{
+     position:relative;
+     top: 120px;
+ 
+ }
+ 
+ .squar{
+     height: 30%;
+     top: 70px;
+ }
+ 
+ .user-tag{
+     top: 30%;
+     left: 25%;
+     width: 479px;
+     
+ }
+ .pic-body{
+     
+     height:400px;
+     top: 0px;
+ }
+ 
+ .img-2{
+     display: none;
+     color: linear-gradient(90deg, rgba(61, 153, 180, 0.62) 0%, rgba(169, 188, 135, 0.45) 100%)!important;
+ 
+ }
+ @media screen and (max-width:768px){
+     .loo-img{
+         
+         height: 400px;
+         
+     }
+ 
     .lo{
-    
-    
-    font-size: 36px;
-    padding-top:0px;
-    left: 33%;
-   }
+     
+     
+     font-size: 36px;
+     padding-top: 0px;
+     left: 300px;
+    }
+  
+ }
+     
  
-}
+ @media screen and (max-width:768px) {
+     .user-tag{
+         width: 70%;
+         top: 25%;
+         left: 15%;
+         
+     }
+     /* .int{
+         height: 40px;
+     }
+     */
+     .eye{
+         top:75px;
+     }
+     .signup-link{
+        padding-top:0px;
+     }
+     
+ }
+ 
+ 
+ @media screen and (max-width:480px){
     
-
-@media screen and (max-width:480px) {
-    .user-tag{
-        width: 70%;
-        top: 25%;
-        left: 15%;
-        
+    .loo-img{
+     display: none;
     }
-    .int{
-        height: 40px;
-    }
-   
-    .eye{
-        top:65px;
-    }
-    .signup-link{
-       padding-top:0px;
-    }
+     .img-2{
+         display: block;
+         width:99%;
+         margin-top: 3px;
+     }
     
-}
+    
+     .lo{
+     
+     
+     font-size: 36px;
+     padding-top:0px;
+     left: 33%;
+    }
+  
+ }
+     
+ 
+ @media screen and (max-width:480px) {
+     .user-tag{
+         width: 70%;
+         top: 25%;
+         left: 15%;
+         
+     }
+     .int{
+         height: 40px;
+     }
+    
+     .eye{
+         top:65px;
+     }
+     .signup-link{
+        padding-top:0px;
+     }
+     
+ }
+ 

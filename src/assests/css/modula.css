@@ -1,0 +1,31 @@
+.modula-main{
+ width: 96px;
+ height: 32px;
+ background-color:#FAFBFD;
+ border-radius: 8px;
+ border: 1px solid rgba(213, 213, 213, 1);
+}
+.modula-icon-del{
+    color: rgba(239, 56, 38, 1);
+}
+
+.modula-icon-edit{
+    color: rgba(0, 0, 0, 1);
+}
+.modula-heading{
+    background-color:inherit;
+    color: rgba(35, 35, 35, 1);
+    
+    
+}
+
+.tr-head-modula{
+    border-bottom:none;
+    width: 100%;
+    border-collapse: collapse;
+    height: 50px;
+}
+.td-modula{
+    height: 50px;
+
+}

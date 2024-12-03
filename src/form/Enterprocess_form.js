@@ -88,6 +88,10 @@ function Enterprocess_form() {
 
   const toggleDropmenu = () => {
     setDropdownVisible((prev) => !prev); // Toggle dropdown visibility
+    setListExpanded(false)
+    setIsDropdownOpen(false)
+
+
   };
 
   // institute...................................................=>
@@ -102,11 +106,13 @@ function Enterprocess_form() {
 
   const handleSelectOption = (optionsinstitute) => {
     setSelectedOption(optionsinstitute);
-    setIsDropdownOpen(false);
+    setIsDropdownOpen(false)
   };
 
   const toggleDropdowninstitue = () => {
     setIsDropdownOpen((prev) => !prev);
+    setDropdownVisible(false)
+
   };
 
   // department........................................................>
@@ -126,6 +132,8 @@ function Enterprocess_form() {
 
   const toggleList = () => {
     setListExpanded((prev) => !prev); // Toggle dropdown visibility
+    setDropdownVisible(false)
+    setIsDropdownOpen(false)
   };
 
   return (
