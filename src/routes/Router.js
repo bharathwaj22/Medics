@@ -10,6 +10,7 @@ import ProcessStatus from "../components/ProcessStatus";
 import Paymentstatus from "../components/Paymentstatus";
 import Pending from "../components/Pending";
 import Dashboard from "../components/Dashboard";
+import Project_managment from "../components/Project_management";
 import Peoples from "../components/Peoples_details";
 import Modula from "../modulas/Modula_institution";
 import Modula_department from "../modulas/Modula_department";
@@ -34,6 +35,7 @@ function Router() {
         <Route path="/" element={<Loging />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/project-management" element={<Project_managment/>} />
         <Route path="/entry-process" element={<Process1 />} />
         <Route path="/sider1" element={<Sider />} />
         <Route path="/processstatus" element={<ProcessStatus />} />

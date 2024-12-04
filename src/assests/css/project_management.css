@@ -1,0 +1,65 @@
+.project-task{
+    background-color: rgba(255, 255, 255, 1);
+    height:120px;
+    /* width:200px; */
+    
+    border-radius: 25px;
+    /* align-items: center; */
+   
+   }
+   .task-box{
+    width:70px ;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(255, 9, 9, 0.15);
+    text-align: center;
+   }
+.project-writer{
+    width: 126px;
+    height: 38px;
+    font-size:16px;
+    font-family: 'regular-pp';
+   color: rgba(113, 142, 191, 1);
+ }
+ .project-icon{
+    width: 30px;
+    height: 30px;
+    color: rgba(255, 9, 9, 1);
+ }
+.task-box1{
+    width:70px ;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(231, 237, 255, 1);
+    text-align: center;
+}
+.task-box2{
+    width:70px ;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(255, 224, 235, 1);
+    text-align: center;
+}
+.task-box3{
+    width:70px ;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(220, 250, 248, 1);
+    text-align: center;
+}
+ .project-icon1{
+    width: 30px;
+    height: 30px;
+    color: rgba(57, 106, 255, 1);
+ }
+ .project-icon2{
+    width: 30px;
+    height: 30px;
+    color:rgba(255, 130, 172, 1);
+ }
+ .project-icon3{
+    width: 30px;
+    height: 30px;
+    color: rgba(22, 219, 204, 1);
+ }
+ 

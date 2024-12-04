@@ -32,10 +32,10 @@ function Dashboard() {
   const COLORS = ["#212121", "#3D99B4"];
 
   const randomStartAngle = Math.floor(Math.random() * 360);
-  const state=[
+  const state = [
     { name: "Segment 1", value: 75 },
     { name: "Segment 2", value: 25 },
-  ]
+  ];
   const carddata = [
     {
       name: "Manuscript 1",
@@ -87,17 +87,36 @@ function Dashboard() {
     },
   ];
 
+  const date = new Date();
+  
+  const [selectedMonth, setSelectedMonth] = useState(
+    `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`
+  );
+
+  const handleMonthChange = (event) => {
+    setSelectedMonth(event.target.value);
+  };
+  const [selectedMonth1, setSelectedMonth1] = useState(
+    `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`
+  );
+
+  const handleMonthChange1 = (event) => {
+    setSelectedMonth1(event.target.value);
+  };
+ 
+
   return (
     <>
       <section className="main ">
         <div className="row mt-4 w-100">
-          <div className="col-1 d-flex   justify-content-center">
+          <div className="col-1 d-flex    justify-content-center">
             <Sider />
           </div>
           <div className="col-11 ">
             <div className="col-12">
               <Header></Header>
             </div>
+            
             <section className="col-12 pt-1 mt-3 project-manage w-100">
               <div className="row  px-3">
                 <div className="col-12 mt-4">
@@ -110,9 +129,11 @@ function Dashboard() {
                         <BsBarChartLine className=" graphic-icon m-2" />
                       </div>
                       <div>
-                        <div className=" d-flex px-1 project-head ">
-                          <p className="px-2 text-muted fs-">2024</p>
-                          <p className=" text-muted">Total Projects</p>
+                        <div className=" d-flex mx-2 project-head gap-3 ">
+                          <p className=" text-muted dash-year ">2024</p>
+                          <p className=" text-muted dash-project ">
+                            Total Projects
+                          </p>
                         </div>
                         <div className=" h1  px-2">1000</div>
                       </div>
@@ -351,9 +372,9 @@ function Dashboard() {
                   <p className="heading-entr">Writers Total Projects Status </p>
                 </div>
                 <div className="col-12 px-2 table-responsive  table-wrapper-scroll-y my-custom-scrollbar  ">
-                  <table className=" table-head   ">
+                  <table className=" table-head    ">
                     <thead>
-                      <tr className="text-center tr-head  ">
+                      <tr className="text-center tr-head   ">
                         <th className="">Month</th>
                         <th className="">Manuscript</th>
                         <th className="">Statistics</th>
@@ -391,18 +412,34 @@ function Dashboard() {
               </div>
             </section>
             <section className="row ">
-              <div className="col-9  ">
+              <div className="col-12 col-xxl-9 ">
                 <div className="col-12 pt-1 mt-2 project-manage py-5">
-                  <div className="col-12 mt-4 ">
-                    <p className="heading-entr">Income</p>
+                  <div className="row  px-3">
+                    <div className="col-9 mt-4 px-4">
+                      <p className="heading-entr">Income </p>
+                    </div>
+                    <div className="col-3 mt-4 px-4 gap-3 d-flex flex-wrap justify-content-end">
+                      <div className="col">
+                      <input
+                            type="month"
+                            id="monthInput"
+                            className="people-select px-1"
+                            value={selectedMonth}
+                            onChange={handleMonthChange}
+                            placeholder="YYYY-MM"
+                          />
+                      </div>
+                    </div>
                   </div>
-                  <div className="row ">
+
+                  <div className="row mt-2 ">
                     <div className="col d-flex  justify-content-around flex-wrap  ">
                       {carddata.map((items) => (
                         <div className="position-relative ">
                           <PieChart width={127} height={117}>
                             <Pie
                               data={carddata}
+                              values={items.value}
                               cx={63.5}
                               cy={57.5}
                               innerRadius={30}
@@ -437,8 +474,24 @@ function Dashboard() {
                   </div>
                 </div>
                 <div className="col-12 pt-1 mt-2 project-manage py-5">
-                  <div className="col-12 mt-4 ">
-                    <p className="heading-entr">Expense</p>
+                  <div className="col-12 mt-4 px-4">
+                    <div className="row  px-2">
+                      <div className="col-9 mt-4 ">
+                        <p className="heading-entr">Expense </p>
+                      </div>
+                      <div className="col-3 mt-4 px-4 gap-3 d-flex flex-wrap justify-content-end">
+                        <div className="col">
+                          <input
+                            type="month"
+                            id="monthInput"
+                            className="people-select px-1"
+                            value={selectedMonth1}
+                            onChange={handleMonthChange1}
+                            placeholder="YYYY-MM"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div className="row   ">
                     <div className="col d-flex  justify-content-center flex-wrap gap-5">
@@ -488,38 +541,72 @@ function Dashboard() {
                   </p>
                 </div>
                 <div className="row">
-                <div className="col d-flex  justify-content-center flex-wrap ">
-                  <div className="position-relative  ">
-                    <PieChart width={300} height={300}>
-                      <Pie
-                        data={state}
-                        cx={150}
-                        cy={200}
-                        innerRadius={50}
-                        outerRadius={85}
-                        fill="#8884d8"
-                        paddingAngle={5}
-                        cornerRadius={7}
-                        startAngle={-50}
-                        endAngle={-410}
-                        dataKey="value"
-                        animationDuration={1000}
-                        isAnimationActive={true} // Make sure animation is active
-                        animationEasing="ease-out" // Easing function for smooth animation
-                      >
-                        {state.map((item, index) => (
-                          <Cell
-                            key={`cell-${index}`}
-                            fill={COLORS[index % COLORS.length]}
-                          />
-                        ))}
-                      </Pie>
-                    </PieChart>
-                    <p className="position-absolute pie-infom-exp"></p>
-                    <p className="d-flex justify-content-end pie-text mt-2   ">Total Income Exp</p>
+                  <div className="col d-flex  justify-content-center ">
+                    <div className="position-relative   ">
+                      <PieChart width={300} height={300}>
+                        <Pie
+                          data={state}
+                          cx={150}
+                          cy={200}
+                          innerRadius={50}
+                          outerRadius={85}
+                          fill="#8884d8"
+                          paddingAngle={5}
+                          cornerRadius={7}
+                          startAngle={-50}
+                          endAngle={-410}
+                          dataKey="value"
+                          animationDuration={1000}
+                          isAnimationActive={true} // Make sure animation is active
+                          animationEasing="ease-out" // Easing function for smooth animation
+                        >
+                          {state.map((item, index) => (
+                            <Cell
+                              key={`cell-${index}`}
+                              fill={COLORS[index % COLORS.length]}
+                            />
+                          ))}
+                        </Pie>
+                      </PieChart>
+                      <p className="position-absolute pie-infom1">100</p>
+                      <p className="position-absolute pie-infom-exp1">3000</p>
+                      <p className="d-flex justify-content-center pie-text mt-2   ">
+                        Total Income & Exp
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
+            </section>
+            <section className="col-12 pt-1 mt-2 project-manage w-100 py-5">
+              <div className="row  px-3">
+                <div className="col-12 mt-4">
+                  <p className="heading-entr">Comparison Of Journal </p>
+                </div>
+                <div className="col-12 px-2 table-responsive  table-wrapper-scroll-y my-custom-scrollbar  ">
+                  <table className=" table-head    ">
+                    <thead>
+                      <tr className="text-center tr-head   ">
+                        <th className="">2023</th>
+                        <th className="">Count</th>
+                        <th className="">2024</th>
+                        <th className="">Count</th>
+                      </tr>
+                    </thead>
+                    <React.Fragment>
+                      {data.map((item) => (
+                        <tbody>
+                          <tr className=" text-center tr-head ">
+                            <td>{item["s.no"]}</td>
+                            <td>{item.id}</td>
+                            <td>{item.date}</td>
+                            <td>{item.department}</td>
+                          </tr>
+                        </tbody>
+                      ))}
+                    </React.Fragment>
+                  </table>
+                </div>
               </div>
             </section>
           </div>

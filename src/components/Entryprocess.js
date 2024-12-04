@@ -58,7 +58,7 @@ function Entryprocess() {
   return (
     <section className=" main ">
       <div className=" row mt-4 w-100 ">
-        <div className=" col-1  d-flex justify-content-center">
+        <div className=" col-1   d-flex justify-content-center">
           <Sider></Sider>
         </div>
 

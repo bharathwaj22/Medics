@@ -89,6 +89,8 @@ import { RiDashboardLine } from 'react-icons/ri';
 import { IoCalendarOutline, IoSettingsOutline, IoExitOutline } from 'react-icons/io5';
 import { GrGroup } from 'react-icons/gr';
 import { TiThMenu } from "react-icons/ti";
+import { MdDashboardCustomize } from "react-icons/md";
+
 import React, { useState } from 'react';;
 
 function Sidebar() {
@@ -104,10 +106,15 @@ function Sidebar() {
   };
   return (
     <section className="">
-      <div className="text-center d- d-none d-lg-block mt-5 ">
+      <div className="text-center d- d-none d-lg-block mt-5  ">
         <NavLink to="/dashboard">
           <div className="group-icon">
             <RiDashboardLine className="ico" />
+          </div>
+        </NavLink>
+        <NavLink to="/project-management">
+          <div className="group-icon mt-4">
+            <MdDashboardCustomize  className="ico" />
           </div>
         </NavLink>
 
@@ -162,8 +169,8 @@ function Sidebar() {
             <IoExitOutline className="ico" />
           </div>
         </div>
-      </div>
-        */}
+      </div> */}
+       
        
       
  

@@ -186,6 +186,7 @@
     width: 100%;
     border-collapse: collapse;
     height: 38px;
+    
 }
 td{
     height: 38px;
@@ -249,7 +250,9 @@ td  tr{
 }
 th{
     font-family: 'wow-bold';
+   
 }
+
 .wh-60{
     width: 6%;
 }

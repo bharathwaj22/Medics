@@ -47,4 +47,17 @@
     font-family: 'regular-pp';
    color: rgba(255, 9, 9, 1);
  }
- 
+
+
+.people-input{
+  width: 81px;
+  height: 31px;
+  border-radius: 4.88px;
+  border: 1px solid #fff;
+} 
+.people-select{
+  width: 150px;
+  height: 31px;
+  border-radius: 4.88px;
+  border: 1px solid #fff;
+} 

@@ -40,20 +40,36 @@ function Peoples() {
             </div>
             <section className="col-12 pt-1 mt-3 project-manage w-100">
               <div className="row  px-3">
-                <div className="col-12 mt-4 px-4">
+                <div className="col-9 mt-4 px-4">
                   <p className="heading-entr">Peoples </p>
+                </div>
+                <div className="col-3 mt-4 px-4 gap-3 d-flex flex-wrap justify-content-end">
+                  <div className="col">
+                  <input type="text" className="people-input px-3 " placeholder="ID" />
+                  </div>
+                  <div className="col">
+                  <select className="people-select px-3">
+                    <option value>Thesis</option>
+                    <option value>Statistics</option>
+                    <option value>Presentation</option>
+                    <option value>Manuscript</option>
+                    <option value>Others</option>
+
+                  </select>
+                  </div>
                 </div>
                 <div className="col-12 mt-4 px-4">
                   <p className="heading-entr">Writers Total Projects Status </p>
                 </div>
               </div>
-              <div className="col-12 px-5 table-responsive  py-5  ">
+              <div className="col-12 px-5 table-responsive table-wrapper-scroll-y my-custom-scrollbar   ">
                 <table className=" table-head   ">
-                  <thead>
+                  <tbody>
+                    
                     {data.map((item)=> (
                     <div className="row people-info px-1 align-items-center my-3">
                       <div className="col-1 ">
-                        <img className=" object-cover people-img  " src={item.image} alt="img" />
+                        <img className=" object-cover people-img  " src={Profile} alt="img" />
                       </div>
                       <div className="col mt-3 text-center  ">
                         <p className="people-name">Name:{item.name}</p>
@@ -86,8 +102,40 @@ function Peoples() {
                       </div>
                     </div>
                     ))}
-                  </thead>
+                  </tbody>
                 </table>
+              </div>
+              <div className="col-12 d-flex justify-content-end pt-5 px-5">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item ">
+                      <a class="page-link " href="#">
+                        1
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        2
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        3
+                      </a>
+                    </li>
+
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </section>
           </div>
@@ -98,3 +146,6 @@ function Peoples() {
 }
 
 export default Peoples;
+
+
+

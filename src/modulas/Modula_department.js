@@ -195,34 +195,37 @@ function Modula_department() {
                                         &times;
                                       </span>
 
-                                      <div className="popup-content1 p-5 ">
-                                        <div className="row mt-1 mx-2 py-4">
-                                          <div className="col  pt-2 ">
+                                      <div className="popup-content1 px-5 ">
+                                      <div className="row w-100 mt-2 ">
+                                          <div className="col-12  float-start pt-5 ">
                                             <h5 className="statis-name ">
                                               Name
                                             </h5>
-
                                             <input
                                               type="text"
-                                              className="client-popup"
+                                              className=" mx-2 client-info1 "
                                               readOnly={isReadOnly}
                                             />
                                           </div>
-                                          <div className="col float-start pt-2 ">
-                                            <h5 className="popup-name ">
+
+                                          <div className="col float-start pt-5 ">
+                                            <h5 className="statis-name ">
                                               Status
                                             </h5>
-
                                             <input
                                               type="text"
-                                              className="client-popup "
+                                              className=" mx-2 client-info1 "
                                               readOnly={isReadOnly}
                                             />
                                           </div>
                                         </div>
-                                        <div className="col-12  d-flex justify-content-end float-start pt-5 py-5 ">
-                                          <button className="save-form">
-                                            Update
+
+                                        <div className="col-md-12 d-flex justify-content-center mt-2  px-5 py-5 ">
+                                          <button
+                                            type="submit"
+                                            className="save-form "
+                                          >
+                                            Save
                                           </button>
                                         </div>
                                       </div>
