@@ -34,12 +34,12 @@ function Login() {
       return Object.keys(formErrors).length === 0;
   };
   const handleSubmitlogin = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     
-    if (validateForm()) {
-      console.log("Form data submitted:", formData);
-    }
+    // if (validateForm()) {
+    //   console.log("Form data submitted:", formData);
+    // }
   };
   
   // eye buttom
@@ -108,27 +108,27 @@ function Login() {
                     className=" text-decoration-none forget-pass"
                     href=""
                   >
-                    Forget password?
+                    Forgot password?
                   </Link>
                 </div>
                 <br></br>
-                <button type="submit"onClick={handleSubmitlogin}   className="btn-login">Login</button>
-                <div className="signup-link mt-5">
+                <Link to="/dashboard"><button type="submit"onClick={handleSubmitlogin}   className="btn-login">Login</button></Link>
+                {/* <div className="signup-link mt-5">
                   Don<span className="sym">'</span>t have an account?
                   <Link to="/register" className="sign-login">
                   
                     Sign Up
                   </Link>
-                </div>
+                </div> */}
               </div>
               </form>
             </div>
           </div>
         </div>
 
-        <div className=" mt-5  foot">
+        {/* <div className=" mt-5  foot">
           <Footer></Footer>
-        </div>
+        </div> */}
       </div>
 
       {/* tablet........................> */}

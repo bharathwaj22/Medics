@@ -64,14 +64,14 @@ function ProcessStatus() {
           <div className="col-11 wapper w-100 mt-3 pt-1">
             <div className=" row mt-5 d-flex w-100  ">
               <div className="col-5">
-                <div className=" search-di position-relative px-4 mt-3">
+              <div className=" search-process position-relative mx-4 mt-3">
                   <input
                     type="text"
-                    className=" search-intt position-absolute z n1 "
+                    className=" search-entry position-absolute z n1 "
                     placeholder="search..."
                   ></input>
 
-                  <IoIosSearch className="  search-icon position-relative  "></IoIosSearch>
+                  <IoIosSearch className="   search-icon position-relative  "></IoIosSearch>
                 </div>
               </div>
               <div className="col-2 text-center mt-0 ">

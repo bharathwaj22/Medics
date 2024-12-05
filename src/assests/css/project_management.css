@@ -63,3 +63,25 @@
     color: rgba(22, 219, 204, 1);
  }
  
+
+ .drag-contain {
+   flex: 1;
+   
+   margin: 10px;
+   padding: 10px;
+   border: 2px solid #ccc;
+   border-radius: 8px;
+   
+   min-height: 300px;
+ }
+
+ .inside-drag-box {
+   width: 100px;
+   height: 100px;
+   padding: 10px;
+   margin-bottom: 10px;
+   background-color: #fff;
+   border: 1px solid #ddd;
+   cursor: grab;
+ }
+
