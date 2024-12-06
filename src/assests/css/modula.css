@@ -29,3 +29,30 @@
     height: 50px;
 
 }
+
+.error{
+    color: rgba(239, 56, 38, 1);
+    font-size: 12px;
+    border: none;
+    text-align: left;
+    display: block;
+}
+
+
+.form-control{
+    width: 100%;
+    
+    padding:13px !important;
+    border: 1px solid rgba(213, 213, 213, 1);
+    border-radius:14px !important;
+    font-size: 14px;
+    
+    align-items: top !important;
+    border: none !important;
+}
+.form-control.error {
+    border: 1px solid rgb(228, 16, 16)!important;
+  }
+.form-label{
+    color:rgba(0, 0, 0, 0.885) !important;;
+}

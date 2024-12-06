@@ -118,8 +118,8 @@ function Header() {
         
       </div>
 
-      <div className="col-12 w-100  mt-0 d-lg-none ">
-        <div className="w-100 d-flex justify-content-between side-head1">
+      <div className="col-12 w-100  mt-0 d-lg-none side-head1 ">
+        <div className="w-100 d-flex justify-content-between ">
          
 
           <div className="d-flex mt-2 mx-4 ">

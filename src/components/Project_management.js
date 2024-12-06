@@ -112,7 +112,7 @@ const ProjectManagementTool = () => {
           <div className="col-1 d-flex justify-content-center">
             <Sider />
           </div>
-          <div className="col-12 col-lg-11">
+          <div className="col-11">
             <div className="col-12">
               <Header />
             </div>

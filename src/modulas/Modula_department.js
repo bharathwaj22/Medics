@@ -106,23 +106,26 @@ function Modula_department() {
                           <div className="popup-content1 px-5 ">
                           <form onSubmit={handleSubmitadd}>
                               <div className="row w-100 mt-2 ">
-                                <div className="col-12  float-start pt-5 ">
-                                  <h5 className="statis-name mx-2">Name</h5>
+                                <div className="col-12  float-start p-3  ">
+                                  <label className="form-label">Name</label>
                                   <input
                                     type="text"
-                                    className={`client-info mx-3 ${
+                                    className={`form-control ${
                                       errors.name ? "error" : ""
                                     }`}
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChangepending}
                                   />
+                                  {errors.name && (
+                                    <span className="error">{errors.name}</span>
+                                  )}
                                 </div>
 
-                                <div className="col float-start pt-5 ">
-                                  <h5 className="statis-name mx-3">Status</h5>
+                                <div className="col float-start  ">
+                                  <label className="form-label ">Status</label>
                                   <select
-                                    className={`mx-3 client-info ${
+                                    className={` form-control ${
                                       errors.status ? "error" : ""
                                     }`}
                                     name="status"
@@ -138,7 +141,7 @@ function Modula_department() {
                                 </div>
                               </div>
 
-                              <div className="col-md-12 d-flex justify-content-center mt-2  px-5 py-5 ">
+                              <div className="col-md-12 d-flex justify-content-center   px-5 py-5 ">
                                 <button type="submit" className="save-form ">
                                   Save
                                 </button>
@@ -196,38 +199,45 @@ function Modula_department() {
                                       </span>
 
                                       <div className="popup-content1 px-5 ">
-                                      <div className="row w-100 mt-2 ">
-                                          <div className="col-12  float-start pt-5 ">
-                                            <h5 className="statis-name ">
-                                              Name
-                                            </h5>
-                                            <input
-                                              type="text"
-                                              className=" mx-2 client-info1 "
-                                              readOnly={isReadOnly}
-                                            />
+                                      <form onSubmit={handleSubmitadd}>
+                                          <div className="row w-100 mt-2 ">
+                                            <div className="col-12  float-start p-3  ">
+                                              <label className="form-label">
+                                                Name
+                                              </label>
+                                              <input
+                                                type="text"
+                                                className=" form-control "
+                                              />
+                                            </div>
+
+                                            <div className="col float-start  ">
+                                              <label className="form-label ">
+                                                Status
+                                              </label>
+                                              <select className=" form-control ">
+                                                <option value="" disabled>
+                                                  Status
+                                                </option>
+                                                <option value="1">
+                                                  Active
+                                                </option>
+                                                <option value="2">
+                                                  Inactive
+                                                </option>
+                                              </select>
+                                            </div>
                                           </div>
 
-                                          <div className="col float-start pt-5 ">
-                                            <h5 className="statis-name ">
-                                              Status
-                                            </h5>
-                                            <input
-                                              type="text"
-                                              className=" mx-2 client-info1 "
-                                              readOnly={isReadOnly}
-                                            />
+                                          <div className="col-md-12 d-flex justify-content-center   px-5 py-5 ">
+                                            <button
+                                              type="submit"
+                                              className="save-form "
+                                            >
+                                              Save
+                                            </button>
                                           </div>
-                                        </div>
-
-                                        <div className="col-md-12 d-flex justify-content-center mt-2  px-5 py-5 ">
-                                          <button
-                                            type="submit"
-                                            className="save-form "
-                                          >
-                                            Save
-                                          </button>
-                                        </div>
+                                        </form>
                                       </div>
                                     </div>
                                   </div>

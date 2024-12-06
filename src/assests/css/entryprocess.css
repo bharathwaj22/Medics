@@ -114,7 +114,9 @@
 }
 .search-entry{
     font-family: 'regular-pp';
+    text-decoration: none;
     margin-left: 0px;
+    outline: none;
     width: 80%;
     height: 30px;
     border-radius: 12px;

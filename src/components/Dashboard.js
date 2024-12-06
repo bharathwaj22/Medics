@@ -117,14 +117,14 @@ function Dashboard() {
               <Header></Header>
             </div>
             
-            <section className="col-12 pt-1 mt-3 project-manage w-100">
+            <section className="col-12 pt-1 mt-3 py-3 project-manage w-100 ">
               <div className="row  px-3">
                 <div className="col-12 mt-4">
                   <p className="heading-entr">Project management</p>
                 </div>
                 <div className="row ">
-                  <div className=" col total-project  my-5 py-3 mx-2">
-                    <div className=" w-100 d-flex px-3 mt-3">
+                  <div className=" col total-project    mx-2">
+                    <div className=" w-100 d-flex px-3  mt-3">
                       <div className="graphic-box  mt-2 ">
                         <BsBarChartLine className=" graphic-icon m-2" />
                       </div>
@@ -175,7 +175,7 @@ function Dashboard() {
                     </div>
                   </div>
 
-                  <div className=" col total-project  my-5 py-3 mx-2">
+                  <div className=" col total-project   mx-2">
                     <div className=" w-100 d-flex px-3 mt-3">
                       <div className="graphic-box  mt-2 ">
                         <BsBarChartLine className=" graphic-icon m-2" />
@@ -223,7 +223,7 @@ function Dashboard() {
                     </div>
                   </div>
 
-                  <div className=" col total-project  my-5 py-3 mx-2">
+                  <div className=" col total-project   mx-2">
                     <div className=" w-100 d-flex px-3 mt-3">
                       <div className="graphic-box  mt-2 ">
                         <BsBarChartLine className=" graphic-icon m-2" />
@@ -271,7 +271,7 @@ function Dashboard() {
                       </div>
                     </div>
                   </div>
-                  <div className=" col total-project  my-5 py-3 mx-2">
+                  <div className=" col total-project   mx-2">
                     <div className=" w-100 d-flex px-3 mt-3">
                       <div className="graphic-box  mt-2 ">
                         <BsBarChartLine className=" graphic-icon m-2" />
@@ -321,7 +321,7 @@ function Dashboard() {
                       </div>
                     </div>
                   </div>
-                  <div className=" col total-project  my-5 py-3 ">
+                  <div className=" col total-project   ">
                     <div className=" w-100 d-flex px-3 mt-3">
                       <div className="graphic-box  mt-2 ">
                         <BsBarChartLine className=" graphic-icon m-2" />
@@ -394,15 +394,16 @@ function Dashboard() {
                           <tr className=" text-center tr-head ">
                             <td>{item["s.no"]}</td>
                             <td>{item.id}</td>
-                            <td>{item.date}</td>
-                            <td>{item.department}</td>
-                            <td>{item.institution}</td>
-                            <td>{item.author}</td>
-                            <td>{item.profession}</td>
-                            <td>{item.department}</td>
-                            <td>{item.institution}</td>
-                            <td>{item.author}</td>
-                            <td>{item.profession}</td>
+                            <td>{item.id}</td>
+                            <td>{item.id}</td>
+                            <td>{item.id}</td>
+                            <td>{item.id}</td>
+                            <td>{item.id}</td>
+                            <td>{item.id}</td>
+                            <td>{item.id}</td>
+                            <td>{item.id}</td>
+                            <td>{item.id}</td>
+                          
                           </tr>
                         </tbody>
                       ))}
