@@ -125,7 +125,7 @@ function Admin_profile() {
                     <div className="row mt-0 w-100">
                       <div className="col-md-6 float-start  ">
                         <label htmlFor="site-title" className="site-name">
-                          your Name
+                          Your Name
                         </label>
                         <input
                           type="text"

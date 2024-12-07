@@ -46,13 +46,107 @@
     border: 1px solid rgba(213, 213, 213, 1);
     border-radius:14px !important;
     font-size: 14px;
-    
+    color: rgba(113, 142, 191, 1 )!important;
     align-items: top !important;
     border: none !important;
+    outline: none !important;
 }
 .form-control.error {
     border: 1px solid rgb(228, 16, 16)!important;
   }
 .form-label{
     color:rgba(0, 0, 0, 0.885) !important;;
+}
+.form-control::placeholder {
+    color: rgba(113, 142, 191, 1 )!important;
+    
+  }
+
+
+
+
+  /* datatable */
+  /* table.dataTable thead th, table.dataTable thead td {
+    padding: 12px 15px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #FAFBFD;
+    text-align: left;
+  }
+  table.dataTable tbody td {
+    padding: 12px 15px;
+    font-size: 14px;
+    color: rgba(35, 35, 35, 1);
+    border-bottom: 1px solid rgba(213, 213, 213, 1);
+  }
+  table.dataTable tbody td:last-child {
+    border-right: none;
+  }
+  table.dataTable tbody tr:hover td {
+    background-color: rgba(244, 244, 244, 0.5);
+  }
+  table.dataTable_info {
+    display: none;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: rgba(35, 35, 35, 1);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-top: 1px solid rgba(213, 213, 213, 1);
+  }
+  table.dataTable_paginate {
+    margin-top: 15px;
+    text-align: right;
+    font-size: 14px;
+    color: rgba(35, 35, 35, 1);
+  }
+  table.dataTable_paginate a {
+    color: rgba(113, 142, 191, 1);
+    border: 1px solid rgba(113, 142, 191, 1);
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-left: 5px;
+  }
+  table.dataTable_paginate a.active {
+    background-color: rgba(113, 142, 191, 1);
+    color: #FFFFFF;
+  }
+  table.dataTable_length {
+    margin-top: 15px;
+    font-size: 14px;
+    color: rgba(35, 35, 35, 1);
+  }
+  table.dataTable_filter input {
+    width: 200px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-left: 5px;
+    border: 1px solid rgba(213, 213, 213, 1);
+    color: rgba(113, 142, 191, 1);
+  }
+  table.dataTable_processing {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: rgba(35, 35, 35, 1);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    margin-top: -100px;
+    margin-left: -100px;
+    text-align: center;
+  }
+   */
+
+
+.dt-paging-button {
+    padding: 5px 10px;
+    border: none;
+    background-color: rgba(113, 142, 191, 1);
+    color: #FFFFFF;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
 }

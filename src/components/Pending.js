@@ -253,7 +253,7 @@ function Pending() {
                   </React.Fragment>
                 </table>
               </div>
-              <div className="col-12 d-flex justify-content-end pt-5 px-5 ">
+              {/* <div className="col-12 d-flex justify-content-end pt-5 px-5 ">
                 <nav aria-label="Page navigation example">
                   <ul class="pagination">
                     <li class="page-item">
@@ -284,7 +284,7 @@ function Pending() {
                     </li>
                   </ul>
                 </nav>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -225,7 +225,7 @@ function Sidebar() {
                 </div>
               </div>
 
-              <NavLink to="/modula-institution" className="menu-item mt-3">
+              <NavLink to="/modula-institution" className="menu-item mt-5">
                 Modular Institution
               </NavLink>
               <NavLink to="/people-details" className="menu-item mt-3">
