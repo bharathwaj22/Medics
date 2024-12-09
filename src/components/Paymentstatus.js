@@ -362,9 +362,9 @@ function Paymentstatus() {
                                             readOnly={isReadOnly}
                                           />
                                         </div>
-                                        <div className="col-4  mt-5 ">
+                                        <div className="col-12 d-flex justify-content-end  mt-5 ">
                                           <div className="popup-edit ">
-                                            <button className="save-btn1">
+                                            <button className="save-form">
                                               Edit
                                             </button>
                                           </div>

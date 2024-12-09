@@ -344,7 +344,7 @@
 /* Container */
 .dropdown-container {
     position: relative;
-    width:80%;
+    width:100%;
     font-family: 'regular-pp';
     color: rgba(113, 142, 191, 1);
     

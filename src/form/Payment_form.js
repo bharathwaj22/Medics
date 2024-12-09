@@ -14,7 +14,7 @@ function Payment_form() {
   const [showVendor, setShowVendor] = useState(false);
 
   const handleButtonClick = () => {
-    setShowFields(true);
+    setShowFields((prev) =>prev + 1); 
   };
 
   const handleWriterClick = () => {
@@ -102,7 +102,7 @@ function Payment_form() {
                   </div>
                 </div>
 
-                {showFields && (
+                {showFields >1 && (
                   <div className="row  p-3">
                     <div className="col-12 col-md-4">
                       <label className="statis-name">Payment two</label>
@@ -114,7 +114,7 @@ function Payment_form() {
                     </div>
                   </div>
                 )}
-                {showFields && (
+                {showFields >2 && (
                   <div className="row  p-3">
                     <div className="col-12 col-md-4">
                       <label className="statis-name">Payment three</label>
@@ -129,12 +129,12 @@ function Payment_form() {
                 <div className="row p-4">
                   <div className="col d-flex gap-3 ">
                     <input type="checkbox" id="writer" onClick={handleWriterClick} />
-                    <label className="" htmlFor="writer">Writer</label>
+                    <label className="statis-name" htmlFor="writer">Writer</label>
                     <input type="checkbox" id="reviewer" onClick={handleReviewerClick} />
-                    <label className="" htmlFor="reviewer">Reviewer</label>
+                    <label className="statis-name" htmlFor="reviewer">Reviewer</label>
 
                     <input type="checkbox" id="vendor" onClick={handleVendorClick} />
-                    <label className="" htmlFor="vendor">Vendor</label>
+                    <label className="statis-name" htmlFor="vendor">Vendor</label>
                   </div>
                 </div>
                 {showWriter && (
@@ -174,7 +174,7 @@ function Payment_form() {
                     </div>
                     <div className="col-12 col-md-4">
                       <label className="statis-name">
-                        {" "}
+                        
                         Vendor Payment Date
                       </label>
                       <input type="date" className="form-control mt-2" />

@@ -565,16 +565,28 @@ function App() {
   ];
 
   return (
-    <DataTable
-      data={data}
-      columns={columns}
-      className="display"
-      options={{
-        responsive: true,
-        select: true,
+    // <DataTable
+    //   data={data}
+    //   columns={columns}
+    //   className="display"
+    //   options={{
+    //     responsive: true,
+    //     select: true,
         
-      }}
-    />
+    //   }}
+    // />
+    <DataTable
+    data={data}
+    columns={columns}
+    className="display"
+    options={{
+      
+      scrollX: true, // Enables horizontal scrolling
+      scrollX: '100%', // Sets the height of the scrolling area to 50% of the viewport height
+      select: true,
+      paging: true, // Enables pagination
+    }}
+  />
   );
 }
 

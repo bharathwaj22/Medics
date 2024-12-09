@@ -152,10 +152,10 @@ function Enterprocess_form() {
               <form>
                 <div className="row w-100 mt-2 ">
                   <div className="col-md-4 float-start pt-5  ">
-                    <h5 className="statis-name mt-1 mx-2">Entry Date</h5>
+                    <h5 className="statis-name  mx-2">Entry Date</h5>
                     <input
                       type="date"
-                      className={`client-info1 ${
+                      className={`form-control ${
                         errors.entryDateType ? "error" : ""
                       }`}
                       name="entryDate"
@@ -169,7 +169,7 @@ function Enterprocess_form() {
                     <h5 className="statis-name ">Title</h5>
                     <input
                       type="text"
-                      className={`client-info1 ${errors.title ? "error" : ""}`}
+                      className={`form-control ${errors.title ? "error" : ""}`}
                       name="title"
                       placeholder="Enter the Title"
                       value={formData.title}
@@ -181,7 +181,7 @@ function Enterprocess_form() {
                   <div className="col-md-4 float-start pt-5 ">
                     <h5 className="statis-name ">Type Of Work</h5>
                     <select
-                      className={` client-info1 ${
+                      className={`form-control ${
                         errors.typeofwork ? "error" : ""
                       }`}
                       name="typeofwork"
@@ -203,7 +203,7 @@ function Enterprocess_form() {
                   <div className="col-md-4 float-start pt-5 ">
                     <input
                       type="text"
-                      className="client-info1  "
+                      className="form-control  "
                       name="clientName"
                       placeholder=""
                       value={formData.clientName}
@@ -220,7 +220,7 @@ function Enterprocess_form() {
                     <h5 className="statis-name ">Client Name</h5>
                     <input
                       type="text"
-                      className={`client-info1  ${
+                      className={`form-control  ${
                         errors.clientName ? "error" : ""
                       }`}
                       name="clientName"
@@ -236,7 +236,7 @@ function Enterprocess_form() {
 
                     <div className="dropdown-container ">
                       <div
-                        className={`client-info1 dropdown-header  pt-3 px-3   ${
+                        className={`form-control dropdown-header  pt-3 px-3   ${
                           errors.profession ? "error" : ""
                         }`}
                         //   Value={formData.profession}
@@ -290,9 +290,9 @@ function Enterprocess_form() {
 
                   <div className="col-md-4 float-start pt-3  ">
                     <h5 className="statis-name ">Institute</h5>
-                    <div className="dropdown-container">
+                    <div className="dropdown-container ">
                       <div
-                        className={`client-info1 dropdown-header pt-3 px-3 ${
+                        className={`form-control dropdown-header pt-3 px-3 ${
                           errors.institute ? "error" : ""
                         }`}
                         onClick={toggleDropdowninstitue}
@@ -343,7 +343,7 @@ function Enterprocess_form() {
                     <h5 className="statis-name mt-5 ">Contact No</h5>
                     <input
                       type="number"
-                      className={`client-info1 ${
+                      className={`form-control ${
                         errors.contactNo ? "error" : ""
                       }`}
                       placeholder="Enter the Contact No"
@@ -409,7 +409,7 @@ function Enterprocess_form() {
 
                     <input
                       type="email"
-                      className={`client-info1 ${errors.email ? "error" : ""}`}
+                      className={`form-control ${errors.email ? "error" : ""}`}
                       name="email"
                       placeholder="Enter the Email"
                       value={formData.email}
@@ -420,7 +420,7 @@ function Enterprocess_form() {
                   <div className="col-md-4 float-start mt-3 pt-5">
                     <h5 className="statis-name ">Hierarchy Level</h5>
                     <select
-                      className={`client-info1 ${
+                      className={`form-control ${
                         errors.hierarchy ? "error" : ""
                       }`}
                       name="hierarchy"

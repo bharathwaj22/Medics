@@ -285,8 +285,8 @@ function Entryprocess() {
                                           readOnly={isReadOnly}
                                         />
                                       </div>
-                                      <div className="col-md-6 float-start pt-5 ">
-                                        <button className="save-btn1">
+                                      <div className="col-md-12 d-flex justify-content-end float-start pt-5 ">
+                                        <button className="save-form">
                                           Edit
                                         </button>
                                       </div>

@@ -172,7 +172,7 @@ function ProcessStatus() {
                                   {/* <img className="pop " src={popup} alt="img" /> */}
 
                                   <div className="popup-content1   ">
-                                    <div className="row  mt-3 mx-2 py-4   ">
+                                    <div className="row  mt-3 mx-2 py-4    ">
                                       <div className="col-md-4 float-start pt-2">
                                         <h5 className="statis-name ">
                                           Process Title
@@ -204,7 +204,7 @@ function ProcessStatus() {
                                         />
                                       </div>
 
-                                      <div className="col-md-4 float-start pt-2">
+                                      <div className="col-md-4 float-start pt-4">
                                         <h5 className="statis-name   ">
                                           Process Commands
                                         </h5>
@@ -215,7 +215,7 @@ function ProcessStatus() {
                                         />
                                       </div>
 
-                                      <div className="col-md-4 float-start pt-2">
+                                      <div className="col-md-4 float-start pt-4">
                                         <h5 className="statis-name ">Writer</h5>
                                         <input
                                           type="text"
@@ -224,7 +224,7 @@ function ProcessStatus() {
                                         />
                                       </div>
 
-                                      <div className="col-md-4 float-start pt-2">
+                                      <div className="col-md-4 float-start pt-4">
                                         <h5 className="statis-name ">
                                           Writer Assigned Date
                                         </h5>
@@ -235,7 +235,7 @@ function ProcessStatus() {
                                         />
                                       </div>
 
-                                      <div className="col-md-4 float-start pt-2">
+                                      <div className="col-md-4 float-start pt-4">
                                         <h5 className="statis-name  ">
                                           Writer Status
                                         </h5>
@@ -245,7 +245,7 @@ function ProcessStatus() {
                                           readOnly={isReadOnly}
                                         />
                                       </div>
-                                      <div className="col-md-4 float-start pt-2">
+                                      <div className="col-md-4 float-start pt-4">
                                         <h5 className="statis-name">
                                           Writer Status Date
                                         </h5>
@@ -256,7 +256,7 @@ function ProcessStatus() {
                                         />
                                       </div>
 
-                                      <div className="col-md-4 float-start pt-2">
+                                      <div className="col-md-4 float-start pt-4">
                                         <h5 className="statis-name ">
                                           Reviewer
                                         </h5>
@@ -267,7 +267,7 @@ function ProcessStatus() {
                                         />
                                       </div>
 
-                                      <div className="col-md-4 float-start pt-2">
+                                      <div className="col-md-4 float-start pt-4">
                                         <h5 className="statis-name  ">
                                           Reviewer Assigned Date
                                         </h5>
@@ -277,7 +277,7 @@ function ProcessStatus() {
                                           readOnly={isReadOnly}
                                         />
                                       </div>
-                                      <div className="col-md-4 float-start pt-2">
+                                      <div className="col-md-4 float-start pt-4">
                                         <h5 className="statis-name  ">
                                           Reviewer Status
                                         </h5>
@@ -287,7 +287,7 @@ function ProcessStatus() {
                                           readOnly={isReadOnly}
                                         />
                                       </div>
-                                      <div className="col-md-4 float-start pt-2">
+                                      <div className="col-md-4 float-start pt-4">
                                         <h5 className="statis-name  ">
                                           Reviewer Status Date
                                         </h5>
@@ -298,8 +298,8 @@ function ProcessStatus() {
                                         />
                                       </div>
 
-                                      <div className="col-md-11 float-start pt-2 mt-5">
-                                        <button className="save-btn1">
+                                      <div className="col-md-11 float-start d-flex justify-content-end pt-2 mt-5">
+                                        <button className="save-form">
                                           Edit
                                         </button>
                                       </div>
