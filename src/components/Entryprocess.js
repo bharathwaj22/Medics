@@ -1,6 +1,6 @@
 import React from "react";
 import "../assests/css/entryprocess.css";
-import Vector from "..//assests/images/Vector.svg";
+
 
 // import Rectan from "..//assests/images/Rectan.svg";
 // import Prombl from "..//assests/images/prombl.png";
@@ -19,6 +19,15 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import Header from "./Header";
+
+import ReactDOM from "react-dom";
+
+
+import DataTable from "datatables.net-react";
+import DT from "datatables.net-dt";
+import "datatables.net-select-dt";
+import "datatables.net-responsive-dt";
+DataTable.use(DT);
 function Entryprocess() {
   const [data, setData] = useState([]);
 
@@ -55,6 +64,100 @@ function Entryprocess() {
 
   const openPopup = () => setIsOpen(true);
   const closePopup = () => setIsOpen(false);
+
+  // const renderActions = (row, openPopup) => {
+  //   const id = `actions-${row.sno}`;
+  //   setTimeout(() => {
+  //     const container = document.getElementById(id);
+  //     if (container && !container.hasChildNodes()) {
+  //       ReactDOM.render(
+  //         <div className="d-flex justify-content-center">
+  //           <VscEye onClick={openPopup} className="open-icon" />
+  //         </div>,
+  //         container
+  //       );
+  //     }
+  //   }, 0);
+  //   return `<div id="${id}"></div>`;
+  // };
+  
+
+  // table/
+  const columns = [
+   {
+      title: "S.NO",
+      data: null,
+      render: (data, type, row, meta) => meta.row + 1
+    },
+    { title: "ID", data: "id" },
+    { title: "DATE", data: "date" },
+    { title: "TITLE", data: "institution" },
+    { title: "TYPE OF WORK", data: "author" },
+    {
+      title: "PROCESS STATUS",
+      data: null,
+      render: (data, type, row) => {
+        const id = `process${row.sno}`;
+        setTimeout(() => {
+          const container = document.getElementById(id);
+          if (container && !container.hasChildNodes()) {
+            ReactDOM.render(<div>one</div>, container);
+          }
+        }, 0);
+        return `<div id="${id}"></div>`;
+      },
+    },
+    {
+      title: "PAYMENT STATUS",
+      data: null,
+      render: (data, type, row) => {
+        const id = `payment${row.sno}`;
+        setTimeout(() => {
+          const container = document.getElementById(id);
+          if (container && !container.hasChildNodes()) {
+            ReactDOM.render(<div>one</div>, container);
+          }
+        }, 0);
+        return `<div id="${id}"></div>`;
+      },
+    },
+    {
+      title: "PENDING",
+      data: null,
+      render: (data, type, row) => {
+        const id = `profession-${row.sno}`;
+        setTimeout(() => {
+          const container = document.getElementById(id);
+          if (container && !container.hasChildNodes()) {
+            ReactDOM.render(<div>one</div>, container);
+          }
+        }, 0);
+        return `<div id="${id}"></div>`;
+      },
+    },
+    {
+      title: "",
+      data: null,
+      render: (data, type, row) => {
+        const id = `actions-${row.sno}`;
+        setTimeout(() => {
+          const container = document.getElementById(id);
+          if (container && !container.hasChildNodes()) {
+            ReactDOM.render(
+              <div className="d-flex justify-content-cente r">
+                
+                <VscEye onClick={openPopup } className="open-icon" />
+               
+              </div>,
+              container
+            );
+          }
+        }, 0);
+        return `<div id="${id}"></div>`;
+      },
+    },
+  ];
+
   return (
     <section className=" main ">
       <div className=" row mt-4 w-100 ">
@@ -67,7 +170,7 @@ function Entryprocess() {
             <Header></Header>
           </div>
 
-          <div className="col-12 mt-3 pt-1 wapper w-100">
+          <div className="col-12 mt-3 pt-1 wapper w-100 py-5">
             <div className=" row mt-5 d-flex w-100 ">
               <div className="col     ">
                 <div className=" search-process position-relative mx-4 mt-3">
@@ -135,7 +238,7 @@ function Entryprocess() {
               <p className="heading-entr">Entry Process</p>
             </div>
 
-            <div className="col-12 px-2 table-responsive  table-wrapper-scroll-y my-custom-scrollbar  ">
+            {/* <div className="col-12 px-2 table-responsive  table-wrapper-scroll-y my-custom-scrollbar  ">
               <table className=" table-head   ">
                 <thead>
                   <tr className="text-center tr-head  ">
@@ -160,149 +263,137 @@ function Entryprocess() {
                         <td>{item.institution}</td>
                         <td>{item.author}</td>
                         <td>{item.profession}</td>
-                        <td>
-                          <VscEye onClick={openPopup} className="open-icon" />
-                          {isOpen && (
-                            <div className="popup-container">
-                              <div className="popup">
-                                <div className="popup-content">
-                                  <span className="close" onClick={closePopup}>
-                                    &times;
-                                  </span>
-                                  
+                        <td> */}
 
-                                  <div className="popup-content1 ">
-                                    <div className="row mt-1 mx-2 py-4">
-                                      <div className="col-md-4 float-start pt-2 ">
-                                        <h5 className="statis-name mx-3">
-                                          Entry Date
-                                        </h5>
+            <div className="px-1">
+              <DataTable
+                id="example"
+                data={data}
+                columns={columns}
+                className="display"
+                options={{ scrollX: true, select: true }}
+              />
+            </div>
+          
+            {isOpen && (
+              <div className="popup-container">
+                <div className="popup">
+                  <div className="popup-content">
+                    <span className="close" onClick={closePopup}>
+                      &times;
+                    </span>
 
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
-                                      <div className="col-md-4 float-start pt-2 ">
-                                        <h5 className="popup-name ">Title</h5>
+                    <div className="popup-content1 ">
+                      <div className="row mt-1 mx-2 py-4">
+                        <div className="col-md-4 float-start pt-2 ">
+                          <h5 className="statis-name mx-3">Entry Date</h5>
 
-                                        <input
-                                          type="text"
-                                          className="client-info1 "
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
-                                      <div className="col-md-4 float-start pt-2 ">
-                                        <h5 className="statis-name mx-2">
-                                          Type Of work
-                                        </h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className="col-md-4 float-start pt-2 ">
+                          <h5 className="popup-name ">Title</h5>
 
-                                      <div className="col-12">
-                                        <h5 className="client-name-pop py-2 mt-5 ">
-                                          CLIENT INFORMATION
-                                        </h5>
-                                      </div>
+                          <input
+                            type="text"
+                            className="client-info1 "
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className="col-md-4 float-start pt-2 ">
+                          <h5 className="statis-name mx-2">Type Of work</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
 
-                                      <div className="col-md-4 float-start pt-2 ">
-                                        <h5 className="statis-name ">
-                                          Client Name
-                                        </h5>
-                                        <input
-                                          type="none"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
-                                      <div className="col-md-4 float-start pt-2 ">
-                                        <h5 className="statis-name ">
-                                          Profession
-                                        </h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                        
-                                      </div>
+                        <div className="col-12">
+                          <h5 className="client-name-pop py-2 mt-5 ">
+                            CLIENT INFORMATION
+                          </h5>
+                        </div>
 
-                                      <div className="col-md-4 float-start pt-2 ">
-                                        <h5 className="statis-name ">
-                                          Institute
-                                        </h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+                        <div className="col-md-4 float-start pt-2 ">
+                          <h5 className="statis-name ">Client Name</h5>
+                          <input
+                            type="none"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className="col-md-4 float-start pt-2 ">
+                          <h5 className="statis-name ">Profession</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
 
-                                      <div className="col-md-4 float-start pt-2 ">
-                                        <h5 className="statis-name mt-5 ">
-                                          Contact No
-                                        </h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+                        <div className="col-md-4 float-start pt-2 ">
+                          <h5 className="statis-name ">Institute</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
 
-                                      <div className="col-md-4 float-start pt-2 ">
-                                        <h5 className="statis-name mt-5 ">
-                                          Department
-                                        </h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
-                                      <div className="col-md-4 float-start pt-2 ">
-                                        <h5 className="statis-name mt-5 ">
-                                          Email ID
-                                        </h5>
-                                        <input
-                                          type="email"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+                        <div className="col-md-4 float-start pt-2 ">
+                          <h5 className="statis-name mt-5 ">Contact No</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
 
-                                      <div className="col-md-4 float-start pt-5 ">
-                                        <h5 className="statis-name mt-2  ">
-                                          Hierarchical
-                                        </h5>
-                                        <input
-                                          type="email"
-                                          className="client-info1 mx-5"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
-                                      <div className="col-md-12 d-flex justify-content-end float-start pt-5 ">
-                                        <button className="save-form">
-                                          Edit
-                                        </button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-                        </td>
+                        <div className="col-md-4 float-start pt-2 ">
+                          <h5 className="statis-name mt-5 ">Department</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className="col-md-4 float-start pt-2 ">
+                          <h5 className="statis-name mt-5 ">Email ID</h5>
+                          <input
+                            type="email"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+
+                        <div className="col-md-4 float-start pt-5 ">
+                          <h5 className="statis-name mt-2  ">Hierarchical</h5>
+                          <input
+                            type="email"
+                            className="client-info1 mx-5"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className="col-md-12 d-flex justify-content-end float-start pt-5 ">
+                          <button className="save-form">Edit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            {/* </td>
                       </tr>
                     </tbody>
                   ))}
                 </React.Fragment>
               </table>
-            </div>
+            </div> */}
             {/* page */}
             {/* <div className="col-12 d-flex justify-content-end pt-5 px-5">
               <nav aria-label="Page navigation example">

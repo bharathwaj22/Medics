@@ -1,0 +1,52 @@
+[
+    {
+      "sno": "201",
+      "name": "Rabina",
+      "status": "active",
+      "editIcon": "<img src='path/to/edit-icon.png' alt='edit' />",
+      "deleteIcon": "<img src='path/to/delete-icon.png' alt='delete' />"
+    },
+    {
+      "sno": "202",
+      "name": "Kathleen Lamb",
+      "status": "inactive",
+      "editIcon": "<img src='path/to/edit-icon.png' alt='edit' />",
+      "deleteIcon": "<img src='path/to/delete-icon.png' alt='delete' />"
+    },
+    {
+      "sno": "203",
+      "name": "Erica Bell",
+      "status": "active",
+      "editIcon": "<img src='path/to/edit-icon.png' alt='edit' />",
+      "deleteIcon": "<img src='path/to/delete-icon.png' alt='delete' />"
+    },
+    {
+      "sno": "204",
+      "name": "Amy Jones",
+      "status": "inactive",
+      "editIcon": "<img src='path/to/edit-icon.png' alt='edit' />",
+      "deleteIcon": "<img src='path/to/delete-icon.png' alt='delete' />"
+    },
+    {
+      "sno": "205",
+      "name": "Michael Ward",
+      "status": "active",
+      "editIcon": "<img src='path/to/edit-icon.png' alt='edit' />",
+      "deleteIcon": "<img src='path/to/delete-icon.png' alt='delete' />"
+    },
+    {
+      "sno": "206",
+      "name": "Sarah Ryan",
+      "status": "inactive",
+      "editIcon": "<img src='path/to/edit-icon.png' alt='edit' />",
+      "deleteIcon": "<img src='path/to/delete-icon.png' alt='delete' />"
+    },
+    {
+      "sno": "207",
+      "name": "John Smith",
+      "status": "active",
+      "editIcon": "<img src='' alt='edit' />",
+      "deleteIcon": "<img src='path/to/delete-icon.png' alt='delete' />"
+    }
+  ]
+  

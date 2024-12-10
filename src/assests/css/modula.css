@@ -55,7 +55,8 @@
     border: 1px solid rgb(228, 16, 16)!important;
   }
 .form-label{
-    color:rgba(0, 0, 0, 0.885) !important;;
+    color:rgba(0, 0, 0, 0.885) !important;
+    text-align: center!important;
 }
 .form-control::placeholder {
     color: rgba(113, 142, 191, 1 )!important;
@@ -149,6 +150,7 @@
     border-radius: 5px;
     margin-left: 5px;
     cursor: pointer;
+   
     
 }
 
@@ -197,7 +199,17 @@ th{
 td{
   padding: 5px 10px;
   border-bottom: 1px solid #666666 !important;
+  text-align: center!important;
 
+}
+
+
+.view-details-process{
+  width: 80%;
+  height: 10px;
+  border-radius: 50px;
+  border: 1px solid rgba(113, 142, 191, 1);
+  color: rgba(113, 142, 191, 1);
 }
 
  
@@ -221,4 +233,18 @@ td{
   }
  
 }
+
+.modula-icon-del button {
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.modula-icon-del button:hover {
+  opacity: 0.9;
+}
+
 

@@ -213,7 +213,7 @@ function Sidebar() {
                   <Link to="/entry-process" className="   ">
                     Entry Process
                   </Link>
-                  <Link to="/processstatus" className=" ">
+                  {/* <Link to="/processstatus" className=" ">
                     Process Status
                   </Link>
                   <Link to="/paymentstatus" className="  ">
@@ -221,7 +221,7 @@ function Sidebar() {
                   </Link>
                   <Link to="/pending" className=" ">
                     Pending
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
 
