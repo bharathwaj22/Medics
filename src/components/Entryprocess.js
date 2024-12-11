@@ -1,7 +1,6 @@
 import React from "react";
 import "../assests/css/entryprocess.css";
 
-
 // import Rectan from "..//assests/images/Rectan.svg";
 // import Prombl from "..//assests/images/prombl.png";
 import { IoIosSearch } from "react-icons/io";
@@ -22,11 +21,12 @@ import Header from "./Header";
 
 import ReactDOM from "react-dom";
 
-
 import DataTable from "datatables.net-react";
 import DT from "datatables.net-dt";
 import "datatables.net-select-dt";
 import "datatables.net-responsive-dt";
+
+import { useNavigate } from "react-router-dom";
 DataTable.use(DT);
 function Entryprocess() {
   const [data, setData] = useState([]);
@@ -80,74 +80,109 @@ function Entryprocess() {
   //   }, 0);
   //   return `<div id="${id}"></div>`;
   // };
-  
 
   // table/
+  const navigate = useNavigate();
   const columns = [
-   {
+    {
       title: "S.NO",
       data: null,
-      render: (data, type, row, meta) => meta.row + 1
+      render: (data, type, row, meta) => meta.row + 1,
     },
     { title: "ID", data: "id" },
     { title: "DATE", data: "date" },
     { title: "TITLE", data: "institution" },
     { title: "TYPE OF WORK", data: "author" },
+    // {
+    //   title: "PROCESS STATUS",
+    //   data: null,
+    //   render: (data, type, row) => {
+    //     const id = `process-${row.sno || Math.random()}`;
+    //     setTimeout(() => {
+    //       const container = document.getElementById(id);
+    //       if (container && !container.hasChildNodes()) {
+    //         ReactDOM.render(
+    //           <div className="d-flex justify-content-center">
+    //             <button
+    //               className="modula-main"
+    //               onClick={() => navigate(`/process-status-form`)}
+    //             >
+    //               View
+    //             </button>
+    //           </div>,
+    //           container
+    //         );
+    //       }
+    //     }, 0);
+    //     return `<div id="${id}"></div>`;
+    //   },
+    // },
+    // {
+    //   title: "PAYMENT STATUS",
+    //   data: null,
+    //   render: (data, type, row) => {
+    //     const id = `process-${row.sno || Math.random()}`;
+    //     setTimeout(() => {
+    //       const container = document.getElementById(id);
+    //       if (container && !container.hasChildNodes()) {
+    //         ReactDOM.render(
+    //           <div className="d-flex justify-content-center">
+    //             <button
+    //               className="modula-main"
+    //               onClick={() => navigate(`/payment-form`)}
+    //             >
+    //               View
+    //             </button>
+    //           </div>,
+    //           container
+    //         );
+    //       }
+    //     }, 0);
+    //     return `<div id="${id}"></div>`;
+    //   },
+    // },
+
+    // {
+    //   title: "PENDING",
+    //   data: null,
+    //   render: (data, type, row) => {
+    //     const id = `process-${row.sno || Math.random()}`;
+    //     setTimeout(() => {
+    //       const container = document.getElementById(id);
+    //       if (container && !container.hasChildNodes()) {
+    //         ReactDOM.render(
+    //           <div className="d-flex justify-content-center">
+    //             <button
+    //               className="modula-main"
+    //               onClick={() => navigate(`/pending-form`)}
+    //             >
+    //               View
+    //             </button>
+    //           </div>,
+    //           container
+    //         );
+    //       }
+    //     }, 0);
+    //     return `<div id="${id}"></div>`;
+    //   },
+    // },
+
     {
-      title: "PROCESS STATUS",
+      title: "Actions",
       data: null,
       render: (data, type, row) => {
-        const id = `process${row.sno}`;
-        setTimeout(() => {
-          const container = document.getElementById(id);
-          if (container && !container.hasChildNodes()) {
-            ReactDOM.render(<div>one</div>, container);
-          }
-        }, 0);
-        return `<div id="${id}"></div>`;
-      },
-    },
-    {
-      title: "PAYMENT STATUS",
-      data: null,
-      render: (data, type, row) => {
-        const id = `payment${row.sno}`;
-        setTimeout(() => {
-          const container = document.getElementById(id);
-          if (container && !container.hasChildNodes()) {
-            ReactDOM.render(<div>one</div>, container);
-          }
-        }, 0);
-        return `<div id="${id}"></div>`;
-      },
-    },
-    {
-      title: "PENDING",
-      data: null,
-      render: (data, type, row) => {
-        const id = `profession-${row.sno}`;
-        setTimeout(() => {
-          const container = document.getElementById(id);
-          if (container && !container.hasChildNodes()) {
-            ReactDOM.render(<div>one</div>, container);
-          }
-        }, 0);
-        return `<div id="${id}"></div>`;
-      },
-    },
-    {
-      title: "",
-      data: null,
-      render: (data, type, row) => {
-        const id = `actions-${row.sno}`;
+        const id = `process-${row.sno || Math.random()}`;
         setTimeout(() => {
           const container = document.getElementById(id);
           if (container && !container.hasChildNodes()) {
             ReactDOM.render(
-              <div className="d-flex justify-content-cente r">
-                
-                <VscEye onClick={openPopup } className="open-icon" />
-               
+              <div className="d-flex justify-content-center">
+                 <button
+                  className="modula-main"
+                  onClick={() => navigate(`/process-view-details`)}
+                >
+                  View Details
+                </button>
               </div>,
               container
             );
@@ -171,9 +206,9 @@ function Entryprocess() {
           </div>
 
           <div className="col-12 mt-3 pt-1 wapper w-100 py-5">
-            <div className=" row mt-5 d-flex w-100 ">
-              <div className="col     ">
-                <div className=" search-process position-relative mx-4 mt-3">
+            <div className=" row mt-3 d-flex w-100 ">
+              
+                {/* <div className=" search-process position-relative mx-4 mt-3">
                   <input
                     type="text"
                     className=" search-entry position-absolute z n1 "
@@ -181,9 +216,13 @@ function Entryprocess() {
                   ></input>
 
                   <IoIosSearch className="   search-icon position-relative  "></IoIosSearch>
-                </div>
-              </div>
-              <div className="col-2 text-center mt-0 ">
+                </div> */}
+                 <div className="col-5 d-flex mt-2 px-4 ">
+              <p className="heading-entr">Entry Process</p>
+            </div>
+
+              
+              <div className="col-2 text-center mt-2 ">
                 <div className=" d-flex justify-content-center    ">
                   <div className="add-icon">
                     <NavLink to="/enter_process_form">
@@ -234,9 +273,9 @@ function Entryprocess() {
               </div>
             </div>
 
-            <div className="col-12 d-flex mt-4 px-4 ">
+            {/* <div className="col-12 d-flex mt-4 px-4 ">
               <p className="heading-entr">Entry Process</p>
-            </div>
+            </div> */}
 
             {/* <div className="col-12 px-2 table-responsive  table-wrapper-scroll-y my-custom-scrollbar  ">
               <table className=" table-head   ">
@@ -274,7 +313,7 @@ function Entryprocess() {
                 options={{ scrollX: true, select: true }}
               />
             </div>
-          
+
             {isOpen && (
               <div className="popup-container">
                 <div className="popup">

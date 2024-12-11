@@ -90,7 +90,7 @@ function Modula_Profession() {
       title: "Actions",
       data: null,
       render: (data, type, row) => {
-        const id = `actions-${row.sno}`;
+        const id = `actions-${row.sno || Math.random()}`;
         setTimeout(() => {
           const container = document.getElementById(id);
           if (container && !container.hasChildNodes()) {

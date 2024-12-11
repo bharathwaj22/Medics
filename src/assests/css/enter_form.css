@@ -517,3 +517,13 @@
    size: 20px;
    border: 1px solid #fff;
 }
+.save-form-del{
+    font-family: 'pp-bold';
+    color: #fff;
+    
+    padding: 10px 50px;
+     border-radius: 31px;
+     background-color:rgb(233, 10, 10);
+   size: 20px;
+   border: 1px solid #fff;
+}

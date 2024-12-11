@@ -203,10 +203,10 @@ function Sidebar() {
 
              
               <div className="">
-                <button className="menu-item mt-3" onClick={toggledropdown}>
-                  Process <i className="fa fa-caret-down"></i>
-                </button>
-                <div
+                <NavLink className="menu-item mt-3" onClick={toggledropdown}>
+                   Entry Process 
+                </NavLink>
+                {/* <div
                   className={`dropdown-content ${isOpen1 ? "show" : ""}`}
                   
                 >
@@ -222,10 +222,10 @@ function Sidebar() {
                   <Link to="/pending" className=" ">
                     Pending
                   </Link> */}
-                </div>
+                {/* </div> */} 
               </div>
 
-              <NavLink to="/modula-institution" className="menu-item mt-5">
+              <NavLink to="/modula-institution" className="menu-item mt-3">
                 Modular Institution
               </NavLink>
               <NavLink to="/people-details" className="menu-item mt-3">

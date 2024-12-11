@@ -13,6 +13,15 @@ import axios from "axios";
 // import of process status
 import { Link } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
+import ReactDOM from "react-dom";
+
+import DataTable from "datatables.net-react";
+import DT from "datatables.net-dt";
+import "datatables.net-select-dt";
+import "datatables.net-responsive-dt";
+
+// import { useNavigate } from "react-router-dom";
+DataTable.use(DT);
 
 function ProcessStatus() {
   const [date, setDate] = useState(null);
@@ -50,6 +59,44 @@ function ProcessStatus() {
   const openPopup = () => setIsOpen(true);
   const closePopup = () => setIsOpen(false);
 
+
+  const columns = [
+    {
+      title: "S.NO",
+      data: null,
+      render: (data, type, row, meta) => meta.row + 1,
+    },
+    { title: "ID  ", data: "id" },
+    { title: "DATE  ", data: "date" },
+    { title: "PROCESS TITLE", data: "institution" },
+    { title: "STATISTICAN ", data: "institution" },
+    { title: "WRITER ", data: "institution" },
+    { title: "REVIEWER ", data: "institution" },
+    
+    {
+      title: "",
+      data: null,
+      render: (data, type, row) => {
+        const id = `actions-${row.sno || Math.random()}`;
+        setTimeout(() => {
+          const container = document.getElementById(id);
+          if (container && !container.hasChildNodes()) {
+            ReactDOM.render(
+              <div className="d-flex justify-content-center">
+                <VscEye onClick={openPopup} className="open-icon" />
+                  
+
+                  
+              </div>,
+              container
+            );
+          }
+        }, 0);
+        return `<div id="${id}"></div>`;
+      },
+    },
+  ]
+
   return (
     <section className="main  w-100">
       <div className="row mt-4 w-100">
@@ -61,10 +108,10 @@ function ProcessStatus() {
             <Header></Header>
           </div>
 
-          <div className="col-11 wapper w-100 mt-3 pt-1">
-            <div className=" row mt-5 d-flex w-100  ">
-              <div className="col-5">
-              <div className=" search-process position-relative mx-4 mt-3">
+          <div className="col-11 wapper w-100 mt-3 pt-1 py-5">
+            <div className=" row mt-3 d-flex w-100  ">
+              {/* <div className="col-5">
+                <div className=" search-process position-relative mx-4 mt-3">
                   <input
                     type="text"
                     className=" search-entry position-absolute z n1 "
@@ -73,8 +120,11 @@ function ProcessStatus() {
 
                   <IoIosSearch className="   search-icon position-relative  "></IoIosSearch>
                 </div>
-              </div>
-              <div className="col-2 text-center mt-0 ">
+              </div> */}
+               <div className="col-5 d-flex mt-2 px-4 ">
+              <p className="heading-entr"> Process Status</p>
+               </div>
+              <div className="col-2 text-center mt-2 ">
                 <div className="d-flex justify-content-center ">
                   <div className="add-icon">
                     <Link to="/process-status-form">
@@ -125,11 +175,11 @@ function ProcessStatus() {
               </div>
             </div>
 
-            <div className="col-12 d-flex mt-4 px-4 ">
+            {/* <div className="col-12 d-flex mt-4 px-4 ">
               <p className="heading-entr"> Process Status</p>
-            </div>
+            </div> */}
 
-            <div className="col-12 px-2 table-responsive  table-wrapper-scroll-y my-custom-scrollbar  ">
+            {/* <div className="col-12 px-2 table-responsive  table-wrapper-scroll-y my-custom-scrollbar  ">
               <table className="    table-head  ">
                 <thead>
                   <tr className="text-center tr-head  ">
@@ -160,162 +210,187 @@ function ProcessStatus() {
                         <td>{item.author}</td>
                         <td>{item.profession}</td>
                         <td>{item.profession}</td>
-                        <td>
-                          <VscEye onClick={openPopup} className="open-icon" />
-                          {isOpen && (
-                            <div className="popup-container">
-                              <div className="popup">
-                                <div className="popup-content ">
-                                  <span className="close" onClick={closePopup}>
-                                    &times;
-                                  </span>
-                                  {/* <img className="pop " src={popup} alt="img" /> */}
+                        <td> */}
 
-                                  <div className="popup-content1   ">
-                                    <div className="row  mt-3 mx-2 py-4    ">
-                                      <div className="col-md-4 float-start pt-2">
-                                        <h5 className="statis-name ">
-                                          Process Title
-                                        </h5>
-                                        <input
-                                          type="none"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
-                                      <div className="col-md-4 float-start pt-2">
-                                        <h5 className="statis-name ">
-                                          Process Status
-                                        </h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
-                                      <div className=" col-md-4 float-start pt-2">
-                                        <h5 className="statis-name ">
-                                          Process Status Date
-                                        </h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+            <div className="px-1">
+              <DataTable
+                id="example"
+                data={data}
+                columns={columns}
+                className="display"
+                options={{ scrollX: true, select: true }}
+              />
+            </div>
+            {/* <VscEye onClick={openPopup} className="open-icon" /> */}
+            {isOpen && (
+              <div className="popup-container">
+                <div className="popup">
+                  <div className="popup-content ">
+                    <span className="close" onClick={closePopup}>
+                      &times;
+                    </span>
+                    {/* <img className="pop " src={popup} alt="img" /> */}
 
-                                      <div className="col-md-4 float-start pt-4">
-                                        <h5 className="statis-name   ">
-                                          Process Commands
-                                        </h5>
-                                        <input
-                                          type="email"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+                    <div className="popup-content1   ">
+                      <div className="row  mt-3 mx-2 py-4    ">
+                        <div className="col-md-3 float-start pt-2">
+                          <h5 className="statis-name ">Process Title</h5>
+                          <input
+                            type="none"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className="col-md-3 float-start pt-2">
+                          <h5 className="statis-name ">Process Status</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className=" col-md-3 float-start pt-2">
+                          <h5 className="statis-name ">Process Status Date</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
 
-                                      <div className="col-md-4 float-start pt-4">
-                                        <h5 className="statis-name ">Writer</h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+                        <div className="col-md-3 float-start pt-2">
+                          <h5 className="statis-name   "> Commands Box</h5>
+                          <input
+                            type="email"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
 
-                                      <div className="col-md-4 float-start pt-4">
-                                        <h5 className="statis-name ">
-                                          Writer Assigned Date
-                                        </h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name ">Writer</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
 
-                                      <div className="col-md-4 float-start pt-4">
-                                        <h5 className="statis-name  ">
-                                          Writer Status
-                                        </h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
-                                      <div className="col-md-4 float-start pt-4">
-                                        <h5 className="statis-name">
-                                          Writer Status Date
-                                        </h5>
-                                        <input
-                                          type="email"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name ">Writer Assigned Date</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
 
-                                      <div className="col-md-4 float-start pt-4">
-                                        <h5 className="statis-name ">
-                                          Reviewer
-                                        </h5>
-                                        <input
-                                          type="text"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name  ">Writer Status</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name">Writer Status Date</h5>
+                          <input
+                            type="email"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
 
-                                      <div className="col-md-4 float-start pt-4">
-                                        <h5 className="statis-name  ">
-                                          Reviewer Assigned Date
-                                        </h5>
-                                        <input
-                                          type="email"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
-                                      <div className="col-md-4 float-start pt-4">
-                                        <h5 className="statis-name  ">
-                                          Reviewer Status
-                                        </h5>
-                                        <input
-                                          type="email"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
-                                      <div className="col-md-4 float-start pt-4">
-                                        <h5 className="statis-name  ">
-                                          Reviewer Status Date
-                                        </h5>
-                                        <input
-                                          type="email"
-                                          className="client-info1"
-                                          readOnly={isReadOnly}
-                                        />
-                                      </div>
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name ">Reviewer</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
 
-                                      <div className="col-md-11 float-start d-flex justify-content-end pt-2 mt-5">
-                                        <button className="save-form">
-                                          Edit
-                                        </button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-                        </td>
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name  ">
+                            Reviewer Assigned Date
+                          </h5>
+                          <input
+                            type="email"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name  ">Reviewer Status</h5>
+                          <input
+                            type="email"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name  ">
+                            Reviewer Status Date
+                          </h5>
+                          <input
+                            type="email"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name ">Statistican</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name ">Statistican Assigned Date</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name  ">Statistican Status</h5>
+                          <input
+                            type="text"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+                        <div className="col-md-3 float-start pt-4">
+                          <h5 className="statis-name">Statistican Status Date</h5>
+                          <input
+                            type="email"
+                            className="client-info1"
+                            readOnly={isReadOnly}
+                          />
+                        </div>
+
+                        <div className="col-md-11 float-start d-flex justify-content-end pt-2 mt-5">
+                          <button className="save-form">Edit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            {/* </td>
                       </tr>
                     </tbody>
                   ))}
                 </React.Fragment>
               </table>
-            </div>
+            </div> */}
             {/* <div className="col-12 d-flex justify-content-end pt-5 px-5">
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
@@ -351,32 +426,6 @@ function ProcessStatus() {
           </div>
         </div>
       </div>
-
-      {/* <div className="row w-100 mt-2 d-xl-none position-relative  ">
-          <img className="img-fluid   " src={Prombl} alt="img" />
-          <div className=" position-absolute">
-            <div className="col-4  position-relative">
-              <input
-                type="text"
-                className="search-intt"
-                placeholder="search"
-              ></input>
-              <span>
-                <IoIosSearch className=" position-absolute search-icon"></IoIosSearch>
-              </span>
-            </div>
-            <div className="col-4 text-center">
-              <img className="img-fluid " src={Vector} alt="img" />
-            </div>
-            <div className="col-4 d-flex ">
-              <button className="filter-butn">
-                {" "}
-                Fillter
-                <IoFilter className="filter-icon mx-3" />
-              </button>
-            </div>
-          </div>
-        </div> */}
     </section>
   );
 }

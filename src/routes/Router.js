@@ -16,7 +16,7 @@ import Modula from "../modulas/Modula_institution";
 import Modula_department from "../modulas/Modula_department";
 import Modula_profession from "../modulas/Modula_profession";
 import Process_statistic from "../form/Process_status-form";
-import Institute_form from "../modulas/Institution_form";
+import Institute_form from "../form/Process_details";
 
 import Department_form from "../modulas/Department_form";
 
@@ -48,7 +48,7 @@ function Router() {
         <Route path="/modula-institution" element={<Modula />} />
         <Route path="/modula-department" element={<Modula_department />} />
         <Route path="/modula-profession" element={<Modula_profession />} />
-        <Route path="/institute-form" element={<Institute_form />} />
+        <Route path="/process-view-details" element={<Institute_form />} />
         <Route path="/department-form" element={<Department_form />} />
         <Route path="/profession-form" element={<Profession_form />} />
          {/* form */}

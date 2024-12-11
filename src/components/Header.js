@@ -18,6 +18,7 @@ function Header() {
       <div className="row w-100 header-hide  d-none d-xl-flex  ">
         
         <div className=" col-5 mt-3 pt-2 py-2   d-flex  justify-content-around align-items-center head-button ">
+          
           <NavLink to="/entry-process" className="btn1   ">
             Entry Process
           </NavLink>
@@ -30,9 +31,10 @@ function Header() {
           <NavLink to="/pending" className="btn1 mx-1 ">
             Pending
           </NavLink>
+            
         </div>
 
-        <div className="col-2 d-flex justify-content-center  px-0 ">
+        <div className="col-2 d-flex justify-content-center   px-0 ">
           <img className="img-fluid header-logo   " src={Vector} alt="img" />
         </div>
 

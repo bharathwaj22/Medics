@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../assests/css/payment_form.css";
 import Sider from "../components/Sider";
 import Header from "../components/Header.js";
+import { Link } from "react-router-dom";
 
 function Payment_form() {
   // const handleSubmit = (e) => {
@@ -12,9 +13,10 @@ function Payment_form() {
   const [showWriter, setShowWriter] = useState(false);
   const [showReviewer, setShowReviewer] = useState(false);
   const [showVendor, setShowVendor] = useState(false);
+  const [showjournal, setShowJournal] =useState(false);
 
   const handleButtonClick = () => {
-    setShowFields((prev) =>prev + 1); 
+    setShowFields((prev) =>prev +1); 
   };
 
   const handleWriterClick = () => {
@@ -28,10 +30,21 @@ function Payment_form() {
     
   };
 
-  const handleVendorClick = () => {
+  const handleStatisticanClick = () => {
     setShowVendor(!showVendor);
     
   };
+  
+  
+  const handleJournalClick = () => {
+    setShowJournal(!showjournal);
+    
+  };
+  const handleDeleteField = () => {
+    setShowFields((prev) => (prev > 0 ? prev - 1 : 0)); 
+  };
+
+
 
   return (
     <>
@@ -102,7 +115,7 @@ function Payment_form() {
                   </div>
                 </div>
 
-                {showFields >1 && (
+                {showFields >0 && (
                   <div className="row  p-3">
                     <div className="col-12 col-md-4">
                       <label className="statis-name">Payment two</label>
@@ -112,9 +125,19 @@ function Payment_form() {
                       <label className="statis-name">Payment Date</label>
                       <input type="date" className="form-control mt-2" />
                     </div>
-                  </div>
+                  
+                  <div className="col d-flex justify-content-start py-4 mt-3">
+                  <button
+                    type="button"
+                    className="save-form-del"
+                    onClick={handleDeleteField}
+                  >
+                    Delete
+                  </button>
+                </div>
+                </div>
                 )}
-                {showFields >2 && (
+                {showFields >1 && (
                   <div className="row  p-3">
                     <div className="col-12 col-md-4">
                       <label className="statis-name">Payment three</label>
@@ -124,19 +147,39 @@ function Payment_form() {
                       <label className="statis-name">Payment Date</label>
                       <input type="date" className="form-control mt-2" />
                     </div>
-                  </div>
+                  
+                  <div className="col d-flex justify-content-start py-4 mt-3">
+                  <button
+                    type="button"
+                    className="save-form-del"
+                    onClick={handleDeleteField}
+                  >
+                    Delete
+                  </button>
+                </div>
+                </div>
                 )}
                 <div className="row p-4">
-                  <div className="col d-flex gap-3 ">
-                    <input type="checkbox" id="writer" onClick={handleWriterClick} />
-                    <label className="statis-name" htmlFor="writer">Writer</label>
-                    <input type="checkbox" id="reviewer" onClick={handleReviewerClick} />
-                    <label className="statis-name" htmlFor="reviewer">Reviewer</label>
+                 
+                   <div className="col-6 col-md-2">
+                   <input type="checkbox" id="writer" onClick={handleWriterClick} />
+                   <label className="statis-name1 " htmlFor="writer">Writer</label>
+                    </div>
+                   <div className="col-6 col-md-2">
+                   <input type="checkbox" id="reviewer" onClick={handleReviewerClick} />
+                   <label className="statis-name1" htmlFor="reviewer">Reviewer</label>
+                   </div>
 
-                    <input type="checkbox" id="vendor" onClick={handleVendorClick} />
-                    <label className="statis-name" htmlFor="vendor">Vendor</label>
+                    <div className="col-6 col-md-2">
+                    <input type="checkbox" id="vendor" onClick={handleStatisticanClick} />
+                    <label className="statis-name1" htmlFor="vendor">Statistican</label>
+                    </div>
+                   <div className="col-6 col-md-2">
+                   <input type="checkbox" id="jounel" onClick={handleJournalClick} />
+                   <label className="statis-name1" htmlFor="jounel">Journal </label>
+                   </div>
                   </div>
-                </div>
+               
                 {showWriter && (
                   <div className="row  p-3">
                     <div className="col-12 col-md-4">
@@ -169,13 +212,28 @@ function Payment_form() {
                 {showVendor && (
                   <div className="row  p-3">
                     <div className="col-12 col-md-4">
-                      <label className="statis-name">Vendor Payment</label>
+                      <label className="statis-name">Statistican Payment</label>
                       <input type="number" className="form-control mt-2" />
                     </div>
                     <div className="col-12 col-md-4">
                       <label className="statis-name">
                         
-                        Vendor Payment Date
+                        Statistican Payment Date
+                      </label>
+                      <input type="date" className="form-control mt-2" />
+                    </div>
+                  </div>
+                )}
+                 {showjournal && (
+                  <div className="row  p-3">
+                    <div className="col-12 col-md-4">
+                      <label className="statis-name">Journal</label>
+                      <input type="number" className="form-control mt-2" />
+                    </div>
+                    <div className="col-12 col-md-4">
+                      <label className="statis-name">
+                        
+                        Jounel Payment Date
                       </label>
                       <input type="date" className="form-control mt-2" />
                     </div>
@@ -195,7 +253,10 @@ function Payment_form() {
                   </select>
                 </div>
 
-                <div className="col-md-12  d-flex justify-content-end py-5 px-5    ">
+                <div className="col-md-12  d-flex justify-content-end py-5 px-1 gap-4   ">
+                <Link to="/paymentstatus"><button type="submit" className="save-form">
+                    Back
+                  </button></Link>
                   <button type="submit" className="save-form">
                     Save
                   </button>

@@ -3,6 +3,7 @@ import "../assests/css/enter_form.css";
 
 import Sider from "../components/Sider.js";
 import Header from "../components/Header.js";
+import { Link } from "react-router-dom";
 
 // import  from "react";
 
@@ -148,10 +149,10 @@ function Enterprocess_form() {
               <Header></Header>
             </div>
 
-            <div className="col-12  wapper w-100 mt-3 px-5 ">
+            <div className="col-12  wapper w-100 mt-3  ">
               <form>
-                <div className="row w-100 mt-2 ">
-                  <div className="col-md-4 float-start pt-5  ">
+                <div className="row w-100 mt-2 px-3 ">
+                  <div className="col-12 col-md-4 float-start pt-5  ">
                     <h5 className="statis-name  mx-2">Entry Date</h5>
                     <input
                       type="date"
@@ -165,7 +166,7 @@ function Enterprocess_form() {
                     />
                   </div>
 
-                  <div className=" col-md-4 float-start pt-5 ">
+                  <div className=" col-12 col-md-4 float-start pt-5 ">
                     <h5 className="statis-name ">Title</h5>
                     <input
                       type="text"
@@ -178,7 +179,7 @@ function Enterprocess_form() {
                     />
                   </div>
 
-                  <div className="col-md-4 float-start pt-5 ">
+                  <div className="col-12 col-md-4 float-start pt-5 ">
                     <h5 className="statis-name ">Type Of Work</h5>
                     <select
                       className={`form-control ${
@@ -200,7 +201,7 @@ function Enterprocess_form() {
                     </select>
                   </div>
 
-                  <div className="col-md-4 float-start pt-5 ">
+                  <div className="col-12 col-md-4 float-start pt-5 ">
                     <input
                       type="text"
                       className="form-control  "
@@ -216,7 +217,7 @@ function Enterprocess_form() {
                     <h5 className="client-name-pop ">Client Information</h5>
                   </div>
 
-                  <div className="col-md-4 float-start pt-3  ">
+                  <div className="col-12 col-md-4 float-start pt-3  ">
                     <h5 className="statis-name ">Client Name</h5>
                     <input
                       type="text"
@@ -230,7 +231,7 @@ function Enterprocess_form() {
                       required
                     />
                   </div>
-                  <div className=" col-md-4 float-start pt-3 ">
+                  <div className=" col-12 col-md-4 float-start pt-3 ">
                     <h5 className="statis-name ">Profession</h5>
                     {/* input */}
 
@@ -288,7 +289,7 @@ function Enterprocess_form() {
                   </div>
                  
 
-                  <div className="col-md-4 float-start pt-3  ">
+                  <div className="col-12 col-md-4 float-start pt-3  ">
                     <h5 className="statis-name ">Institute</h5>
                     <div className="dropdown-container ">
                       <div
@@ -339,7 +340,7 @@ function Enterprocess_form() {
                     </div>
                   </div>
 
-                  <div className="col-md-4 float-start pt-3">
+                  <div className="col-12 col-md-4 float-start pt-3">
                     <h5 className="statis-name mt-5 ">Contact No</h5>
                     <input
                       type="number"
@@ -354,11 +355,11 @@ function Enterprocess_form() {
                     />
                   </div>
 
-                  <div className="col-md-4 float-start pt-3">
+                  <div className="col-12 col-md-4 float-start pt-3">
                     <h5 className="statis-name mt-5 ">Department</h5>
                     <div className="dropdown-container ">
                       <div
-                        className={`client-info dropdown-header pt-3 px-3 ${
+                        className={`form-control dropdown-header pt-3 px-3 ${
                           errors.department ? "error" : ""
                         }`}
                         onClick={toggleList}
@@ -404,7 +405,7 @@ function Enterprocess_form() {
                       )}
                     </div>
                   </div>
-                  <div className="col-md-4 float-start pt-3">
+                  <div className="col-12 col-md-4 float-start pt-3">
                     <h5 className="statis-name mt-5 ">Email ID</h5>
 
                     <input
@@ -417,7 +418,7 @@ function Enterprocess_form() {
                     />
                   </div>
 
-                  <div className="col-md-4 float-start mt-3 pt-5">
+                  <div className="col-12 col-md-4 float-start mt-3 pt-5">
                     <h5 className="statis-name ">Hierarchy Level</h5>
                     <select
                       className={`form-control ${
@@ -438,8 +439,10 @@ function Enterprocess_form() {
                       <option value="4">Not Urgent/Not Important</option>
                     </select>
                   </div>
-                  <div className="col-md-12 d-flex justify-content-end  pt-3 py-5 ">
-                    
+                  <div className="col-12 d-flex justify-content-end  pt-3 py-5 gap-3 ">
+                  <Link to="/entry-process"><button className="save-form">
+                    Back
+                  </button></Link>
                       <button
                         onClick={handleSubmit}
                         type="submit"

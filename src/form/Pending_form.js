@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../assests/css/payment_form.css";
 import Sider from "../components/Sider";
 import Header from "../components/Header.js";
+import { Link } from "react-router-dom";
 
 function Pending_form() {
   const [formData, setFormData] = useState({
@@ -75,9 +76,9 @@ function Pending_form() {
           
           <div className="col-12 wapper w-100 mt-3">
             <form onSubmit={handleSubmitpending}>
-              <div className="row w-100 mt-2 mx-1">
+              <div className="row w-100 mt-2 mx-1 p-3">
                 <div className="col-md-4 float-start pt-5 ">
-                  <h5 className="statis-name mx-3">My Fee</h5>
+                  <h5 className="statis-name mx-3">ID</h5>
                   <input
                     type="text"
                     className={`client-info1 mx-3 ${errors.myFee ? "error" : ""}`}
@@ -89,59 +90,42 @@ function Pending_form() {
 
                 <div className="col-md-4 float-start pt-5 ">
                   <h5 className="statis-name mx-3">Writer Pending Days</h5>
-                  <select
+                  <input
                     className={`mx-3 client-info1 ${errors.writerPendingDays ? "error" : ""}`}
                     name="writerPendingDays"
                     value={formData.writerPendingDays}
                     onChange={handleChangepending}
-                  >
-                    <option value="" disabled>
-                    Writer Pending Days
-                  </option>
-                  <option value="1">Completed</option>
-                  <option value="2">Rejected</option>
-                  <option value="3">Pending</option>
-                  <option value="3">On Hold</option>
-                  </select>
+                    placeholder="WriterPendingDays"
+                  />
+                    
+                  
                   
                 </div>
 
                 <div className="col-md-4 float-start pt-5 ">
                   <h5 className="statis-name mx-3">Reviewer Pending Days</h5>
-                  <select
+                  <input
                     className={`mx-3 client-info1 ${errors.reviewerPendingDays ? "error" : ""}`}
                     name="reviewerPendingDays"
                     value={formData.reviewerPendingDays}
                     onChange={handleChangepending}
-                  >
-                    <option value="" disabled>
-                    Reviewer Pending Days
-                  </option>
-                  <option value="1">Completed</option>
-                  <option value="2">Rejected</option>
-                  <option value="3">Pending</option>
-                  <option value="3">On Hold</option>
-                  </select>
+                    placeholder="ReviewerPendingDays"
+                  />
+                    
                  
                   
                 </div>
               
                 <div className="col-md-4 float-start pt-5 ">
                   <h5 className="statis-name mx-3">Project Pending Days</h5>
-                  <select
+                  <input
                     className={`mx-3 client-info1 ${errors.projectPendingDays ? "error" : ""}`}
                     name="projectPendingDays"
                     value={formData.projectPendingDays}
                     onChange={handleChangepending}
-                  >
-                   <option value="" disabled>
-                   Project Pending Days
-                  </option>
-                  <option value="1">Completed</option>
-                  <option value="2">Rejected</option>
-                  <option value="3">Pending</option>
-                  <option value="3">On Hold</option>
-                  </select>
+                    placeholder="ProjectPendingDays"
+                  />
+                  
                   
                  
                 </div>
@@ -169,8 +153,10 @@ function Pending_form() {
                 </div>
               </div>
 
-              <div className="col-md-12 d-flex justify-content-end mt-5  px-5 py-5 ">
-                
+              <div className="col-md-12 d-flex justify-content-end mt-5  px-5 py-5 gap-3">
+              <Link to="/pending"><button  className="save-form">
+                    Back
+                  </button></Link>
                   <button type="submit" className="save-form ">
                     Save
                   </button>
