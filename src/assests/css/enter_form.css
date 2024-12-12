@@ -336,6 +336,47 @@
 .dropdown-header{
     width:100;
 }
+.file-icon {
+    
+    width: 30px;
+    height: 25px;
+    background-color:rgba(61, 153, 180, 1);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    
+}
+.file-del-icon {
+    
+    width: 30px;
+    height: 25px;
+    background-color:rgba(255, 243, 243, 1);
+    color: rgba(228, 29, 29, 1);
+    border-radius: 50%;
+    
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    
+}
+/* .file-upload-input{
+    position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  z-index: 2;
+} */
+
 /* dropdrown */
 
 

@@ -26,7 +26,6 @@ function Peoples() {
     fetchData();
   }, []);
 
-  
   return (
     <>
       <section className="main ">
@@ -45,66 +44,144 @@ function Peoples() {
                 </div>
                 <div className="col-3 mt-4 px-4 gap-3 d-flex flex-wrap justify-content-end">
                   <div className="col">
-                  <input type="text" className="people-input px-3 " placeholder="ID" />
+                    <input
+                      type="text"
+                      className="people-input px-3 "
+                      placeholder="ID"
+                    />
                   </div>
                   <div className="col">
-                  <select className="people-select px-3">
-                    <option value>Thesis</option>
-                    <option value>Statistics</option>
-                    <option value>Presentation</option>
-                    <option value>Manuscript</option>
-                    <option value>Others</option>
-
-                  </select>
+                    <select className="people-select px-3">
+                      <option value>Thesis</option>
+                      <option value>Statistics</option>
+                      <option value>Presentation</option>
+                      <option value>Manuscript</option>
+                      <option value>Others</option>
+                    </select>
                   </div>
                 </div>
                 <div className="col-12 mt-4 px-4">
                   <p className="heading-entr">Writers Total Projects Status </p>
                 </div>
               </div>
-              <div className="col-12 px-5 table-responsive table-wrapper-scroll-y my-custom-scrollbar   ">
-                <table className=" table-head   ">
-                  <tbody>
+              <div className="px-4 ">
+                <div className="  px-5 d-flex align-items-center people-info justify-content-center ">
+                <div className="col-0 ">
                     
-                    {data.map((item)=> (
-                    <div className="row people-info px-1 align-items-center my-3">
-                      <div className="col-1 ">
-                        <img className=" object-cover people-img  " src={Profile} alt="img" />
-                      </div>
-                      <div className="col mt-3 text-center  ">
-                        <p className="people-name">Name:{item.name}</p>
-                      </div>
-                      <div className="col  mt-3 text-center">
-                        <p className="people-writer" >{item.profession}</p>
-                      </div>
-                      <div className="col mt-2 text-center">
-                        <p className="people-name">Total People</p>
-                        <p className="people-name ">{item.totalproject}</p>
-                      </div>
-                      <div className="col mt-2 text-center">
-                        <p className="people-name">Pending</p>
-                        <p className="people-name">{item.pending}</p>
-                      </div>
-                      <div className="col mt-2 text-center">
-                        <p className="people-green">{ `<4 days`}</p>
-                        <p className="people-green">{item.fourdays}</p>
-                      </div>
-                      <div className="col mt-2 text-center">
-                        <p className="people-orange">5-8 days</p>
-                        <p className="people-orange">{item.fivedays}</p>
-                      </div>
-                      <div className="col mt-2 text-center">
-                        <p className="people-red">{ `>4 days`}</p>
-                        <p className="people-red">{item.ninedays}</p>
-                      </div>
-                      <div className="col view-details text-center mx-3 ">
-                        <p className="mt-1">View Details</p>
-                      </div>
-                    </div>
-                    ))}
-                  </tbody>
-                </table>
+                  </div>
+                  <div className="col text-center">
+                    <p className="people-name">Name</p>
+                  </div>
+                  <div className="col text-center">
+                    <p className="people-writer">Writer</p>
+                  </div>
+                  <div className="col text-center">
+                    <p className="people-name">Total People</p>
+                  </div>
+                  <div className="col text-center">
+                    <p className="people-name">Pending</p>
+                  </div>
+                  <div className="col text-center">
+                    <p className="people-green">{`<4 days`}</p>
+                  </div>
+                  <div className="col text-center">
+                    <p className="people-orange">5-8 days</p>
+                  </div>
+                  <div className="col text-center">
+                    <p className="people-red">{`>9 days`}</p>
+                  </div>
+                  <div className="col text-center">
+                    
+                  </div>
+                </div>
+                <div className="col-12  table-responsive table-wrapper-scroll-y my-custom-scrollbar   ">
+                  <table className=" table-head   ">
+                    <tbody>
+                      {data.map((item) => (
+                        <tr className="text-center">
+                          <div className=" people-info d-flex align-items-center my-2">
+                            <div className="col-1 ">
+                              <img
+                                className=" object-cover people-img  "
+                                src={Profile}
+                                alt="img"
+                              />
+                            </div>
+                            <div className="col mt-3 text-center  ">
+                              <p className="people-name">{item.name}</p>
+                            </div>
+                            <div className="col  mt-3 text-center">
+                              <p className="people-writer">{item.profession}</p>
+                            </div>
+                            <div className="col mt-2 text-center">
+                              <p className="people-name ">
+                                {item.totalproject}
+                              </p>
+                            </div>
+                            <div className="col mt-2 text-center">
+                              <p className="people-name">{item.pending}</p>
+                            </div>
+                            <div className="col mt-2 text-center">
+                              <p className="people-green">{item.fourdays}</p>
+                            </div>
+                            <div className="col mt-2 text-center">
+                              <p className="people-orange">{item.fivedays}</p>
+                            </div>
+                            <div className="col mt-2 text-center">
+                              <p className="people-red">{item.ninedays}</p>
+                            </div>
+                            <div className="col view-details text-center mx-3 ">
+                              <p className="mt-1">View Details</p>
+                            </div>
+                          </div>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
+
+              {/* Data Rows */}
+              {/* <div className="table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+    {data.map((item, index) => (
+      <div key={index} className="row people-info align-items-center mb-2">
+        <div className="col-1">
+          <img
+            className="object-cover people-img"
+            src={item.profile || Profile}
+            alt="Profile"
+            style={{ width: '40px', height: '40px', borderRadius: '50%' }}
+          />
+        </div>
+        <div className="col text-center">
+          <p className="people-name">{item.name}</p>
+        </div>
+        <div className="col text-center">
+          <p className="people-writer">{item.profession}</p>
+        </div>
+        <div className="col text-center">
+          <p className="people-name">{item.totalproject}</p>
+        </div>
+        <div className="col text-center">
+          <p className="people-name">{item.pending}</p>
+        </div>
+        <div className="col text-center">
+          <p className="people-green">{item.fourdays}</p>
+        </div>
+        <div className="col text-center">
+          <p className="people-orange">{item.fivedays}</p>
+        </div>
+        <div className="col text-center">
+          <p className="people-red">{item.ninedays}</p>
+        </div>
+        <div className="col text-center">
+          <p className="view-details">View Details</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div> */}
+
               <div className="col-12 d-flex justify-content-end pt-5 px-5">
                 <nav aria-label="Page navigation example">
                   <ul class="pagination">
@@ -146,6 +223,3 @@ function Peoples() {
 }
 
 export default Peoples;
-
-
-

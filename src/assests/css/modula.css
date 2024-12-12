@@ -63,7 +63,25 @@
     
   }
 
-
+  .form-select{
+    width: 100%;
+    
+    padding:13px !important;
+    border: 1px solid rgba(213, 213, 213, 1);
+    border-radius:14px !important;
+    font-size: 14px;
+    color: rgba(113, 142, 191, 1 )!important;
+    align-items: top !important;
+    border: none !important;
+    outline: none !important;
+}
+.form-select.error {
+    border: 1px solid rgb(228, 16, 16)!important;
+  }
+  .form-select::placeholder {
+    color: rgba(113, 142, 191, 1 )!important;
+    
+  }
 
 
   /* datatable */

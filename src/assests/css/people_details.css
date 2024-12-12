@@ -6,6 +6,10 @@
  
 
 }
+table.people-info{
+  position: sticky;
+  top: 0;
+}
 .people-img{
     width:60px;
     height: 60px;
@@ -61,3 +65,13 @@
   border-radius: 4.88px;
   border: 1px solid #fff;
 } 
+
+
+.people-info1{
+  background-color: rgba(255, 255, 255, 1);
+  height: 80px;
+  
+  border-radius: 20px;
+  
+ 
+ }

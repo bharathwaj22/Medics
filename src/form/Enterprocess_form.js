@@ -4,6 +4,9 @@ import "../assests/css/enter_form.css";
 import Sider from "../components/Sider.js";
 import Header from "../components/Header.js";
 import { Link } from "react-router-dom";
+import Enterprocesshead from "../enterprocess/Enterprocesshead.js";
+import { PiCloudArrowUpLight } from "react-icons/pi";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 // import  from "react";
 
@@ -89,10 +92,8 @@ function Enterprocess_form() {
 
   const toggleDropmenu = () => {
     setDropdownVisible((prev) => !prev); // Toggle dropdown visibility
-    setListExpanded(false)
-    setIsDropdownOpen(false)
-
-
+    setListExpanded(false);
+    setIsDropdownOpen(false);
   };
 
   // institute...................................................=>
@@ -107,13 +108,12 @@ function Enterprocess_form() {
 
   const handleSelectOption = (optionsinstitute) => {
     setSelectedOption(optionsinstitute);
-    setIsDropdownOpen(false)
+    setIsDropdownOpen(false);
   };
 
   const toggleDropdowninstitue = () => {
     setIsDropdownOpen((prev) => !prev);
-    setDropdownVisible(false)
-
+    setDropdownVisible(false);
   };
 
   // department........................................................>
@@ -133,9 +133,65 @@ function Enterprocess_form() {
 
   const toggleList = () => {
     setListExpanded((prev) => !prev); // Toggle dropdown visibility
-    setDropdownVisible(false)
-    setIsDropdownOpen(false)
+    setDropdownVisible(false);
+    setIsDropdownOpen(false);
   };
+  // const [file, setFile] = useState(null);
+
+  // const handleFileChange = (event) => {
+  //   const selectedFile = event.target.files[0];
+  //   if (selectedFile) {
+  //     setFile(selectedFile);
+  //   }
+  // };
+  const [fileUploaded, setFileUploaded] = useState(false);
+
+  const handleFileChange = (event) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setFileUploaded(true);
+    } else {
+      setFileUploaded(false);
+    }
+  };
+
+  const handleFileDelete = () => {
+    setFileUploaded(false);
+    document.getElementById("fileupload").value = "";
+  };
+
+  // const [showFieldsCount, setShowFieldsCount] = useState(0);
+
+  // // Function to toggle between showing and hiding fields
+  // const handleButtonClick = () => {
+  //   setShowFieldsCount((prev) => (prev === 0 ? 1 : 0)); // Toggle between 0 and 1
+  // };
+
+  // // Function to decrement the number of visible fields
+  // const handleDeleteField = () => {
+  //   setShowFieldsCount((prev) => (prev > 0 ? prev - 1 : 0)); // Decrement but not below 0
+  // };
+  const [fields, setFields] = useState([]);
+  // const [fileUploaded, setFileUploaded] = useState(false);
+
+  // Function to toggle the visibility of a new field
+  const handleButtonClick = () => {
+    setFields((prev) => [...prev, { id: Date.now(), isVisible: true }]); // Add a new field
+  };
+
+  // Function to delete a specific field
+  const handleDeleteField = (id) => {
+    setFields((prev) => prev.filter((field) => field.id !== id)); // Remove the specific field
+  };
+
+  // Handle file change (example function)
+  // const handleFileChange = (e) => {
+  //   setFileUploaded(true); // Set file as uploaded (simple logic here, adapt to your needs)
+  // };
+
+  // // Handle file deletion (example function)
+  // const handleFileDelete = () => {
+  //   setFileUploaded(false); // Reset file upload state
+  // };
 
   return (
     <>
@@ -150,9 +206,12 @@ function Enterprocess_form() {
             </div>
 
             <div className="col-12  wapper w-100 mt-3  ">
+              <div className="col-12 mt-3 d-flex justify-content-center">
+                <Enterprocesshead></Enterprocesshead>
+              </div>
               <form>
                 <div className="row w-100 mt-2 px-3 ">
-                  <div className="col-12 col-md-4 float-start pt-5  ">
+                  <div className="col-12 col-md-3 float-start pt-5  ">
                     <h5 className="statis-name  mx-2">Entry Date</h5>
                     <input
                       type="date"
@@ -166,7 +225,7 @@ function Enterprocess_form() {
                     />
                   </div>
 
-                  <div className=" col-12 col-md-4 float-start pt-5 ">
+                  <div className=" col-12 col-md-3 float-start pt-5 ">
                     <h5 className="statis-name ">Title</h5>
                     <input
                       type="text"
@@ -178,15 +237,15 @@ function Enterprocess_form() {
                       required
                     />
                   </div>
-
-                  <div className="col-12 col-md-4 float-start pt-5 ">
-                    <h5 className="statis-name ">Type Of Work</h5>
+                  <div className="col-12 col-md-3 float-start pt-5 ">
+                    <h5 className="statis-name ">Type of Work</h5>
                     <select
-                      className={`form-control ${
+                      className={`form-select ${
                         errors.typeofwork ? "error" : ""
                       }`}
                       name="typeofwork"
                       value={formData.typeofwork}
+                      placeholder="Enter the Project Id"
                       onChange={handleChange}
                       required
                     >
@@ -201,7 +260,21 @@ function Enterprocess_form() {
                     </select>
                   </div>
 
-                  <div className="col-12 col-md-4 float-start pt-5 ">
+                  <div className="col-12 col-md-3 float-start pt-5 ">
+                    <h5 className="statis-name ">Project ID</h5>
+                    <input
+                      className={`form-control ${
+                        errors.typeofwork ? "error" : ""
+                      }`}
+                      name="typeofwork"
+                      value={formData.typeofwork}
+                      placeholder="Enter the Project Id"
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="col-12 col-md-3 float-start pt-5 ">
                     <input
                       type="text"
                       className="form-control  "
@@ -212,6 +285,120 @@ function Enterprocess_form() {
                       required
                     />
                   </div>
+
+                  <div className="row  mt-2 pt-3   p-3 ">
+                    <div className="col-12 col-md-4 ">
+                      <label className="statis-name">Select Document</label>
+                      <select className="form-select " name="hierarchy">
+                        <option value="" disabled>
+                          Select an option
+                        </option>
+                        <option value="1">Aim</option>
+                        <option value="2">Title</option>
+                        <option value="3">objective</option>
+                        <option value="4">Primary Outcome</option>
+                        <option value="5">Parent Paper</option>
+                        <option value="6">Master sheet</option>
+                        <option value="7">protocol</option>
+                        <option value="8">Ethical Committee Approval</option>
+                      </select>
+                    </div>
+                    <div className="col-12 col-md-4">
+                      <label className="statis-name">File</label>
+
+                      <div className="form-control d-flex justify-content-end">
+                        <input
+                          type="file"
+                          id="fileupload"
+                          accept="file/*"
+                          className="file-upload-input"
+                          onChange={handleFileChange}
+                        />
+                        {!fileUploaded && (
+                          <label htmlFor="fileupload" className="file-icon">
+                            <PiCloudArrowUpLight />
+                          </label>
+                        )}
+                        {fileUploaded && (
+                          <RiDeleteBin6Line
+                            className="file-del-icon"
+                            onClick={handleFileDelete}
+                          />
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="col d-flex justify-content-start py-4 mt-2">
+                      <button
+                        type="button"
+                        className="save-form-add"
+                        onClick={handleButtonClick}
+                      >
+                        Add +
+                      </button>
+                    </div>
+                  </div>
+                  {fields.map(
+                    (field, index) =>
+                      field.isVisible && (
+                        <div key={field.id} className="row pt-1 p-3">
+                          <div className="col-12 col-md-4">
+                            <label className="statis-name">
+                              Select Document
+                            </label>
+                            <select className="form-select" name="hierarchy">
+                              <option value="" disabled>
+                                Select an option
+                              </option>
+                              <option value="1">Aim</option>
+                              <option value="2">Title</option>
+                              <option value="3">Objective</option>
+                              <option value="4">Primary Outcome</option>
+                              <option value="5">Parent Paper</option>
+                              <option value="6">Master Sheet</option>
+                              <option value="7">Protocol</option>
+                              <option value="8">
+                                Ethical Committee Approval
+                              </option>
+                            </select>
+                          </div>
+                          <div className="col-12 col-md-4">
+                            <label className="statis-name">File</label>
+                            <div className="form-control d-flex justify-content-end">
+                              <input
+                                type="file"
+                                id="fileupload"
+                                accept=".jpg,.png,.pdf"
+                                className="file-upload-input"
+                                onChange={handleFileChange}
+                              />
+                              {!fileUploaded ? (
+                                <label
+                                  htmlFor="fileupload"
+                                  className="file-icon"
+                                >
+                                  <PiCloudArrowUpLight />
+                                </label>
+                              ) : (
+                                <RiDeleteBin6Line
+                                  className="file-del-icon"
+                                  onClick={handleFileDelete}
+                                />
+                              )}
+                            </div>
+                          </div>
+                          <div className="col d-flex justify-content-start py-4 mt-2">
+                            <button
+                              type="button"
+                              className="save-form-del"
+                              onClick={() => handleDeleteField(field.id)} // Delete specific field
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      )
+                  )}
 
                   <div className="col-md-12 float-start pt-5 py-3">
                     <h5 className="client-name-pop ">Client Information</h5>
@@ -231,13 +418,143 @@ function Enterprocess_form() {
                       required
                     />
                   </div>
-                  <div className=" col-12 col-md-4 float-start pt-3 ">
-                    <h5 className="statis-name ">Profession</h5>
-                    {/* input */}
+                  <div className="col-12 col-md-4 float-start pt-3">
+                    <h5 className="statis-name  ">Email ID</h5>
 
+                    <input
+                      type="email"
+                      className={`form-control ${errors.email ? "error" : ""}`}
+                      name="email"
+                      placeholder="Enter the Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="col-12 col-md-4 float-start pt-3">
+                    <h5 className="statis-name  ">Contact No</h5>
+                    <input
+                      type="number"
+                      className={`form-control ${
+                        errors.contactNo ? "error" : ""
+                      }`}
+                      placeholder="Enter the Contact No"
+                      name="contactNo"
+                      value={formData.contactNo}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="col-12 col-md-4 float-start pt-3  ">
+                    <h5 className="statis-name mt-5 ">Institute</h5>
                     <div className="dropdown-container ">
                       <div
-                        className={`form-control dropdown-header  pt-3 px-3   ${
+                        className={`form-select dropdown-header pt-3 px-3 ${
+                          errors.institute ? "error" : ""
+                        }`}
+                        onClick={toggleDropdowninstitue}
+                      >
+                        {selectedOption || "Institute"}
+                      </div>
+
+                      {isDropdownOpen && (
+                        <div className="dropdown   position-absolute">
+                          <input
+                            type="text"
+                            className="dropdown-search"
+                            placeholder="Search..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                          />
+                          <div className="dropdown-options ">
+                            {filteredOptions.length > 0 ? (
+                              filteredOptions.map((optionsinstitute, index) => (
+                                <div
+                                  key={index}
+                                  className="dropdown-option"
+                                  onClick={() => {
+                                    handleSelectOption(optionsinstitute); // Select item
+                                    setFormData({
+                                      ...formData,
+                                      institute: optionsinstitute,
+                                    }); // Update profession
+                                    setErrors({ ...errors, institute: "" }); // Clear profession error
+                                  }}
+                                >
+                                  {optionsinstitute}
+                                </div>
+                              ))
+                            ) : (
+                              <div className="dropdown-no-options">
+                                No options found
+                              </div>
+                            )}
+                          </div>
+                          {/* <button type="button">add</button> */}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="col-12 col-md-4 float-start pt-3">
+                    <h5 className="statis-name mt-5 ">Department</h5>
+                    <div className="dropdown-container ">
+                      <div
+                        className={`form-select dropdown-header pt-3 px-3 ${
+                          errors.department ? "error" : ""
+                        }`}
+                        onClick={toggleList}
+                      >
+                        {chosenOption || "Department"}
+                      </div>
+
+                      {isListExpanded && (
+                        <div className="dropdown position-absolute">
+                          <input
+                            type="text"
+                            className="dropdown-search"
+                            placeholder="Search..."
+                            value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                          />
+                          <div className="dropdown-options">
+                            {filtereddepOptions.length > 0 ? (
+                              filtereddepOptions.map((option, index) => (
+                                <div
+                                  key={index}
+                                  className="dropdown-option"
+                                  onClick={() => {
+                                    handledepOptionSelect(option); // Select item
+                                    setFormData({
+                                      ...formData,
+                                      department: option,
+                                    }); // Update profession
+                                    setErrors({ ...errors, department: "" }); // Clear profession error
+                                  }}
+                                >
+                                  {option}
+                                </div>
+                              ))
+                            ) : (
+                              <div className="dropdown-no-options">
+                                No options found
+                              </div>
+                            )}
+                          </div>
+                          {/* <button type="button">add</button> */}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className=" col-12 col-md-4 float-start pt-3 ">
+                    <h5 className="statis-name mt-5">Profession</h5>
+                    {/* input */}
+
+                    <div className="dropdown-container">
+                      <div
+                        className={`form-select dropdown-header  pt-3 px-3   ${
                           errors.profession ? "error" : ""
                         }`}
                         //   Value={formData.profession}
@@ -287,67 +604,14 @@ function Enterprocess_form() {
                       )}
                     </div>
                   </div>
-                 
-
-                  <div className="col-12 col-md-4 float-start pt-3  ">
-                    <h5 className="statis-name ">Institute</h5>
-                    <div className="dropdown-container ">
-                      <div
-                        className={`form-control dropdown-header pt-3 px-3 ${
-                          errors.institute ? "error" : ""
-                        }`}
-                        onClick={toggleDropdowninstitue}
-                      >
-                        {selectedOption || "Institute"}
-                      </div>
-
-                      {isDropdownOpen && (
-                        <div className="dropdown   position-absolute">
-                          <input
-                            type="text"
-                            className="dropdown-search"
-                            placeholder="Search..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                          />
-                          <div className="dropdown-options ">
-                            {filteredOptions.length > 0 ? (
-                              filteredOptions.map((optionsinstitute, index) => (
-                                <div
-                                  key={index}
-                                  className="dropdown-option"
-                                  onClick={() => {
-                                    handleSelectOption(optionsinstitute); // Select item
-                                    setFormData({
-                                      ...formData,
-                                      institute: optionsinstitute,
-                                    }); // Update profession
-                                    setErrors({ ...errors, institute: "" }); // Clear profession error
-                                  }}
-                                >
-                                  {optionsinstitute}
-                                </div>
-                              ))
-                            ) : (
-                              <div className="dropdown-no-options">
-                                No options found
-                              </div>
-                            )}
-                          </div>
-                          {/* <button type="button">add</button> */}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
                   <div className="col-12 col-md-4 float-start pt-3">
-                    <h5 className="statis-name mt-5 ">Contact No</h5>
+                    <h5 className="statis-name mt-5 ">Budget</h5>
                     <input
                       type="number"
                       className={`form-control ${
                         errors.contactNo ? "error" : ""
                       }`}
-                      placeholder="Enter the Contact No"
+                      placeholder="Enter Budget"
                       name="contactNo"
                       value={formData.contactNo}
                       onChange={handleChange}
@@ -355,73 +619,10 @@ function Enterprocess_form() {
                     />
                   </div>
 
-                  <div className="col-12 col-md-4 float-start pt-3">
-                    <h5 className="statis-name mt-5 ">Department</h5>
-                    <div className="dropdown-container ">
-                      <div
-                        className={`form-control dropdown-header pt-3 px-3 ${
-                          errors.department ? "error" : ""
-                        }`}
-                        onClick={toggleList}
-                      >
-                        {chosenOption || "Department"}
-                      </div>
-
-                      {isListExpanded && (
-                        <div className="dropdown position-absolute">
-                          <input
-                            type="text"
-                            className="dropdown-search"
-                            placeholder="Search..."
-                            value={searchInput}
-                            onChange={(e) => setSearchInput(e.target.value)}
-                          />
-                          <div className="dropdown-options">
-                            {filtereddepOptions.length > 0 ? (
-                              filtereddepOptions.map((option, index) => (
-                                <div
-                                  key={index}
-                                  className="dropdown-option"
-                                  onClick={() => {
-                                    handledepOptionSelect(option); // Select item
-                                    setFormData({
-                                      ...formData,
-                                      department: option,
-                                    }); // Update profession
-                                    setErrors({ ...errors, department: "" }); // Clear profession error
-                                  }}
-                                >
-                                  {option}
-                                </div>
-                              ))
-                            ) : (
-                              <div className="dropdown-no-options">
-                                No options found
-                              </div>
-                            )}
-                          </div>
-                          {/* <button type="button">add</button> */}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  <div className="col-12 col-md-4 float-start pt-3">
-                    <h5 className="statis-name mt-5 ">Email ID</h5>
-
-                    <input
-                      type="email"
-                      className={`form-control ${errors.email ? "error" : ""}`}
-                      name="email"
-                      placeholder="Enter the Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                    />
-                  </div>
-
                   <div className="col-12 col-md-4 float-start mt-3 pt-5">
                     <h5 className="statis-name ">Hierarchy Level</h5>
                     <select
-                      className={`form-control ${
+                      className={`form-select ${
                         errors.hierarchy ? "error" : ""
                       }`}
                       name="hierarchy"
@@ -439,18 +640,18 @@ function Enterprocess_form() {
                       <option value="4">Not Urgent/Not Important</option>
                     </select>
                   </div>
+
                   <div className="col-12 d-flex justify-content-end  pt-3 py-5 gap-3 ">
-                  <Link to="/entry-process"><button className="save-form">
-                    Back
-                  </button></Link>
-                      <button
-                        onClick={handleSubmit}
-                        type="submit"
-                        className="save-form"
-                      >
-                        Save
-                      </button>
-                   
+                    <Link to="/entry-process">
+                      <button className="save-form">Back</button>
+                    </Link>
+                    <button
+                      onClick={handleSubmit}
+                      type="submit"
+                      className="save-form"
+                    >
+                      Save
+                    </button>
                   </div>
                 </div>
               </form>
