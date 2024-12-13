@@ -44,7 +44,7 @@
     width:70px ;
     height: 70px;
     border-radius: 50%;
-    background-color: rgba(220, 250, 248, 1);
+    background-color:rgba(220, 250, 248, 1);
     text-align: center;
 }
  .project-icon1{
@@ -83,5 +83,71 @@
    background-color: #fff;
    border: 1px solid #ddd;
    cursor: grab;
- }
+}
+.task-list{
+   border-right: 2px solid rgba(216, 216, 216, 1);
+  
+  height: 100vh;
+  border-top: 1px solid pink;
+  margin-top: 10px;
+   
+}
+.task-details{
+ border: 2px solid rgba(216, 216, 216, 1);
+ border-radius: 8px ;
+ cursor: pointer;
+ background-color: rgba(255, 255, 255, 0.5);
+}
+.task-comments{
+   color: rgba(148, 163, 184, 1);
+   size: 10px;
+   font-family: pp-regular;
+}
+.task-name-todo{
+   color: rgba(35, 35, 35, 1);
+   font-size: 16px;
+   font-family: pp-bold;
+}
 
+.task-thesis-head{
+   padding: 0px 5px;
+   height: 21px;
+   border-radius: 4px;
+   text-align: center;
+   background-color: rgba(240, 250, 255,9 );
+  
+
+
+
+}
+.task-thesis{
+   color: rgba(51, 191, 255, 1);
+   font-size: 14px;
+   font-family: pp-regular;
+}
+.task-thesis-head1{
+   background-color: rgba(255, 224, 235, 1);
+   padding: 0px 5px;
+   height: 21px;
+   border-radius: 4px;
+   text-align: center;
+}
+.task-thesis-head2{
+   background-color: rgba(220, 250, 248, 1);
+   padding: 0px 5px;
+   height: 21px;
+   border-radius: 4px;
+   text-align: center;
+   
+}
+.task-thesis1{
+   color:rgba(255, 130, 172, 1) ; 
+   font-size: 14px;
+   font-family: pp-regular;
+}
+.task-thesis2{
+   color: rgba(22, 219, 204, 1);
+
+   font-size: 14px;
+   font-family: pp-regular;
+}

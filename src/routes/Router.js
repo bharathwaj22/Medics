@@ -27,6 +27,7 @@ import Pending_form from "../form/Pending_form";
 import Enterprocess_form from "../form/Enterprocess_form";
 import Settings from "../components/Settings";
 import Admin_profile from "../components/Admin_profile";
+import Project_management_view from "../components/Project_management_view";
 
 function Router() {
   return (
@@ -44,6 +45,7 @@ function Router() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/people-details" element={<Peoples />} />
         <Route path="/admin-profile" element={<Admin_profile />} />
+        <Route path ="/project-view" element={<Project_management_view />} />
         {/* modula */}
         <Route path="/modula-institution" element={<Modula />} />
         <Route path="/modula-department" element={<Modula_department />} />

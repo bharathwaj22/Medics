@@ -78,7 +78,7 @@ function Process_details() {
                 <div className="col-12">
                   <h5 className="client-name-pop py-2 mt-5 ">ENTRY PROCESS</h5>
                 </div>
-                <div className="col-md-4 float-start pt-2 ">
+                <div className="col-md-3 float-start pt-2 ">
                   <h5 className="statis-name ">Entry Date</h5>
 
                   <input
@@ -87,7 +87,7 @@ function Process_details() {
                     readOnly={isReadOnly}
                   />
                 </div>
-                <div className="col-md-4 float-start pt-2 ">
+                <div className="col-md-3 float-start pt-2 ">
                   <h5 className="statis-name ">Title</h5>
 
                   <input
@@ -96,8 +96,24 @@ function Process_details() {
                     readOnly={isReadOnly}
                   />
                 </div>
-                <div className="col-md-4 float-start pt-2 ">
+                <div className="col-md-3 float-start pt-2 ">
+                  <h5 className="statis-name ">Project ID</h5>
+                  <input
+                    type="text"
+                    className="form-control"
+                    readOnly={isReadOnly}
+                  />
+                </div>
+                 <div className="col-md-3 float-start pt-2 ">
                   <h5 className="statis-name ">Type Of work</h5>
+                  <input
+                    type="text"
+                    className="form-control"
+                    readOnly={isReadOnly}
+                  />
+                </div>
+                <div className="col-md-3 float-start pt-3 ">
+                  <h5 className="statis-name ">Select Document</h5>
                   <input
                     type="text"
                     className="form-control"

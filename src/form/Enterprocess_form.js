@@ -159,16 +159,6 @@ function Enterprocess_form() {
     document.getElementById("fileupload").value = "";
   };
 
-  // const [showFieldsCount, setShowFieldsCount] = useState(0);
-
-  // // Function to toggle between showing and hiding fields
-  // const handleButtonClick = () => {
-  //   setShowFieldsCount((prev) => (prev === 0 ? 1 : 0)); // Toggle between 0 and 1
-  // };
-
-  // // Function to decrement the number of visible fields
-  // const handleDeleteField = () => {
-  //   setShowFieldsCount((prev) => (prev > 0 ? prev - 1 : 0)); // Decrement but not below 0
   // };
   const [fields, setFields] = useState([]);
   // const [fileUploaded, setFileUploaded] = useState(false);
@@ -193,6 +183,25 @@ function Enterprocess_form() {
   //   setFileUploaded(false); // Reset file upload state
   // };
 
+  const [showWriter, setShowWriter] = useState(false);
+  const [showReviewer, setShowReviewer] = useState(false);
+  const [showStatistican, setShowStatistican] = useState(false);
+  const [showProject, setShowProject] = useState(false);
+
+  const handleWriterClick = () => {
+    setShowWriter(!showWriter);
+  };
+  const handleStatisticanClick = () => {
+    setShowStatistican(!showStatistican);
+  };
+
+  const handleReviewerClick = () => {
+    setShowReviewer(!showReviewer);
+  };
+  const handleProjectClick = () => {
+    setShowProject(!showProject);
+  };
+
   return (
     <>
       <section className=" main">
@@ -206,9 +215,9 @@ function Enterprocess_form() {
             </div>
 
             <div className="col-12  wapper w-100 mt-3  ">
-              <div className="col-12 mt-3 d-flex justify-content-center">
+              {/* <div className="col-12 mt-3 d-flex justify-content-center w-100">
                 <Enterprocesshead></Enterprocesshead>
-              </div>
+              </div> */}
               <form>
                 <div className="row w-100 mt-2 px-3 ">
                   <div className="col-12 col-md-3 float-start pt-5  ">
@@ -238,6 +247,19 @@ function Enterprocess_form() {
                     />
                   </div>
                   <div className="col-12 col-md-3 float-start pt-5 ">
+                    <h5 className="statis-name ">Project ID</h5>
+                    <input
+                      className={`form-control ${
+                        errors.typeofwork ? "error" : ""
+                      }`}
+                      name="typeofwork"
+                      value={formData.typeofwork}
+                      placeholder="Enter the Project Id"
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="col-12 col-md-3 float-start pt-5 ">
                     <h5 className="statis-name ">Type of Work</h5>
                     <select
                       className={`form-select ${
@@ -258,20 +280,6 @@ function Enterprocess_form() {
                       <option value="Presentation">Presentation</option>
                       <option value="others">Others</option>
                     </select>
-                  </div>
-
-                  <div className="col-12 col-md-3 float-start pt-5 ">
-                    <h5 className="statis-name ">Project ID</h5>
-                    <input
-                      className={`form-control ${
-                        errors.typeofwork ? "error" : ""
-                      }`}
-                      name="typeofwork"
-                      value={formData.typeofwork}
-                      placeholder="Enter the Project Id"
-                      onChange={handleChange}
-                      required
-                    />
                   </div>
 
                   <div className="col-12 col-md-3 float-start pt-5 ">
@@ -301,6 +309,12 @@ function Enterprocess_form() {
                         <option value="6">Master sheet</option>
                         <option value="7">protocol</option>
                         <option value="8">Ethical Committee Approval</option>
+                        <option value="9">Full Thesis</option>
+                        <option value="10">Study desgin</option>
+                        <option value="11">Statistics Result</option>
+                        <option value="12">Unorganized thesis</option>
+                        <option value="13">Last Year completedn Thesis</option>
+                        <option value="14">Guidelines</option>
                       </select>
                     </div>
                     <div className="col-12 col-md-4">
@@ -343,10 +357,10 @@ function Enterprocess_form() {
                       field.isVisible && (
                         <div key={field.id} className="row pt-1 p-3">
                           <div className="col-12 col-md-4">
-                            <label className="statis-name">
+                            {/* <label className="statis-name">
                               Select Document
-                            </label>
-                            <select className="form-select" name="hierarchy">
+                            </label> */}
+                            <select className="form-select " name="hierarchy">
                               <option value="" disabled>
                                 Select an option
                               </option>
@@ -360,16 +374,24 @@ function Enterprocess_form() {
                               <option value="8">
                                 Ethical Committee Approval
                               </option>
+                              <option value="9">Full Thesis</option>
+                              <option value="10">Study desgin</option>
+                              <option value="11">Statistics Result</option>
+                              <option value="12">Unorganized thesis</option>
+                              <option value="13">
+                                Last Year completedn Thesis
+                              </option>
+                              <option value="14">Guidelines</option>
                             </select>
                           </div>
                           <div className="col-12 col-md-4">
-                            <label className="statis-name">File</label>
+                            {/* <label className="statis-name">File</label> */}
                             <div className="form-control d-flex justify-content-end">
                               <input
                                 type="file"
                                 id="fileupload"
                                 accept=".jpg,.png,.pdf"
-                                className="file-upload-input"
+                                className=""
                                 onChange={handleFileChange}
                               />
                               {!fileUploaded ? (
@@ -387,7 +409,7 @@ function Enterprocess_form() {
                               )}
                             </div>
                           </div>
-                          <div className="col d-flex justify-content-start py-4 mt-2">
+                          <div className="col d-flex justify-content-start py-2 ">
                             <button
                               type="button"
                               className="save-form-del"
@@ -599,7 +621,6 @@ function Enterprocess_form() {
                               </div>
                             )}
                           </div>
-                          {/* <button type="button">add</button> */}
                         </div>
                       )}
                     </div>
@@ -640,8 +661,328 @@ function Enterprocess_form() {
                       <option value="4">Not Urgent/Not Important</option>
                     </select>
                   </div>
+                  <div className="col-12 col-md-6 pt-5">
+                    <h5 className="statis-name ">Comment Box</h5>
+                    <input className=" command-box" />
+                  </div>
+                  <div class="row p-4">
+                    <div className="col d-flex gap-1">
+                      <input
+                        type="checkbox"
+                        id="project"
+                        onClick={handleProjectClick}
+                        className=""
+                      />
+                      <label className="statis-name1 " htmlFor="project">
+                        Else your project manager click me
+                      </label>
+                    </div>
+                  </div>
+                  {showProject && (
+                    <div className="row p-4">
+                      <div className="col d-flex  gap-3">
+                        <div>
+                          <input
+                            type="checkbox"
+                            id="writer"
+                            onClick={handleWriterClick}
+                            className="col-6 col-md-2"
+                          />
+                          <label className="statis-name1 " htmlFor="writer">
+                            Writer
+                          </label>
+                        </div>
+                        <div>
+                          <input
+                            type="checkbox"
+                            id="reviewer"
+                            onClick={handleReviewerClick}
+                          />
+                          <label className="statis-name1" htmlFor="reviewer">
+                            Reviewer
+                          </label>
+                        </div>
 
-                  <div className="col-12 d-flex justify-content-end  pt-3 py-5 gap-3 ">
+                        <div>
+                          <input
+                            type="checkbox"
+                            id="statistican"
+                            onClick={handleStatisticanClick}
+                          />
+                          <label className="statis-name1" htmlFor="statistican">
+                            Statistican
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {showWriter && (
+                   
+                      <div className="row w-100 ">
+                        <div className="col  pt-2">
+                          <h5 className="statis-name ">Writer</h5>
+                          <select
+                            className={`form-control  ${
+                              errors.writer ? "error" : ""
+                            }`}
+                            name="writer"
+                            value={formData.writer}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="" disabled>
+                              Select writer
+                            </option>
+                            <option value="one">One</option>
+                            <option value="two">Two</option>
+                            <option value="three">Three</option>
+                          </select>
+                        </div>
+                        <div className="col  pt-2 ">
+                          <h5 className="statis-name ">Writer Assigned Date</h5>
+                          <input
+                            type="date"
+                            className={`form-control ${
+                              errors.writerDate ? "error" : ""
+                            }`}
+                            name="writerDate"
+                            value={formData.writerDate}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div className="col pt-2 ">
+                          <h5 className="statis-name "> Writer Status</h5>
+                          <select
+                            className={`form-control  ${
+                              errors.writerStatus ? "error" : ""
+                            }`}
+                            name="writerStatus"
+                            value={formData.writerStatus}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="" disabled>
+                              Select Writer Status
+                            </option>
+                            <option value="one">One</option>
+                            <option value="two">Two</option>
+                            <option value="three">Three</option>
+                          </select>
+                        </div>
+                        <div className="col  pt-2">
+                          <h5 className="statis-name ">Writer status Date</h5>
+
+                          <input
+                            type="date"
+                            className={`form-control ${
+                              errors.writerStatusDate ? "error" : ""
+                            }`}
+                            name="writerStatusDate"
+                            value={formData.writerStatusDate || ""}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div className="col  pt-2">
+                          <h5 className="statis-name ">Project Duration</h5>
+                          <div className="d-flex form-control">
+                            <input
+                              className="duration-input"
+                              type="text"
+                            ></input>
+                            <select className="duration-select">
+                              <option value="" disabled selected>
+                                Hrs/Days
+                              </option>
+                              <option value="one">Hrs</option>
+                              <option value="two">days</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                   
+                  )}
+
+                  {showReviewer && (
+                   
+                      <div className="row w-100">
+                        <div className="col  pt-5">
+                          <h5 className="statis-name "> Reviewer</h5>
+                          <select
+                            className={`form-control  ${
+                              errors.reviwer ? "error" : ""
+                            }`}
+                            name="reviwer"
+                            value={formData.reviwer || ""}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="" disabled>
+                              Select an option
+                            </option>
+
+                            <option value="one">one</option>
+                            <option value="two">two</option>
+                            <option value="three">three</option>
+                          </select>
+                        </div>
+                        <div className="col  pt-5">
+                          <h5 className="statis-name ">
+                            Reviewer Assigned Date
+                          </h5>
+                          <input
+                            type="date"
+                            className={`form-control ${
+                              errors.reviwerAssignedDate ? "error" : ""
+                            }`}
+                            name="reviwerAssignedDate"
+                            value={formData.reviwerAssignedDate || ""}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div className="col t pt-5">
+                          <h5 className="statis-name ">Reviewer Status</h5>
+
+                          <select
+                            className={`form-control ${
+                              errors.reviwerStatus ? "error" : ""
+                            }`}
+                            name="reviwerStatus"
+                            value={formData.reviwerStatus || ""}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="" disabled>
+                              Select a status
+                            </option>{" "}
+                            <option value="one">One</option>
+                            <option value="two">Two</option>
+                            <option value="three">Three</option>
+                          </select>
+                        </div>
+                        <div className="col  pt-5">
+                          <h5 className="statis-name ">Reviewer Status date</h5>
+                          <input
+                            type="date"
+                            className={`form-control ${
+                              errors.reviwerstatusDate ? "error" : ""
+                            }`}
+                            name="reviwerstatusDate"
+                            value={formData.reviwerstatusDate}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div className="col  pt-5">
+                          <h5 className="statis-name ">Project Duration</h5>
+                          <div className="d-flex form-control">
+                            <input
+                              className="duration-input"
+                              type="text"
+                            ></input>
+                            <select className="duration-select">
+                              <option value="" disabled selected>
+                                Hrs/Days
+                              </option>
+                              <option value="one">Hrs</option>
+                              <option value="two">days</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    
+                  )}
+
+                  {showStatistican && (
+                    <div className="row w-100">
+                      <div className="col float-start pt-5">
+                        <h5 className="statis-name ">Statistican</h5>
+                        <select
+                          className={`form-control  ${
+                            errors.writer ? "error" : ""
+                          }`}
+                          name="writer"
+                          value={formData.writer}
+                          onChange={handleChange}
+                          required
+                        >
+                          <option value="" disabled>
+                            Select Statistican
+                          </option>
+                          <option value="one">One</option>
+                          <option value="two">Two</option>
+                          <option value="three">Three</option>
+                        </select>
+                      </div>
+                      <div className="col float-start pt-5 ">
+                        <h5 className="statis-name ">
+                          Statistican Assigned Date
+                        </h5>
+                        <input
+                          type="date"
+                          className={`form-control ${
+                            errors.writerDate ? "error" : ""
+                          }`}
+                          name="writerDate"
+                          value={formData.writerDate}
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
+                      <div className="col float-start pt-5 ">
+                        <h5 className="statis-name "> Statistican Status</h5>
+                        <select
+                          className={`form-control  ${
+                            errors.writerStatus ? "error" : ""
+                          }`}
+                          name="writerStatus"
+                          value={formData.writerStatus}
+                          onChange={handleChange}
+                          required
+                        >
+                          <option value="" disabled>
+                            Select Statistican Status
+                          </option>
+                          <option value="one">One</option>
+                          <option value="two">Two</option>
+                          <option value="three">Three</option>
+                        </select>
+                      </div>
+                      <div className="col float-start pt-5">
+                        <h5 className="statis-name ">
+                          Statistican status Date
+                        </h5>
+
+                        <input
+                          type="date"
+                          className={`form-control ${
+                            errors.writerStatusDate ? "error" : ""
+                          }`}
+                          name="writerStatusDate"
+                          value={formData.writerStatusDate || ""}
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
+                      <div className="col float-start pt-5 l">
+                        <h5 className="statis-name ">Project Duration</h5>
+                        <div className="d-flex form-control">
+                          <input className="duration-input" type="text"></input>
+                          <select className="duration-select">
+                            <option value="" disabled selected>
+                              Hrs/Days
+                            </option>
+                            <option value="one">Hrs</option>
+                            <option value="two">days</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="col-12 d-flex justify-content-end  pt-5 py-5 gap-3 ">
                     <Link to="/entry-process">
                       <button className="save-form">Back</button>
                     </Link>
