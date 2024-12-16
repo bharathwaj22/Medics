@@ -1,0 +1,27 @@
+.view-thesis{
+    padding: 5px 10px;
+    background-color: rgba(255, 248, 234, 1);
+    border-radius: 12px;
+}
+.view-present{
+    padding: 5px 10px;
+    background-color: rgba(222, 237, 255, 1);
+    border-radius: 12px;
+}
+.project-manage-view{
+    background-color: rgba(255, 255, 255, 1);
+    
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+.create-view{
+    border: 1px solid #666666;
+    border-radius: 20px;
+   
+   height: 32px;
+
+}
+.pro-view-img{
+    width: 24px;
+    height: 24px;
+}

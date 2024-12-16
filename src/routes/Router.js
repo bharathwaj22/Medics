@@ -28,7 +28,10 @@ import Enterprocess_form from "../form/Enterprocess_form";
 import Settings from "../components/Settings";
 import Admin_profile from "../components/Admin_profile";
 import Project_management_view from "../components/Project_management_view";
-
+import Project_manager_dashboard from "../projectmanager/Project_manager_dashboard";
+import Team_coordinator_dashboard from "../TeamCoordinator/Team_coordinator_dashboard.js";
+import Internal_dashboard from "../inter/Internal_dashboard.js";
+import Freelancer_dashboard from "../inter/Freelancer_dashboard.js";
 function Router() {
   return (
     <div>
@@ -61,6 +64,11 @@ function Router() {
         
         <Route path="/payment-form" element={<Payment_form />} />
         <Route path="/pending-form" element={<Pending_form />} />
+        {/* dashboard */}
+        <Route path="/project-manager-dashboard" element={<Project_manager_dashboard />} />
+        <Route path="/team-coordinator-dashboard" element={<Team_coordinator_dashboard/>} />
+        <Route path="/internal-dashboard" element={<Internal_dashboard/>} />
+        <Route path="/freelancer-dashboard" element={<Freelancer_dashboard/>} />
 
       </Routes>
     </div>

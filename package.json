@@ -28,6 +28,8 @@
     "jquery": "^3.7.1",
     "mdb-react-ui-kit": "^9.0.0",
     "mdb-ui-kit": "^8.0.0",
+    "primereact": "^10.8.5",
+    "quill": "^2.0.3",
     "react": "^18.3.1",
     "react-beautiful-dnd": "^13.1.1",
     "react-bootstrap-icons": "^1.11.4",

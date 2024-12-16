@@ -222,6 +222,16 @@ td{
     
     
 }
+.my-custom-scrollbar1 {
+    position:relative;
+    
+    
+    -xxl-overflow-style: none;  
+     scrollbar-width: none; 
+     cursor: pointer;
+    
+    
+}
 
 .table-wrapper-scroll-y {
  display: block;
@@ -234,6 +244,7 @@ table  th{
     background-color: rgba(61, 153, 180, 1);
     color: #FFFFFF;
 }
+
 
 
 

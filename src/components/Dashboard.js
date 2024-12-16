@@ -6,10 +6,20 @@ import Header from "./Header";
 import { BsBarChartLine } from "react-icons/bs";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { ResponsiveContainer } from "recharts";
+
 import { PieChart, Pie, Cell } from "recharts";
-import { Card } from "@mui/material";
-import { Segment } from "@mui/icons-material";
+import { VscGitStashPop } from "react-icons/vsc";
+
+import { IoMdAdd } from "react-icons/io";
+
+import { Link } from "react-router-dom";
+
+import DataTable from "datatables.net-react";
+import DT from "datatables.net-dt";
+import "datatables.net-select-dt";
+import "datatables.net-responsive-dt";
+
+DataTable.use(DT);
 
 function Dashboard() {
   // table api
@@ -29,66 +39,90 @@ function Dashboard() {
   useEffect(() => {
     fetchData();
   }, []);
-  const COLORS = ["#212121", "#3D99B4"];
+  const columns = [
+    { title: "MONTH ", data: "id" },
+    { title: "Manuscript ", data: "id" },
+    { title: "Statistics", data: "id" },
+    { title: "thesis ", data: "id" },
+    { title: "Others ", data: "id" },
+    { title: "Presentation ", data: "id" },
+    { title: "Total", data: "id" },
+    { title: "Manuscript", data: "id" },
+    { title: "Statistics", data: "id" },
+    { title: "thesis ", data: "id" },
+    { title: "Target", data: "id" },
+  ];
+  const COLORS = ["#3D99B4", "#212121"];
 
-  const randomStartAngle = Math.floor(Math.random() * 360);
-  const state = [
-    { name: "Segment 1", value: 75 },
-    { name: "Segment 2", value: 25 },
-  ];
   const carddata = [
-    {
-      name: "Manuscript 1",
-      value: 20,
-      Segment: 80,
-    },
-    {
-      name: "Manuscript 2",
-      value: 15,
-    },
-    {
-      name: "Manuscript 3",
-      value: 25,
-    },
-    {
-      name: "Manuscript 4",
-      value: 10,
-    },
-    {
-      name: "Manuscript 5",
-      value: 300000,
-    },
-    {
-      name: "Manuscript 6",
-      value: 200000,
-    },
+    { name: "presentation", value: 5000 },
+    { name: "paper", value: 15000 },
+    { name: "stats", value: 25000 },
+    { name: "thesis", value: 10000 },
+    { name: "Others", value: 50000 },
+    { name: "Total", value: 20000 },
   ];
-  const cardexpense = [
-    {
-      name: "Manuscript 1",
-      value: 20,
-      Segment: 80,
-    },
-    {
-      name: "Manuscript 2",
-      value: 15,
-    },
-    {
-      name: "Manuscript 3",
-      value: 25,
-    },
-    {
-      name: "Manuscript 4",
-      value: 10,
-    },
-    {
-      name: "Manuscript 5",
-      value: 300000,
-    },
-  ];
+
+  // const COLORS = ["#212121", "#3D99B4"];
+
+  // const randomStartAngle = Math.floor(Math.random() * 360);
+  // const state = [
+  //   { name: "Segment 1", value: 75 },
+  //   { name: "Segment 2", value: 25 },
+  // ];
+  // const carddata = [
+  //   {
+  //     name: "Manuscript 1",
+  //     value: 20,
+  //     Segment: 80,
+  //   },
+  //   {
+  //     name: "Manuscript 2",
+  //     value: 15,
+  //   },
+  //   {
+  //     name: "Manuscript 3",
+  //     value: 25,
+  //   },
+  //   {
+  //     name: "Manuscript 4",
+  //     value: 10,
+  //   },
+  //   {
+  //     name: "Manuscript 5",
+  //     value: 300000,
+  //   },
+  //   {
+  //     name: "Manuscript 6",
+  //     value: 200000,
+  //   },
+  // ];
+  // const cardexpense = [
+  //   {
+  //     name: "Manuscript 1",
+  //     value: 20,
+  //     Segment: 80,
+  //   },
+  //   {
+  //     name: "Manuscript 2",
+  //     value: 15,
+  //   },
+  //   {
+  //     name: "Manuscript 3",
+  //     value: 25,
+  //   },
+  //   {
+  //     name: "Manuscript 4",
+  //     value: 10,
+  //   },
+  //   {
+  //     name: "Manuscript 5",
+  //     value: 300000,
+  //   },
+  // ];
 
   const date = new Date();
-  
+
   const [selectedMonth, setSelectedMonth] = useState(
     `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`
   );
@@ -103,7 +137,13 @@ function Dashboard() {
   const handleMonthChange1 = (event) => {
     setSelectedMonth1(event.target.value);
   };
- 
+  const datapie = [
+    { name: "series A", value: 10 },
+    { name: "series B", value: 15 },
+    { name: "series C", value: 20 },
+    { name: "series d", value: 30 },
+  ];
+  const COLORS1 = ["#C084FC", "#2563EB", "#22C55E", "#FB923C"];
 
   return (
     <>
@@ -116,11 +156,23 @@ function Dashboard() {
             <div className="col-12">
               <Header></Header>
             </div>
-            
+
             <section className="col-12 pt-1 mt-3 py-3 project-manage w-100 ">
-              <div className="row  px-3">
-                <div className="col-12 mt-4">
+              <div className="row  px-3 d-flex justify-content-between ">
+                <div className="col-10 mt-4">
                   <p className="heading-entr">Project management</p>
+                </div>
+                <div className="col-2 text-center  mt-4 ">
+                  <div className="d-flex justify-content-center ">
+                    <div className="add-icon">
+                      <Link to="/enter_process_form">
+                        <IoMdAdd className="add1-icon" />
+                      </Link>
+                    </div>
+                    <div className="add-icon">
+                      <VscGitStashPop className="exit-icon" />
+                    </div>
+                  </div>
                 </div>
                 <div className="row ">
                   <div className=" col total-project    mx-2">
@@ -371,7 +423,7 @@ function Dashboard() {
                 <div className="col-12 mt-4">
                   <p className="heading-entr">Writers Total Projects Status </p>
                 </div>
-                <div className="col-12 px-2 table-responsive  table-wrapper-scroll-y my-custom-scrollbar  ">
+                {/* <div className="col-12 px-2 table-responsive  table-wrapper-scroll-y my-custom-scrollbar  ">
                   <table className=" table-head    ">
                     <thead>
                       <tr className="text-center tr-head   ">
@@ -409,6 +461,15 @@ function Dashboard() {
                       ))}
                     </React.Fragment>
                   </table>
+                </div> */}
+                <div className="px-1">
+                  <DataTable
+                    id="example"
+                    data={data}
+                    columns={columns}
+                    className="display"
+                    options={{ scrollX: true, select: true }}
+                  />
                 </div>
               </div>
             </section>
@@ -421,20 +482,20 @@ function Dashboard() {
                     </div>
                     <div className="col-3 mt-4 px-4 gap-3 d-flex flex-wrap justify-content-end">
                       <div className="col">
-                      <input
-                            type="month"
-                            id="monthInput"
-                            className="people-select px-1"
-                            value={selectedMonth}
-                            onChange={handleMonthChange}
-                            placeholder="YYYY-MM"
-                          />
+                        <input
+                          type="month"
+                          id="monthInput"
+                          className="people-select px-1"
+                          value={selectedMonth}
+                          onChange={handleMonthChange}
+                          placeholder="YYYY-MM"
+                        />
                       </div>
                     </div>
                   </div>
 
                   <div className="row mt-2 ">
-                    <div className="col d-flex  justify-content-around flex-wrap  ">
+                    {/* <div className="col d-flex  justify-content-around flex-wrap  ">
                       {carddata.map((items) => (
                         <div className="position-relative ">
                           <PieChart width={127} height={117}>
@@ -471,10 +532,55 @@ function Dashboard() {
                           </p>
                         </div>
                       ))}
+                    </div> */}
+                    <div className="col d-flex justify-content-around flex-wrap">
+                      {carddata.map((item, index) => {
+                        
+                        const pieData = [
+                          { name: "Segment", value: item.value },
+                          { name: "Remaining", value: 100000 - item.value }, 
+                        ];
+
+                        return (
+                          <div className="position-relative" key={index}>
+                            <PieChart width={127} height={117}>
+                              <Pie
+                                data={pieData}
+                                cx={63.5}
+                                cy={57.5}
+                                innerRadius={30}
+                                outerRadius={55}
+                                fill="#8884d8"
+                                paddingAngle={5}
+                                cornerRadius={7}
+                                startAngle={0}
+                                endAngle={360}
+                                dataKey="value"
+                                animationDuration={1000}
+                                isAnimationActive={true}
+                                animationEasing="ease-out"
+                              >
+                                {pieData.map((entry, i) => (
+                                  <Cell
+                                    key={`cell-${i}`}
+                                    fill={COLORS[i % COLORS.length]}
+                                  />
+                                ))}
+                              </Pie>
+                            </PieChart>
+                            <p className="position-absolute pie-infom">
+                              {item.value}
+                            </p>
+                            <p className="d-flex justify-content-center pie-text mt-2 ">
+                              {item.name}
+                            </p>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
-                <div className="col-12 pt-1 mt-2 project-manage py-5">
+                {/* <div className="col-12 pt-1 mt-2 project-manage py-5">
                   <div className="col-12 mt-4 px-4">
                     <div className="row  px-2">
                       <div className="col-9 mt-4 ">
@@ -533,10 +639,10 @@ function Dashboard() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="col pt-1 mt-2 project-manage ">
-                <div className="col  mt-4 mt-5 d-flex text-center ">
+                <div className="col  d-flex text-center ">
                   <p className="heading-entr">
                     Income<span className="sym-project px-2">&</span>Exp
                   </p>
@@ -544,13 +650,13 @@ function Dashboard() {
                 <div className="row">
                   <div className="col d-flex  justify-content-center ">
                     <div className="position-relative   ">
-                      <PieChart width={300} height={300}>
+                      {/* <PieChart width={300} height={300}>
                         <Pie
                           data={state}
                           cx={150}
-                          cy={200}
-                          innerRadius={50}
-                          outerRadius={85}
+                          cy={100}
+                          innerRadius={30}
+                          outerRadius={75}
                           fill="#8884d8"
                           paddingAngle={5}
                           cornerRadius={7}
@@ -568,9 +674,26 @@ function Dashboard() {
                             />
                           ))}
                         </Pie>
+                      </PieChart> */}
+                      <PieChart width={300} height={300}>
+                        <Pie
+                          data={datapie}
+                          dataKey="value"
+                          nameKey="name"
+                          cx="50%"
+                          cy="50%"
+                          outerRadius={100}
+                        >
+                          {datapie.map((entry, index) => (
+                            <Cell
+                              key={`cell-${index}`}
+                              fill={COLORS1[index % COLORS1.length]}
+                            />
+                          ))}
+                        </Pie>
                       </PieChart>
-                      <p className="position-absolute pie-infom1">100</p>
-                      <p className="position-absolute pie-infom-exp1">3000</p>
+                      {/* ;<p className="position-absolute pie-infom1">100</p>
+                      <p className="position-absolute pie-infom-exp1">3000</p> */}
                       <p className="d-flex justify-content-center pie-text mt-2   ">
                         Total Income & Exp
                       </p>
@@ -579,7 +702,7 @@ function Dashboard() {
                 </div>
               </div>
             </section>
-            <section className="col-12 pt-1 mt-2 project-manage w-100 py-5">
+            {/* <section className="col-12 pt-1 mt-2 project-manage w-100 py-5">
               <div className="row  px-3">
                 <div className="col-12 mt-4">
                   <p className="heading-entr">Comparison Of Journal </p>
@@ -609,7 +732,7 @@ function Dashboard() {
                   </table>
                 </div>
               </div>
-            </section>
+            </section> */}
           </div>
         </div>
       </section>

@@ -516,7 +516,7 @@ const ProjectManagementTool = () => {
                     </div>
                     <div className="align-items-center">
                       <p className="project-writer pt-2">
-                        Emergency work count
+                        Not Assgined Work Count
                       </p>
                       <div className="h4">825</div>
                     </div>
@@ -527,7 +527,7 @@ const ProjectManagementTool = () => {
                     </div>
                     <div className="align-items-center">
                       <p className="project-writer pt-2">
-                        Emergency work count
+                        Project Delay Count
                       </p>
                       <div className="h4">502</div>
                     </div>
@@ -538,7 +538,7 @@ const ProjectManagementTool = () => {
                     </div>
                     <div className="align-items-center">
                       <p className="project-writer pt-2">
-                        Emergency work count
+                        Freelancer Payment count
                       </p>
                       <div className="h4">5</div>
                     </div>

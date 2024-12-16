@@ -64,35 +64,39 @@ function Peoples() {
                   <p className="heading-entr">Writers Total Projects Status </p>
                 </div>
               </div>
-              <div className="px-4 ">
-                <div className="  px-5 d-flex align-items-center people-info justify-content-center ">
-                <div className="col-0 ">
-                    
-                  </div>
-                  <div className="col text-center">
-                    <p className="people-name">Name</p>
-                  </div>
-                  <div className="col text-center">
-                    <p className="people-writer">Writer</p>
-                  </div>
-                  <div className="col text-center">
-                    <p className="people-name">Total People</p>
-                  </div>
-                  <div className="col text-center">
-                    <p className="people-name">Pending</p>
-                  </div>
-                  <div className="col text-center">
-                    <p className="people-green">{`<4 days`}</p>
-                  </div>
-                  <div className="col text-center">
-                    <p className="people-orange">5-8 days</p>
-                  </div>
-                  <div className="col text-center">
-                    <p className="people-red">{`>9 days`}</p>
-                  </div>
-                  <div className="col text-center">
-                    
-                  </div>
+              <div className="px-4 py-4 ">
+                <div className="col-12  table-responsive table-wrapper-scroll-y my-custom-scrollbar1   ">
+                  <table className=" table-head   ">
+                    <tbody>
+                      <tr className="text-center">
+                        <div className=" people-info d-flex align-items-center my-2">
+                          <div className="col-1 "></div>
+                          <div className="col text-center">
+                            <p className="people-name">Name</p>
+                          </div>
+                          <div className="col text-center">
+                            <p className="people-writer">Writer</p>
+                          </div>
+                          <div className="col text-center">
+                            <p className="people-name">Total People</p>
+                          </div>
+                          <div className="col text-center">
+                            <p className="people-name">Pending</p>
+                          </div>
+                          <div className="col text-center">
+                            <p className="people-green">{`<4 days`}</p>
+                          </div>
+                          <div className="col text-center">
+                            <p className="people-orange">5-8 days</p>
+                          </div>
+                          <div className="col text-center">
+                            <p className="people-red">{`>9 days`}</p>
+                          </div>
+                          <div className="col text-center"></div>
+                        </div>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
                 <div className="col-12  table-responsive table-wrapper-scroll-y my-custom-scrollbar   ">
                   <table className=" table-head   ">
@@ -181,39 +185,6 @@ function Peoples() {
     ))}
   </div>
 </div> */}
-
-              <div className="col-12 d-flex justify-content-end pt-5 px-5">
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    <li class="page-item ">
-                      <a class="page-link " href="#">
-                        1
-                      </a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">
-                        2
-                      </a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">
-                        3
-                      </a>
-                    </li>
-
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
             </section>
           </div>
         </div>
