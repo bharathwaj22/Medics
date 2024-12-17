@@ -21,6 +21,7 @@ import DataTable from "datatables.net-react";
 import DT from "datatables.net-dt";
 import "datatables.net-select-dt";
 import "datatables.net-responsive-dt";
+import Breadcrumbs from "../routes/Breadcrumbs";
 
 // import { useNavigate } from "react-router-dom";
 DataTable.use(DT);
@@ -108,8 +109,11 @@ function Pending() {
               <Header></Header>
             </div>
 
-            <div className="col-11  pt-1 wapper w-100 mt-3 py-5">
+            <div className="col-11   wapper w-100 mt-3 pb-5">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <div className=" row mt-3 d-flex w-100  ">
+          
                 {/* <div className="col-5">
                   <div className=" search-process position-relative mx-4 mt-3">
                     <input
@@ -127,7 +131,7 @@ function Pending() {
                 <div className="col-2 text-center mt-2 ">
                   <div className="d-flex justify-content-center  ">
                     <div className="add-icon">
-                      <Link to="/pending-form">
+                      <Link to="pending-form">
                         <IoMdAdd className="add1-icon" />
                       </Link>
                     </div>
@@ -166,12 +170,12 @@ function Pending() {
                     popperPlacement="bottom"
                   />
 
-                  {/* <select className=" input-butn3 ">
+                  <select className=" input-butn3 ">
                     <option value="">Department</option>
                     <option>one</option>
                     <option>2</option>
                     <option>one</option>
-                  </select> */}
+                  </select>
                 </div>
               </div>
 

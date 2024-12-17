@@ -8,7 +8,7 @@ const RichEditor = () => {
 
   return (
     <div className="card">
-      <Editor placeholder='comment....' value={text} onTextChange={(e) => setText(e.htmlValue)} style={{ height: '200px' }} />
+      <Editor placeholder='comment....' value={text} onTextChange={(e) => setText(e.htmlValue)} style={{ height: '100px' }} />
     </div>
   )
 }

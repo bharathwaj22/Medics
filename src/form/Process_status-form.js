@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Sider from "../components/Sider.js";
 import Header from "../components/Header.js";
 import { Link } from "react-router-dom";
+import Breadcrumbs from "../routes/Breadcrumbs";
+
 
 function Process_statistic() {
   const [formData, setFormData] = useState({
@@ -96,8 +98,11 @@ function Process_statistic() {
             </div>
 
             <div className="col-12  wapper  w-100 mt-3 ">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <form onSubmit={handleSubmit}>
                 <div className="row w-100 mt-2 mx-1  ">
+                  
                   <div className="col-md-3 float-start pt-5 ">
                     <h5 className="statis-name ">Process Title</h5>
                     <select

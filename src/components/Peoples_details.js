@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Header from "./Header";
+import Breadcrumbs from "../routes/Breadcrumbs";
 
 function Peoples() {
   const [data, setData] = useState([]);
@@ -37,7 +38,9 @@ function Peoples() {
             <div className="col-12">
               <Header></Header>
             </div>
-            <section className="col-12 pt-1 mt-3 project-manage w-100">
+            <section className="col-12  mt-3 project-manage w-100">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <div className="row  px-3">
                 <div className="col-9 mt-4 px-4">
                   <p className="heading-entr">Peoples </p>

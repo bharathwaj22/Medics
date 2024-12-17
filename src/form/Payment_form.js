@@ -3,6 +3,7 @@ import "../assests/css/payment_form.css";
 import Sider from "../components/Sider";
 import Header from "../components/Header.js";
 import { Link } from "react-router-dom";
+import Breadcrumbs from "../routes/Breadcrumbs.js";
 
 function Payment_form() {
   // const handleSubmit = (e) => {
@@ -59,8 +60,11 @@ function Payment_form() {
             </div>
 
             <div className="col-11   wapper w-100 mt-3 ">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <form>
                 <div className="row w-100 mt-2 pt-3   p-3 ">
+                
                   <div className="col-12 col-md ">
                     <label className="statis-name">Project Title</label>
                     <select className="form-control mt-2">

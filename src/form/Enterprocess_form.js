@@ -4,10 +4,11 @@ import "../assests/css/enter_form.css";
 import Sider from "../components/Sider.js";
 import Header from "../components/Header.js";
 import { Link } from "react-router-dom";
-import Enterprocesshead from "../enterprocess/Enterprocesshead.js";
+// import Enterprocesshead from "../enterprocess/Enterprocesshead.js";
 import { PiCloudArrowUpLight } from "react-icons/pi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import RichEditor from "../components/RichEditor.jsx";
+import Breadcrumbs from "../routes/Breadcrumbs";
 
 // import  from "react";
 
@@ -145,49 +146,57 @@ function Enterprocess_form() {
   //     setFile(selectedFile);
   //   }
   // };
+  const handleFileChange = (event, id) => {
+    const newFields = fields.map((field) =>
+      field.id === id ? { ...field, fileUploaded: event.target.files.length > 0 } : field
+    );
+    setFields(newFields);
+  };
+
   const [fileUploaded, setFileUploaded] = useState(false);
 
-  const handleFileChange = (event) => {
+  const handleFileDelete = (id) => {
+    const newFields = fields.map((field) =>
+      field.id === id ? { ...field, fileUploaded: false } : field
+    );
+    setFields(newFields);
+    document.getElementById(`fileupload-${id}`).value = '';
+  };
+
+  // Handle deleting the entire file input field
+  const handleFieldDelete = (id) => {
+    setFields(fields.filter((field) => field.id !== id));
+  };
+
+
+  // };
+  const handleFileChange1 = (event) => {
     if (event.target.files && event.target.files.length > 0) {
-      setFileUploaded(true);
+      setFileUploaded(true);  // File uploaded
     } else {
-      setFileUploaded(false);
+      setFileUploaded(false); // No file uploaded
     }
   };
 
-  const handleFileDelete = () => {
-    setFileUploaded(false);
-    document.getElementById("fileupload").value = "";
+  // Handle file delete
+  const handleFileDelete1 = () => {
+    setFileUploaded(false);  // Reset uploaded status
+    document.getElementById("fileupload").value = "";  // Clear the file input
   };
-
-  // };
   const [fields, setFields] = useState([]);
-  // const [fileUploaded, setFileUploaded] = useState(false);
 
-  // Function to toggle the visibility of a new field
   const handleButtonClick = () => {
-    setFields((prev) => [...prev, { id: Date.now(), isVisible: true }]); // Add a new field
+    setFields((prev) => [...prev, { id: Math.random(), isVisible: true }]); // Add a new field
   };
 
-  // Function to delete a specific field
   const handleDeleteField = (id) => {
     setFields((prev) => prev.filter((field) => field.id !== id)); // Remove the specific field
   };
 
-  // Handle file change (example function)
-  // const handleFileChange = (e) => {
-  //   setFileUploaded(true); // Set file as uploaded (simple logic here, adapt to your needs)
-  // };
-
-  // // Handle file deletion (example function)
-  // const handleFileDelete = () => {
-  //   setFileUploaded(false); // Reset file upload state
-  // };
-
   const [showWriter, setShowWriter] = useState(false);
   const [showReviewer, setShowReviewer] = useState(false);
   const [showStatistican, setShowStatistican] = useState(false);
-  const[showJournal , setShowJournal] = useState(false);
+  const [showJournal, setShowJournal] = useState(false);
   const [showProject, setShowProject] = useState(false);
 
   const handleWriterClick = () => {
@@ -206,10 +215,7 @@ function Enterprocess_form() {
   const handleJournalClick = () => {
     setShowJournal(!showJournal);
   };
-  // const [showOthers, setShowOthers] = useState(false);
-  // const handleOthersClick = () => {
-  //   setShowOthers(!showOthers);
-  // };
+
   const [showOthers, setShowOthers] = useState(false);
 
   const handleChangeselect = (event) => {
@@ -233,38 +239,40 @@ function Enterprocess_form() {
       specificOption: value,
     }));
   };
+  // const handleSpecificChange1 = (event) => {
+  //   const { value } = event.target;
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     specificOption: value,
+  //   }));
+  // };
   const optionsMapping = {
-    Statistics: [
+    statistics: [
       { value: "1", label: "Sample Size" },
       { value: "2", label: "Paper Statistics" },
-      { value: "3", label: "Thesis Statistics- With Text" },
-      { value: "4", label: "Thesis Statistics-Without Text" },
-      
+      { value: "3", label: "Thesis Statistics - With Text" },
+      { value: "4", label: "Thesis Statistics - Without Text" },
     ],
-    Manuscript: [
+    manuscript: [
       { value: "1", label: "Writing" },
       { value: "2", label: "With Statistics" },
       { value: "3", label: "With Publication" },
-      
     ],
-    Thesis: [
+    thesis: [
       { value: "6", label: "Supporting Thesis with MS" },
       { value: "7", label: "Supporting Thesis without MS" },
-      { value: "8", label: "Supporting Thesis Part -1" },
-      { value: "9", label: "Supporting Thesis Part -2" },
+      { value: "8", label: "Supporting Thesis Part - 1" },
+      { value: "9", label: "Supporting Thesis Part - 2" },
       { value: "10", label: "Supporting Thesis Part - With MS" },
-      { value: "10", label: "Supporting Thesis Part  - Without MS" },
-      { value: "10", label: "Thesis Reviewing " },
+      { value: "11", label: "Supporting Thesis Part - Without MS" },
+      { value: "12", label: "Thesis Reviewing" },
     ],
-    Presentation: [
+    presentation: [
       { value: "1", label: "Conference Presentation" },
       { value: "2", label: "With Statistics" },
       { value: "3", label: "Poster Presentation" },
-      { value: "3", label: "With Statistics" },
-      
     ],
-    others:[],
-    
+    others: [],
   };
 
   return (
@@ -280,13 +288,13 @@ function Enterprocess_form() {
             </div>
 
             <div className="col-12  wapper w-100 mt-3  ">
-              {/* <div className="col-12 mt-3 d-flex justify-content-center w-100">
-                <Enterprocesshead></Enterprocesshead>
-              </div> */}
+              <div className="pt-2 px-2 d-none d-md-block">
+                <Breadcrumbs></Breadcrumbs>
+              </div>
               <form>
-                <div className="row w-100 mt-2 px-3 ">
-                  <div className="col-12 col-md-3 float-start pt-5  ">
-                    <h5 className="statis-name  mx-2">Entry Date</h5>
+                <div className="row w-100 mt-0 px-3 ">
+                  <div className="col-12 col-md-3 float-start pt-3  ">
+                    <label className="statis-name  mx-2">Entry Date</label>
                     <input
                       type="date"
                       className={`form-control ${
@@ -299,8 +307,8 @@ function Enterprocess_form() {
                     />
                   </div>
 
-                  <div className=" col-12 col-md-3 float-start pt-5 ">
-                    <h5 className="statis-name ">Title</h5>
+                  <div className=" col-12 col-md-3 float-start pt-3 ">
+                    <label className="statis-name ">Title</label>
                     <input
                       type="text"
                       className={`form-control ${errors.title ? "error" : ""}`}
@@ -311,8 +319,8 @@ function Enterprocess_form() {
                       required
                     />
                   </div>
-                  <div className="col-12 col-md-3 float-start pt-5 ">
-                    <h5 className="statis-name ">Project ID</h5>
+                  <div className="col-12 col-md-3 float-start pt-3 ">
+                    <label className="statis-name ">Project ID</label>
                     <input
                       className={`form-control ${
                         errors.typeofwork ? "error" : ""
@@ -322,8 +330,8 @@ function Enterprocess_form() {
                       required
                     />
                   </div>
-                  <div className="col-12 col-md-3 float-start pt-5 ">
-                    <h5 className="statis-name ">Type of Work</h5>
+                  <div className="col-12 col-md-3 float-start pt-3 ">
+                    <label className="statis-name ">Type of Work</label>
                     <select
                       className={`form-select ${
                         errors.typeofwork ? "error" : ""
@@ -337,48 +345,50 @@ function Enterprocess_form() {
                       <option value="" disabled>
                         Select an option
                       </option>{" "}
-                      <option value="Statistics">Statistics</option>
-                      <option value="Manuscript">Manuscript</option>
-                      <option value="Thesis">Thesis</option>
-                      <option value="Presentation">Presentation</option>
-                      <option value="others">
-                        Others
-                      </option>
+                      <option value="statistics">Statistics</option>
+                      <option value="manuscript">Manuscript</option>
+                      <option value="thesis">Thesis</option>
+                      <option value="presentation">Presentation</option>
+                      <option value="others">Others</option>
                     </select>
                   </div>
-
-                  {showOthers && (
-                    <div className="col-12 col-md-3 float-start pt-3">
-                      <input
-                        type="text"
-                        className="form-control"
-                        
-                      />
-                    </div>
-                  )}
 
                   <div className="row  mt-2 pt-3   p-3 ">
                     <div className="col-12 col-md-4 ">
                       <label className="statis-name">Select Document</label>
-                      
-                      <select className="form-select " name="hierarchy">
-                        className="form-select"
-                        name="specificOption"
-                        value={formData.specificOption}
-                        onChange={handleSpecificChange}
-                        required
-                      
-                        <option value="" disabled>
-                          Select a specific option
-                        </option>
-                        {optionsMapping[formData.typeofwork]?.map((option) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
+
+                      {formData.typeofwork === "others" ? (
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="specificOption"
+                          value={formData.specificOption}
+                          onChange={handleSpecificChange}
+                          placeholder="Enter Others Option"
+                          required
+                        />
+                      ) : (
+                        <select
+                          className="form-select"
+                          name="specificOption"
+                          value={formData.specificOption}
+                          onChange={handleSpecificChange}
+                          required
+                        >
+                          <option value="" disabled>
+                            Select a specific option
                           </option>
-                        ))}
-                      </select>
+                          {optionsMapping[formData.typeofwork]?.map(
+                            (option) => (
+                              <option key={option.value} value={option.value}>
+                                {option.label}
+                              </option>
+                            )
+                          )}
+                        </select>
+                      )}
                     </div>
-                    
+
                     <div className="col-12 col-md-4">
                       <label className="statis-name">File</label>
 
@@ -388,7 +398,7 @@ function Enterprocess_form() {
                           id="fileupload"
                           accept="file/*"
                           className="file-upload-input"
-                          onChange={handleFileChange}
+                          onChange={handleFileChange1}
                         />
                         {!fileUploaded && (
                           <label htmlFor="fileupload" className="file-icon">
@@ -398,7 +408,7 @@ function Enterprocess_form() {
                         {fileUploaded && (
                           <RiDeleteBin6Line
                             className="file-del-icon"
-                            onClick={handleFileDelete}
+                            onClick={handleFileDelete1}
                           />
                         )}
                       </div>
@@ -419,60 +429,84 @@ function Enterprocess_form() {
                       field.isVisible && (
                         <div key={field.id} className="row pt-1 p-3">
                           <div className="col-12 col-md-4">
-                            {/* <label className="statis-name">
-                              Select Document
-                            </label> */}
                             <select className="form-select " name="hierarchy">
+                              className="form-select" name="specificOption"
+                              value={formData.specificOption}
+                              onChange={handleSpecificChange}
+                              required
                               <option value="" disabled>
-                                Select an option
+                                Select a specific option
                               </option>
-                              <option value="1">Aim</option>
-                              <option value="2">Title</option>
-                              <option value="3">Objective</option>
-                              <option value="4">Primary Outcome</option>
-                              <option value="5">Parent Paper</option>
-                              <option value="6">Master Sheet</option>
-                              <option value="7">Protocol</option>
-                              <option value="8">
-                                Ethical Committee Approval
-                              </option>
-                              <option value="9">Full Thesis</option>
-                              <option value="10">Study desgin</option>
-                              <option value="11">Statistics Result</option>
-                              <option value="12">Unorganized thesis</option>
-                              <option value="13">
-                                Last Year completedn Thesis
-                              </option>
-                              <option value="14">Guidelines</option>
+                              {optionsMapping[formData.typeofwork]?.map(
+                                (option) => (
+                                  <option
+                                    key={option.value}
+                                    value={option.value}
+                                  >
+                                    {option.label}
+                                  </option>
+                                )
+                              )}
                             </select>
+                             {/* {formData.typeofwork === "others" ? (
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="specificOption"
+                          value={formData.specificOption}
+                          onChange={handleSpecificChange1}
+                          placeholder="Enter Others Option"
+                          required
+                        />
+                      ) : (
+                        <select
+                          className="form-select"
+                          name="specificOption"
+                          value={formData.specificOption}
+                          onChange={handleSpecificChange1}
+                          required
+                        >
+                          <option value="" disabled>
+                            Select a specific option
+                          </option>
+                          {optionsMapping[formData.typeofwork]?.map(
+                            (option) => (
+                              <option key={option.value} value={option.value}>
+                                {option.label}
+                              </option>
+                            )
+                          )}
+                        </select>
+                      )} */}
+                            
                           </div>
                           <div className="col-12 col-md-4">
-                            {/* <label className="statis-name">File</label> */}
                             <div className="form-control d-flex justify-content-end">
                               <input
                                 type="file"
-                                id="fileupload"
-                                accept=".jpg,.png,.pdf"
-                                className=""
-                                onChange={handleFileChange}
+                                id={`fileupload-${field.id}`}
+                                className="file-upload-input"
+                                onChange={(event) =>
+                                  handleFileChange(event, field.id)
+                                }
+                                accept="image/*"
                               />
-                              {!fileUploaded && (
+                              {!field.fileUploaded ? (
                                 <label
-                                  htmlFor="fileupload"
+                                  htmlFor={`fileupload-${field.id}`}
                                   className="file-icon"
                                 >
                                   <PiCloudArrowUpLight />
                                 </label>
-                              )}
-                              {fileUploaded && (
+                              ) : (
                                 <RiDeleteBin6Line
                                   className="file-del-icon"
-                                  onClick={handleFileDelete}
+                                  onClick={() => handleFileDelete(field.id)}
                                 />
                               )}
                             </div>
                           </div>
-                          <div className="col d-flex justify-content-start py-2 ">
+                          <div className="col d-flex justify-content-start  ">
                             <button
                               type="button"
                               className="save-form-del"
@@ -485,12 +519,14 @@ function Enterprocess_form() {
                       )
                   )}
 
-                  <div className="col-md-12 float-start pt-3 py-3">
-                    <h5 className="client-name-pop ">Client Information</h5>
+                  <div className="col-md-12 float-start pt-1 py-3">
+                    <label className="client-name-pop ">
+                      Client Information
+                    </label>
                   </div>
 
-                  <div className="col-12 col-md-4 float-start pt-2  ">
-                    <h5 className="statis-name ">Client Name</h5>
+                  <div className="col-12 col-md-4 float-start pt-0  ">
+                    <label className="statis-name ">Client Name</label>
                     <input
                       type="text"
                       className={`form-control  ${
@@ -504,7 +540,7 @@ function Enterprocess_form() {
                     />
                   </div>
                   <div className="col-12 col-md-4 float-start pt-2">
-                    <h5 className="statis-name  ">Email ID</h5>
+                    <label className="statis-name  ">Email ID</label>
 
                     <input
                       type="email"
@@ -517,7 +553,7 @@ function Enterprocess_form() {
                   </div>
 
                   <div className="col-12 col-md-4 float-start pt-2">
-                    <h5 className="statis-name  ">Contact No</h5>
+                    <label className="statis-name  ">Contact No</label>
                     <input
                       type="number"
                       className={`form-control ${
@@ -532,7 +568,7 @@ function Enterprocess_form() {
                   </div>
 
                   <div className="col-12 col-md-4 float-start pt-4  ">
-                    <h5 className="statis-name ">Institute</h5>
+                    <label className="statis-name ">Institute</label>
                     <div className="dropdown-container ">
                       <div
                         className={`form-select dropdown-header pt-2 px-3 ${
@@ -583,7 +619,7 @@ function Enterprocess_form() {
                   </div>
 
                   <div className="col-12 col-md-4 float-start pt-4">
-                    <h5 className="statis-name  ">Department</h5>
+                    <label className="statis-name  ">Department</label>
                     <div className="dropdown-container ">
                       <div
                         className={`form-select dropdown-header pt-3 px-3 ${
@@ -634,7 +670,7 @@ function Enterprocess_form() {
                   </div>
 
                   <div className=" col-12 col-md-4 float-start pt-4 ">
-                    <h5 className="statis-name ">Profession</h5>
+                    <label className="statis-name ">Profession</label>
                     {/* input */}
 
                     <div className="dropdown-container">
@@ -689,22 +725,22 @@ function Enterprocess_form() {
                     </div>
                   </div>
                   <div className="col-12 col-md-4 float-start pt-4">
-                    <h5 className="statis-name ">Budget</h5>
+                    <label className="statis-name ">Budget</label>
                     <input
                       type="number"
                       className={`form-control ${
                         errors.contactNo ? "error" : ""
                       }`}
                       placeholder="Enter Budget"
-                      name="contactNo"
-                      value={formData.contactNo}
+                      // name="contactNo"
+                      // value={formData.contactNo}
                       onChange={handleChange}
                       required
                     />
                   </div>
 
                   <div className="col-12 col-md-4 float-start  pt-4">
-                    <h5 className="statis-name ">Hierarchy Level</h5>
+                    <label className="statis-name ">Hierarchy Level</label>
                     <select
                       className={`form-select ${
                         errors.hierarchy ? "error" : ""
@@ -725,7 +761,7 @@ function Enterprocess_form() {
                     </select>
                   </div>
                   <div className="col-12 col-md-6 pt-4">
-                    <h5 className="statis-name ">Comment Box</h5>
+                    <label className="statis-name ">Comment Box</label>
                     {/* <input className=" command-box" /> */}
                     <RichEditor></RichEditor>
                   </div>
@@ -793,7 +829,7 @@ function Enterprocess_form() {
                   {showWriter && (
                     <div className="row w-100 pt-2 ">
                       <div className="col  pt-2">
-                        <h5 className="statis-name ">Writer</h5>
+                        <label className="statis-name ">Writer</label>
                         <select
                           className={`form-control  ${
                             errors.writer ? "error" : ""
@@ -812,7 +848,9 @@ function Enterprocess_form() {
                         </select>
                       </div>
                       <div className="col  pt-2 ">
-                        <h5 className="statis-name ">Writer Assigned Date</h5>
+                        <label className="statis-name ">
+                          Writer Assigned Date
+                        </label>
                         <input
                           type="date"
                           className={`form-control ${
@@ -825,7 +863,7 @@ function Enterprocess_form() {
                         />
                       </div>
                       <div className="col pt-2 ">
-                        <h5 className="statis-name "> Writer Status</h5>
+                        <label className="statis-name "> Writer Status</label>
                         <select
                           className={`form-control  ${
                             errors.writerStatus ? "error" : ""
@@ -844,7 +882,9 @@ function Enterprocess_form() {
                         </select>
                       </div>
                       <div className="col  pt-2">
-                        <h5 className="statis-name ">Writer status Date</h5>
+                        <label className="statis-name ">
+                          Writer status Date
+                        </label>
 
                         <input
                           type="date"
@@ -858,7 +898,10 @@ function Enterprocess_form() {
                         />
                       </div>
                       <div className="col  pt-2">
-                        <h5 className="statis-name "> Writer Project Duration</h5>
+                        <label className="statis-name ">
+                          {" "}
+                          Writer Project Duration
+                        </label>
                         <div className="d-flex form-control">
                           <input className="duration-input" type="text"></input>
                           <select className="duration-select">
@@ -876,7 +919,7 @@ function Enterprocess_form() {
                   {showReviewer && (
                     <div className="row w-100 pt-4">
                       <div className="col  ">
-                        <h5 className="statis-name "> Reviewer</h5>
+                        <label className="statis-name "> Reviewer</label>
                         <select
                           className={`form-control  ${
                             errors.reviwer ? "error" : ""
@@ -896,7 +939,9 @@ function Enterprocess_form() {
                         </select>
                       </div>
                       <div className="col  ">
-                        <h5 className="statis-name ">Reviewer Assigned Date</h5>
+                        <label className="statis-name ">
+                          Reviewer Assigned Date
+                        </label>
                         <input
                           type="date"
                           className={`form-control ${
@@ -909,7 +954,7 @@ function Enterprocess_form() {
                         />
                       </div>
                       <div className="col t ">
-                        <h5 className="statis-name ">Reviewer Status</h5>
+                        <label className="statis-name ">Reviewer Status</label>
 
                         <select
                           className={`form-control ${
@@ -929,7 +974,9 @@ function Enterprocess_form() {
                         </select>
                       </div>
                       <div className="col  ">
-                        <h5 className="statis-name ">Reviewer Status date</h5>
+                        <label className="statis-name ">
+                          Reviewer Status date
+                        </label>
                         <input
                           type="date"
                           className={`form-control ${
@@ -942,7 +989,10 @@ function Enterprocess_form() {
                         />
                       </div>
                       <div className="col  ">
-                        <h5 className="statis-name "> Reviewer Project Duration</h5>
+                        <label className="statis-name ">
+                          {" "}
+                          Reviewer Project Duration
+                        </label>
                         <div className="d-flex form-control">
                           <input className="duration-input" type="text"></input>
                           <select className="duration-select">
@@ -960,7 +1010,7 @@ function Enterprocess_form() {
                   {showStatistican && (
                     <div className="row w-100 pt-4">
                       <div className="col float-start ">
-                        <h5 className="statis-name ">Statistican</h5>
+                        <label className="statis-name ">Statistican</label>
                         <select
                           className={`form-control  ${
                             errors.writer ? "error" : ""
@@ -979,9 +1029,9 @@ function Enterprocess_form() {
                         </select>
                       </div>
                       <div className="col float-start  ">
-                        <h5 className="statis-name ">
+                        <label className="statis-name ">
                           Statistican Assigned Date
-                        </h5>
+                        </label>
                         <input
                           type="date"
                           className={`form-control ${
@@ -994,7 +1044,10 @@ function Enterprocess_form() {
                         />
                       </div>
                       <div className="col float-start  ">
-                        <h5 className="statis-name "> Statistican Status</h5>
+                        <label className="statis-name ">
+                          {" "}
+                          Statistican Status
+                        </label>
                         <select
                           className={`form-control  ${
                             errors.writerStatus ? "error" : ""
@@ -1013,9 +1066,9 @@ function Enterprocess_form() {
                         </select>
                       </div>
                       <div className="col float-start ">
-                        <h5 className="statis-name ">
+                        <label className="statis-name ">
                           Statistican status Date
-                        </h5>
+                        </label>
 
                         <input
                           type="date"
@@ -1029,7 +1082,10 @@ function Enterprocess_form() {
                         />
                       </div>
                       <div className="col float-start  l">
-                        <h5 className="statis-name "> Statistican Project Duration</h5>
+                        <label className="statis-name ">
+                          {" "}
+                          Statistican Project Duration
+                        </label>
                         <div className="d-flex form-control">
                           <input className="duration-input" type="text"></input>
                           <select className="duration-select">
@@ -1043,11 +1099,11 @@ function Enterprocess_form() {
                       </div>
                     </div>
                   )}
-                  
+
                   {showJournal && (
                     <div className="row w-100 pt-4">
                       <div className="col float-start ">
-                        <h5 className="statis-name ">Journal</h5>
+                        <label className="statis-name ">Journal</label>
                         <select
                           className={`form-control  ${
                             errors.writer ? "error" : ""
@@ -1066,9 +1122,9 @@ function Enterprocess_form() {
                         </select>
                       </div>
                       <div className="col float-start  ">
-                        <h5 className="statis-name ">
+                        <label className="statis-name ">
                           Journal Assigned Date
-                        </h5>
+                        </label>
                         <input
                           type="date"
                           className={`form-control ${
@@ -1081,7 +1137,7 @@ function Enterprocess_form() {
                         />
                       </div>
                       <div className="col float-start  ">
-                        <h5 className="statis-name "> JournalStatus</h5>
+                        <label className="statis-name "> JournalStatus</label>
                         <select
                           className={`form-control  ${
                             errors.writerStatus ? "error" : ""
@@ -1100,9 +1156,9 @@ function Enterprocess_form() {
                         </select>
                       </div>
                       <div className="col float-start ">
-                        <h5 className="statis-name ">
+                        <label className="statis-name ">
                           Journal status Date
-                        </h5>
+                        </label>
 
                         <input
                           type="date"
@@ -1116,7 +1172,10 @@ function Enterprocess_form() {
                         />
                       </div>
                       <div className="col float-start  l">
-                        <h5 className="statis-name "> Journal Project Duration</h5>
+                        <label className="statis-name ">
+                          {" "}
+                          Journal Project Duration
+                        </label>
                         <div className="d-flex form-control">
                           <input className="duration-input" type="text"></input>
                           <select className="duration-select">

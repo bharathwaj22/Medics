@@ -1,5 +1,6 @@
 import React from "react";
 import Loging from "../pages/Loging";
+import Breadcrumbs from "..//routes/Breadcrumbs.js";
 
 import { Routes, Route } from "react-router-dom";
 import Register from "../pages/Register";
@@ -10,7 +11,7 @@ import ProcessStatus from "../components/ProcessStatus";
 import Paymentstatus from "../components/Paymentstatus";
 import Pending from "../components/Pending";
 import Dashboard from "../components/Dashboard";
-import Project_managment from "../components/Project_management";
+import Project_management from "../components/Project_management";
 import Peoples from "../components/Peoples_details";
 import Modula from "../modulas/Modula_institution";
 import Modula_department from "../modulas/Modula_department";
@@ -35,46 +36,68 @@ import Freelancer_dashboard from "../inter/Freelancer_dashboard.js";
 function Router() {
   return (
     <div>
+     {/* <Breadcrumbs></Breadcrumbs> */}
       <Routes>
-        <Route path="/" element={<Loging />} />
+        <Route path="/loging" element={<Loging />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/project-management" element={<Project_managment/>} />
-        <Route path="/entry-process" element={<Process1 />} />
-        <Route path="/sider1" element={<Sider />} />
-        <Route path="/processstatus" element={<ProcessStatus />} />
-        <Route path="/paymentstatus" element={<Paymentstatus />} />
-        <Route path="/pending" element={<Pending />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/people-details" element={<Peoples />} />
-        <Route path="/admin-profile" element={<Admin_profile />} />
-        <Route path ="/project-view" element={<Project_management_view />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="project-management" element={<Project_managment/>} />
+        <Route path="entry-process" element={<Process1 />} />
+        <Route path="sider1" element={<Sider />} />
+        <Route path="processstatus" element={<ProcessStatus />} />
+        <Route path="paymentstatus" element={<Paymentstatus />} />
+        <Route path="pending" element={<Pending />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="people-details" element={<Peoples />} />
+        <Route path="admin-profile" element={<Admin_profile />} /> */}
+
+        <Route path="/" element={<Dashboard />} />
+        <Route path="project-Management" element={<Project_management />}>
+          
+        </Route>
+        <Route path="entry-process" element={<Process1 />}>
+          
+          
+          </Route>
+        <Route path="processstatus" element={<ProcessStatus />} />
+        <Route path="paymentstatus" element={<Paymentstatus />} />
+        <Route path="pending" element={<Pending />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="people-details" element={<Peoples />} />
+        <Route path="admin-profile" element={<Admin_profile />} />
+
         {/* modula */}
+        {/* <Route path ="/project-view" element={<Project_management_view />} /> */}
+        <Route path="project-Management/project-view" element={<Project_management_view />} />
         <Route path="/modula-institution" element={<Modula />} />
         <Route path="/modula-department" element={<Modula_department />} />
         <Route path="/modula-profession" element={<Modula_profession />} />
-        <Route path="/process-view-details" element={<Institute_form />} />
+        <Route path="entry-process/process-view-details" element={<Institute_form />} />
         <Route path="/department-form" element={<Department_form />} />
         <Route path="/profession-form" element={<Profession_form />} />
-         {/* form */}
-        <Route path="/enter_process_form" element={<Enterprocess_form />} />
+        {/* form */}
+        <Route path="entry-process/enter_process_form" element={<Enterprocess_form />} />
+        <Route path="processstatus/process-status-form" element={<Process_statistic />} />
 
-        <Route path="/process-status-form" element={<Process_statistic />} />
-
-        
-        <Route path="/payment-form" element={<Payment_form />} />
-        <Route path="/pending-form" element={<Pending_form />} />
+        <Route path="paymentstatus/payment-form" element={<Payment_form />} />
+        <Route path="pending/pending-form" element={<Pending_form />} />
         {/* dashboard */}
-        <Route path="/project-manager-dashboard" element={<Project_manager_dashboard />} />
-        <Route path="/team-coordinator-dashboard" element={<Team_coordinator_dashboard/>} />
-        <Route path="/internal-dashboard" element={<Internal_dashboard/>} />
-        <Route path="/freelancer-dashboard" element={<Freelancer_dashboard/>} />
-
+        <Route
+          path="/project-manager-dashboard"
+          element={<Project_manager_dashboard />}
+        />
+        <Route
+          path="/team-coordinator-dashboard"
+          element={<Team_coordinator_dashboard />}
+        />
+        <Route path="/internal-dashboard" element={<Internal_dashboard />} />
+        <Route
+          path="/freelancer-dashboard"
+          element={<Freelancer_dashboard />}
+        />
       </Routes>
     </div>
   );
 }
 
 export default Router;
-
-

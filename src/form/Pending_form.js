@@ -3,6 +3,7 @@ import "../assests/css/payment_form.css";
 import Sider from "../components/Sider";
 import Header from "../components/Header.js";
 import { Link } from "react-router-dom";
+import Breadcrumbs from "../routes/Breadcrumbs.js";
 
 function Pending_form() {
   const [formData, setFormData] = useState({
@@ -63,7 +64,7 @@ function Pending_form() {
       
 
       <section className="main">
-        <div className="row mt-5 w-100">
+        <div className="row mt-4 w-100">
           <div className="col-1 d-flex justify-content-center">
             <Sider />
           </div>
@@ -75,8 +76,11 @@ function Pending_form() {
           
           
           <div className="col-12 wapper w-100 mt-3">
+          <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
             <form onSubmit={handleSubmitpending}>
               <div className="row w-100 mt-2 mx-1 p-3">
+              
                 <div className="col-md-4 float-start pt-5 ">
                   <h5 className="statis-name mx-3">ID</h5>
                   <input

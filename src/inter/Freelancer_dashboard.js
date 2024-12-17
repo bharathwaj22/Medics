@@ -16,6 +16,7 @@ import { VscGitStashPop } from "react-icons/vsc";
 import { IoMdAdd } from "react-icons/io";
 
 import { Link } from "react-router-dom";
+// import Breadcrumbs from "../routes/Breadcrumbs";
 
 DataTable.use(DT);
 
@@ -31,7 +32,9 @@ function Freelancer_dashboard() {
             <div className="col-12">
               <Header></Header>
             </div>
-            <div className="row pt-1 mt-3 py-3 project-manage w-100 ">
+            <div className="row  mt-3 py-3 project-manage w-100 ">
+            {/* <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div> */}
+
               <section className="col-12 ">
                 <div className="row  px-3">
                   <div className="col-12 mt-4 d-flex justify-content-between">

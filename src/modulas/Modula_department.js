@@ -17,6 +17,7 @@ import { VscGitStashPop } from "react-icons/vsc";
 import Modula_header from "./Modula_header";
 
 import "../assests/css/modula.css";
+import Breadcrumbs from "../routes/Breadcrumbs";
 
 DataTable.use(DT);
 
@@ -132,7 +133,9 @@ function Modula_department() {
           <div className="col-12">
             <Header />
           </div>
-          <div className="col-12 wapper w-100 mt-3 pt-5 py-5">
+          <div className="col-12 wapper w-100 mt-3  pb-5">
+          <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
             <div className="col-12 d-flex justify-content-center w-100">
               <Modula_header />
             </div>

@@ -5,8 +5,11 @@ import Sider from "../components/Sider";
 import Header from "../components/Header";
 import "..//assests/css/project-management-view.css";
 import Profile from "..//assests/images/profile.png";
+import Breadcrumbs from "../routes/Breadcrumbs";
+
 
 function Project_management_view() {
+
   return (
     <>
       <section className="main">
@@ -16,9 +19,13 @@ function Project_management_view() {
           </div>
           <div className="col-11">
             <Header />
-            <div className="col-12 pt-1 mt-3 project-manage-view py-3 w-100">
+            <div className="col-12  mt-3 project-manage-view pb-3 w-100">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <section className="col-12">
+               
                 <div className="row px-3">
+               
                   <div className="col-12 mt-4">
                     <p className="heading-entr">Description</p>
                   </div>
@@ -30,9 +37,17 @@ function Project_management_view() {
                       <div className="view-present">Presentation</div>
                     </div>
                     <div className="col-12 mt-4">
-                    <p className="heading-entr">Project Title</p>
-                    <p>lorem100Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:</p>
-                  </div>
+                      <p className="heading-entr">Project Title</p>
+                      <p>
+                        lorem100Lorem ipsum, or lipsum as it is sometimes known,
+                        is dummy text used in laying out print, graphic or web
+                        designs. The passage is attributed to an unknown
+                        typesetter in the 15th century who is thought to have
+                        scrambled parts of Cicero's De Finibus Bonorum et
+                        Malorum for use in a type specimen book. It usually
+                        begins with:
+                      </p>
+                    </div>
                   </div>
                   <div className="col-12 col-md-6 float-start">
                     <div className="">
@@ -40,7 +55,7 @@ function Project_management_view() {
                         <p>Created by</p>
                         <div className="  create-view  align-items-center d-flex gap-2 px-1">
                           <img src={Profile} className="pro-view-img" alt="" />
-  
+
                           <p className="">Rabina</p>
                         </div>
                       </div>

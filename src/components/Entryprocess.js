@@ -8,7 +8,7 @@ import { IoIosSearch } from "react-icons/io";
 import { IoMdAdd } from "react-icons/io";
 import { VscGitStashPop } from "react-icons/vsc";
 import { VscEye } from "react-icons/vsc";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 // import { MdKeyboardArrowDown } from "react-icons/md";
 import axios from "axios";
@@ -27,6 +27,7 @@ import "datatables.net-select-dt";
 import "datatables.net-responsive-dt";
 
 import { useNavigate } from "react-router-dom";
+import Breadcrumbs from "../routes/Breadcrumbs";
 DataTable.use(DT);
 function Entryprocess() {
   const [data, setData] = useState([]);
@@ -179,7 +180,7 @@ function Entryprocess() {
               <div className="d-flex justify-content-center">
                  <button
                   className="modula-main"
-                  onClick={() => navigate(`/process-view-details`)}
+                  onClick={() => navigate(`process-view-details`)}
                 >
                   View Details
                 </button>
@@ -205,7 +206,8 @@ function Entryprocess() {
             <Header></Header>
           </div>
 
-          <div className="col-12 mt-3 pt-1 wapper w-100 py-5">
+          <div className="col-12 mt-3  wapper w-100 pb-5">
+          <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
             <div className=" row mt-3 d-flex w-100 ">
               
                 {/* <div className=" search-process position-relative mx-4 mt-3">
@@ -225,9 +227,9 @@ function Entryprocess() {
               <div className="col-2 text-center mt-2 ">
                 <div className=" d-flex justify-content-center    ">
                   <div className="add-icon">
-                    <NavLink to="/enter_process_form">
+                    <Link to="enter_process_form">
                       <IoMdAdd className="add1-icon" />
-                    </NavLink>
+                    </Link>
                   </div>
                   <div className="add-icon">
                     <VscGitStashPop className="exit-icon" />

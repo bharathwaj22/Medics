@@ -1,7 +1,7 @@
 import "../assests/css/setting.css";
 import Sider from "./Sider";
 
-// import { PencilSquare } from "react-bootstrap-icons";
+
 import { FaPencilAlt } from "react-icons/fa";
 
 import Settingpic from "../assests/images/setting.png";
@@ -11,6 +11,7 @@ import Header from "./Header";
 import { eye } from "react-icons-kit/feather/eye";
 import Icon from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import Breadcrumbs from "../routes/Breadcrumbs";
 
 function Admin_profile() {
   
@@ -91,7 +92,9 @@ function Admin_profile() {
               <Header></Header>
             </div>
 
-            <div className="col-11 pt-1 mt-3 wapper w-100">
+            <div className="col-11  mt-3 wapper w-100">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <div className="col-12 px-5 mt-3">
                 <h1 className="set-title">Profile</h1>
               </div>

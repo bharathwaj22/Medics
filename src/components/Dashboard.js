@@ -18,6 +18,7 @@ import DataTable from "datatables.net-react";
 import DT from "datatables.net-dt";
 import "datatables.net-select-dt";
 import "datatables.net-responsive-dt";
+import Breadcrumbs from "../routes/Breadcrumbs";
 
 DataTable.use(DT);
 
@@ -157,7 +158,9 @@ function Dashboard() {
               <Header></Header>
             </div>
 
-            <section className="col-12 pt-1 mt-3 py-3 project-manage w-100 ">
+            <section className="col-12 pb-3 mt-3  project-manage w-100 ">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <div className="row  px-3 d-flex justify-content-between ">
                 <div className="col-10 mt-4">
                   <p className="heading-entr">Project management</p>
@@ -165,7 +168,7 @@ function Dashboard() {
                 <div className="col-2 text-center  mt-4 ">
                   <div className="d-flex justify-content-center ">
                     <div className="add-icon">
-                      <Link to="/enter_process_form">
+                      <Link to="/entry-process/enter_process_form">
                         <IoMdAdd className="add1-icon" />
                       </Link>
                     </div>

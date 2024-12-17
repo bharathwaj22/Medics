@@ -8,6 +8,7 @@ import Settingpic from "../assests/images/setting.png";
 
 import React, { useState } from "react";
 import Header from "./Header";
+import Breadcrumbs from "../routes/Breadcrumbs";
 
 function Settings() {
   // const [profileImage, setProfileImage] = useState(null);
@@ -57,7 +58,9 @@ function Settings() {
             <div className="col-12">
               <Header></Header>
             </div>
-            <div className="col-12 pt-1 wapper w-100 mt-3 ">
+            <div className="col-12  wapper w-100 mt-3 ">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <div className="col-12 px-5 mt-3">
                 <h1 className="set-title">Settings</h1>
               </div>

@@ -43,7 +43,7 @@ function Sidebar() {
     <>
       <section className="position-fixed">
         <div className="text-center d- d-none d-lg-block mt-5  ">
-          <NavLink to="/dashboard">
+          <NavLink to="/">
             <div className="">
               <RiDashboardLine className="ico-side" />
             </div>
@@ -194,7 +194,7 @@ function Sidebar() {
           {/* Sidebar */}
           <div className={`sidebar py-5 ${isOpen ? "visible" : "hidden"}`}>
             <nav>
-              <NavLink to="/dashboard" className="menu-item mt-5">
+              <NavLink to="/" className="menu-item mt-5">
                 Dashboard
               </NavLink>
               <NavLink to="/project-management" className="menu-item mt-3">

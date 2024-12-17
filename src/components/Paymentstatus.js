@@ -15,6 +15,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
+import Breadcrumbs from "../routes/Breadcrumbs";
 
 import DataTable from "datatables.net-react";
 import DT from "datatables.net-dt";
@@ -104,8 +105,11 @@ function Paymentstatus() {
               <Header></Header>
             </div>
 
-            <div className="col-11  pt-1 mt-3 wapper w-100 py-5 ">
+            <div className="col-11  mt-3 wapper w-100 pb-5 ">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <div className=" row mt-3 d-flex w-100  ">
+             
                 {/* <div className="col-5">
                   <div className=" search-process position-relative mx-4 mt-3">
                     <input
@@ -124,7 +128,7 @@ function Paymentstatus() {
                 <div className="col-2 text-center mt-2 ">
                   <div className=" d-flex justify-content-center   ">
                     <div className="add-icon">
-                      <Link to="/payment-form">
+                      <Link to="payment-form">
                         <IoMdAdd className="add1-icon" />
                       </Link>
                     </div>

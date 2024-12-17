@@ -480,7 +480,9 @@ import { MdDoNotDisturb } from "react-icons/md";
 import { FaFileInvoiceDollar } from "react-icons/fa6";
 import { GiPiggyBank } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import Breadcrumbs from "../routes/Breadcrumbs";
 const ProjectManagementTool = () => {
+
   return (
     <>
       <section className="main">
@@ -490,9 +492,14 @@ const ProjectManagementTool = () => {
           </div>
           <div className="col-11">
             <Header />
-            <div className="col-12 pt-1 mt-3 project-manage py-3 w-100">
+            <div className="col-12  mt-3 project-manage pb-3 w-100">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <section className="col-12">
                 <div className="row px-3">
+                
+
+                
                   <div className="col-12 mt-4">
                     <p className="heading-entr">Project Management</p>
                   </div>
@@ -551,7 +558,7 @@ const ProjectManagementTool = () => {
                   <div className="col  ">
                     <div>TODO</div>
                     <div className="task-list ">
-                      <Link to="/project-view " className="text-decoration-none">
+                      <Link to="project-view " className="text-decoration-none">
                         <div className=" task-details m-2 p-2">
                           <p className="m-0 task-name-todo">Rabina</p>
                           <p className="task-comments">

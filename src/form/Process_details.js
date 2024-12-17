@@ -3,6 +3,7 @@ import "../assests/css/payment_form.css";
 import Sider from "../components/Sider.js";
 import Header from "../components/Header.js";
 import { Link } from "react-router-dom";
+import Breadcrumbs from "../routes/Breadcrumbs.js";
 
 function Process_details() {
   const [formData, setFormData] = useState({
@@ -64,7 +65,7 @@ function Process_details() {
   return (
     <>
       <section className="main">
-        <div className="row mt-5 w-100">
+        <div className="row mt-4 w-100">
           <div className="col-1 d-flex justify-content-center">
             <Sider />
           </div>
@@ -74,7 +75,10 @@ function Process_details() {
             </div>
 
             <div className="col-12 wapper w-100 mt-3">
+            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+
               <div className="row mt-1 mx-2 py-4">
+              
                 <div className="col-12">
                   <h5 className="client-name-pop py-2 mt-5 ">ENTRY PROCESS</h5>
                 </div>
