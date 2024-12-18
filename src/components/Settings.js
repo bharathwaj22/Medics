@@ -66,7 +66,7 @@ function Settings() {
               </div>
 
               <div className="row  mt-5">
-                <div className="col-2 mx-3 ">
+                <div className="col-2 mx-3 d-flex d-md-block ">
                   <div className="col-md-12 profile-container position-relative d-inline d-flex justify-content-center">
                     <img
                       src={profileImage || Settingpic}
@@ -88,7 +88,7 @@ function Settings() {
                     </label>
                   </div>
 
-                  <div className="col-md-12 mt-5 profile-container position-relative d-inline d-flex justify-content-center">
+                  <div className="col-md-12 ms-4 ms-md-0 mt-md-5 profile-container position-relative d-inline d-flex justify-content-center">
                     <img
                       src={coverImage || Settingpic}
                       alt="Cover"
@@ -107,8 +107,8 @@ function Settings() {
                   </div>
                 </div>
              
-              <div className="col-md-9">
-                <form>
+              <div className="col-md-9 mt-4 mt-md-0">
+                <form className="ps-4">
                   <div className="row mt-0 w-100">
                     <div className="col-md-6 float-start ">
                       <label htmlFor="site-title" className="site-name">

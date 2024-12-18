@@ -205,7 +205,7 @@ function Entryprocess() {
           <div className="col-12">
             <Header></Header>
           </div>
-
+          
           <div className="col-12 mt-3  wapper w-100 pb-5">
           <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
             <div className=" row mt-3 d-flex w-100 ">

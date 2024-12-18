@@ -352,8 +352,8 @@
 }
 .file-del-icon {
     
-    width: 30px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background-color:rgba(255, 243, 243, 1);
     color: rgba(228, 29, 29, 1);
     border-radius: 50%;
@@ -605,7 +605,7 @@
   
   .breadcrumbs li a {
     text-decoration: none;
-    color: #666666;
+    color: rgba(61, 153, 180, 1);
   }
   
   .breadcrumbs li a:hover {
@@ -614,7 +614,7 @@
   
   .breadcrumbs .arrow {
     margin-left: 8px;
-    color: #666666;
+    color: rgba(61, 153, 180, 1);
   }
   .arrow{
     font-size: 15px;

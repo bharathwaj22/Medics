@@ -40,7 +40,7 @@ function Header() {
 
         <div className="col-5   ">
           <div className=" d-flex justify-content-between header-admin mt-1 ">
-            <div className="d-flex pt-2  ">
+            <div className="d-flex align-items-center mx-2  ">
               <div className="group-icon text-center mx-2 pt-2  ">
                 <IoSearch className="head-icon" />
               </div>
@@ -51,7 +51,7 @@ function Header() {
                 <FaRegBell className="head-icon" />
               </div>
             </div>
-            <div className=" d-flex   justify-content-between mt-1  pro-fi">
+            <div className=" d-flex   justify-content-between my-1 mx-1  pro-fi">
               <div className="pro-main mx-2 text-center  ">
                 <div className="pro-name ">
                   <p>Rabina </p>

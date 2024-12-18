@@ -8,7 +8,7 @@ const Breadcrumbs = () => {
 
   // Define human-readable names for the routes
   const routeNames = {
-    'project-Management': 'Project Management',
+    'project-management': 'Project Management',
     'entry-process': 'Entry Process',
     'processstatus': 'Process Status',
     'paymentstatus': 'Payment Status',
@@ -44,7 +44,7 @@ const Breadcrumbs = () => {
     <nav>
       <ul className="breadcrumbs">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/dashboard">Home</Link>
         </li>
         <span className="arrow">
           <FontAwesomeIcon icon={faChevronRight} />

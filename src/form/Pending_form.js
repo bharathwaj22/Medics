@@ -6,14 +6,22 @@ import { Link } from "react-router-dom";
 import Breadcrumbs from "../routes/Breadcrumbs.js";
 
 function Pending_form() {
+  const getTodayDate = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+    const dd = String(today.getDate()).padStart(2, "0");
+    return `${yyyy}-${mm}-${dd}`;
+  };
+
   const [formData, setFormData] = useState({
     myFee: "",
     
     writerPendingDays: "",
     reviewerPendingDays: "",
     projectPendingDays: "",
-    writerDueDate: "",
-    reviewerDueDate: "",
+    writerDueDate: getTodayDate() ||"",
+    reviewerDueDate:getTodayDate() || "",
   });
 
   // State to store validation errors
@@ -81,21 +89,21 @@ function Pending_form() {
             <form onSubmit={handleSubmitpending}>
               <div className="row w-100 mt-2 mx-1 p-3">
               
-                <div className="col-md-4 float-start pt-5 ">
-                  <h5 className="statis-name mx-3">ID</h5>
+                <div className="col-md-4 float-start pt-4 ">
+                  <h5 className="statis-name ">ID</h5>
                   <input
                     type="text"
-                    className={`client-info1 mx-3 ${errors.myFee ? "error" : ""}`}
+                    className={`form-control  ${errors.myFee ? "error" : ""}`}
                     name="myFee"
                     value={formData.myFee}
                     onChange={handleChangepending}
                   />
                 </div>
 
-                <div className="col-md-4 float-start pt-5 ">
-                  <h5 className="statis-name mx-3">Writer Pending Days</h5>
+                <div className="col-md-4 float-start pt-4 ">
+                  <h5 className="statis-name ">Writer Pending Days</h5>
                   <input
-                    className={`mx-3 client-info1 ${errors.writerPendingDays ? "error" : ""}`}
+                    className={` form-control ${errors.writerPendingDays ? "error" : ""}`}
                     name="writerPendingDays"
                     value={formData.writerPendingDays}
                     onChange={handleChangepending}
@@ -106,10 +114,10 @@ function Pending_form() {
                   
                 </div>
 
-                <div className="col-md-4 float-start pt-5 ">
-                  <h5 className="statis-name mx-3">Reviewer Pending Days</h5>
+                <div className="col-md-4 float-start pt-4 ">
+                  <h5 className="statis-name ">Reviewer Pending Days</h5>
                   <input
-                    className={`mx-3 client-info1 ${errors.reviewerPendingDays ? "error" : ""}`}
+                    className={` form-control ${errors.reviewerPendingDays ? "error" : ""}`}
                     name="reviewerPendingDays"
                     value={formData.reviewerPendingDays}
                     onChange={handleChangepending}
@@ -120,10 +128,10 @@ function Pending_form() {
                   
                 </div>
               
-                <div className="col-md-4 float-start pt-5 ">
-                  <h5 className="statis-name mx-3">Project Pending Days</h5>
+                <div className="col-md-4 float-start pt-4 ">
+                  <h5 className="statis-name ">Project Pending Days</h5>
                   <input
-                    className={`mx-3 client-info1 ${errors.projectPendingDays ? "error" : ""}`}
+                    className={` form-control ${errors.projectPendingDays ? "error" : ""}`}
                     name="projectPendingDays"
                     value={formData.projectPendingDays}
                     onChange={handleChangepending}
@@ -134,22 +142,22 @@ function Pending_form() {
                  
                 </div>
 
-                <div className="col-md-4 float-start pt-5 ">
-                  <h5 className="statis-name mx-3">Writer Payment Due Date</h5>
+                <div className="col-md-4 float-start pt-4 ">
+                  <h5 className="statis-name ">Writer Payment Due Date</h5>
                   <input
                     type="date"
-                    className={`client-info1 mx-3 ${errors.writerDueDate ? "error" : ""}`}
+                    className={`form-control  ${errors.writerDueDate ? "error" : ""}`}
                     name="writerDueDate"
                     value={formData.writerDueDate}
                     onChange={handleChangepending}
                   />
                 </div>
 
-                <div className="col-md-4 float-start pt-5 ">
-                  <h5 className="statis-name mx-3">Reviewer Payment Due Date</h5>
+                <div className="col-md-4 float-start pt-4 ">
+                  <h5 className="statis-name ">Reviewer Payment Due Date</h5>
                   <input
                     type="date"
-                    className={`client-info1 mx-3 ${errors.reviewerDueDate ? "error" : ""}`}
+                    className={`form-control  ${errors.reviewerDueDate ? "error" : ""}`}
                     name="reviewerDueDate"
                     value={formData.reviewerDueDate}
                     onChange={handleChangepending}

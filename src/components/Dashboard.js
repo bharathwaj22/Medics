@@ -159,7 +159,9 @@ function Dashboard() {
             </div>
 
             <section className="col-12 pb-3 mt-3  project-manage w-100 ">
-            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+              <div className="pt-2 px-2 d-none d-md-block">
+                <Breadcrumbs></Breadcrumbs>
+              </div>
 
               <div className="row  px-3 d-flex justify-content-between ">
                 <div className="col-10 mt-4">
@@ -477,8 +479,8 @@ function Dashboard() {
               </div>
             </section>
             <section className="row ">
-              <div className="col-12 col-xxl-9 ">
-                <div className="col-12 pt-1 mt-2 project-manage py-5">
+              <div className="col-12 col-xxl-6 ">
+                <div className="col-12 pt-1 mt-1 project-manage py-5">
                   <div className="row  px-3">
                     <div className="col-9 mt-4 px-4">
                       <p className="heading-entr">Income </p>
@@ -498,58 +500,19 @@ function Dashboard() {
                   </div>
 
                   <div className="row mt-2 ">
-                    {/* <div className="col d-flex  justify-content-around flex-wrap  ">
-                      {carddata.map((items) => (
-                        <div className="position-relative ">
-                          <PieChart width={127} height={117}>
-                            <Pie
-                              data={carddata}
-                              values={items.value}
-                              cx={63.5}
-                              cy={57.5}
-                              innerRadius={30}
-                              outerRadius={55}
-                              fill="#8884d8"
-                              paddingAngle={5}
-                              cornerRadius={7}
-                              startAngle={-50}
-                              endAngle={-410}
-                              dataKey="value"
-                              animationDuration={1000}
-                              isAnimationActive={true} // Make sure animation is active
-                              animationEasing="ease-out" // Easing function for smooth animation
-                            >
-                              {carddata.map((items, index) => (
-                                <Cell
-                                  key={`cell-${index}`}
-                                  fill={COLORS[index % COLORS.length]}
-                                />
-                              ))}
-                            </Pie>
-                          </PieChart>
-                          <p className="position-absolute pie-infom">
-                            {items.value}
-                          </p>
-                          <p className="d-flex justify-content-end pie-text mt-2 mx-2 ">
-                            {items.name}
-                          </p>
-                        </div>
-                      ))}
-                    </div> */}
-                    <div className="col d-flex justify-content-around flex-wrap">
+                    <div className="col ">
                       {carddata.map((item, index) => {
-                        
                         const pieData = [
                           { name: "Segment", value: item.value },
-                          { name: "Remaining", value: 100000 - item.value }, 
+                          { name: "Remaining", value: 100000 - item.value },
                         ];
 
                         return (
-                          <div className="position-relative" key={index}>
-                            <PieChart width={127} height={117}>
+                          <div className="position-relative  justify-content-center" key={index}>
+                            <PieChart width={200} height={117}>
                               <Pie
                                 data={pieData}
-                                cx={63.5}
+                                cx={100}
                                 cy={57.5}
                                 innerRadius={30}
                                 outerRadius={55}
@@ -583,15 +546,49 @@ function Dashboard() {
                     </div>
                   </div>
                 </div>
-                {/* <div className="col-12 pt-1 mt-2 project-manage py-5">
-                  <div className="col-12 mt-4 px-4">
-                    <div className="row  px-2">
-                      <div className="col-9 mt-4 ">
-                        <p className="heading-entr">Expense </p>
+              </div>
+            
+              
+                <div className="col-12 col-xxl-6 pt-1 mt-1 project-manage d-flex justify-content-evenly ">
+                  <div className="col">
+                    <div className="col  d-flex text-center ">
+                      <p className="heading-entr">
+                        Income<span className="sym-project px-2">&</span>Exp
+                      </p>
+                    </div>
+                    <div className="row">
+                      <div className="col d-flex  justify-content-center ">
+                        <div className="position-relative   ">
+                          <PieChart width={200} height={250}>
+                            <Pie
+                              data={datapie}
+                              dataKey="value"
+                              nameKey="name"
+                              cx="50%"
+                              cy="40%"
+                              // paddingAngle={2}
+                              outerRadius={100}
+                            >
+                              {datapie.map((entry, index) => (
+                                <Cell
+                                  key={`cell-${index}`}
+                                  fill={COLORS1[index % COLORS1.length]}
+                                />
+                              ))}
+                            </Pie>
+                          </PieChart>
+                          {/* ;<p className="position-absolute pie-infom1">100</p>
+                      <p className="position-absolute pie-infom-exp1">3000</p> */}
+                          <p className="d-flex justify-content-center pie-text   ">
+                            Total Income & Exp
+                          </p>
+                        </div>
                       </div>
-                      <div className="col-3 mt-4 px-4 gap-3 d-flex flex-wrap justify-content-end">
-                        <div className="col">
-                          <input
+                    </div>
+                  </div>
+                  <div className="col pt-5">
+                    <div className="d-">
+                    <input
                             type="month"
                             id="monthInput"
                             className="people-select px-1"
@@ -599,112 +596,49 @@ function Dashboard() {
                             onChange={handleMonthChange1}
                             placeholder="YYYY-MM"
                           />
-                        </div>
+
+                    </div>
+                    <div className=" d-flex  align-items-center w-75 justify-content-between mt-5">
+                      <div className="d-flex gap-3">
+                      <div className="journal-dash-color"></div>
+                      <div className="pie-text">Journal</div>
+                      </div>
+                      <div>
+                      <div className="pie-text">45.61%</div>
+                      </div>
+                    </div>
+                    <div className=" d-flex   align-items-center  w-75 justify-content-between mt-2">
+                      <div className="d-flex gap-3">
+                      <div className="salary-dash-color"></div>
+                      <div className="pie-text">Salary</div>
+                      </div>
+                      <div>
+                      <div className="pie-text">45.61%</div>
+                      </div>
+                    </div>
+                    <div className=" d-flex   align-items-center  w-75 justify-content-between mt-2">
+                      <div className="d-flex gap-3">
+                      <div className="freelancer-dash-color"></div>
+                      <div className="pie-text">Freelancer</div>
+                      </div>
+                      <div className="">
+                      <div className="pie-text">45.61%</div>
+                      </div>
+                    </div>
+                    <div className=" d-flex   align-items-center  w-75 justify-content-between mt-2">
+                      <div className="d-flex gap-3">
+                      <div className="office-dash-color"></div>
+                      <div className="pie-text">Office Expende</div>
+                      </div>
+                      <div>
+                      <div className="pie-text">45.61%</div>
                       </div>
                     </div>
                   </div>
-                  <div className="row   ">
-                    <div className="col d-flex  justify-content-center flex-wrap gap-5">
-                      {cardexpense.map((items) => (
-                        <div className="position-relative ">
-                          <PieChart width={127} height={117}>
-                            <Pie
-                              data={cardexpense}
-                              cx={63.5}
-                              cy={57.5}
-                              innerRadius={30}
-                              outerRadius={55}
-                              fill="#8884d8"
-                              paddingAngle={5}
-                              cornerRadius={7}
-                              startAngle={-50}
-                              endAngle={-410}
-                              dataKey="value"
-                              animationDuration={1000}
-                              isAnimationActive={true} // Make sure animation is active
-                              animationEasing="ease-out" // Easing function for smooth animation
-                            >
-                              {cardexpense.map((item, index) => (
-                                <Cell
-                                  key={`cell-${index}`}
-                                  fill={COLORS[index % COLORS.length]}
-                                />
-                              ))}
-                            </Pie>
-                          </PieChart>
-                          <p className="position-absolute pie-infom-exp">
-                            {items.value}
-                          </p>
-                          <p className="d-flex justify-content-end pie-text mt-2 mx-2  ">
-                            {items.name}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div> */}
-              </div>
-              <div className="col pt-1 mt-2 project-manage ">
-                <div className="col  d-flex text-center ">
-                  <p className="heading-entr">
-                    Income<span className="sym-project px-2">&</span>Exp
-                  </p>
                 </div>
-                <div className="row">
-                  <div className="col d-flex  justify-content-center ">
-                    <div className="position-relative   ">
-                      {/* <PieChart width={300} height={300}>
-                        <Pie
-                          data={state}
-                          cx={150}
-                          cy={100}
-                          innerRadius={30}
-                          outerRadius={75}
-                          fill="#8884d8"
-                          paddingAngle={5}
-                          cornerRadius={7}
-                          startAngle={-50}
-                          endAngle={-410}
-                          dataKey="value"
-                          animationDuration={1000}
-                          isAnimationActive={true} // Make sure animation is active
-                          animationEasing="ease-out" // Easing function for smooth animation
-                        >
-                          {state.map((item, index) => (
-                            <Cell
-                              key={`cell-${index}`}
-                              fill={COLORS[index % COLORS.length]}
-                            />
-                          ))}
-                        </Pie>
-                      </PieChart> */}
-                      <PieChart width={300} height={300}>
-                        <Pie
-                          data={datapie}
-                          dataKey="value"
-                          nameKey="name"
-                          cx="50%"
-                          cy="50%"
-                          outerRadius={100}
-                        >
-                          {datapie.map((entry, index) => (
-                            <Cell
-                              key={`cell-${index}`}
-                              fill={COLORS1[index % COLORS1.length]}
-                            />
-                          ))}
-                        </Pie>
-                      </PieChart>
-                      {/* ;<p className="position-absolute pie-infom1">100</p>
-                      <p className="position-absolute pie-infom-exp1">3000</p> */}
-                      <p className="d-flex justify-content-center pie-text mt-2   ">
-                        Total Income & Exp
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
             </section>
+
             {/* <section className="col-12 pt-1 mt-2 project-manage w-100 py-5">
               <div className="row  px-3">
                 <div className="col-12 mt-4">

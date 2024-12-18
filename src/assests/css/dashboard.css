@@ -275,7 +275,7 @@
 }
 .pie-text{
   font-family: 'regular-pp';
-  size: 12px;
+  size: 14px;
   color: #40444D;
 }
 .pie-infom1 {
@@ -304,8 +304,28 @@
   font-weight: bold;
   z-index: 10; 
 }
-
-
+.journal-dash-color{
+  background-color: rgba(192, 132, 252, 1);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.salary-dash-color{
+  background-color: rgba(37, 99, 235, 1);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}.freelancer-dash-color{
+  background-color: rgba(251, 146, 60, 1);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}.office-dash-color{
+  background-color: rgba(34, 197, 94, 1);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
 @media (max-width: 768px) {
   .pie-input {
     font-size: 14px; 

@@ -38,7 +38,7 @@ function Router() {
     <div>
      {/* <Breadcrumbs></Breadcrumbs> */}
       <Routes>
-        <Route path="/loging" element={<Loging />} />
+        <Route path="/" element={<Loging />} />
         <Route path="/register" element={<Register />} />
         {/* <Route path="/dashboard" element={<Dashboard />} />
         <Route path="project-management" element={<Project_managment/>} />
@@ -51,7 +51,7 @@ function Router() {
         <Route path="people-details" element={<Peoples />} />
         <Route path="admin-profile" element={<Admin_profile />} /> */}
 
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="project-Management" element={<Project_management />}>
           
         </Route>
