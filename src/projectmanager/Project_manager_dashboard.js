@@ -450,23 +450,207 @@ function Project_manager_dashboard() {
                         </div>
                       </div>
                     </Link>
+                    <Link to="/project-view " className="text-decoration-none">
+                      <div className=" task-details m-2 p-2">
+                        <p className="m-0 task-name-todo">Rabina</p>
+                        <p className="task-comments">
+                          lorem ipsum dolor sit amet, consectetur adip id
+                          nncbuyg kjnsdguw hjwhbduyugfys dhjwhdiu
+                        </p>
+                        <div className="d-flex justify-content-between">
+                          <div className="task-thesis-head">
+                            <p className="task-thesis">Manuscript</p>
+                          </div>
+                          <div className="task-thesis-head1">
+                            <p className="task-thesis1">Writer</p>
+                          </div>
+                          <div className="task-thesis-head2">
+                            <p className="task-thesis2">Completed</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                 </div>
                 <div className="col ">
                   <div>IN WORK</div>
-                  <div className="task-list "></div>
+                  <div className="task-list ">
+                  <Link to="/project-view " className="text-decoration-none">
+                      <div className=" task-details m-2 p-2">
+                        <p className="m-0 task-name-todo">Rabina</p>
+                        <p className="task-comments">
+                          lorem ipsum dolor sit amet, consectetur adip id
+                          nncbuyg kjnsdguw hjwhbduyugfys dhjwhdiu
+                        </p>
+                        <div className="d-flex justify-content-between">
+                          <div className="task-thesis-head">
+                            <p className="task-thesis">Manuscript</p>
+                          </div>
+                          <div className="task-thesis-head1">
+                            <p className="task-thesis1">Writer</p>
+                          </div>
+                          <div className="task-thesis-head2">
+                            <p className="task-thesis2">Completed</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                    <Link to="/project-view " className="text-decoration-none">
+                      <div className=" task-details m-2 p-2">
+                        <p className="m-0 task-name-todo">Rabina</p>
+                        <p className="task-comments">
+                          lorem ipsum dolor sit amet, consectetur adip id
+                          nncbuyg kjnsdguw hjwhbduyugfys dhjwhdiu
+                        </p>
+                        <div className="d-flex justify-content-between">
+                          <div className="task-thesis-head">
+                            <p className="task-thesis">Manuscript</p>
+                          </div>
+                          <div className="task-thesis-head1">
+                            <p className="task-thesis1">Writer</p>
+                          </div>
+                          <div className="task-thesis-head2">
+                            <p className="task-thesis2">Completed</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
                 <div className="col ">
                   <div>Reviews</div>
-                  <div className="task-list "></div>
+                  <div className="task-list ">
+                  <Link to="/project-view " className="text-decoration-none">
+                      <div className=" task-details m-2 p-2">
+                        <p className="m-0 task-name-todo">Rabina</p>
+                        <p className="task-comments">
+                          lorem ipsum dolor sit amet, consectetur adip id
+                          nncbuyg kjnsdguw hjwhbduyugfys dhjwhdiu
+                        </p>
+                        <div className="d-flex justify-content-between">
+                          <div className="task-thesis-head">
+                            <p className="task-thesis">Manuscript</p>
+                          </div>
+                          <div className="task-thesis-head1">
+                            <p className="task-thesis1">Writer</p>
+                          </div>
+                          <div className="task-thesis-head2">
+                            <p className="task-thesis2">Completed</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                    <Link to="/project-view " className="text-decoration-none">
+                      <div className=" task-details m-2 p-2">
+                        <p className="m-0 task-name-todo">Rabina</p>
+                        <p className="task-comments">
+                          lorem ipsum dolor sit amet, consectetur adip id
+                          nncbuyg kjnsdguw hjwhbduyugfys dhjwhdiu
+                        </p>
+                        <div className="d-flex justify-content-between">
+                          <div className="task-thesis-head">
+                            <p className="task-thesis">Manuscript</p>
+                          </div>
+                          <div className="task-thesis-head1">
+                            <p className="task-thesis1">Writer</p>
+                          </div>
+                          <div className="task-thesis-head2">
+                            <p className="task-thesis2">Completed</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
                 <div className="col ">
                   <div>Correction</div>
-                  <div className="task-list "></div>
+                  <div className="task-list ">
+                  <Link to="/project-view " className="text-decoration-none">
+                      <div className=" task-details m-2 p-2">
+                        <p className="m-0 task-name-todo">Rabina</p>
+                        <p className="task-comments">
+                          lorem ipsum dolor sit amet, consectetur adip id
+                          nncbuyg kjnsdguw hjwhbduyugfys dhjwhdiu
+                        </p>
+                        <div className="d-flex justify-content-between">
+                          <div className="task-thesis-head">
+                            <p className="task-thesis">Manuscript</p>
+                          </div>
+                          <div className="task-thesis-head1">
+                            <p className="task-thesis1">Writer</p>
+                          </div>
+                          <div className="task-thesis-head2">
+                            <p className="task-thesis2">Completed</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                    <Link to="/project-view " className="text-decoration-none">
+                      <div className=" task-details m-2 p-2">
+                        <p className="m-0 task-name-todo">Rabina</p>
+                        <p className="task-comments">
+                          lorem ipsum dolor sit amet, consectetur adip id
+                          nncbuyg kjnsdguw hjwhbduyugfys dhjwhdiu
+                        </p>
+                        <div className="d-flex justify-content-between">
+                          <div className="task-thesis-head">
+                            <p className="task-thesis">Manuscript</p>
+                          </div>
+                          <div className="task-thesis-head1">
+                            <p className="task-thesis1">Writer</p>
+                          </div>
+                          <div className="task-thesis-head2">
+                            <p className="task-thesis2">Completed</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
                 <div className="col ">
                   <div>COMPLETED</div>
-                  <div className="task-list "></div>
+                  <div className="task-list ">
+                  <Link to="/project-view " className="text-decoration-none">
+                      <div className=" task-details m-2 p-2">
+                        <p className="m-0 task-name-todo">Rabina</p>
+                        <p className="task-comments">
+                          lorem ipsum dolor sit amet, consectetur adip id
+                          nncbuyg kjnsdguw hjwhbduyugfys dhjwhdiu
+                        </p>
+                        <div className="d-flex justify-content-between">
+                          <div className="task-thesis-head">
+                            <p className="task-thesis">Manuscript</p>
+                          </div>
+                          <div className="task-thesis-head1">
+                            <p className="task-thesis1">Writer</p>
+                          </div>
+                          <div className="task-thesis-head2">
+                            <p className="task-thesis2">Completed</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                    <Link to="/project-view " className="text-decoration-none">
+                      <div className=" task-details m-2 p-2">
+                        <p className="m-0 task-name-todo">Rabina</p>
+                        <p className="task-comments">
+                          lorem ipsum dolor sit amet, consectetur adip id
+                          nncbuyg kjnsdguw hjwhbduyugfys dhjwhdiu
+                        </p>
+                        <div className="d-flex justify-content-between">
+                          <div className="task-thesis-head">
+                            <p className="task-thesis">Manuscript</p>
+                          </div>
+                          <div className="task-thesis-head1">
+                            <p className="task-thesis1">Writer</p>
+                          </div>
+                          <div className="task-thesis-head2">
+                            <p className="task-thesis2">Completed</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </section>

@@ -40,24 +40,29 @@ function Enterprocess_form() {
     writerStatus: "",
     writerStatusDate: getTodayDate() || "",
     reviwer: "",
-    reviwerAssignedDate:getTodayDate() ||  "",
+    reviwerAssignedDate: getTodayDate() || "",
     reviwerStatus: "",
     reviwerStatusdate: getTodayDate() || "",
-    statistican:"",
-    statisticanDate:getTodayDate() ||"",
-    statisticanStatus:"",
-    statisticanStatusDate:getTodayDate() ||"",
-    journal:"",
-    journalDate:getTodayDate() || "",
-    journalStatus:"",
-    journalStatusDate:getTodayDate() ||"",
-    specificOption:"",
- 
-
-   
-
-  
-    
+    statistican: "",
+    statisticanDate: getTodayDate() || "",
+    statisticanStatus: "",
+    statisticanStatusDate: getTodayDate() || "",
+    journal: "",
+    journalDate: getTodayDate() || "",
+    journalStatus: "",
+    journalStatusDate: getTodayDate() || "",
+    writerProjectDuration: "",
+    reviwerprojectDuration: "",
+    statisticanProjectDuration: "",
+    journalProjectDuration: "",
+    processStatus: "",
+    budget: "",
+    journaldurationUnit: "",
+    writerdurationUnit: "",
+    reviwerdurationUnit: "",
+    statisticandurationUnit: "",
+    // specificOption:"",
+    // fields:"",
   });
 
   // State to store validation errors
@@ -87,6 +92,10 @@ function Enterprocess_form() {
     if (!formData.contactNo) formErrors.contactNo = "Contact No is required";
     if (!formData.department) formErrors.department = "Department is required";
     if (!formData.email) formErrors.email = "Email is required";
+    if (!formData.processStatus)
+      formErrors.processStatus = " entry process status";
+    if (!formData.budget) formErrors.budget = "Budget is required";
+
     if (!formData.hierarchy) formErrors.hierarchy = "hierarchy is required";
     else if (!/\S+@\S+\.\S+/.test(formData.email))
       formErrors.email = "Email is not valid";
@@ -107,21 +116,21 @@ function Enterprocess_form() {
     }
     if (!formData.duration) {
       setErrors({ duration: "Please select either Hrs or Days." });
-     if (!formData.durationInput) {
-        formErrors.durationInput = 'Please enter a duration.';
+      if (!formData.durationInput) {
+        formErrors.durationInput = "Please enter a duration.";
       }
     }
-    if (!formData.reviewer) {
-      formErrors.reviewer = "Reviewer is required";
+    if (!formData.reviwer) {
+      formErrors.reviwer = "Reviewer is required";
     }
-    if (!formData.reviewerAssignedDate) {
-      formErrors.reviewerAssignedDate = "Reviewer Assigned Date is required";
+    if (!formData.reviwerAssignedDate) {
+      formErrors.reviwerAssignedDate = "Reviewer Assigned Date is required";
     }
-    if (!formData.reviewerStatus) {
-      formErrors.reviewerStatus = "Reviewer Status is required";
+    if (!formData.reviwerStatus) {
+      formErrors.reviwerStatus = "Reviewer Status is required";
     }
-    if (!formData.reviewerStatusDate) {
-      formErrors.reviewerStatusDate = "Reviewer Status Date is required";
+    if (!formData.reviwerStatusDate) {
+      formErrors.reviwerStatusDate = "Reviewer Status Date is required";
     }
     if (!formData.statistican) {
       formErrors.statistican = "Statistican is required";
@@ -147,10 +156,52 @@ function Enterprocess_form() {
     if (!formData.journalStatusDate) {
       formErrors.journalStatusDate = "Journal Status Date is required";
     }
-      if (!formData.specificOption) {
-        formErrors.specificOption = "Specific Option is required";
+    if (!formData.journalProjectDuration) {
+      formErrors.journalProjectDuration =
+        "Journal Project Duration is required";
+    }
+    if (!formData.statisticanProjectDuration) {
+      formErrors.statisticanProjectDuration =
+        "Statistican Project Duration is required";
+    }
+    if (!formData.reviwerProjectDuration) {
+      formErrors.reviwerProjectDuration =
+        "reviwer Project Duration is required";
+    }
+    if (!formData.reviwerduration) {
+      setErrors({ reviwerduration: "Please select either Hrs or Days." });
+      if (!formData.reviwerdurationInput) {
+        formErrors.reviwerdurationInput = "Please enter a duration.";
       }
+    }
+    if (!formData.statisticanProjectDuration) {
+      formErrors.statisticanProjectDuration =
+        "statistican Project Duration is required";
+    }
+    if (!formData.statisticanduration) {
+      setErrors({ statisticanduration: "Please select either Hrs or Days." });
+      if (!formData.statisticandurationInput) {
+        formErrors.statisticandurationInput = "Please enter a duration.";
+      }
+    }
+    if (!formData.journalProjectDuration) {
+      formErrors.journalProjectDuration =
+        "journal Project Duration is required";
+    }
+    if (!formData.journalduration) {
+      setErrors({ journalduration: "Please select either Hrs or Days." });
+      if (!formData.journaldurationInput) {
+        formErrors.journaldurationInput = "Please enter a duration.";
+      }
+    }
+    // if (!formData.reviwerProjectDuration) {
 
+    // if (!formData.specificOption) {
+    //   formErrors.specificOption = "Specific Option is required";
+    // }
+    // if (!formData.fields) {
+    //   formErrors.fields = "Fields is required";
+    // }
 
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
@@ -251,34 +302,120 @@ function Enterprocess_form() {
   //   );
   //   setFields(newFields);
   // };
+  // const handleFileChange = (event, fieldId = null) => {
+  //   const files = event.target.files; // Get uploaded files
+
+  //   if (files && files.length > 0) {
+  //     // Convert FileList to an array and map file details
+  //     const fileArray = Array.from(files).map((file) => ({
+  //       option: formData.specificOption, // Add selected option
+  //       file: {
+  //         name: file.name,
+  //         size: file.size,
+  //         type: file.type,
+  //         lastModified: file.lastModified,
+  //       },
+  //     }));
+
+  //     // Add file details to the uploadedFiles state
+  //     setUploadedFiles((prevFiles) => [...prevFiles, ...fileArray]);
+
+  //     console.log("Updated Uploaded Files Array:", [...uploadedFiles, ...fileArray]);
+  //   }
+  // }
+
+  // const handleFileChange = (event, fieldId) => {
+  //   const files = event.target.files; // Get uploaded files
+
+  //   // Ensure the field is available and `specificOption` is correctly set
+  //   const field = fields.find(f => f.id === fieldId); // Find the field object by its id
+  //   const option = field ? field.specificOption : "No Option Selected"; // Use field's specificOption or default
+
+  //   if (files && files.length > 0) {
+  //     // Map the files to include the specific option and file metadata
+  //     const fileArray = Array.from(files).map((file) => ({
+  //       option: option, // Correctly associate the option with the file
+  //       file: {
+  //         name: file.name,
+  //         size: file.size,
+  //         type: file.type,
+  //         lastModified: file.lastModified,
+  //       },
+  //     }));
+
+  //     // Add the files with the correct option to the uploadedFiles state
+  //     setUploadedFiles((prevFiles) => [...prevFiles, ...fileArray]);
+
+  //     console.log("Uploaded Files:", [...uploadedFiles, ...fileArray]);
+  //   }
+  // };
   const handleFileChange = (event, fieldId) => {
-    const file = event.target.files[0];
-    setFields((prevFields) =>
-      prevFields.map((field) =>
-        field.id === fieldId ? { ...field, fileUploaded: !!file } : field
-      )
-    );
+    const files = event.target.files; // Get uploaded files
+
+    // Ensure the field is available and `specificOption` is correctly set
+    const field = fields.find((f) => f.id === fieldId); // Find the field object by its id
+    const option = field ? field.specificOption : "No Option Selected"; // Use field's specificOption or default
+
+    if (files && files.length > 0) {
+      // Map the files to include the specific option and file metadata
+      const fileArray = Array.from(files).map((file) => ({
+        option: option, // Correctly associate the option with the file
+        file: {
+          name: file.name,
+          size: file.size,
+          type: file.type,
+          lastModified: file.lastModified,
+        },
+      }));
+
+      // Add the files with the correct option to the uploadedFiles state
+      setUploadedFiles((prevFiles) => [...prevFiles, ...fileArray]);
+
+      console.log("Uploaded Files:", [...uploadedFiles, ...fileArray]);
+    }
   };
+
+  // const handleOptionChange = (event) => {
+  //   setFormData({ ...formData, specificOption: event.target.value });
+  // };
 
   const [fileUploaded, setFileUploaded] = useState(false);
-
-  const handleFileDelete = (id) => {
-    const newFields = fields.map((field) =>
-      field.id === id ? { ...field, fileUploaded: false } : field
+  // const handleFileDelete = (option) => {
+  //   // Remove the file based on its option (or another unique identifier)
+  //   setUploadedFiles((prevFiles) => prevFiles.filter((file) => file.option !== option));
+  // };
+  const handleFileDelete = (option) => {
+    // Remove the file based on its option (or another unique identifier)
+    setUploadedFiles((prevFiles) =>
+      prevFiles.filter((file) => file.option !== option)
     );
-    setFields(newFields);
-    document.getElementById(`fileupload-${id}`).value = "";
   };
 
-  // Handle deleting the entire file input field
   const handleFieldDelete = (id) => {
     setFields(fields.filter((field) => field.id !== id));
   };
 
-  // };
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+
   const handleFileChange1 = (event) => {
-    if (event.target.files && event.target.files.length > 0) {
-      setFileUploaded(true); // File uploaded
+    const files = event.target.files; // Get uploaded files
+
+    if (files && files.length > 0) {
+      setFileUploaded(true); // Indicate a file was uploaded
+
+      // Map files to include option data and file metadata
+      const fileArray = Array.from(files).map((file) => ({
+        option: formData.specificOption || "No Option Selected", // Ensure the selected option is included
+        file: {
+          name: file.name,
+          size: file.size,
+          type: file.type,
+          lastModified: file.lastModified,
+        },
+      }));
+
+      // Save files in the uploadedFiles state
+      setUploadedFiles((prevFiles) => [...prevFiles, ...fileArray]);
     } else {
       setFileUploaded(false); // No file uploaded
     }
@@ -291,8 +428,45 @@ function Enterprocess_form() {
   };
   const [fields, setFields] = useState([]);
 
+  // const handleButtonClick = () => {
+  //   setFields((prev) => [...prev, { id: Math.random(), isVisible: true }]); // Add a new field
+  //   const newErrors = {};
+
+  //   // Validate specificOption
+  //   if (!formData.specificOption) {
+  //     newErrors.specificOption = "This field is required.";
+  //   }
+
+  //   // Validate file upload
+  //   if (!fileUploaded) {
+  //     newErrors.file = "File upload is required.";
+  //   }
+
+  //   setErrors(newErrors);
+
+  //   // Proceed only if no errors
+
+  // };
   const handleButtonClick = () => {
-    setFields((prev) => [...prev, { id: Math.random(), isVisible: true }]); // Add a new field
+    const newErrors = {};
+
+    // Validate specificOption
+    if (!formData.specificOption) {
+      newErrors.specificOption = "This field is required.";
+    }
+
+    // Validate file upload
+    if (!fileUploaded) {
+      newErrors.file = "File upload is required.";
+    }
+
+    setErrors(newErrors);
+
+    // Proceed only if there are no errors
+    if (Object.keys(newErrors).length === 0) {
+      // Add a new field only if validation passes
+      setFields((prev) => [...prev, { id: Math.random(), isVisible: true }]);
+    }
   };
 
   const handleDeleteField = (id) => {
@@ -321,8 +495,37 @@ function Enterprocess_form() {
   const handleJournalClick = () => {
     setShowJournal(!showJournal);
   };
+  // const handleFileChange = (event) => {
+  //   const files = event.target.files; // Get uploaded files
 
-  const [showOthers, setShowOthers] = useState(false);
+  //   if (files && files.length > 0) {
+  //     // Map files to the desired structure
+  //     const fileArray = Array.from(files).map((file) => ({
+  //       option: formData.specificOption || "No Option Selected", // Add the selected option
+  //       file: {
+  //         name: file.name,
+  //         size: file.size,
+  //         type: file.type,
+  //         lastModified: file.lastModified,
+  //       },
+  //     }));
+
+  //     // Add files and their associated options to the uploadedFiles array
+  //     setUploadedFiles((prevFiles) => {
+  //       const newFiles = [...prevFiles, ...fileArray];
+  //       console.log("Uploaded Files with Options:", newFiles); // Log updated files with options
+  //       return newFiles;
+  //     });
+  //   }
+  // };
+
+  // const handleOptionChange = (event) => {
+  //   const value = event.target.value;
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     specificOption: value,
+  //   }));
+  // };
 
   const handleChangeselect = (event) => {
     const { name, value } = event.target;
@@ -330,7 +533,7 @@ function Enterprocess_form() {
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
-      specificOption: "",
+      specificOption: "", // Reset the specific option when changing selection
     }));
 
     // Toggle showOthers based on selection
@@ -338,6 +541,23 @@ function Enterprocess_form() {
       setShowOthers(value === "others");
     }
   };
+
+  const [showOthers, setShowOthers] = useState(false);
+
+  // const handleChangeselect = (event) => {
+  //   const { name, value } = event.target;
+
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //     specificOption: "",
+  //   }));
+
+  //   // Toggle showOthers based on selection
+  //   if (name === "typeofwork") {
+  //     setShowOthers(value === "others");
+  //   }
+  // };
   const handleSpecificChange = (event) => {
     const { value } = event.target;
     setFormData((prevData) => ({
@@ -345,22 +565,18 @@ function Enterprocess_form() {
       specificOption: value,
     }));
   };
-  // const handleSpecificChange1 = (event, fieldId) => {
-  //   const { name, value } = event.target;
-  //   setFields((prevFields) =>
-  //     prevFields.map((field) =>
-  //       field.id === fieldId ? { ...field, [name]: value } : field
-  //     )
-  //   );
-  // };
+
   const handleSpecificChange1 = (event, fieldId) => {
     const { value } = event.target;
+    console.log(`Field ${fieldId} specificOption updated to: ${value}`);
 
-    setFields((prevFields) =>
-      prevFields.map((field) =>
+    setFields((prevFields) => {
+      const updatedFields = prevFields.map((field) =>
         field.id === fieldId ? { ...field, specificOption: value } : field
-      )
-    );
+      );
+      console.log("Updated Fields:", updatedFields); // Check the updated fields
+      return updatedFields;
+    });
   };
 
   const optionsMapping = {
@@ -391,6 +607,7 @@ function Enterprocess_form() {
     ],
     others: [],
   };
+  // file valditation
 
   return (
     <>
@@ -473,7 +690,7 @@ function Enterprocess_form() {
                     />
                   </div>
 
-                  <div className="row  mt-2 pt-3   p-3 ">
+                  {/* <div className="row  mt-2 pt-3   p-3 ">
                     <div className="col-12 col-md-4 ">
                       <label className="statis-name">Select Document</label>
 
@@ -491,9 +708,9 @@ function Enterprocess_form() {
                         />
                       ) : (
                         <select
-                        className={`form-select ${
-                          errors.specificOption ? "error" : ""
-                        }`}
+                          className={`form-select ${
+                            errors.specificOption ? "error" : ""
+                          }`}
                           name="specificOption"
                           value={formData.specificOption}
                           onChange={handleSpecificChange}
@@ -515,10 +732,11 @@ function Enterprocess_form() {
 
                     <div className="col-12 col-md-4">
                       <label className="statis-name">File</label>
-
-                      <div className={`form-control d-flex justify-content-end ${
-                            errors.specificOption ? "error" : ""
-                          }`}>
+                      <div
+                        className={`form-control d-flex justify-content-end ${
+                          errors.file ? "error" : ""
+                        }`}
+                      >
                         <input
                           type="file"
                           id="fileupload"
@@ -545,10 +763,13 @@ function Enterprocess_form() {
                         type="button"
                         className="save-form-add"
                         onClick={handleButtonClick}
-                        disabled={!fileUploaded || !formData.specificOption } 
 
+                        // disabled={
+                        //   !fileUploaded ||
+                        //   !formData.specificOption ||
+                        //   fields.some((field) => field.isVisible && !field.fileUploaded) // Ensure all visible fields have files uploaded
+                        // }
                       >
-
                         Add +
                       </button>
                     </div>
@@ -561,26 +782,30 @@ function Enterprocess_form() {
                             {formData.typeofwork === "others" ? (
                               <input
                                 type="text"
-                                className="form-control"
+                                className={`form-control ${
+                                  errors[field.id] ? "error" : ""
+                                }`}
                                 name={`specificOption-${field.id}`} // Unique name for this field
-                                value={field.specificOption} // Access specific field value
+                                value={field.specificOption || ""} // Ensure it defaults to empty if no value is set
                                 onChange={(event) =>
                                   handleSpecificChange1(event, field.id)
-                                } 
+                                } // Update with field ID
                                 placeholder="Enter Others Option"
                                 required
                               />
                             ) : (
                               <select
-                                className="form-select"
+                                className={`form-select ${
+                                  errors[field.id] ? "error" : ""
+                                }`}
                                 name={`specificOption-${field.id}`} // Unique name for this field
-                                value={field.specificOption} // Access specific field value
-                                onChange={(event) =>
-                                  handleSpecificChange1(event, field.id)
+                                value={field.specificOption} // Ensure it defaults to empty if no value is set
+                                onChange={(e) =>
+                                  handleSpecificChange1(e, field.id)
                                 } // Pass field ID for state update
                                 required
                               >
-                                <option value="" disabled selected>
+                                <option value="" disabled>
                                   Select a specific option
                                 </option>
                                 {optionsMapping[formData.typeofwork]?.map(
@@ -597,14 +822,16 @@ function Enterprocess_form() {
                             )}
                           </div>
                           <div className="col-12 col-md-4">
-                            <div className="form-control d-flex justify-content-end">
+                            <div
+                              className={`form-control d-flex justify-content-end ${
+                                errors.specificOption ? "error" : ""
+                              }`}
+                            >
                               <input
                                 type="file"
                                 id={`fileupload-${field.id}`}
                                 className="file-upload-input"
-                                onChange={(event) =>
-                                  handleFileChange(event, field.id)
-                                }
+                                onChange={(e) => handleFileChange(e, field.id)}
                                 accept=""
                               />
                               {!field.fileUploaded ? (
@@ -615,13 +842,23 @@ function Enterprocess_form() {
                                   <PiCloudArrowUpLight />
                                 </label>
                               ) : (
-                                <RiDeleteBin6Line
-                                  className="file-del-icon"
-                                  onClick={() => handleFileDelete(field.id)}
-                                />
+                                // Corrected delete icon condition
+                                uploadedFiles.map(
+                                  (file, index) =>
+                                    file.option !== "No Option Selected" && (
+                                      <RiDeleteBin6Line
+                                        key={index} // Add key to each delete icon
+                                        className="file-del-icon"
+                                        onClick={() =>
+                                          handleFileDelete(file.option)
+                                        } // Pass the option to delete
+                                      />
+                                    )
+                                )
                               )}
                             </div>
                           </div>
+
                           <div className="col d-flex justify-content-start  ">
                             <button
                               type="button"
@@ -633,7 +870,104 @@ function Enterprocess_form() {
                           </div>
                         </div>
                       )
-                  )}
+                  )} */}
+
+{/* <div className="container mt-5">
+      {formData.map((fieldData, index) => (
+        <div className="row  mt-2 pt-3 p-3" key={index}>
+          <div className="col-12 col-md-4">
+            <label className="statis-name">Select Document</label>
+
+            {fieldData.typeofwork === "others" ? (
+              <input
+                type="text"
+                className={`form-control ${errors[`specificOption-${index}`] ? "border-danger" : ""}`}
+                name="specificOption"
+                value={fieldData.specificOption}
+                onChange={(e) => handleChangeSelect(index, e)}
+                placeholder="Enter Others Option"
+                required
+              />
+            ) : (
+              <select
+                className={`form-select ${errors[`specificOption-${index}`] ? "border-danger" : ""}`}
+                name="specificOption"
+                value={fieldData.specificOption}
+                onChange={(e) => handleChangeSelect(index, e)}
+                required
+              >
+                <option value="" disabled>
+                  Select a specific option
+                </option>
+                {optionsMapping[fieldData.typeofwork]?.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            )}
+            {errors[`specificOption-${index}`] && (
+              <small className="text-danger">This field is required.</small>
+            )}
+          </div>
+
+          <div className="col-12 col-md-4">
+            <label className="statis-name">File</label>
+            <div
+              className={`form-control d-flex justify-content-end ${errors[`file-${index}`] ? "border-danger" : ""}`}
+            >
+              <input
+                type="file"
+                id={`fileupload-${index}`}
+                className="file-upload-input"
+                onChange={(e) => handleFileChange(index, e)}
+              />
+              {!fieldData.file && (
+                <label htmlFor={`fileupload-${index}`} className="file-icon">
+                  <PiCloudArrowUpLight />
+                </label>
+              )}
+              {fieldData.file && (
+                <RiDeleteBin6Line
+                  className="file-del-icon"
+                  onClick={() => handleFileDelete(index)}
+                />
+              )}
+            </div>
+            {errors[`file-${index}`] && (
+              <small className="text-danger">File is required.</small>
+            )}
+          </div>
+
+          <div className="col d-flex justify-content-start py-3 mt-2">
+            <button
+              type="button"
+              className="save-form-add"
+              onClick={() => handleButtonClick(index)}
+            >
+              Add +
+            </button>
+            <button
+              type="button"
+              className="save-form-del ms-3"
+              onClick={() => handleDeleteField(index)}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      ))}
+
+      <div className="col d-flex justify-content-start py-3 mt-2">
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleAddField}
+        >
+          Add Another Field
+        </button>
+      </div>
+    </div> */}
 
                   <div className="col-md-12 float-start pt-1 py-3">
                     <label className="client-name-pop ">
@@ -641,7 +975,7 @@ function Enterprocess_form() {
                     </label>
                   </div>
 
-                  <div className="col-12 col-md-4 float-start pt-0  ">
+                  <div className="col-12 col-md-4 float-start pt-2  ">
                     <label className="statis-name ">Client Name</label>
                     <input
                       type="text"
@@ -844,15 +1178,44 @@ function Enterprocess_form() {
                     <label className="statis-name ">Budget</label>
                     <input
                       type="number"
-                      className={`form-control ${
-                        errors.contactNo ? "error" : ""
-                      }`}
+                      className={`form-control ${errors.budget ? "error" : ""}`}
                       placeholder="Enter Budget"
-                      // name="contactNo"
-                      // value={formData.contactNo}
+                      name="budget"
+                      value={formData.budget}
                       onChange={handleChange}
                       required
                     />
+                  </div>
+                  <div className="col-12 col-md-4 float-start pt-4  ">
+                    <h5 className="statis-name ">Process Status</h5>
+                    <select
+                      className={`form-select  ${
+                        errors.processStatus ? "error" : ""
+                      }`}
+                      name="processStatus"
+                      value={formData.processStatus}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Select Process status
+                      </option>
+                      <option value="one">Not Assigned</option>
+                      <option value="two">Pending - Statistics</option>
+                      <option value="three">Pending - Writer</option>
+                      <option value="four">Pending - Reviewer</option>
+                      <option value="five">Pending - Author</option>
+                      <option value="six">Completed</option>
+                      <option value="seven">In-discussion</option>
+                      <option value="eight">Waiting for Submission</option>
+                      <option value="nine">Withdrawn</option>
+                      <option value="ten">Pending - Email</option>
+                      <option value="eleven">To Do</option>
+                      <option value="twelve">In Work</option>
+                      <option value="thirteen">Submitted</option>
+                      <option value="fourteen">Pending </option>
+                      <option value="fifteen">Reviews</option>
+                    </select>
                   </div>
 
                   <div className="col-12 col-md-4 float-start  pt-4">
@@ -896,55 +1259,52 @@ function Enterprocess_form() {
                   </div>
                   {showProject && (
                     <div className="gap-3 px-4 d-flex  flex-wrap">
-                      
-                        <div>
-                          <input
-                            type="checkbox"
-                            id="writer"
-                            onClick={handleWriterClick}
-                            
-                          />
-                          <label className="statis-name1 " htmlFor="writer">
-                            Writer
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            type="checkbox"
-                            id="reviewer"
-                            onClick={handleReviewerClick}
-                          />
-                          <label className="statis-name1" htmlFor="reviewer">
-                            Reviewer
-                          </label>
-                        </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="writer"
+                          onClick={handleWriterClick}
+                        />
+                        <label className="statis-name1 " htmlFor="writer">
+                          Writer
+                        </label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="reviewer"
+                          onClick={handleReviewerClick}
+                        />
+                        <label className="statis-name1" htmlFor="reviewer">
+                          Reviewer
+                        </label>
+                      </div>
 
-                        <div>
-                          <input
-                            type="checkbox"
-                            id="statistican"
-                            onClick={handleStatisticanClick}
-                          />
-                          <label className="statis-name1" htmlFor="statistican">
-                            Statistican
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            type="checkbox"
-                            id="journal"
-                            onClick={handleJournalClick}
-                          />
-                          <label className="statis-name1" htmlFor="journal">
-                            Journal
-                          </label>
-                        </div>
-                     
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="statistican"
+                          onClick={handleStatisticanClick}
+                        />
+                        <label className="statis-name1" htmlFor="statistican">
+                          Statistican
+                        </label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="journal"
+                          onClick={handleJournalClick}
+                        />
+                        <label className="statis-name1" htmlFor="journal">
+                          Journal
+                        </label>
+                      </div>
                     </div>
                   )}
                   {showWriter && (
-                    <div className="row w-100 pt-2 ">
-                      <div className="col-12 col-md  w-100 pt-2">
+                    <div className="row w-100 pt-2 d-flex flex-wrap ">
+                      <div className="col-12 col-md-6 col-lg  w-100 pt-2">
                         <label className="statis-name ">Writer</label>
                         <select
                           className={`form-control  ${
@@ -963,7 +1323,7 @@ function Enterprocess_form() {
                           <option value="three">Three</option>
                         </select>
                       </div>
-                      <div className="col-12 col-md  pt-2 ">
+                      <div className="col-12 col-md-6 col-lg   pt-2 ">
                         <label className="statis-name ">
                           Writer Assigned Date
                         </label>
@@ -978,7 +1338,7 @@ function Enterprocess_form() {
                           required
                         />
                       </div>
-                      <div className="col-12 col-md pt-2 ">
+                      <div className="col-12 col-md-6 col-lg  pt-2 ">
                         <label className="statis-name "> Writer Status</label>
                         <select
                           className={`form-control  ${
@@ -1001,7 +1361,7 @@ function Enterprocess_form() {
                           <option value="seven">Correction 3 </option>
                         </select>
                       </div>
-                      <div className="col-12 col-md  pt-2">
+                      <div className="col-12 col-md-6 col-lg   pt-2">
                         <label className="statis-name ">
                           Writer status Date
                         </label>
@@ -1017,19 +1377,23 @@ function Enterprocess_form() {
                           required
                         />
                       </div>
-                      <div className="col-12 col-md  pt-2">
+                      <div className="col-12 col-md-6 col-lg   pt-2">
                         <label className="statis-name ">
                           {" "}
                           Writer Project Duration
                         </label>
-                        <div className="d-flex form-control">
+                        <div
+                          className={` form-control d-flex  ${
+                            errors.durationInput ? "error" : ""
+                          }`}
+                        >
                           <input
                             className={`duration-input ${
-                              errors.durationInput ? "error" : ""
+                              errors.duration ? "error" : ""
                             }`}
                             type="text"
-                            name="durationInput"
-                            value={formData.durationInput}
+                            name="duration"
+                            value={formData.duration}
                             onChange={handleChange}
                             required
                           />
@@ -1037,12 +1401,12 @@ function Enterprocess_form() {
                             className={`duration-select ${
                               errors.duration ? "error" : ""
                             }`}
-                            name="duration"
-                            value={formData.duration}
+                            name="writerdurationUnit"
+                            value={formData.writerdurationUnit}
                             onChange={handleChange}
                             required
                           >
-                            <option value="" disabled>
+                            <option value="" disabled selected>
                               Hrs/Days
                             </option>
                             <option value="hrs">Hrs</option>
@@ -1054,8 +1418,8 @@ function Enterprocess_form() {
                   )}
 
                   {showReviewer && (
-                    <div className="row w-100 pt-4">
-                      <div className="col-12 col-md  ">
+                    <div className="row w-100 pt-4 d-flex flex-wrap">
+                      <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name "> Reviewer</label>
                         <select
                           className={`form-control  ${
@@ -1075,7 +1439,7 @@ function Enterprocess_form() {
                           <option value="three">three</option>
                         </select>
                       </div>
-                      <div className="col-12 col-md  ">
+                      <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name ">
                           Reviewer Assigned Date
                         </label>
@@ -1090,7 +1454,7 @@ function Enterprocess_form() {
                           required
                         />
                       </div>
-                      <div className="col-12 col-md t ">
+                      <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name ">Reviewer Status</label>
 
                         <select
@@ -1114,7 +1478,7 @@ function Enterprocess_form() {
                           <option value="seven">Correction 3 </option>
                         </select>
                       </div>
-                      <div className="col-12 col-md  ">
+                      <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name ">
                           Reviewer Status date
                         </label>
@@ -1129,19 +1493,40 @@ function Enterprocess_form() {
                           required
                         />
                       </div>
-                      <div className="col-12 col-md  ">
+                      <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name ">
                           {" "}
                           Reviewer Project Duration
                         </label>
-                        <div className="d-flex form-control">
-                          <input className="duration-input" type="text"></input>
-                          <select className="duration-select">
+                        <div
+                          className={` form-control d-flex  ${
+                            errors.reviwerdurationInput ? "error" : ""
+                          }`}
+                        >
+                          <input
+                            className={`duration-input ${
+                              errors.reviwerduration ? "error" : ""
+                            }`}
+                            type="text"
+                            name="reviwerduration"
+                            value={formData.reviwerduration}
+                            onChange={handleChange}
+                            required
+                          />
+                          <select
+                            className={`duration-select ${
+                              errors.reviwerduration ? "error" : ""
+                            }`}
+                            name="reviwerdurationUnit"
+                            value={formData.reviwerdurationUnit}
+                            onChange={handleChange}
+                            required
+                          >
                             <option value="" disabled selected>
                               Hrs/Days
                             </option>
-                            <option value="one">Hrs</option>
-                            <option value="two">days</option>
+                            <option value="hrs">Hrs</option>
+                            <option value="days">Days</option>
                           </select>
                         </div>
                       </div>
@@ -1150,7 +1535,7 @@ function Enterprocess_form() {
 
                   {showStatistican && (
                     <div className="row w-100 pt-4">
-                      <div className="col-12 col-md ">
+                      <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name ">Statistican</label>
                         <select
                           className={`form-control  ${
@@ -1169,32 +1554,32 @@ function Enterprocess_form() {
                           <option value="three">Three</option>
                         </select>
                       </div>
-                      <div className="col-12 col-md  ">
+                      <div className="col-12 col-md-6 col-lg  ">
                         <label className="statis-name ">
                           Statistican Assigned Date
                         </label>
                         <input
                           type="date"
                           className={`form-control ${
-                            errors.statistican ? "error" : ""
+                            errors.statisticanDate ? "error" : ""
                           }`}
-                          name="statistican"
-                          value={formData.statistican}
+                          name="statisticanDate"
+                          value={formData.statisticanDate}
                           onChange={handleChange}
                           required
                         />
                       </div>
-                      <div className="col-12 col-md  ">
+                      <div className="col-12 col-md-6 col-lg  ">
                         <label className="statis-name ">
                           {" "}
                           Statistican Status
                         </label>
                         <select
                           className={`form-control  ${
-                            errors.statistican ? "error" : ""
+                            errors.statisticanStatus ? "error" : ""
                           }`}
-                          name="statistican"
-                          value={formData.statistican}
+                          name="statisticanStatus"
+                          value={formData.statisticanStatus}
                           onChange={handleChange}
                           required
                         >
@@ -1209,7 +1594,7 @@ function Enterprocess_form() {
                           <option value="six">Not Assigned </option>
                         </select>
                       </div>
-                      <div className="col-12 col-md ">
+                      <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name ">
                           Statistican status Date
                         </label>
@@ -1217,43 +1602,65 @@ function Enterprocess_form() {
                         <input
                           type="date"
                           className={`form-control ${
-                            errors.writerStatusDate ? "error" : ""
+                            errors.statisticanStatusDate ? "error" : ""
                           }`}
-                          name="writerStatusDate"
-                          value={formData.writerStatusDate || ""}
+                          name="statisticanStatusDate"
+                          value={formData.statisticanStatusDate || ""}
                           onChange={handleChange}
                           required
                         />
                       </div>
-                      <div className="col-12 col-md  l">
+                      <div className="col-12 col-md-6 col-lg  ">
                         <label className="statis-name ">
                           {" "}
                           Statistican Project Duration
                         </label>
-                        <div className="d-flex form-control">
-                          <input className="duration-input" type="text"></input>
-                          <select className="duration-select">
+                        <div
+                          className={` form-control d-flex  ${
+                            errors.statisticandurationInput ? "error" : ""
+                          }`}
+                        >
+                          <input
+                            className={`duration-input ${
+                              errors.statisticanduration ? "error" : ""
+                            }`}
+                            type="text"
+                            name="statisticanduration"
+                            value={formData.statisticanduration}
+                            onChange={handleChange}
+                            required
+                          />
+                          <select
+                            className={`duration-select ${
+                              errors.statisticanduration ? "error" : ""
+                            }`}
+                            name="statisticandurationUnit"
+                            value={formData.statisticandurationUnit}
+                            onChange={handleChange}
+                            required
+                          >
                             <option value="" disabled selected>
                               Hrs/Days
                             </option>
-                            <option value="one">Hrs</option>
-                            <option value="two">days</option>
+                            <option value="hrs">Hrs</option>
+                            <option value="days">Days</option>
                           </select>
                         </div>
+                                  
                       </div>
                     </div>
                   )}
 
                   {showJournal && (
-                    <div className="row w-100 pt-4">
-                      <div className="col-12 col-md ">
+                    <div className="row w-100 pt-1">
+                      <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name ">Journal</label>
                         <select
                           className={`form-control  ${
-                            errors.writer ? "error" : ""
+                            errors.journal ? "error" : ""
                           }`}
-                          name="writer"
-                          value={formData.writer}
+                          name="journal"
+                          value={formData.journal}
                           onChange={handleChange}
                           required
                         >
@@ -1265,29 +1672,29 @@ function Enterprocess_form() {
                           <option value="three">Three</option>
                         </select>
                       </div>
-                      <div className="col-12 col-md  ">
+                      <div className="col-12 col-md-6 col-lg  ">
                         <label className="statis-name ">
                           Journal Assigned Date
                         </label>
                         <input
                           type="date"
                           className={`form-control ${
-                            errors.writerDate ? "error" : ""
+                            errors.journalDate ? "error" : ""
                           }`}
-                          name="writerDate"
-                          value={formData.writerDate}
+                          name="journalDate"
+                          value={formData.journalDate}
                           onChange={handleChange}
                           required
                         />
                       </div>
-                      <div className="col-12 col-md  ">
+                      <div className="col-12 col-md-6 col-lg  ">
                         <label className="statis-name "> JournalStatus</label>
                         <select
                           className={`form-control  ${
-                            errors.writerStatus ? "error" : ""
+                            errors.journalStatus ? "error" : ""
                           }`}
-                          name="writerStatus"
-                          value={formData.writerStatus}
+                          name="journalStatus"
+                          value={formData.journalStatus}
                           onChange={handleChange}
                           required
                         >
@@ -1305,7 +1712,7 @@ function Enterprocess_form() {
                           <option value="nine">Accepted </option>
                         </select>
                       </div>
-                      <div className="col-12 col-md ">
+                      <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name ">
                           Journal status Date
                         </label>
@@ -1313,27 +1720,48 @@ function Enterprocess_form() {
                         <input
                           type="date"
                           className={`form-control ${
-                            errors.writerStatusDate ? "error" : ""
+                            errors.journalStatusDate ? "error" : ""
                           }`}
-                          name="writerStatusDate"
-                          value={formData.writerStatusDate || ""}
+                          name="journalStatusDate"
+                          value={formData.journalStatusDate || ""}
                           onChange={handleChange}
                           required
                         />
                       </div>
-                      <div className="col-12 col-md  l">
+                      <div className="col-12 col-md-6 col-lg  ">
                         <label className="statis-name ">
                           {" "}
                           Journal Project Duration
                         </label>
-                        <div className="d-flex form-control">
-                          <input className="duration-input" type="text"></input>
-                          <select className="duration-select">
+                        <div
+                          className={` form-control d-flex  ${
+                            errors.journaldurationInput ? "error" : ""
+                          }`}
+                        >
+                          <input
+                            className={`duration-input ${
+                              errors.journalduration ? "error" : ""
+                            }`}
+                            type="text"
+                            name="journalduration"
+                            value={formData.journalduration}
+                            onChange={handleChange}
+                            required
+                          />
+                          <select
+                            className={`duration-select ${
+                              errors.journalduration ? "error" : ""
+                            }`}
+                            name="journaldurationUnit"
+                            value={formData.journaldurationUnit}
+                            onChange={handleChange}
+                            required
+                          >
                             <option value="" disabled selected>
                               Hrs/Days
                             </option>
-                            <option value="one">Hrs</option>
-                            <option value="two">days</option>
+                            <option value="hrs">Hrs</option>
+                            <option value="days">Days</option>
                           </select>
                         </div>
                       </div>

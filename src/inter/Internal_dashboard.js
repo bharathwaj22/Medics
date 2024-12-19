@@ -35,7 +35,7 @@ function Internal_dashboard() {
               <section className="col-12 ">
                 <div className="row  px-3">
                   <div className="col-12 mt-4 d-flex justify-content-between">
-                    <p className="heading-entr">Project management</p>
+                    <p className="heading-entr">Reviewer</p>
                     <div className="col-2 text-center  ">
                       <div className="d-flex justify-content-center ">
                         <div className="add-icon">

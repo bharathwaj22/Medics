@@ -678,3 +678,234 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
+// import React, { useState } from "react";
+// import { PiCloudArrowUpLight } from "react-icons/pi";
+// import { RiDeleteBin6Line } from "react-icons/ri";
+
+// const DocumentForm = () => {
+//   const [formData, setFormData] = useState([
+//     { typeofwork: "", specificOption: "", file: null },
+//   ]);
+//   const [errors, setErrors] = useState([]);
+
+//   // Mapping for options based on the 'typeofwork' value
+//   const optionsMapping = {
+//     statistics: [
+//       { value: "option1", label: "Option 1" },
+//       { value: "option2", label: "Option 2" },
+//     ],
+//     manuscript: [
+//       { value: "optionA", label: "Option A" },
+//       { value: "optionB", label: "Option B" },
+//     ],
+//     thesis: [
+//       { value: "optionX", label: "Option X" },
+//       { value: "optionY", label: "Option Y" },
+//     ],
+//     presentation: [
+//       { value: "optionM", label: "Option M" },
+//       { value: "optionN", label: "Option N" },
+//     ],
+//   };
+
+//   const handleChangeSelect = (index, e) => {
+//     const newFormData = [...formData];
+//     newFormData[index][e.target.name] = e.target.value;
+    
+    
+//     console.log(`Updated field at index ${index}:`, newFormData[index]);
+  
+//     setFormData(newFormData);
+//     setErrors(errors.filter((err) => err.index !== index)); // Clear errors for the specific field
+  
+   
+//     console.log("Updated formData:", newFormData);
+//   };
+  
+//   const handleFileChange = (index, e) => {
+   
+//     const newFormData = [...formData];
+  
+//     newFormData[index] = {
+//       ...newFormData[index],
+//       file: e.target.files[0], 
+//     };
+  
+//     console.log(`File uploaded for index ${index}:`, e.target.files[0]);
+  
+//     setFormData(newFormData);
+  
+//     setErrors(errors.filter((err) => err.index !== index));
+  
+//     console.log("Updated formData with file:", newFormData);
+//   };
+  
+//   const handleFileDelete = (index) => {
+//     const newFormData = [...formData];
+    
+//     // Clear only the 'file' field for the specific index
+//     newFormData[index] = {
+//       ...newFormData[index], // Retain other properties
+//       file: null, // Only clear the file
+//     };
+    
+//     setFormData(newFormData); // Update formData state
+    
+//     // Update errors state: remove errors for the 'file' field of the current index
+//     const newErrors = errors.filter((err) => err.index !== index || err.field !== 'file');
+    
+//     setErrors(newErrors); // Update errors state
+
+//     console.log("Updated formData after file deletion:", newFormData);
+//     console.log("Updated errors after file deletion:", newErrors);
+// };
+
+  
+
+//   const handleAddField = () => {
+//     if (formData[formData.length - 1].file) {
+//       setFormData([
+//         ...formData,
+//         { typeofwork: "", specificOption: "", file: null },
+//       ]);
+//     } else {
+//       alert("Please upload a file before adding another form.");
+//     }
+//   };
+//   const handleDeleteField = (index) => {
+//     const newFormData = formData.filter((_, i) => i !== index); // Remove the field at the given index
+//     const newErrors = errors.filter((err) => err.index !== index); // Remove any errors associated with the field at the given index
+  
+//     setFormData(newFormData);
+//     setErrors(newErrors);
+  
+//     // Log updated formData and errors for debugging
+//     console.log("Updated formData after deletion:", newFormData);
+//     console.log("Updated errors after deletion:", newErrors);
+//   };
+  
+
+//   const handleButtonClick = (index) => {
+//     const errorsObj = [];
+//     if (!formData[index].specificOption) {
+//       errorsObj.push({ index, field: "specificOption", message: "This field is required." });
+//     }
+//     if (!formData[index].file) {
+//       errorsObj.push({ index, field: "file", message: "File is required." });
+//     }
+//     setErrors(errorsObj);
+
+//     if (errorsObj.length === 0) {
+//       console.log("Form data is valid", formData);
+//     }
+//   };
+
+//   return (
+//     <div className="container mt-5">
+//       {formData.map((fieldData, index) => (
+//         <div className="row mt-2 pt-3 p-3" key={index}>
+//           <div className="col-12 col-md-4">
+//             <label className="statis-name">Select Document</label>
+
+//             {fieldData.typeofwork === "others" ? (
+//               <input
+//                 type="text"
+//                 className={`form-control ${errors.some(err => err.index === index && err.field === "specificOption") ? "border-danger" : ""}`}
+//                 name="specificOption"
+//                 value={fieldData.specificOption}
+//                 onChange={(e) => handleChangeSelect(index, e)}
+//                 placeholder="Enter Others Option"
+//                 required
+//               />
+//             ) : (
+//               <select
+//                 className={`form-select ${errors.some(err => err.index === index && err.field === "specificOption") ? "border-danger" : ""}`}
+//                 name="specificOption"
+//                 value={fieldData.specificOption}
+//                 onChange={(e) => handleChangeSelect(index, e)}
+//                 required
+//               >
+//                 <option value="" disabled>
+//                   Select a specific option
+//                 </option>
+//                 {/* {optionsMapping[fieldData.typeofwork]?.map((option) => (
+//                   <option key={option.value} value={option.value}>
+//                     {option.label}
+//                   </option>
+//                 ))} */}
+//                 <option>one</option>
+//                 <option>two</option>
+//                 {/* <option value="option1">Option 1</option>
+//                 <option value="option2">Option 2</option> */}
+//                 <option>three</option>
+//                 {/* <option value="optionX">Option X</option>
+//                 <option value="optionY">Option Y</option> */}
+//                 <option>four</option>
+                
+//               </select>
+//             )}
+//             {errors.some(err => err.index === index && err.field === "specificOption") && (
+//               <small className="text-danger">This field is required.</small>
+//             )}
+//           </div>
+
+//           <div className="col-12 col-md-4">
+//             <label className="statis-name">File</label>
+//             <div
+//               className={`form-control d-flex justify-content-end ${errors.some(err => err.index === index && err.field === "file") ? "border-danger" : ""}`}
+//             >
+//               <input
+//                 type="file"
+//                 id={`fileupload-${index}`}
+//                 className="file-upload-input"
+//                 onChange={(e) => handleFileChange(index, e)}
+//               />
+//               {!fieldData.file && (
+//                 <label htmlFor={`fileupload-${index}`} className="file-icon">
+//                   <PiCloudArrowUpLight />
+//                 </label>
+//               )}
+//               {fieldData.file && (
+//                 <RiDeleteBin6Line
+//                   className="file-del-icon"
+//                   onClick={() => handleFileDelete(index)}
+//                 />
+//               )}
+//             </div>
+//             {errors.some(err => err.index === index && err.field === "file") && (
+//               <small className="text-danger">File is required.</small>
+//             )}
+//           </div>
+
+//           <div className="col d-flex justify-content-start py-3 mt-2">
+//             {index === 0 && (
+//               <button
+//                 type="button"
+//                 className="save-form-add"
+//                 onClick={handleAddField}
+//                 disabled={!fieldData.file}
+//               >
+//                 Add +
+//               </button>
+//             )}
+//             {index > 0 && (
+//               <button
+//                 type="button"
+//                 className="save-form-del ms-3"
+//                 onClick={() => handleDeleteField(index)}
+//               >
+//                 Delete
+//               </button>
+//             )}
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default DocumentForm;
+
+
+
