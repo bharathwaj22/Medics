@@ -61,6 +61,7 @@ function Enterprocess_form() {
     writerdurationUnit: "",
     reviwerdurationUnit: "",
     statisticandurationUnit: "",
+    commandbox:"",
     // specificOption:"",
     // fields:"",
   });
@@ -215,6 +216,8 @@ function Enterprocess_form() {
     if (validateForm()) {
       console.log("Form data submitted:", formData);
     }
+   
+        console.log("Form Data:", formData);
   };
   //  profession.........................................................>
   const [currentChoice, setCurrentChoice] = useState(""); // Stores selected option
@@ -608,6 +611,16 @@ function Enterprocess_form() {
     others: [],
   };
   // file valditation
+
+
+  const handleCommentChange = (newValue) => {
+    setFormData((prevData) => ({
+        ...prevData,
+        commandbox: newValue, // Update only the commandbox property
+    }));
+    
+};
+
 
   return (
     <>
@@ -1241,8 +1254,14 @@ function Enterprocess_form() {
                   </div>
                   <div className="col-12 col-md-6 pt-4">
                     <label className="statis-name ">Comment Box</label>
-                    {/* <input className=" command-box" /> */}
-                    <RichEditor></RichEditor>
+                   
+                    {/* <RichEditor
+                    value={formData.commandbox} // Controlled value
+                    onChange={handleCommentChange} // Update state on change
+                    name="commandbox"
+                /> */}
+                   <RichEditor setFormData={setFormData} />
+      
                   </div>
                   <div class="row p-4">
                     <div className="col d-flex gap-1">

@@ -139,10 +139,10 @@ function Dashboard() {
     setSelectedMonth1(event.target.value);
   };
   const datapie = [
-    { name: "series A", value: 10 },
-    { name: "series B", value: 15 },
-    { name: "series C", value: 20 },
-    { name: "series d", value: 30 },
+    { name: "Journal", value: 30 },
+    { name: "Salary", value: 15 },
+    { name: "Freelancer", value: 20 },
+    { name: "Office Expende", value: 30 },
   ];
   const COLORS1 = ["#C084FC", "#2563EB", "#22C55E", "#FB923C"];
 
@@ -482,7 +482,7 @@ function Dashboard() {
               <div className="col-12 col-xxl-6 ">
                 <div className="col-12 pt-1 mt-1 project-manage py-5">
                   <div className="row  px-3">
-                    <div className="col-9 mt-4 px-4">
+                    <div className="col-9 mt-2 px-4">
                       <p className="heading-entr">Income </p>
                     </div>
                     <div className="col-3 mt-4 px-4 gap-3 d-flex flex-wrap justify-content-end">
@@ -508,7 +508,10 @@ function Dashboard() {
                         ];
 
                         return (
-                          <div className="position-relative  justify-content-center" key={index}>
+                          <div
+                            className="position-relative  justify-content-center"
+                            key={index}
+                          >
                             <PieChart width={200} height={117}>
                               <Pie
                                 data={pieData}
@@ -547,96 +550,98 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-            
-              
-                <div className="col-12 col-xxl-6 pt-1 mt-1 project-manage d-flex justify-content-evenly ">
-                  <div className="col">
-                    <div className="col  d-flex text-center ">
-                      <p className="heading-entr">
-                        Income<span className="sym-project px-2">&</span>Exp
-                      </p>
+
+              <div className="col-12 col-xxl-6 pt-1 mt-1 project-manage  ">
+                
+                 
+                   <div className="row  px-3">
+                    <div className="col-9 mt-2 px-4">
+                    <p className="heading-entr">
+                      Income<span className="sym-project px-2">&</span>Exp
+                    </p>
                     </div>
-                    <div className="row">
-                      <div className="col d-flex  justify-content-center ">
-                        <div className="position-relative   ">
-                          <PieChart width={200} height={250}>
-                            <Pie
-                              data={datapie}
-                              dataKey="value"
-                              nameKey="name"
-                              cx="50%"
-                              cy="40%"
-                              // paddingAngle={2}
-                              outerRadius={100}
-                            >
-                              {datapie.map((entry, index) => (
-                                <Cell
-                                  key={`cell-${index}`}
-                                  fill={COLORS1[index % COLORS1.length]}
-                                />
-                              ))}
-                            </Pie>
-                          </PieChart>
-                          {/* ;<p className="position-absolute pie-infom1">100</p>
+                    <div className="col-3 mt-4 px-4 gap-3 d-flex flex-wrap justify-content-end">
+                      <div className="col">
+                        <input
+                          type="month"
+                          id="monthInput"
+                          className="people-select px-1"
+                          value={selectedMonth1}
+                          onChange={handleMonthChange1}
+                          placeholder="YYYY-MM"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row ">
+                    <div className="col d-flex mt-2  justify-content-center ">
+                      <div className="position-relative   ">
+                        <PieChart width={200} height={250}>
+                          <Pie
+                            data={datapie}
+                            dataKey="value"
+                            nameKey="name"
+                            cx="50%"
+                            cy="50%"
+                            // paddingAngle={2}
+                            outerRadius={100}
+                          >
+                            {datapie.map((entry, index) => (
+                              <Cell
+                                key={`cell-${index}`}
+                                fill={COLORS1[index % COLORS1.length]}
+                              />
+                            ))}
+                          </Pie>
+                        </PieChart>
+                        {/* ;<p className="position-absolute pie-infom1">100</p>
                       <p className="position-absolute pie-infom-exp1">3000</p> */}
-                          <p className="d-flex justify-content-center pie-text   ">
-                            Total Income & Exp
-                          </p>
+                        <p className="d-flex justify-content-center pie-text   ">
+                          Total Income & Exp
+                        </p>
+                      </div>
+                    </div>
+                    <div className="col-12 col-lg-6  pt-5">
+                      <div className="col d-flex  align-items-center w-75 justify-content-between mt-5">
+                        <div className="d-flex gap-3">
+                          <div className="journal-dash-color"></div>
+                          <div className="pie-text">Journal</div>
+                        </div>
+                        <div>
+                          <div className="pie-text">45.61%</div>
+                        </div>
+                      </div>
+                      <div className=" d-flex   align-items-center  w-75 justify-content-between mt-2">
+                        <div className="d-flex gap-3">
+                          <div className="salary-dash-color"></div>
+                          <div className="pie-text">Salary</div>
+                        </div>
+                        <div>
+                          <div className="pie-text">45.61%</div>
+                        </div>
+                      </div>
+                      <div className=" d-flex   align-items-center  w-75 justify-content-between mt-2">
+                        <div className="d-flex gap-3">
+                          <div className="freelancer-dash-color"></div>
+                          <div className="pie-text">Freelancer</div>
+                        </div>
+                        <div className="">
+                          <div className="pie-text">45.61%</div>
+                        </div>
+                      </div>
+                      <div className=" d-flex   align-items-center  w-75 justify-content-between mt-2">
+                        <div className="d-flex gap-3">
+                          <div className="office-dash-color"></div>
+                          <div className="pie-text">Office Expende</div>
+                        </div>
+                        <div>
+                          <div className="pie-text">45.61%</div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="col pt-5">
-                    <div className="d-">
-                    <input
-                            type="month"
-                            id="monthInput"
-                            className="people-select px-1"
-                            value={selectedMonth1}
-                            onChange={handleMonthChange1}
-                            placeholder="YYYY-MM"
-                          />
-
-                    </div>
-                    <div className=" d-flex  align-items-center w-75 justify-content-between mt-5">
-                      <div className="d-flex gap-3">
-                      <div className="journal-dash-color"></div>
-                      <div className="pie-text">Journal</div>
-                      </div>
-                      <div>
-                      <div className="pie-text">45.61%</div>
-                      </div>
-                    </div>
-                    <div className=" d-flex   align-items-center  w-75 justify-content-between mt-2">
-                      <div className="d-flex gap-3">
-                      <div className="salary-dash-color"></div>
-                      <div className="pie-text">Salary</div>
-                      </div>
-                      <div>
-                      <div className="pie-text">45.61%</div>
-                      </div>
-                    </div>
-                    <div className=" d-flex   align-items-center  w-75 justify-content-between mt-2">
-                      <div className="d-flex gap-3">
-                      <div className="freelancer-dash-color"></div>
-                      <div className="pie-text">Freelancer</div>
-                      </div>
-                      <div className="">
-                      <div className="pie-text">45.61%</div>
-                      </div>
-                    </div>
-                    <div className=" d-flex   align-items-center  w-75 justify-content-between mt-2">
-                      <div className="d-flex gap-3">
-                      <div className="office-dash-color"></div>
-                      <div className="pie-text">Office Expende</div>
-                      </div>
-                      <div>
-                      <div className="pie-text">45.61%</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              
+                
+              </div>
             </section>
 
             {/* <section className="col-12 pt-1 mt-2 project-manage w-100 py-5">
@@ -712,56 +717,52 @@ export default Dashboard;
 //   const handleChangeSelect = (index, e) => {
 //     const newFormData = [...formData];
 //     newFormData[index][e.target.name] = e.target.value;
-    
-    
+
 //     console.log(`Updated field at index ${index}:`, newFormData[index]);
-  
+
 //     setFormData(newFormData);
 //     setErrors(errors.filter((err) => err.index !== index)); // Clear errors for the specific field
-  
-   
+
 //     console.log("Updated formData:", newFormData);
 //   };
-  
+
 //   const handleFileChange = (index, e) => {
-   
+
 //     const newFormData = [...formData];
-  
+
 //     newFormData[index] = {
 //       ...newFormData[index],
-//       file: e.target.files[0], 
+//       file: e.target.files[0],
 //     };
-  
+
 //     console.log(`File uploaded for index ${index}:`, e.target.files[0]);
-  
+
 //     setFormData(newFormData);
-  
+
 //     setErrors(errors.filter((err) => err.index !== index));
-  
+
 //     console.log("Updated formData with file:", newFormData);
 //   };
-  
+
 //   const handleFileDelete = (index) => {
 //     const newFormData = [...formData];
-    
+
 //     // Clear only the 'file' field for the specific index
 //     newFormData[index] = {
 //       ...newFormData[index], // Retain other properties
 //       file: null, // Only clear the file
 //     };
-    
+
 //     setFormData(newFormData); // Update formData state
-    
+
 //     // Update errors state: remove errors for the 'file' field of the current index
 //     const newErrors = errors.filter((err) => err.index !== index || err.field !== 'file');
-    
+
 //     setErrors(newErrors); // Update errors state
 
 //     console.log("Updated formData after file deletion:", newFormData);
 //     console.log("Updated errors after file deletion:", newErrors);
 // };
-
-  
 
 //   const handleAddField = () => {
 //     if (formData[formData.length - 1].file) {
@@ -776,15 +777,14 @@ export default Dashboard;
 //   const handleDeleteField = (index) => {
 //     const newFormData = formData.filter((_, i) => i !== index); // Remove the field at the given index
 //     const newErrors = errors.filter((err) => err.index !== index); // Remove any errors associated with the field at the given index
-  
+
 //     setFormData(newFormData);
 //     setErrors(newErrors);
-  
+
 //     // Log updated formData and errors for debugging
 //     console.log("Updated formData after deletion:", newFormData);
 //     console.log("Updated errors after deletion:", newErrors);
 //   };
-  
 
 //   const handleButtonClick = (index) => {
 //     const errorsObj = [];
@@ -842,7 +842,7 @@ export default Dashboard;
 //                 {/* <option value="optionX">Option X</option>
 //                 <option value="optionY">Option Y</option> */}
 //                 <option>four</option>
-                
+
 //               </select>
 //             )}
 //             {errors.some(err => err.index === index && err.field === "specificOption") && (
@@ -906,6 +906,3 @@ export default Dashboard;
 // };
 
 // export default DocumentForm;
-
-
-
