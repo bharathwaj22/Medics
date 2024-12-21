@@ -8,35 +8,95 @@ import Profile from "..//assests/images/profile.png";
 import Breadcrumbs from "../routes/Breadcrumbs";
 import { IoMdAdd } from "react-icons/io";
 import RichEditor from "../components/RichEditor.jsx";
+import { IoMdClose } from "react-icons/io";
 
 function Project_management_view() {
-  const [formData, setFormData] = React.useState({
+  // const [formData, setFormData1] = React.useState({
+  //   commandbox: "",
+  // });
+  // const [editorContent, setEditorContent] = useState('');
+  // const [isRejected, setIsRejected] = useState(false);
+
+  // const setFormData = (content) => {
+  //   setEditorContent(content ? String(content) : '');
+  //   console.log("Editor content updated:", content);
+  // };
+  // const handleRejectSubmit = () => {
+  //   if (editorContent.trim() === '') {
+      
+  //     setIsRejected(true);
+  //   } else {
+  //     setIsRejected(false);
+  //     console.log('Rejected with content:', editorContent);
+  //   }
+  // };
+  // const handleCommentChange = (newValue) => {
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     commandbox: newValue, // Update only the commandbox property
+  //   }));
+  // };
+  const [formData, setFormData] = useState({
     commandbox: "",
   });
+  const [isRejected, setIsRejected] = useState(false);
 
+  // This function updates the formData's commandbox property
+  const handleEditorChange = (content) => {
+    setFormData((prevData) => ({
+      ...prevData,           // Spread the previous state to keep other properties intact
+      commandbox: content ? String(content) : ''  // Update the commandbox property
+    }));
+
+    console.log("Editor content updated:", content);  
+  };
+
+  const handleRejectSubmit = () => {
+    console.log("Current commandbox content:", formData.commandbox);
+  
+    if (formData.commandbox.trim() === '') {
+      setIsRejected(true);
+      
+    } else {
+      setIsRejected(false);
+      console.log('Rejected with content:', formData.commandbox); 
+    }
+  };
   const handleCommentChange = (newValue) => {
     setFormData((prevData) => ({
       ...prevData,
-      commandbox: newValue, // Update only the commandbox property
+      commandbox: newValue, 
+      
     }));
   };
-  const [profiles, setProfiles] = useState([ // State to hold the profiles
-    { name: 'Rabina', image: Profile },
-    // You can initialize with some default profiles if you want
+  
+  const [mainProfiles, setMainProfiles] = useState([]);
+  const [availableProfiles, setAvailableProfiles] = useState([
+    { image: Profile, name: "Rabina" },
+    { image: Profile, name: "John" },
+    { image: Profile, name: "Alice" },
   ]);
-
-  const [isOpen, setIsOpen] = useState(false); // State to track if the div is open
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleDiv = () => {
-    setIsOpen(!isOpen); // Toggle the div visibility
+    setIsOpen((prev) => !prev);
   };
-  const addProfile = () => {
-    // Example of adding a new profile. You can replace this with dynamic data.
-    setProfiles([
-      ...profiles,
-      { name: "New User", image: Profile }, // Add a new profile to the array
-    ]);
-    setIsOpen(false); // Optionally close the add form after adding the profile
+
+  const selectProfile = (profile) => {
+    
+    setMainProfiles((prev) => [...prev, profile]);
+    setAvailableProfiles((prev) =>
+      prev.filter((item) => item.name !== profile.name)
+    );
+    setIsOpen(false); // Close the "add-view-names" section
+  };
+
+  const deleteProfile = (profile) => {
+    // Move profile from mainProfiles to availableProfiles
+    setAvailableProfiles((prev) => [...prev, profile]);
+    setMainProfiles((prev) =>
+      prev.filter((item) => item.name !== profile.name)
+    );
   };
   return (
     <>
@@ -66,7 +126,7 @@ function Project_management_view() {
                     </div>
                     <div className="col-12 mt-4">
                       <p className="heading-entr">Project Title</p>
-                      <p>
+                      <p className="view-project-title" >
                         lorem100Lorem ipsum, or lipsum as it is sometimes known,
                         is dummy text used in laying out print, graphic or web
                         designs. The passage is attributed to an unknown
@@ -87,7 +147,7 @@ function Project_management_view() {
                         </div>
                       </div>
                       {/*  */}
-                      <div className="d-flex gap-2 ">
+                      {/* <div className="d-flex gap-2 ">
                         <p className="created-by pt-2">Assigned To</p>
                         <div className="d-flex gap-2 flex-wrap">
                           <div className="create-view d-flex align-items-center gap-2 px-1 mx-1">
@@ -98,14 +158,7 @@ function Project_management_view() {
                             />
                             <p className="view-names text-center ">Rabina</p>
                           </div>
-                          {/* <div className="create-view d-flex align-items-center gap-2 px-1 mx-1">
-                            <img
-                              src={Profile}
-                              className="pro-view-img"
-                              alt=""
-                            />
-                            <p className="view-names text-center ">Rabina</p>
-                          </div> */}
+                          
                           {profiles.map((profile, index) => (
                             <div
                               key={index}
@@ -141,7 +194,61 @@ function Project_management_view() {
                             </div>
                           </div>
                         )}
+                      </div> */}
+                      <div className="d-flex gap-2">
+                        <p className="created-by pt-2">Assigned To</p>
+
+                        {/* Main Profiles Section */}
+                        <div className="d-flex gap-2 flex-wrap">
+                          {mainProfiles.map((profile, index) => (
+                            <div
+                              key={index}
+                              className="create-view d-flex align-items-center gap-2 px-1 mx-1"
+                            >
+                              <img
+                                src={profile.image}
+                                className="pro-view-img"
+                                alt={profile.name}
+                              />
+                              <p className="view-names text-center">
+                                {profile.name}
+                              </p>
+                              <IoMdClose
+                                className="delete-icon"
+                                onClick={() => deleteProfile(profile)}
+                              />
+                            </div>
+                          ))}
+
+                          {/* Add Icon */}
+                          <div className="view-page-icon mx-1" onClick={toggleDiv}>
+                            <IoMdAdd className="view-page-icon1 mx-1" />
+                          </div>
+                        </div>
+
+                        {/* Add View Names Section */}
+                        {isOpen && (
+                          <div className="add-view-names">
+                            {availableProfiles.map((profile, index) => (
+                              <div
+                                key={index}
+                                className="create-view d-flex align-items-center gap-2 px-1 mx-1  mt-1"
+                                onClick={() => selectProfile(profile)}
+                              >
+                                <img
+                                  src={profile.image}
+                                  className="pro-view-img"
+                                  alt={profile.name}
+                                />
+                                <p className="view-names text-center">
+                                  {profile.name}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
+
                       {/*  */}
                       <div className="d-flex gap-2 align-items-center">
                         <p className="created-by mb-0">Time line</p>
@@ -166,9 +273,12 @@ function Project_management_view() {
                   <div className="col-12 mt-4">
                     <p className="heading-entr">Activity</p>
                   </div>
-                  <div className="col-12 col-md-6 pt-4  box-line">
-                    <RichEditor setFormData={setFormData} />
                   </div>
+                  <div className="row px-5">
+                  <div className="col-12 col-md-6 pt-4 box-line">
+        <RichEditor setFormData={handleEditorChange} />
+        {isRejected && <p className="warning-text">Please fill out the command box before rejecting.</p>}
+      </div>
                 </div>
                 <div className="row px-3 pt-5">
                   <div className="col d-flex align-items-center gap-3">
@@ -176,16 +286,17 @@ function Project_management_view() {
                     <div className="view-names1  ">Rabina</div>
                     <div className=" created-by ">5min</div>
                   </div>
-                 <div className="col-12">
-                 <p className=" content-view  mx-5 pt-2">
-                    lorem100Lorem ipsum, or lipsum as it is sometimes known, is
-                    dummy text used in laying out print, graphic or web designs.
-                  </p>
-                 </div>
-                 <div className="col-12 d-flex justify-content-end gap-3">
-                <button className="view-rej">Rejected</button>
-                <button className="view-accept">Accepted</button>
-                 </div>
+                  <div className="col-12">
+                    <p className="view-project-title  mx-5 pt-2">
+                      lorem100Lorem ipsum, or lipsum as it is sometimes known,
+                      is dummy text used in laying out print, graphic or web
+                      designs.
+                    </p>
+                  </div>
+                  <div className="col-12 d-flex justify-content-end gap-3">
+                  <button className="view-rej" onClick={handleRejectSubmit}>Rejected</button>
+                  <button className="view-accept">Accepted</button>
+                  </div>
                 </div>
               </section>
             </div>

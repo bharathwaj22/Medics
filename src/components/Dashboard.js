@@ -764,16 +764,51 @@ export default Dashboard;
 //     console.log("Updated errors after file deletion:", newErrors);
 // };
 
+//   // const handleAddField = () => {
+//   //   if (formData[formData.length - 1].file) {
+//   //     setFormData([
+//   //       ...formData,
+//   //       { typeofwork: "", specificOption: "", file: null },
+//   //     ]);
+//   //   } else {
+//   //     alert("Please upload a file before adding another form.");
+//   //   }
+//   // };\
 //   const handleAddField = () => {
-//     if (formData[formData.length - 1].file) {
-//       setFormData([
-//         ...formData,
-//         { typeofwork: "", specificOption: "", file: null },
-//       ]);
-//     } else {
-//       alert("Please upload a file before adding another form.");
+//     const currentErrors = [];
+//     const lastIndex = formData.length - 1;
+  
+//     // Validate the last form field
+//     if (!formData[lastIndex].specificOption) {
+//       currentErrors.push({
+//         index: lastIndex,
+//         field: "specificOption",
+//         message: "This field is required.",
+//       });
 //     }
+//     if (!formData[lastIndex].file) {
+//       currentErrors.push({
+//         index: lastIndex,
+//         field: "file",
+//         message: "File is required.",
+//       });
+//     }
+  
+//     // Update error state
+//     setErrors([...errors, ...currentErrors]);
+  
+//     // Prevent adding a new field if there are validation errors
+//     if (currentErrors.length > 0) {
+//       return;
+//     }
+  
+//     // Add new form field if validation passes
+//     setFormData([
+//       ...formData,
+//       { typeofwork: "", specificOption: "", file: null },
+//     ]);
 //   };
+  
 //   const handleDeleteField = (index) => {
 //     const newFormData = formData.filter((_, i) => i !== index); // Remove the field at the given index
 //     const newErrors = errors.filter((err) => err.index !== index); // Remove any errors associated with the field at the given index

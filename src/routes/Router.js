@@ -33,6 +33,7 @@ import Project_manager_dashboard from "../projectmanager/Project_manager_dashboa
 import Team_coordinator_dashboard from "../TeamCoordinator/Team_coordinator_dashboard.js";
 import Internal_dashboard from "../inter/Internal_dashboard.js";
 import Freelancer_dashboard from "../inter/Freelancer_dashboard.js";
+import Peoples_view_details from "../components/people_view_details.js"
 function Router() {
   return (
     <div>
@@ -65,6 +66,7 @@ function Router() {
         <Route path="settings" element={<Settings />} />
         <Route path="people-details" element={<Peoples />} />
         <Route path="admin-profile" element={<Admin_profile />} />
+        <Route path="people-details/people_view_details" element={<Peoples_view_details />} />
 
         {/* modula */}
         {/* <Route path ="/project-view" element={<Project_management_view />} /> */}

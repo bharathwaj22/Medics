@@ -142,7 +142,7 @@ function Login() {
               <div>
                 <div className="w-100 text-end">
                   <Link
-                    to=""
+                    to="/register"
                     className=" text-decoration-none forget-pass"
                     href=""
                   >

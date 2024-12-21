@@ -88,7 +88,7 @@
    border-right: 2px solid rgba(216, 216, 216, 1);
   
   height: 100vh;
-  border-top: 1px solid pink;
+  /* border-top: 1px solid pink; */
   margin-top: 10px;
    
 }
@@ -151,4 +151,34 @@
    font-size: 14px;
    font-family: pp-regular;
 }
+.project-todo{
+  border-bottom: 2px solid rgba(30, 41, 59, 1);
+ 
+}
+.project-todo-round{
+    border-radius: 50%;
+    border: 1px solid rgba(235, 236, 242, 1);
+    padding: 0px 10px;
+    color: rgba(148, 163, 184, 1);
+    font-size: 14px;
+    font-family: pp-bold;
+    margin-top: 1px;
+    
 
+   
+}
+.project-todo1{
+   border-bottom: 2px solid rgba(48, 107, 255, 1);
+   
+ }
+.project-todo2{
+   border-bottom: 2px solid rgba(255, 181, 128, 1);
+   
+ }
+.project-todo3{
+   border-bottom: 2px solid rgba(255, 9, 9, 1);
+   
+ }
+.project-todo4{
+   border-bottom: 2px solid rgba(120, 197, 82, 1);
+ }

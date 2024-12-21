@@ -556,7 +556,10 @@ const ProjectManagementTool = () => {
               <section className="col-12 px-3  ">
                 <div className="d-flex flex-wrap  p-3 wapper  ">
                   <div className="col  ">
-                    <div className="">TODO</div>
+                    <div className="project-todo d-flex gap-5 pb-2 m-1 ">
+                      <div>TO DO</div>
+                      <div className="project-todo-round ">2</div>
+                    </div>
                     <div className="task-list ">
                       <Link to="project-view " className="text-decoration-none">
                         <div className=" task-details m-2 p-2">
@@ -604,7 +607,10 @@ const ProjectManagementTool = () => {
                     
                   </div>
                   <div className="col ">
-                    <div>IN WORK</div>
+                  <div className="project-todo1 d-flex gap-5 pb-2 m-1 ">
+                      <div>IN WORK</div>
+                      <div className="project-todo-round ">2</div>
+                    </div>
                     <div className="task-list ">
                     <Link to="project-view " className="text-decoration-none">
                         <div className=" task-details m-2 p-2">
@@ -651,7 +657,10 @@ const ProjectManagementTool = () => {
                     </div>
                   </div>
                   <div className="col ">
-                    <div>Reviews</div>
+                  <div className="project-todo2 d-flex gap-5 pb-2 m-1 ">
+                      <div>Reviews</div>
+                      <div className="project-todo-round ">2</div>
+                    </div>
                     <div className="task-list ">
                     <Link to="project-view " className="text-decoration-none">
                         <div className=" task-details m-2 p-2">
@@ -698,7 +707,10 @@ const ProjectManagementTool = () => {
                     </div>
                   </div>
                   <div className="col ">
-                    <div>Correction</div>
+                  <div className="project-todo3 d-flex gap-5 pb-2 m-1">
+                      <div>Correction</div>
+                      <div className="project-todo-round ">2</div>
+                    </div>
                     <div className="task-list ">
                     <Link to="project-view " className="text-decoration-none">
                         <div className=" task-details m-2 p-2">
@@ -745,7 +757,10 @@ const ProjectManagementTool = () => {
                     </div>
                   </div>
                   <div className="col ">
-                    <div>COMPLETED</div>
+                  <div className="project-todo4 d-flex gap-5 pb-2 m-1 ">
+                      <div>COMPLETED</div>
+                      <div className="project-todo-round ">2</div>
+                    </div>
                     <div className="task-list ">
                     <Link to="project-view " className="text-decoration-none">
                         <div className=" task-details m-2 p-2">

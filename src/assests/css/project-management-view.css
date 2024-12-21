@@ -55,13 +55,15 @@
 }
 .box-line{
     border:1px solid rgba(61, 153, 180, 1); 
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(10, 58, 100, 0.5); /* Stronger shadow */
 
 }
 .view-page-icon{
     width: 30px;
     height: 30px;
     margin-right: 5px;
-    border:1px solid rgba(61, 153, 180, 1); 
+    border: 1px dashed rgba(61, 153, 180, 1); 
     border-radius: 50%;
 
 }
@@ -77,8 +79,7 @@
 .add-view-names{
     border: 1px solid rgba(235, 236, 242, 1);
     border-radius: 20px;
-    width: 100px;
-    height: 100px;
+    padding:5px 10px;
 
 }
 .view-rej{
@@ -95,3 +96,14 @@
     color: rgba(255, 255, 255, 1);
     border: none;
 }
+
+.view-project-title{
+    font-size: 12px;
+    font-family: 'regular-pp';
+    
+    color: rgba(90, 90, 90, 1);
+}
+.warning-text {
+    color: rgb(239, 6, 6);
+    font-weight: bold;
+  }

@@ -7,6 +7,7 @@ import axios from "axios";
 
 import Header from "./Header";
 import Breadcrumbs from "../routes/Breadcrumbs";
+import { Link } from "react-router-dom";
 
 function Peoples() {
   const [data, setData] = useState([]);
@@ -39,7 +40,9 @@ function Peoples() {
               <Header></Header>
             </div>
             <section className="col-12  mt-3 project-manage w-100">
-            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+              <div className="pt-2 px-2 d-none d-md-block">
+                <Breadcrumbs></Breadcrumbs>
+              </div>
 
               <div className="row  px-3">
                 <div className="col-9 mt-4 px-4">
@@ -137,9 +140,15 @@ function Peoples() {
                             <div className="col mt-2 text-center">
                               <p className="people-red">{item.ninedays}</p>
                             </div>
-                            <div className="col view-details text-center mx-3 ">
-                              <p className="mt-1">View Details</p>
-                            </div>
+
+                            <Link
+                              to="people_view_details"
+                              className="text-decoration-none"
+                            >
+                              <div className="col view-details text-center mx-3">
+                                <p className="mt-1 m-0">View Details</p>
+                              </div>
+                            </Link>
                           </div>
                         </tr>
                       ))}

@@ -62,6 +62,9 @@ function Enterprocess_form() {
     reviwerdurationUnit: "",
     statisticandurationUnit: "",
     commandbox:"",
+    processStatusDate: getTodayDate() || "",
+    else_project_manager: false,
+
     // specificOption:"",
     // fields:"",
   });
@@ -492,8 +495,18 @@ function Enterprocess_form() {
   const handleReviewerClick = () => {
     setShowReviewer(!showReviewer);
   };
-  const handleProjectClick = () => {
-    setShowProject(!showProject);
+  const handleProjectClick = (e) => {
+    const isChecked = e.target.checked;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      else_project_manager: isChecked, // Update the checkbox value
+    }));
+
+    console.log("Updated formData:", {
+      ...formData,
+      else_project_manager: isChecked,
+    });
   };
   const handleJournalClick = () => {
     setShowJournal(!showJournal);
@@ -703,7 +716,7 @@ function Enterprocess_form() {
                     />
                   </div>
 
-                  {/* <div className="row  mt-2 pt-3   p-3 ">
+                  <div className="row  mt-2 pt-3   p-3 ">
                     <div className="col-12 col-md-4 ">
                       <label className="statis-name">Select Document</label>
 
@@ -883,7 +896,7 @@ function Enterprocess_form() {
                           </div>
                         </div>
                       )
-                  )} */}
+                  )}
 
 {/* <div className="container mt-5">
       {formData.map((fieldData, index) => (
@@ -1034,7 +1047,7 @@ function Enterprocess_form() {
                     <label className="statis-name ">Institute</label>
                     <div className="dropdown-container ">
                       <div
-                        className={`form-select dropdown-header pt-2 px-3 ${
+                        className={`form-select dropdown-header pt-3 px-3 ${
                           errors.institute ? "error" : ""
                         }`}
                         onClick={toggleDropdowninstitue}
@@ -1200,7 +1213,7 @@ function Enterprocess_form() {
                     />
                   </div>
                   <div className="col-12 col-md-4 float-start pt-4  ">
-                    <h5 className="statis-name ">Process Status</h5>
+                    <label className="statis-name ">Process Status</label>
                     <select
                       className={`form-select  ${
                         errors.processStatus ? "error" : ""
@@ -1230,6 +1243,19 @@ function Enterprocess_form() {
                       <option value="fifteen">Reviews</option>
                     </select>
                   </div>
+                  <div className="col-12 col-md-4 float-start pt-4 ">
+                    <label className="statis-name ">Process Status Date</label>
+                    <input
+                      type="date"
+                      className={`form-control ${
+                        errors.processStatusDate ? "error" : ""
+                      }`}
+                      name="processStatusDate"
+                      value={formData.processStatusDate}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
 
                   <div className="col-12 col-md-4 float-start  pt-4">
                     <label className="statis-name ">Hierarchy Level</label>
@@ -1252,16 +1278,14 @@ function Enterprocess_form() {
                       <option value="4">Not Urgent/Not Important</option>
                     </select>
                   </div>
+                  <div className="row">
                   <div className="col-12 col-md-6 pt-4">
                     <label className="statis-name ">Comment Box</label>
                    
-                    {/* <RichEditor
-                    value={formData.commandbox} // Controlled value
-                    onChange={handleCommentChange} // Update state on change
-                    name="commandbox"
-                /> */}
+                   
                    <RichEditor setFormData={setFormData} />
       
+                  </div>
                   </div>
                   <div class="row p-4">
                     <div className="col d-flex gap-1">
@@ -1269,6 +1293,7 @@ function Enterprocess_form() {
                         type="checkbox"
                         id="project"
                         onClick={handleProjectClick}
+                        checked={formData.else_project_manager}
                         className=""
                       />
                       <label className="statis-name1 " htmlFor="project">
@@ -1276,7 +1301,7 @@ function Enterprocess_form() {
                       </label>
                     </div>
                   </div>
-                  {showProject && (
+                  {formData.else_project_manager && (
                     <div className="gap-3 px-4 d-flex  flex-wrap">
                       <div>
                         <input
@@ -1326,7 +1351,7 @@ function Enterprocess_form() {
                       <div className="col-12 col-md-6 col-lg  w-100 pt-2">
                         <label className="statis-name ">Writer</label>
                         <select
-                          className={`form-control  ${
+                          className={`form-select  ${
                             errors.writer ? "error" : ""
                           }`}
                           name="writer"
@@ -1360,7 +1385,7 @@ function Enterprocess_form() {
                       <div className="col-12 col-md-6 col-lg  pt-2 ">
                         <label className="statis-name "> Writer Status</label>
                         <select
-                          className={`form-control  ${
+                          className={`form-select  ${
                             errors.writerStatus ? "error" : ""
                           }`}
                           name="writerStatus"
@@ -1441,7 +1466,7 @@ function Enterprocess_form() {
                       <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name "> Reviewer</label>
                         <select
-                          className={`form-control  ${
+                          className={`form-select  ${
                             errors.reviwer ? "error" : ""
                           }`}
                           name="reviwer"
@@ -1477,7 +1502,7 @@ function Enterprocess_form() {
                         <label className="statis-name ">Reviewer Status</label>
 
                         <select
-                          className={`form-control ${
+                          className={`form-select ${
                             errors.reviwerStatus ? "error" : ""
                           }`}
                           name="reviwerStatus"
@@ -1557,7 +1582,7 @@ function Enterprocess_form() {
                       <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name ">Statistican</label>
                         <select
-                          className={`form-control  ${
+                          className={`form-select  ${
                             errors.statistican ? "error" : ""
                           }`}
                           name="statistican"
@@ -1594,7 +1619,7 @@ function Enterprocess_form() {
                           Statistican Status
                         </label>
                         <select
-                          className={`form-control  ${
+                          className={`form-select  ${
                             errors.statisticanStatus ? "error" : ""
                           }`}
                           name="statisticanStatus"
@@ -1675,7 +1700,7 @@ function Enterprocess_form() {
                       <div className="col-12 col-md-6 col-lg ">
                         <label className="statis-name ">Journal</label>
                         <select
-                          className={`form-control  ${
+                          className={`form-select  ${
                             errors.journal ? "error" : ""
                           }`}
                           name="journal"
@@ -1709,7 +1734,7 @@ function Enterprocess_form() {
                       <div className="col-12 col-md-6 col-lg  ">
                         <label className="statis-name "> JournalStatus</label>
                         <select
-                          className={`form-control  ${
+                          className={`form-select  ${
                             errors.journalStatus ? "error" : ""
                           }`}
                           name="journalStatus"

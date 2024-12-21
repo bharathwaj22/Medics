@@ -32,6 +32,7 @@ const Breadcrumbs = () => {
     'process-status-form': 'Process Status Form',
     'payment-form': 'Payment Form',
     'pending-form': 'Pending Form',
+    'people_view_details': 'People View Details',
     
 
   

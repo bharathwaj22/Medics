@@ -16,9 +16,9 @@ function Payment_form() {
   const [showVendor, setShowVendor] = useState(false);
   const [showjournal, setShowJournal] = useState(false);
 
-  const handleButtonClick = () => {
-    setShowFields((prev) => prev + 1);
-  };
+  // const handleButtonClick = () => {
+  //   setShowFields((prev) => prev + 1);
+  // };
 
   const handleWriterClick = () => {
     setShowWriter(!showWriter);
@@ -35,9 +35,9 @@ function Payment_form() {
   const handleJournalClick = () => {
     setShowJournal(!showjournal);
   };
-  const handleDeleteField = () => {
-    setShowFields((prev) => (prev > 0 ? prev - 1 : 0));
-  };
+  // const handleDeleteField = () => {
+  //   setShowFields((prev) => (prev > 0 ? prev - 1 : 0));
+  // };
 
   const [date, setDate] = useState("");
 
@@ -52,6 +52,24 @@ function Payment_form() {
   useEffect(() => {
     setDate(getTodayDate());
   }, []);
+
+  const [paymentFields, setPaymentFields] = useState([
+    { amount: "", date: "" },
+  ]);
+
+  const handleAddField = () => {
+    setPaymentFields([...paymentFields, { amount: "", date: "" }]);
+  };
+
+  const handleRemoveField = (index) => {
+    setPaymentFields(paymentFields.filter((_, i) => i !== index));
+  };
+
+  const handleChange = (index, field, value) => {
+    const updatedFields = [...paymentFields];
+    updatedFields[index][field] = value;
+    setPaymentFields(updatedFields);
+  };
 
   return (
     <>
@@ -71,10 +89,10 @@ function Payment_form() {
               </div>
 
               <form>
-                <div className="row w-100 mt-2 pt-3   p-3 ">
+                <div className="row w-100 mt-2 pt-3   px-3 ">
                   <div className="col-12 col-md ">
                     <label className="statis-name">Project Title</label>
-                    <select className="form-control mt-2">
+                    <select className="form-control ">
                       <option value="" disabled selected>
                         Select Payment Title
                       </option>
@@ -84,7 +102,7 @@ function Payment_form() {
                   </div>
                   <div className="col-12 col-md">
                     <label className="statis-name">Budget</label>
-                    <select className="form-control mt-2">
+                    <select className="form-control ">
                       <option value="" disabled selected>
                         Budget
                       </option>
@@ -96,96 +114,130 @@ function Payment_form() {
                     <label className="statis-name">Project ID</label>
                     <input
                       type="number"
-                      className="form-control mt-2"
+                      className="form-control "
                       placeholder="Enter Project ID"
                     />
                   </div>
                 </div>
-                <div className="row  mt-2 pt-1   p-3 ">
-                  <div className="col-12 col-md ">
-                    <label className="statis-name">Payment One</label>
-                    <input type="number" className="form-control mt-2" />
-                  </div>
-                  <div className="col-12 col-md">
-                    <label className="statis-name">Payment Date</label>
-                    <input
-                      type="date"
-                      className="form-control mt-2"
-                      placeholder="Enter Project ID"
-                      id="dateInput"
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                    />
-                  </div>
+                {/* <div>
+      {paymentFields.map((field, index) => (
+        <div className="row mt-2 p-3" key={index}>
+          <div className="col-12 col-md-4">
+            <label className="statis-name">{`Payment ${index + 1}`}</label>
+            <input
+              type="number"
+              className="form-control"
+              value={field.amount}
+              onChange={(e) => handleChange(index, "amount", e.target.value)}
+            />
+          </div>
+          <div className="col-12 col-md-4">
+            <label className="statis-name">Payment Date</label>
+            <input
+              type="date"
+              className="form-control"
+              value={field.date}
+              onChange={(e) => handleChange(index, "date", e.target.value)}
+            />
+          </div>
+          <div className="col d-flex justify-content-start py-4">
+            <button
+              type="button"
+              className="save-form-del"
+              onClick={() => handleRemoveField(index)}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      ))}
+      <div className="row mt-3">
+        <div className="col">
+          <button
+            type="button"
+            className="save-form-add"
+            onClick={handleAddField}
+          >
+            Add +
+          </button>
+        </div>
+      </div>
+    </div> */}
 
-                  <div className="col d-flex justify-content-start py-4 mt-2">
-                    <button
-                      type="button"
-                      className="save-form-add"
-                      onClick={handleButtonClick}
-                    >
-                      Add +
-                    </button>
-                  </div>
+                <div className="row mt-2 pt-1 px-3 ">
+                 
+                  {paymentFields.map((field, index) => (
+                    <div key={index} className="row mt-2">
+                      <div className="col-12 col-md-4">
+                        <label className="statis-name">{`Payment ${
+                          index + 1
+                        }`}</label>
+                        <input
+                          type="number"
+                          className="form-control "
+                          value={field.amount}
+                          onChange={(e) =>
+                            handleChange(index, "amount", e.target.value)
+                          }
+                        />
+                      </div>
+                      <div className="col-12 col-md-4">
+                        <label className="statis-name">Payment Date</label>
+                        <input
+                          type="date"
+                          className="form-control "
+                          value={field.date}
+                          onChange={(e) =>
+                            handleChange(index, "date", e.target.value)
+                          }
+                        />
+                      </div>
+
+                      {/* Show delete button for fields after the first one */}
+                      {index > 0 && (
+                        <div className="col d-flex justify-content-start py-4 mt-2">
+                          <button
+                            type="button"
+                            className="save-form-del"
+                            onClick={() => handleRemoveField(index)}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+
+                  {/* Add Button shown only once after the first field */}
+                  {paymentFields.length > 0 && (
+                    <div className="col-12 d-flex justify-content-start mt-3">
+                      <button
+                        type="button"
+                        className="save-form-add"
+                        onClick={handleAddField}
+                      >
+                        Add +
+                      </button>
+                    </div>
+                  )}
                 </div>
 
-                {showFields > 0 && (
-                  <div className="row  px-3">
-                    <div className="col-12 col-md-4">
-                      <label className="statis-name">Payment two</label>
-                      <input type="number" className="form-control " />
-                    </div>
-                    <div className="col-12 col-md-4">
-                      <label className="statis-name">Payment Date</label>
-                      <input
-                        type="date"
-                        className="form-control "
-                        id="dateInput"
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}
-                      />
-                    </div>
-
-                    <div className="col d-flex justify-content-start py-4 ">
-                      <button
-                        type="button"
-                        className="save-form-del"
-                        onClick={handleDeleteField}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                )}
-                {showFields > 1 && (
-                  <div className="row  p-3">
-                    <div className="col-12 col-md-4">
-                      <label className="statis-name">Payment three</label>
-                      <input type="number" className="form-control " />
-                    </div>
-                    <div className="col-12 col-md-4">
-                      <label className="statis-name">Payment Date</label>
-                      <input
-                        type="date"
-                        className="form-control "
-                        id="dateInput"
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}
-                      />
-                    </div>
-
-                    <div className="col d-flex justify-content-start py-4 ">
-                      <button
-                        type="button"
-                        className="save-form-del"
-                        onClick={handleDeleteField}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                )}
-                <div className=" gap-3 px-4 d-flex  flex-wrap">
+                <div className="col-12 col-md-4 px-3  col-md">
+                  <label className="statis-name">Enter Payment Status</label>
+                  <select className="form-control">
+                    <option value="" disabled selected>
+                      Payment Status
+                    </option>
+                    <option value="completed">Completed</option>
+                    <option value="balance">Balance to pay </option>
+                    <option value="partial">Partial payment done</option>
+                    <option value="full payment">Full payment done</option>
+                    <option value="Advance payment">
+                      Advance payment done{" "}
+                    </option>
+                  </select>
+                </div>
+                <div className=" gap-3 px-4 d-flex  flex-wrap pt-4">
                   <div className=" ">
                     <input
                       type="checkbox"
@@ -308,24 +360,6 @@ function Payment_form() {
                     </div>
                   </div>
                 )}
-
-                <div className="col-12 col-md-4 px-3 mt-3 col-md">
-                  <label className="statis-name">Enter Payment Status</label>
-                  <select className="form-control mt-2">
-                    <option value="" disabled selected>
-                      Payment Status
-                    </option>
-                    <option value="Payment Received">Completed</option>
-                    <option value="Payment Pending">Balance to pay </option>
-                    <option value="Payment Pending">
-                      Partial payment done
-                    </option>
-                    <option value="Payment Pending">Full payment done</option>
-                    <option value="Payment Pending">
-                      Advance payment done{" "}
-                    </option>
-                  </select>
-                </div>
 
                 <div className="col-12  d-flex justify-content-end py-5 px-1 gap-3   ">
                   <Link to="/paymentstatus">
