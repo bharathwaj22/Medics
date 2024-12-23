@@ -34,6 +34,8 @@ import Team_coordinator_dashboard from "../TeamCoordinator/Team_coordinator_dash
 import Internal_dashboard from "../inter/Internal_dashboard.js";
 import Freelancer_dashboard from "../inter/Freelancer_dashboard.js";
 import Peoples_view_details from "../components/people_view_details.js"
+import Payment_edit_form from "../form/Payment_edit_form.js";
+import Enterprocess_update_form from "../form/Enterprocess_update_form.js";
 function Router() {
   return (
     <div>
@@ -80,9 +82,10 @@ function Router() {
         {/* form */}
         <Route path="entry-process/enter_process_form" element={<Enterprocess_form />} />
         <Route path="processstatus/process-status-form" element={<Process_statistic />} />
-
+        <Route path="paymentstatus/payment-edit-form" element={<Payment_edit_form />} />
+        <Route path="entry-process/entryprocess-update-form"element={<Enterprocess_update_form />} />
         <Route path="paymentstatus/payment-form" element={<Payment_form />} />
-        <Route path="pending/pending-form" element={<Pending_form />} />
+        <Route path="entry-process/pending-form" element={<Pending_form />} />
         {/* dashboard */}
         <Route
           path="/project-manager-dashboard"

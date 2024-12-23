@@ -13,7 +13,7 @@ import { Journal } from "react-bootstrap-icons";
 
 // import  from "react";
 
-function Enterprocess_form() {
+function Enterprocess_update_form() {
   const getTodayDate = () => {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -27,8 +27,8 @@ function Enterprocess_form() {
 
     typeofwork: "",
     projectid: "",
-    specificOption: "",
-    file: null,
+    specificOption:"",
+    file:null,
     clientName: "",
     profession: "",
     title: "",
@@ -91,8 +91,7 @@ function Enterprocess_form() {
     if (!formData.entryDate) formErrors.entrydate = "EntryDate is required";
     if (!formData.typeofwork) formErrors.typeofwork = "typeofwork is required";
     if (!formData.projectid) formErrors.projectid = "Project ID is required";
-    if (!formData.specificOption)
-      formErrors.specificOption = "Specific Option is required";
+    if (!formData.specificOption) formErrors.specificOption = "Specific Option is required";
     if (!formData.file) formErrors.file = "File is required";
     if (!formData.clientName) formErrors.clientName = "Client Name is required";
     if (!formData.profession) formErrors.profession = "Profession is required";
@@ -219,11 +218,13 @@ function Enterprocess_form() {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    
 
     // If form is valid, process the data
     if (validateForm()) {
       console.log("Form data submitted:", formData);
     }
+   
 
     console.log("Form Data:", formData);
   };
@@ -479,6 +480,7 @@ function Enterprocess_form() {
       setFields((prev) => [...prev, { id: Math.random(), isVisible: true }]);
     }
   };
+  
 
   const handleDeleteField = (id) => {
     setFields((prev) => prev.filter((field) => field.id !== id)); // Remove the specific field
@@ -831,86 +833,9 @@ function Enterprocess_form() {
                       </button>
                     </div>
                   </div>
-                  {/* {fields.map(
-                    (field) =>
-                      field.isVisible && (
-                        <div key={field.id} className="row pt-1 p-3">
-  <div className="col-12 col-md-4">
-    {formData.typeofwork === "others" ? (
-      <input
-        type="text"
-        className={`form-control ${errors[`specificOption-${field.id}`] ? "error" : ""}`}
-        name={`specificOption-${field.id}`}
-        value={field.specificOption || ""}
-        onChange={(event) => handleSpecificChange1(event, field.id)}
-        placeholder="Enter Others Option"
-        required
-      />
-    ) : (
-      <select
-        className={`form-select ${errors[`specificOption-${field.id}`] ? "error" : ""}`}
-        name={`specificOption-${field.id}`}
-        value={field.specificOption || ""}
-        onChange={(e) => handleSpecificChange1(e, field.id)}
-        required
-      >
-        <option value="" disabled>
-          Select a specific option
-        </option>
-        {optionsMapping[formData.typeofwork]?.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    )}
-  </div>
-  <div className="col-12 col-md-4">
-    <div
-      className={`form-control d-flex justify-content-end ${
-        errors[`file-upload-${field.id}`] ? "error" : ""
-      }`}
-    >
-      <input
-        type="file"
-        id={`fileupload-${field.id}`}
-        className="file-upload-input"
-        onChange={(e) => handleFileChange(e, field.id)}
-        accept=""
-        required
-      />
-      {!field.fileUploaded ? (
-        <label htmlFor={`fileupload-${field.id}`} className="file-icon">
-          <PiCloudArrowUpLight />
-        </label>
-      ) : (
-        uploadedFiles.map(
-          (file, index) =>
-            file.option !== "No Option Selected" && (
-              <RiDeleteBin6Line
-                key={index}
-                className="file-del-icon"
-                onClick={() => handleFileDelete(file.option)}
-              />
-            )
-        )
-      )}
-    </div>
-  </div>
+     
 
-  <div className="col d-flex justify-content-start">
-    <button
-      type="button"
-      className="save-form-del"
-      onClick={() => handleDeleteField(field.id)}
-    >
-      Delete
-    </button>
-  </div>
-</div>
-
-                      )
-                  )} */}
+                   
                   {fields.map(
                     (field) =>
                       field.isVisible && (
@@ -1014,102 +939,7 @@ function Enterprocess_form() {
                       )
                   )}
 
-                  {/* <div className="container mt-5">
-      {formData.map((fieldData, index) => (
-        <div className="row  mt-2 pt-3 p-3" key={index}>
-          <div className="col-12 col-md-4">
-            <label className="statis-name">Select Document</label>
-
-            {fieldData.typeofwork === "others" ? (
-              <input
-                type="text"
-                className={`form-control ${errors[`specificOption-${index}`] ? "border-danger" : ""}`}
-                name="specificOption"
-                value={fieldData.specificOption}
-                onChange={(e) => handleChangeSelect(index, e)}
-                placeholder="Enter Others Option"
-                required
-              />
-            ) : (
-              <select
-                className={`form-select ${errors[`specificOption-${index}`] ? "border-danger" : ""}`}
-                name="specificOption"
-                value={fieldData.specificOption}
-                onChange={(e) => handleChangeSelect(index, e)}
-                required
-              >
-                <option value="" disabled>
-                  Select a specific option
-                </option>
-                {optionsMapping[fieldData.typeofwork]?.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            )}
-            {errors[`specificOption-${index}`] && (
-              <small className="text-danger">This field is required.</small>
-            )}
-          </div>
-
-          <div className="col-12 col-md-4">
-            <label className="statis-name">File</label>
-            <div
-              className={`form-control d-flex justify-content-end ${errors[`file-${index}`] ? "border-danger" : ""}`}
-            >
-              <input
-                type="file"
-                id={`fileupload-${index}`}
-                className="file-upload-input"
-                onChange={(e) => handleFileChange(index, e)}
-              />
-              {!fieldData.file && (
-                <label htmlFor={`fileupload-${index}`} className="file-icon">
-                  <PiCloudArrowUpLight />
-                </label>
-              )}
-              {fieldData.file && (
-                <RiDeleteBin6Line
-                  className="file-del-icon"
-                  onClick={() => handleFileDelete(index)}
-                />
-              )}
-            </div>
-            {errors[`file-${index}`] && (
-              <small className="text-danger">File is required.</small>
-            )}
-          </div>
-
-          <div className="col d-flex justify-content-start py-3 mt-2">
-            <button
-              type="button"
-              className="save-form-add"
-              onClick={() => handleButtonClick(index)}
-            >
-              Add +
-            </button>
-            <button
-              type="button"
-              className="save-form-del ms-3"
-              onClick={() => handleDeleteField(index)}
-            >
-              Delete
-            </button>
-          </div>
-        </div>
-      ))}
-
-      <div className="col d-flex justify-content-start py-3 mt-2">
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={handleAddField}
-        >
-          Add Another Field
-        </button>
-      </div>
-    </div> */}
+         
 
                   <div className="col-md-12 float-start pt-1 py-3">
                     <label className="client-name-pop ">
@@ -1935,7 +1765,7 @@ function Enterprocess_form() {
                       type="submit"
                       className="save-form"
                     >
-                      Save
+                      Update
                     </button>
                   </div>
                 </div>
@@ -1948,4 +1778,4 @@ function Enterprocess_form() {
   );
 }
 
-export default Enterprocess_form;
+export default Enterprocess_update_form;

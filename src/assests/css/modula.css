@@ -55,11 +55,12 @@
 .form-control1{
   width: 100%;
   
-  padding:8px 0px !important; ;
+  padding:8px 10px !important; ;
   border: 1px solid rgba(213, 213, 213, 1);
   border-radius:14px !important;
   font-size: 14px;
-  color: rgba(113, 142, 191, 1 )!important;
+  font-family: 'regular-pp';
+  /* color: rgba(113, 142, 191, 1 )!important; */
   align-items: top !important;
   border: none !important;
   outline: none !important;
@@ -191,14 +192,14 @@
  
   width: 100%;
     
-  padding: 10px 10px;
+  padding: 5px 10px;
   margin-bottom: 10px;
   border: 1px solid rgba(213, 213, 213, 1);
-  border-radius:14px !important;
+  border-radius:6px !important;
   font-size: 14px;
   color: rgba(113, 142, 191, 1 )!important;
-  align-items: top !important;
-  border: none !important;
+  /* align-items: top !important; */
+  /* border: none !important; */
   outline: none !important;
 }
 .dt-layout-row{
@@ -248,6 +249,10 @@ td{
   border-radius: 50px;
   border: 1px solid rgba(113, 142, 191, 1);
   color: rgba(113, 142, 191, 1);
+}
+
+.dt-orderable-asc .dt-orderable-desc .dt-ordering-asc{
+  width: 100% !important;
 }
 
  

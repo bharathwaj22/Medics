@@ -4,6 +4,7 @@ import Sider from "./Sider";
 import { IoMdAdd } from "react-icons/io";
 import { VscGitStashPop } from "react-icons/vsc";
 import { VscEye } from "react-icons/vsc";
+import { TfiPencilAlt } from "react-icons/tfi";
 
 import Vector from "..//assests/images/Vector.svg";
 import { IoIosSearch } from "react-icons/io";
@@ -16,6 +17,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 import Breadcrumbs from "../routes/Breadcrumbs";
+import { useNavigate } from "react-router-dom";
+
 
 import DataTable from "datatables.net-react";
 import DT from "datatables.net-dt";
@@ -57,6 +60,7 @@ function Paymentstatus() {
 
   const openPopup = () => setIsOpen(true);
   const closePopup = () => setIsOpen(false);
+   const navigate = useNavigate();
 
   const columns = [
     {
@@ -69,12 +73,11 @@ function Paymentstatus() {
     { title: "BUDGET", data: "id" },
     { title: "WRITER PAYMENT ", data: "institution" },
     { title: "REVIEWER PAYMENT", data: "institution" },
-    { title: "VENDOR PAYMENT", data: "institution" },
+    { title: "STATISTICAN PAYMENT", data: "institution" },
     { title: "JOURNAL PAYMENT", data: "institution" },
 
-
     {
-      title: "",
+      title: "Action",
       data: null,
       render: (data, type, row) => {
         const id = `actions-${row.sno || Math.random()}`;
@@ -82,8 +85,25 @@ function Paymentstatus() {
           const container = document.getElementById(id);
           if (container && !container.hasChildNodes()) {
             ReactDOM.render(
+              // <div className="d-flex justify-content-center">
+              //   <div className="modula-icon-edit">
+              //     <TfiPencilAlt />
+              //   </div>
+              //   <VscEye onClick={openPopup} className="open-icon" />
+              // </div>,
               <div className="d-flex justify-content-center">
-                <VscEye onClick={openPopup} className="open-icon" />
+                <div className="d-flex justify-content-evenly modula-main mt-1  ">
+                  <div className="modula-icon-edit" >
+                    <TfiPencilAlt  onClick={() => navigate(`payment-edit-form`)} />
+                  </div>
+
+                  <div className="border border-1"></div>
+
+                  <div  className=""
+                  >
+                    <VscEye onClick={openPopup} className="open-icon" />
+                  </div>
+                </div>
               </div>,
               container
             );
@@ -106,10 +126,11 @@ function Paymentstatus() {
             </div>
 
             <div className="col-11  mt-3 wapper w-100 pb-5 ">
-            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+              <div className="pt-2 px-2 d-none d-md-block">
+                <Breadcrumbs></Breadcrumbs>
+              </div>
 
               <div className=" row mt-3 d-flex w-100  ">
-             
                 {/* <div className="col-5">
                   <div className=" search-process position-relative mx-4 mt-3">
                     <input
@@ -122,8 +143,8 @@ function Paymentstatus() {
                   </div>
                 </div> */}
                 <div className="col-5 d-flex mt-2 px-4 ">
-                <p className="heading-entr "> Payment Status</p>
-              </div>
+                  <p className="heading-entr "> Payment Status</p>
+                </div>
 
                 <div className="col-2 text-center mt-2 ">
                   <div className=" d-flex justify-content-center   ">
@@ -230,172 +251,154 @@ function Paymentstatus() {
 
                       <div className="popup-content1 px-5 ">
                         <div className="row  mt-4 mx-2 py-4 ">
-                          <div className="col-md-3 float-start pt-2">
-                            <h5 className="statis-name ">Process Title</h5>
-                            <select className="form-control mt-2">
-                      <option value="" disabled selected>
-                        
-                      </option>
-                      <option value="Payment Received">Payment Received</option>
-                      <option value="Payment Pending">Payment Pending</option>
-                    </select>
-                          </div>
-                          <div className=" col-md-3 float-start pt-2">
-                            <h5 className="statis-name ">Buget</h5>
-                            
-                            <select className="form-control mt-2">
-                      <option value="" disabled selected>
-                        
-                      </option>
-                      <option value="Payment Received">Payment Received</option>
-                      <option value="Payment Pending">Payment Pending</option>
-                    </select>
-                          </div>
-                          <div className=" col-md-3 float-start pt-2 ">
-                            <h5 className="statis-name ">Author Payment-1</h5>
+                          <div className="col-md-4 float-start pt-2">
+                            <label className="statis-name ">Project Title</label>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control1"
                               readOnly={isReadOnly}
                             />
                           </div>
-                          <div className=" col-md-3 float-start pt-2  ">
-                            <h5 className="statis-name ">Payment-1 Date</h5>
+                          <div className=" col-md-4 float-start pt-2">
+                            <label className="statis-name ">Buget</label>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control1"
+                              readOnly={isReadOnly}
+                            />
+                           
+                          </div>
+                          <div className="col-md-4 float-start pt-2 ">
+                            <label className="statis-name  ">Project ID</label>
+                            <input
+                              type="text"
+                              className="form-control1"
                               readOnly={isReadOnly}
                             />
                           </div>
+                          <div className="row">
+                          <div className=" col-md-4 float-start pt-2 ">
+                            <label className="statis-name "> Payment-1</label>
+                            <input
+                              type="text"
+                              className="form-control1"
+                              readOnly={isReadOnly}
+                            />
+                          </div>
+                          <div className=" col-md-4 float-start pt-2  ">
+                            <label className="statis-name ">Payment Date</label>
+                            <input
+                              type="text"
+                              className="form-control1"
+                              readOnly={isReadOnly}
+                            />
+                         </div>
+                          </div>
+                        <div className="row">
+                        <div className=" col-md-4 float-start pt-3  ">
+                            <label className="statis-name ">Enter Payment Status</label>
+                            <input
+                              type="text"
+                              className="form-control1"
+                              readOnly={isReadOnly}
+                            />
+                         </div>
+                        </div>
 
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name   ">Author Payment-2</h5>
-                            <input
-                              type="email"
-                              className="form-control"
-                              readOnly={isReadOnly}
-                            />
-                          </div>
-
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name ">Payment-2 Date</h5>
+                          <div className="row">
+                          <div className="col-md-4 float-start pt-3 ">
+                            <label className="statis-name  ">Writer Payment</label>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control1"
                               readOnly={isReadOnly}
                             />
                           </div>
-
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name ">Author Payment-3</h5>
-                            <input
-                              type="text"
-                              className="form-control"
-                              readOnly={isReadOnly}
-                            />
-                          </div>
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name ">Payment-3 Date</h5>
-                            <input
-                              type="text"
-                              className="form-control"
-                              readOnly={isReadOnly}
-                            />
-                          </div>
-
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name  ">Journal</h5>
-                            <input
-                              type="text"
-                              className="form-control"
-                              readOnly={isReadOnly}
-                            />
-                          </div>
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name">
-                              Journal Payment Date
-                            </h5>
-                            <input
-                              type="email"
-                              className="form-control"
-                              readOnly={isReadOnly}
-                            />
-                          </div>
-
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name ">Writer Payment</h5>
-                            <input
-                              type="text"
-                              className="form-control"
-                              readOnly={isReadOnly}
-                            />
-                          </div>
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name ">
+                          <div className="col-md-4 float-start pt-3 ">
+                            <label className="statis-name">
                               Writer Payment Date
-                            </h5>
+                            </label>
+                            <input
+                              type="email"
+                              className="form-control1"
+                              readOnly={isReadOnly}
+                            />
+                          </div>
+                          </div>
+                          <div className="row">
+                          <div className="col-md-4 float-start pt-3 ">
+                            <label className="statis-name  ">Reviewer Payment</label>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control1"
                               readOnly={isReadOnly}
                             />
                           </div>
-
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name  ">Reviewer Payment</h5>
-                            <input
-                              type="email"
-                              className="form-control"
-                              readOnly={isReadOnly}
-                            />
-                          </div>
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name  ">
+                          <div className="col-md-4 float-start pt-3 ">
+                            <label className="statis-name">
                               Reviewer Payment Date
-                            </h5>
+                            </label>
                             <input
                               type="email"
-                              className="form-control"
+                              className="form-control1"
                               readOnly={isReadOnly}
                             />
                           </div>
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name  ">Statistican Payment</h5>
+                          </div>
+                          <div className="row">
+                          <div className="col-md-4 float-start pt-3 ">
+                            <label className="statis-name  ">Statistican Payment</label>
                             <input
-                              type="email"
-                              className="form-control"
+                              type="text"
+                              className="form-control1"
                               readOnly={isReadOnly}
                             />
                           </div>
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name  ">
+                          <div className="col-md-4 float-start pt-3 ">
+                            <label className="statis-name">
                               Statistican Payment Date
-                            </h5>
+                            </label>
                             <input
                               type="email"
-                              className="form-control"
+                              className="form-control1"
                               readOnly={isReadOnly}
                             />
+                          </div>
+                          </div>
+                          <div className="row">
+                          <div className="col-md-4 float-start pt-3 ">
+                            <label className="statis-name  ">Journal Payment</label>
+                            <input
+                              type="text"
+                              className="form-control1"
+                              readOnly={isReadOnly}
+                            />
+                          </div>
+                          <div className="col-md-4 float-start pt-3 ">
+                            <label className="statis-name">
+                              Journal Payment Date
+                            </label>
+                            <input
+                              type="email"
+                              className="form-control1"
+                              readOnly={isReadOnly}
+                            />
+                          </div>
                           </div>
 
-                          <div className="col-md-3 float-start pt-4 ">
-                            <h5 className="statis-name  ">Payment Received</h5>
-                            <select className="form-control mt-2">
-                      <option value="" disabled selected>
-                        </option>
-                     
-                    <option value="Payment Received">Completed</option>
-                    <option value="Payment Pending">Pending</option>
-                    <option value="Payment Pending">Rejected</option>
-                    <option value="Payment Pending">ON Hold</option>
-                    </select>
-                          </div>
                           
-                          <div className="col-12 d-flex justify-content-end  mt-5 ">
+
+                          
+                         
+                       
+
+                       
+
+                          {/* <div className="col-12 d-flex justify-content-end  mt-5 ">
                             <div className="popup-edit ">
                               <button className="save-form">Edit</button>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>

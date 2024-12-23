@@ -5,7 +5,7 @@ import Header from "../components/Header.js";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "../routes/Breadcrumbs.js";
 
-function Payment_form() {
+function Payment_edit_form() {
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   // }
@@ -331,7 +331,7 @@ function Payment_form() {
                     </button>
                   </Link>
                   <button type="submit" className="save-form">
-                    Save
+                    Update
                   </button>
                 </div>
               </form>
@@ -343,4 +343,4 @@ function Payment_form() {
   );
 }
 
-export default Payment_form;
+export default Payment_edit_form;

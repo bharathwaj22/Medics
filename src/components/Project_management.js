@@ -553,7 +553,7 @@ const ProjectManagementTool = () => {
                 </div>
               </section>
 
-              <section className="col-12 px-3  ">
+              <section className="col-12 px-3  scrollable-section ">
                 <div className="d-flex flex-wrap  p-3 wapper  ">
                   <div className="col  ">
                     <div className="project-todo d-flex gap-5 pb-2 m-1 ">

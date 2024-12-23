@@ -75,476 +75,562 @@ function Process_details() {
             </div>
 
             <div className="col-12 wapper w-100 mt-3">
-            <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+              <div className="pt-2 px-2 d-none d-md-block">
+                <Breadcrumbs></Breadcrumbs>
+              </div>
 
               <div className="row mt-1 mx-2 py-4">
-              
                 <div className="col-12">
-                  <h5 className="client-name-pop py-2 mt-5 ">ENTRY PROCESS</h5>
+                  <label className="client-name-pop py-2 mt-1 ">
+                    ENTRY PROCESS
+                  </label>
                 </div>
                 <div className="col-md-3 float-start pt-2 ">
-                  <h5 className="statis-name ">Entry Date</h5>
+                  <label className="statis-name ">Entry Date</label>
 
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control1"
                     readOnly={isReadOnly}
                   />
                 </div>
                 <div className="col-md-3 float-start pt-2 ">
-                  <h5 className="statis-name ">Title</h5>
+                  <label className="statis-name ">Title</label>
 
                   <input
                     type="text"
-                    className="form-control "
+                    className="form-control1 "
                     readOnly={isReadOnly}
                   />
                 </div>
                 <div className="col-md-3 float-start pt-2 ">
-                  <h5 className="statis-name ">Project ID</h5>
+                  <label className="statis-name ">Type Of work</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control1"
                     readOnly={isReadOnly}
                   />
                 </div>
-                 <div className="col-md-3 float-start pt-2 ">
-                  <h5 className="statis-name ">Type Of work</h5>
+                <div className="col-md-3 float-start pt-2 ">
+                  <label className="statis-name ">Project ID </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control1"
                     readOnly={isReadOnly}
                   />
                 </div>
                 <div className="col-md-3 float-start pt-3 ">
-                  <h5 className="statis-name ">Select Document</h5>
+                  <label className="statis-name ">Select Document</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control1"
+                    placeholder="Text"
+                    readOnly={isReadOnly}
+                  />
+                </div>
+                <div className="col-md-3 float-start pt-3 ">
+                  <label className="statis-name ">File</label>
+                  <input
+                    type="text"
+                    className="form-control1"
+                    placeholder="marksheet.pdf"
                     readOnly={isReadOnly}
                   />
                 </div>
 
                 <div className="col-12">
-                  <h5 className="client-name-pop py-2 mt-5 ">
+                  <label className="client-name-pop py-2 mt-3 ">
                     CLIENT INFORMATION
-                  </h5>
+                  </label>
                 </div>
 
                 <div className="col-md-4 float-start pt-2 ">
-                  <h5 className="statis-name ">Client Name</h5>
+                  <label className="statis-name ">Client Name</label>
                   <input
                     type="none"
-                    className="form-control"
+                    className="form-control1"
                     readOnly={isReadOnly}
                   />
                 </div>
                 <div className="col-md-4 float-start pt-2 ">
-                  <h5 className="statis-name ">Profession</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-
-                <div className="col-md-4 float-start pt-2 ">
-                  <h5 className="statis-name ">Institute</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-
-                <div className="col-md-4 float-start pt-2 ">
-                  <h5 className="statis-name mt-5 ">Contact No</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-
-                <div className="col-md-4 float-start pt-2 ">
-                  <h5 className="statis-name mt-5 ">Department</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-                <div className="col-md-4 float-start pt-2 ">
-                  <h5 className="statis-name mt-5 ">Email ID</h5>
+                  <label className="statis-name  ">Email ID</label>
                   <input
                     type="email"
-                    className="form-control"
+                    className="form-control1"
+                    readOnly={isReadOnly}
+                  />
+                </div>
+                <div className="col-md-4 float-start pt-2 ">
+                  <label className="statis-name  ">Contact No</label>
+                  <input
+                    type="text"
+                    className="form-control1"
                     readOnly={isReadOnly}
                   />
                 </div>
 
-                <div className="col-md-4 float-start pt-5 ">
-                  <h5 className="statis-name mt-2  ">Hierarchical</h5>
+                <div className="col-md-4 float-start pt-4 ">
+                  <label className="statis-name ">Institute</label>
+                  <input
+                    type="text"
+                    className="form-control1"
+                    readOnly={isReadOnly}
+                  />
+                </div>
+
+                <div className="col-md-4 float-start pt-4 ">
+                  <label className="statis-name  ">Department</label>
+                  <input
+                    type="text"
+                    className="form-control1"
+                    readOnly={isReadOnly}
+                  />
+                </div>
+                <div className="col-md-4 float-start pt-4 ">
+                  <label className="statis-name ">Profession</label>
+                  <input
+                    type="text"
+                    className="form-control1"
+                    readOnly={isReadOnly}
+                  />
+                </div>
+                <div className="col-md-4 float-start pt-4 ">
+                  <label className="statis-name ">Budget</label>
+                  <input
+                    type="text"
+                    className="form-control1"
+                    readOnly={isReadOnly}
+                  />
+                </div>
+
+                <div className="col-md-4 float-start pt-4 ">
+                  <label className="statis-name  ">Process Status</label>
+                  <input
+                    type="text"
+                    className="form-control1"
+                    readOnly={isReadOnly}
+                  />
+                </div>
+                <div className="col-md-4 float-start pt-4 ">
+                  <label className="statis-name ">Process Status Date</label>
+                  <input
+                    type="text"
+                    className="form-control1"
+                    readOnly={isReadOnly}
+                  />
+                </div>
+
+                <div className="col-md-4 float-start pt-4 ">
+                  <label className="statis-name   ">Hierarchical</label>
                   <input
                     type="email"
-                    className="form-control "
+                    className="form-control1 "
                     readOnly={isReadOnly}
                   />
                 </div>
 
                 <div className="col-12">
-                  <h5 className="client-name-pop py-2 mt-5 ">PROCESS STATUS</h5>
-                </div>
-                <div className="col-md-4 col-lg-3 float-start pt-2">
-                  <h5 className="statis-name mt-2 ">Process Title</h5>
-                  <input
-                    type="none"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-                <div className="col-md-4 col-lg-3 float-start pt-2">
-                  <h5 className="statis-name mt-2 ">Process Status</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-                <div className=" col-md-4 col-lg-3 float-start pt-2">
-                  <h5 className="statis-name mt-2 ">Process Status Date</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
+                  <label className="client-name-pop  mt-4 ">
+                    PROCESS STATUS
+                  </label>
                 </div>
 
-                <div className="col-md-4 col-lg-3 float-start pt-2">
-                  <h5 className="statis-name mt-2   ">Process Commands</h5>
-                  <input
-                    type="email"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
+                <div className="row">
+                  <div className="col-12 col-md-6 col-lg   pt-2">
+                    <label className="statis-name  ">Writer</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
 
-                <div className="col-md-4 col-lg-3 float-start pt-4">
-                  <h5 className="statis-name mt-4 ">Writer</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
+                  <div className="col-12 col-md-6 col-lg   pt-2">
+                    <label className="statis-name  ">
+                      Writer Assigned Date
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
 
-                <div className="col-md-4 col-lg-3 float-start pt-4">
-                  <h5 className="statis-name mt-4 ">Writer Assigned Date</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
+                  <div className="col-12 col-md-6 col-lg   pt-2">
+                    <label className="statis-name   ">Writer Status</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-12 col-md-6 col-lg   pt-2">
+                    <label className="statis-name ">Writer Status Date</label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-12 col-md-6 col-lg   pt-2">
+                    <label className="statis-name ">
+                      Writer Project Duration
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
                 </div>
+                <div className="row">
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name  ">Reviwer</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
 
-                <div className="col-md-4 col-lg-3 float-start pt-4">
-                  <h5 className="statis-name mt-4  ">Writer Status</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-                <div className="col-md-4 col-lg-3 float-start pt-4">
-                  <h5 className="statis-name mt-4">Writer Status Date</h5>
-                  <input
-                    type="email"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name  ">
+                      Reviwer Assigned Date
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
 
-                <div className="col-md-4 col-lg-3 float-start pt-4">
-                  <h5 className="statis-name mt-4 ">Reviewer</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name   ">Reviwer Status</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name ">Reviwer Status Date</label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name ">
+                      Reviwer Project Duration
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
                 </div>
+                <div className="row">
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name  ">Statistican</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
 
-                <div className="col-md-4 col-lg-3 float-start pt-4">
-                  <h5 className="statis-name mt-4  ">Reviewer Assigned Date</h5>
-                  <input
-                    type="email"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-                <div className="col-md-4 col-lg-3 float-start pt-4">
-                  <h5 className="statis-name mt-4  ">Reviewer Status</h5>
-                  <input
-                    type="email"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-                <div className="col-md-4 col-lg-3 float-start pt-4">
-                  <h5 className="statis-name mt-4  ">Reviewer Status Date</h5>
-                  <input
-                    type="email"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-                <div className="col-md-4 col-lg-3   float-start pt-4">
-                  <h5 className="statis-name mt-4 ">Statistican</h5>
-                  <input
-                    type="text"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name  ">
+                      Statistican Assigned Date
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
 
-                <div className="col-md-4 col-lg-3   float-start pt-4">
-                  <h5 className="statis-name mt-4  ">Statistican Assigned Date</h5>
-                  <input
-                    type="email"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name   ">Statistican Status</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name ">
+                      Statistican Status Date
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name ">
+                      Statistican Project Duration
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
                 </div>
-                <div className="col-md-4 col-lg-3   float-start pt-4">
-                  <h5 className="statis-name mt-4  ">Statistican Status</h5>
-                  <input
-                    type="email"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
-                </div>
-                <div className=" col-md-4 col-lg-3   float-start pt-4">
-                  <h5 className="statis-name mt-4  ">Statistican Status Date</h5>
-                  <input
-                    type="email"
-                    className="form-control"
-                    readOnly={isReadOnly}
-                  />
+                <div className="row">
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name  ">Journal</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name  ">
+                      Journal Assigned Date
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name   ">Journal Status</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name ">Journal Status Date</label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-12 col-md-6 col-lg   pt-4">
+                    <label className="statis-name ">
+                      Journal Project Duration
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
                 </div>
 
                 <div className="col-12">
-                  <h5 className="client-name-pop py-2 mt-5 ">PAYMENT STATUS</h5>
+                  <label className="client-name-pop py-2 mt-5 ">
+                    PAYMENT STATUS
+                  </label>
                 </div>
 
-                <div className="col-12 col-md ">
-                  <label className="statis-name">Project Title</label>
-                  <select className="form-control mt-2">
-                    <option value="" disabled selected>
-                      Select Payment Title
-                    </option>
-                    <option value="Payment Received">Payment Received</option>
-                    <option value="Payment Pending">Payment Pending</option>
-                  </select>
+                <div className="row   ">
+                  <div className="col-md-4  pt-2">
+                    <label className="statis-name ">Project Title</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className=" col-md-4  pt-2">
+                    <label className="statis-name ">Buget</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-md-4  pt-2 ">
+                    <label className="statis-name  ">Project ID</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
                 </div>
-                <div className="col-12 col-md">
-                  <label className="statis-name">Budget</label>
-                  <select className="form-control mt-2">
-                    <option value="" disabled selected>
-                      Budget
-                    </option>
-                    <option value="Payment Received">Payment Received</option>
-                    <option value="Payment Pending">Payment Pending</option>
-                  </select>
+                <div className="row ">
+                  <div className=" col-md-4 pt-2">
+                    <label className="statis-name "> Payment-1</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className=" col-md-4  pt-2  ">
+                    <label className="statis-name ">Payment Date</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
                 </div>
-                <div className="col-12 col-md">
-                  <label className="statis-name">Project ID</label>
+                <div className="row">
+                  <div className=" col-md-4  pt-3  ">
+                    <label className="statis-name ">Enter Payment Status</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-4  pt-3 ">
+                    <label className="statis-name  ">Writer Payment</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-md-4  pt-3 ">
+                    <label className="statis-name">Writer Payment Date</label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-4  pt-3 ">
+                    <label className="statis-name  ">Reviewer Payment</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-md-4  pt-3 ">
+                    <label className="statis-name">Reviewer Payment Date</label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-4  pt-3 ">
+                    <label className="statis-name  ">Statistican Payment</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-md-4  pt-3 ">
+                    <label className="statis-name">
+                      Statistican Payment Date
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-4  pt-3 ">
+                    <label className="statis-name  ">Journal Payment</label>
+                    <input
+                      type="text"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                  <div className="col-md-4  pt-3 ">
+                    <label className="statis-name">Journal Payment Date</label>
+                    <input
+                      type="email"
+                      className="form-control1"
+                      readOnly={isReadOnly}
+                    />
+                  </div>
+                </div>
+
+                <div className="col-12">
+                  <label className="client-name-pop mt-4 ">PENDING</label>
+                </div>
+                <div className="col-md-4 float-start pt-2">
+                  <label className="statis-name   ">My Fee</label>
                   <input
-                    type="number"
-                    className="form-control mt-2"
-                    placeholder="Enter Project ID"
+                    type="email"
+                    className="form-control1"
+                    readOnly={isReadOnly}
                   />
                 </div>
-              
-              <div className="row  mt-2 pt-3   p-3 ">
-                <div className="col-12 col-md-4 ">
-                  <label className="statis-name">Payment One</label>
-                  <input type="number" className="form-control mt-2" />
-                </div>
-                <div className="col-12 col-md-4">
-                  <label className="statis-name">Payment Date</label>
+
+                <div className="col-md-4 float-start pt-2">
+                  <label className="statis-name ">Writer Pending Days</label>
                   <input
-                    type="date"
-                    className="form-control mt-2"
-                    placeholder="Enter Project ID"
+                    type="text"
+                    className="form-control1"
+                    readOnly={isReadOnly}
                   />
                 </div>
-              </div>
-              <div className="row  mt-2 pt-3   p-3 ">
-                <div className="col-12 col-md-4 ">
-                  <label className="statis-name">Payment Two</label>
-                  <input type="number" className="form-control mt-2" />
-                </div>
-                <div className="col-12 col-md-4">
-                  <label className="statis-name">Payment Date</label>
+
+                <div className="col-md-4 float-start pt-2">
+                  <label className="statis-name ">Reviewer Pending Days</label>
                   <input
-                    type="date"
-                    className="form-control mt-2"
-                    placeholder="Enter Project ID"
+                    type="text"
+                    className="form-control1"
+                    readOnly={isReadOnly}
                   />
                 </div>
-                
 
-               
-              </div>
-              <div className="row  mt-2 pt-3   p-3 ">
-                <div className="col-12 col-md-4 ">
-                  <label className="statis-name">Payment three</label>
-                  <input type="number" className="form-control mt-2" />
-                </div>
-                <div className="col-12 col-md-4">
-                  <label className="statis-name">Payment Date</label>
+                <div className="col-md-4 float-start pt-4">
+                  <label className="statis-name  ">Project Pending Days</label>
                   <input
-                    type="date"
-                    className="form-control mt-2"
-                    placeholder="Enter Project ID"
+                    type="text"
+                    className="form-control1"
+                    readOnly={isReadOnly}
                   />
                 </div>
-                
-
-               
-              </div>
-
-              
-              <div className="col-12">
-                <h5 className="client-name-pop py-2 mt-3 ">Writer</h5>
-              </div>
-              <div className="row  p-3">
-                <div className="col-12 col-md-4">
-                  <label className="statis-name"> Writer Payment</label>
-                  <input type="number" className="form-control mt-2" />
+                <div className="col-md-4 float-start pt-4">
+                  <label className="statis-name">Writer Payment Due Date</label>
+                  <input
+                    type="email"
+                    className="form-control1"
+                    readOnly={isReadOnly}
+                  />
                 </div>
-                <div className="col-12 col-md-4">
-                  <label className="statis-name">Writer Payment Date</label>
-                  <input type="date" className="form-control mt-2" />
+
+                <div className="col-md-4 float-start pt-4">
+                  <label className="statis-name ">
+                    Reviewer Payment Due Date
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control1"
+                    readOnly={isReadOnly}
+                  />
                 </div>
-              </div>
-              <div className="col-12">
-                <h5 className="client-name-pop py-2 mt-3 ">Reviewer</h5>
-              </div>
-              <div className="row  p-3">
-                <div className="col-12 col-md-4">
-                  <label className="statis-name"> Reviewer Payment</label>
-                  <input type="number" className="form-control mt-2" />
+                <div className="col-md-12 d-flex justify-content-end float-start pt-5 gap-3 ">
+                  <Link to="/entry-process">
+                    <button className="save-form">Back</button>
+                  </Link>
+                  {/* <button type="submit" className="save-form">
+                    Edit
+                  </button> */}
                 </div>
-                <div className="col-12 col-md-4">
-                  <label className="statis-name">Reviewer Payment Date</label>
-                  <input type="date" className="form-control mt-2" />
-                </div>
-              </div>
-              <div className="col-12">
-                <h5 className="client-name-pop py-2 mt-3 ">Vendor</h5>
-              </div>
-
-              <div className="row  p-3">
-                <div className="col-12 col-md-4">
-                  <label className="statis-name">Vendor Payment</label>
-                  <input type="number" className="form-control mt-2" />
-                </div>
-                <div className="col-12 col-md-4">
-                  <label className="statis-name">Vendor Payment Date</label>
-                  <input type="date" className="form-control mt-2" />
-                </div>
-              </div>
-              <div className="col-12">
-                <h5 className="client-name-pop py-2 mt-3 ">Journal</h5>
-              </div>
-
-              <div className="row  p-3">
-                <div className="col-12 col-md-4">
-                  <label className="statis-name">Journal</label>
-                  <input type="number" className="form-control mt-2" />
-                </div>
-                <div className="col-12 col-md-4">
-                  <label className="statis-name">Jounel Payment Date</label>
-                  <input type="date" className="form-control mt-2" />
-                </div>
-              </div>
-
-              <div className="col-12 col-md-4 px-3 mt-3 col-md">
-                <label className="statis-name">Payment Status</label>
-                <select className="form-control mt-2">
-                  <option value="" disabled selected>
-                    Payment Status
-                  </option>
-                  <option value="Payment Received">Completed</option>
-                  <option value="Payment Pending">Pending</option>
-                  <option value="Payment Pending">Rejected</option>
-                  <option value="Payment Pending">ON Hold</option>
-                </select>
-              </div>
-
-              <div className="col-12">
-                <h5 className="client-name-pop py-2 mt-5 ">PENDING</h5>
-              </div>
-              <div className="col-md-4 float-start pt-2">
-                <h5 className="statis-name   ">My Fee</h5>
-                <input
-                  type="email"
-                  className="form-control"
-                  readOnly={isReadOnly}
-                />
-              </div>
-
-              <div className="col-md-4 float-start pt-2">
-                <h5 className="statis-name ">Writer Pending Days</h5>
-                <input
-                  type="text"
-                  className="form-control"
-                  readOnly={isReadOnly}
-                />
-              </div>
-
-              <div className="col-md-4 float-start pt-2">
-                <h5 className="statis-name ">Reviewer Pending Days</h5>
-                <input
-                  type="text"
-                  className="form-control"
-                  readOnly={isReadOnly}
-                />
-              </div>
-
-              <div className="col-md-4 float-start pt-5">
-                <h5 className="statis-name  ">Project Pending Days</h5>
-                <input
-                  type="text"
-                  className="form-control"
-                  readOnly={isReadOnly}
-                />
-              </div>
-              <div className="col-md-4 float-start pt-5">
-                <h5 className="statis-name">Writer Payment Due Date</h5>
-                <input
-                  type="email"
-                  className="form-control"
-                  readOnly={isReadOnly}
-                />
-              </div>
-
-              <div className="col-md-4 float-start pt-5">
-                <h5 className="statis-name ">Reviewer Payment Due Date</h5>
-                <input
-                  type="text"
-                  className="form-control"
-                  readOnly={isReadOnly}
-                />
-              </div>
-              <div className="col-md-12 d-flex justify-content-end float-start pt-5 gap-3 ">
-                <Link to="/entry-process">
-                  <button className="save-form">Back</button>
-                </Link>
-                <button type="submit" className="save-form">
-                  Edit
-                </button>
-              </div>
               </div>
             </div>
           </div>

@@ -8,6 +8,8 @@ import { IoIosSearch } from "react-icons/io";
 import { IoMdAdd } from "react-icons/io";
 import { VscGitStashPop } from "react-icons/vsc";
 import { VscEye } from "react-icons/vsc";
+import { TfiPencilAlt } from "react-icons/tfi";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 // import { MdKeyboardArrowDown } from "react-icons/md";
@@ -25,6 +27,7 @@ import DataTable from "datatables.net-react";
 import DT from "datatables.net-dt";
 import "datatables.net-select-dt";
 import "datatables.net-responsive-dt";
+import { TbClockExclamation } from "react-icons/tb";
 
 import { useNavigate } from "react-router-dom";
 import Breadcrumbs from "../routes/Breadcrumbs";
@@ -143,30 +146,34 @@ function Entryprocess() {
     //   },
     // },
 
-    // {
-    //   title: "PENDING",
-    //   data: null,
-    //   render: (data, type, row) => {
-    //     const id = `process-${row.sno || Math.random()}`;
-    //     setTimeout(() => {
-    //       const container = document.getElementById(id);
-    //       if (container && !container.hasChildNodes()) {
-    //         ReactDOM.render(
-    //           <div className="d-flex justify-content-center">
-    //             <button
-    //               className="modula-main"
-    //               onClick={() => navigate(`/pending-form`)}
-    //             >
-    //               View
-    //             </button>
-    //           </div>,
-    //           container
-    //         );
-    //       }
-    //     }, 0);
-    //     return `<div id="${id}"></div>`;
-    //   },
-    // },
+    {
+      title: "PENDING",
+      data: null,
+      render: (data, type, row) => {
+        const id = `process-${row.sno || Math.random()}`;
+        setTimeout(() => {
+          const container = document.getElementById(id);
+          if (container && !container.hasChildNodes()) {
+            ReactDOM.render(
+              <div className="d-flex justify-content-center">
+                {/* <button
+                  className="modula-main"
+                  onClick={() => navigate(`pending-form`)}
+                >
+                  View
+                </button> */}
+                 <TbClockExclamation 
+                      onClick={() => navigate(`pending-form`)}
+                      className="pending-icon"
+                    />
+              </div>,
+              container
+            );
+          }
+        }, 0);
+        return `<div id="${id}"></div>`;
+      },
+    },
 
     {
       title: "Actions",
@@ -177,13 +184,33 @@ function Entryprocess() {
           const container = document.getElementById(id);
           if (container && !container.hasChildNodes()) {
             ReactDOM.render(
+              // <div className="d-flex justify-content-center">
+              //    <button
+              //     className="modula-main"
+              //     onClick={() => navigate(`process-view-details`)}
+              //   >
+              //     View Details
+              //   </button>
+              // </div>,
               <div className="d-flex justify-content-center">
-                 <button
-                  className="modula-main"
-                  onClick={() => navigate(`process-view-details`)}
-                >
-                  View Details
-                </button>
+                <div className="d-flex justify-content-around modula-main mt-1  ">
+                  <div className="">
+                    <VscEye
+                      onClick={() => navigate(`process-view-details`)}
+                      className="open-icon"
+                    />
+                  </div>
+                  <div className="border border-1"></div>
+                  <div className="modula-icon-edit " onClick={openPopup}>
+                    <TfiPencilAlt
+                      onClick={() => navigate(`entryprocess-update-form`)}
+                    />
+                  </div>
+                  <div className="border border-1"></div>
+                  <div className="modula-icon-del ">
+                    <RiDeleteBin6Line />
+                  </div>
+                </div>
               </div>,
               container
             );
@@ -205,12 +232,13 @@ function Entryprocess() {
           <div className="col-12">
             <Header></Header>
           </div>
-          
+
           <div className="col-12 mt-3  wapper w-100 pb-5">
-          <div className="pt-2 px-2 d-none d-md-block"><Breadcrumbs></Breadcrumbs></div>
+            <div className="pt-2 px-2 d-none d-md-block">
+              <Breadcrumbs></Breadcrumbs>
+            </div>
             <div className=" row mt-3 d-flex w-100 ">
-              
-                {/* <div className=" search-process position-relative mx-4 mt-3">
+              {/* <div className=" search-process position-relative mx-4 mt-3">
                   <input
                     type="text"
                     className=" search-entry position-absolute z n1 "
@@ -219,11 +247,10 @@ function Entryprocess() {
 
                   <IoIosSearch className="   search-icon position-relative  "></IoIosSearch>
                 </div> */}
-                 <div className="col-5 d-flex mt-2 px-4 ">
-              <p className="heading-entr">Entry Process</p>
-            </div>
+              <div className="col-5 d-flex mt-2 px-4 ">
+                <p className="heading-entr">Entry Process</p>
+              </div>
 
-              
               <div className="col-2 text-center mt-2 ">
                 <div className=" d-flex justify-content-center    ">
                   <div className="add-icon">

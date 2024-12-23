@@ -33,6 +33,7 @@ const Breadcrumbs = () => {
     'payment-form': 'Payment Form',
     'pending-form': 'Pending Form',
     'people_view_details': 'People View Details',
+    'payment-edit-form': 'Payment Edit Form',
     
 
   

@@ -7,6 +7,9 @@
     padding: 5px 10px;
     background-color: rgba(222, 237, 255, 1);
     border-radius: 12px;
+    font-family: 'regular-pp';
+    font-size: 16px;
+    color: #4d4b4b;
 }
 .project-manage-view{
     background-color: rgba(255, 255, 255, 1);
@@ -30,6 +33,7 @@
     line-height: 1; 
     font-size: 12px; 
     font-family: 'regular-pp';
+    
 
 }
 .view-names1 {
@@ -37,20 +41,26 @@
     line-height: 1; 
     font-size: 16px; 
     font-family: 'regular-pp';
+    
 
 }
 
     
 .created-by{
     font-family: 'regular-pp';
-    color: rgba(90, 90, 90, 1);
-    font-size: 12px;    
+    color: rgb(25, 24, 24);
+    font-size: 16px;  
+    width: 150px; 
+    display: flex;
+    justify-content: start; 
 
 }
 .content-view{
     font-family: 'regular-pp';
     color: rgba(90, 90, 90, 1);
-    font-size: 16px;    
+    font-size: 16px; 
+    width:100px ;
+    justify-content: start;   
 
 }
 .box-line{
@@ -98,7 +108,7 @@
 }
 
 .view-project-title{
-    font-size: 12px;
+    font-size: 16px;
     font-family: 'regular-pp';
     
     color: rgba(90, 90, 90, 1);
@@ -106,4 +116,82 @@
 .warning-text {
     color: rgb(239, 6, 6);
     font-weight: bold;
+  }
+
+.dropdown-selected-img{
+    width:24px ;
+    height: 24px;
+    border-radius: 50%;
+} 
+
+.dropdown-container1 {
+    position: relative;
+    width:70%;
+    font-family: 'regular-pp';
+    
+}
+
+.dropdown-header-view {
+    display: flex;
+    
+   
+   
+    /* background-color: #f9f9f9; */
+    width: 70%;
+    height: 40px;
+   
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .dropdown-search-view {
+    width: 70%;
+   
+    margin-top: 5px;
+   
+    /* border: 1px; */
+    border: 1px solid rgba(223, 234, 242, 1);
+    outline: none;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  .dropdown-view {
+    position: absolute;
+    top: calc(100% + 5px);
+    width: 100%;
+    color: #666666;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .scrollable-section {
+    height: 600px; /* Set a fixed height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+
+.view-heading{
+    font-size: 22px;
+    font-family: 'regular-pp';
+    color: rgba(16, 20, 26, 1);
+    
+}
+.form-select1{
+    width: 100%;
+    
+  
+    border: 1px solid rgba(213, 213, 213, 1);
+    border-radius:14px !important;
+    font-size: 14px;
+    align-items: top !important;
+    /* border: none !important; */
+    outline: none !important;
+}
+.border-red {
+    border: 2px solid red;
   }

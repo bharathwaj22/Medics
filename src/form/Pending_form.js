@@ -66,7 +66,7 @@ function Pending_form() {
       console.log("Form data submitted:", formData);
     }
   };
-
+const [isReadOnly, setIsReadOnly] = React.useState(true);
   return (
     <>
       
@@ -93,21 +93,23 @@ function Pending_form() {
                   <h5 className="statis-name ">ID</h5>
                   <input
                     type="text"
-                    className={`form-control  ${errors.myFee ? "error" : ""}`}
+                    className={`form-control1  ${errors.myFee ? "error" : ""}`}
                     name="myFee"
                     value={formData.myFee}
                     onChange={handleChangepending}
+                    readOnly={isReadOnly}
                   />
                 </div>
 
                 <div className="col-md-4 float-start pt-4 ">
                   <h5 className="statis-name ">Writer Pending Days</h5>
                   <input
-                    className={` form-control ${errors.writerPendingDays ? "error" : ""}`}
+                    className={` form-control1 ${errors.writerPendingDays ? "error" : ""}`}
                     name="writerPendingDays"
                     value={formData.writerPendingDays}
                     onChange={handleChangepending}
-                    placeholder="WriterPendingDays"
+                   
+                    readOnly={isReadOnly}
                   />
                     
                   
@@ -117,11 +119,12 @@ function Pending_form() {
                 <div className="col-md-4 float-start pt-4 ">
                   <h5 className="statis-name ">Reviewer Pending Days</h5>
                   <input
-                    className={` form-control ${errors.reviewerPendingDays ? "error" : ""}`}
+                    className={` form-control1 ${errors.reviewerPendingDays ? "error" : ""}`}
                     name="reviewerPendingDays"
                     value={formData.reviewerPendingDays}
                     onChange={handleChangepending}
-                    placeholder="ReviewerPendingDays"
+                    
+                    readOnly={isReadOnly}
                   />
                     
                  
@@ -131,11 +134,11 @@ function Pending_form() {
                 <div className="col-md-4 float-start pt-4 ">
                   <h5 className="statis-name ">Project Pending Days</h5>
                   <input
-                    className={` form-control ${errors.projectPendingDays ? "error" : ""}`}
+                    className={` form-control1 ${errors.projectPendingDays ? "error" : ""}`}
                     name="projectPendingDays"
                     value={formData.projectPendingDays}
                     onChange={handleChangepending}
-                    placeholder="ProjectPendingDays"
+                  
                   />
                   
                   
@@ -145,10 +148,10 @@ function Pending_form() {
                 <div className="col-md-4 float-start pt-4 ">
                   <h5 className="statis-name ">Writer Payment Due Date</h5>
                   <input
-                    type="date"
-                    className={`form-control  ${errors.writerDueDate ? "error" : ""}`}
-                    name="writerDueDate"
-                    value={formData.writerDueDate}
+                    type="text"
+                    className={`form-control1  ${errors.writerDueDate ? "error" : ""}`}
+                  
+                    // value={formData.writerDueDate}
                     onChange={handleChangepending}
                   />
                 </div>
@@ -156,22 +159,22 @@ function Pending_form() {
                 <div className="col-md-4 float-start pt-4 ">
                   <h5 className="statis-name ">Reviewer Payment Due Date</h5>
                   <input
-                    type="date"
-                    className={`form-control  ${errors.reviewerDueDate ? "error" : ""}`}
+                    type="text"
+                    className={`form-control1  ${errors.reviewerDueDate ? "error" : ""}`}
                     name="reviewerDueDate"
-                    value={formData.reviewerDueDate}
+                    // value={formData.reviewerDueDate}
                     onChange={handleChangepending}
                   />
                 </div>
               </div>
 
               <div className="col-md-12 d-flex justify-content-end mt-5  px-5 py-5 gap-3">
-              <Link to="/pending"><button  className="save-form">
+              <Link to="/entry-process"><button  className="save-form">
                     Back
                   </button></Link>
-                  <button type="submit" className="save-form ">
+                  {/* <button type="submit" className="save-form ">
                     Save
-                  </button>
+                  </button> */}
                 
               </div>
             </form>
